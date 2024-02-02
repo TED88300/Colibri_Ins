@@ -1,0 +1,3392 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>id3.Face</name>
+    </assembly>
+    <members>
+        <member name="T:id3.Face.FaceAssembly">
+            <summary>
+            This class provides information about the assembly.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceAssembly.Initialize(System.String)">
+            <summary>
+            Initializes the assembly.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceAssembly.GetNativeLibInfo">
+            <summary>
+            Gets information about the native library.
+            </summary>
+            <returns>The System.Diagnostics.FileVersionInfo.</returns>
+        </member>
+        <member name="P:id3.Face.FaceAssembly.RootDir">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:id3.Face.FaceAssembly.Title">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:id3.Face.FaceAssembly.Version">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:id3.Face.FaceAssembly.VersionShort">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:id3.Face.FaceAssembly.Description">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:id3.Face.FaceAssembly.Product">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:id3.Face.FaceAssembly.Copyright">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:id3.Face.FaceAssembly.Company">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:id3.Face.FaceError">
+            <summary>
+            This enumeration represents the possible values for a FaceError of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.Success">
+            <summary>
+            No error.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.Base">
+            <summary>
+            Base error code of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.Minimum">
+            <summary>
+            Minimum error code of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.InvalidHandle">
+            <summary>
+            The handle is invalid.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.InvalidParameter">
+            <summary>
+            The parameter is invalid.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.InsufficientBuffer">
+            <summary>
+            The given buffer is too small.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.InvalidPixelFormat">
+            <summary>
+            The image pixel format is invalid.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.InvalidTemplateFormat">
+            <summary>
+            The template format is invalid.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.InvalidLandmarks">
+            <summary>
+            The computed landmarks are invalid and do not allow to process the desired information.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.InvalidIod">
+            <summary>
+            The computed interocular distance (IOD) is invalid and does not allow to process the desired information.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.InvalidModelPath">
+            <summary>
+            The model could not be found in the given directory path.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.UnloadedModel">
+            <summary>
+            The model which is required for this operation was not loaded.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceError.InferenceBackendError">
+            <summary>
+            The inference backend failed to infer, probably due to inconsistent input.
+            </summary>
+        </member>
+        <member name="T:id3.Face.FaceException">
+            <summary>
+            This class represents errors that can occur during Face library execution.
+            </summary>
+        </member>
+        <member name="P:id3.Face.FaceException.ErrorCode">
+            <summary>
+            Gets the error code classifying this exception.
+            </summary>
+        </member>
+        <member name="P:id3.Face.FaceException.Message">
+            <summary>
+            Gets a message that describes the current exception.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceException.#ctor">
+            <summary>
+            Initializes a new instance of the FaceException class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceException.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the FaceException class.
+            </summary>
+            <param name="error">The error code.</param>
+        </member>
+        <member name="M:id3.Face.FaceException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the FaceException class.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="M:id3.Face.FaceException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the FaceException class.
+            </summary>
+            <param name="message">The error message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:id3.Face.FaceException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the FaceException class.
+            </summary>
+            <param name="info">The serialization info.</param>
+            <param name="context">The streaming context.</param>
+        </member>
+        <member name="M:id3.Face.FaceException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Gets the object data.
+            </summary>
+            <param name="info">The serialization info.</param>
+            <param name="context">The streaming context.</param>
+        </member>
+        <member name="T:id3.Face.DetectedFace">
+            <summary>
+            This class represents a DetectedFace object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.DetectedFace.#ctor">
+            <summary>
+            Initializes a new instance of the DetectedFace class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.DetectedFace.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the DetectedFace class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native DetectedFace object.</param>
+        </member>
+        <member name="M:id3.Face.DetectedFace.Dispose">
+            <summary>
+            Releases the memory allocated for the DetectedFace object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.DetectedFace.Finalize">
+            <summary>
+            Releases the memory allocated for the DetectedFace object.
+            </summary>
+        </member>
+        <member name="M:id3.Face.DetectedFace.Clone">
+            <summary>
+            Clones the DetectedFace object.
+            </summary>
+            <returns>The newly created DetectedFace object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="P:id3.Face.DetectedFace.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="P:id3.Face.DetectedFace.Bounds">
+            <summary>
+            Bounds of the detected face.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.DetectedFace.DetectionScore">
+            <summary>
+            Confidence score of the detected face.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.DetectedFace.Id">
+            <summary>
+            ID of the detected face.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.DetectedFace.Landmarks">
+            <summary>
+            Landmarks (eyes, nose and mouth corners) of the detected face.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.GetBounds">
+            <summary>
+            Gets the bounds of the detected face.
+            </summary>
+            <returns>Bounds of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.SetBounds(id3.Face.Rectangle)">
+            <summary>
+            Sets the bounds of the detected face.
+            </summary>
+            <param name="bounds">Bounds of the detected face.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.GetDetectionScore">
+            <summary>
+            Gets the confidence score of the detected face.
+            </summary>
+            <returns>Confidence score of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.SetDetectionScore(System.Int32)">
+            <summary>
+            Sets the confidence score of the detected face.
+            </summary>
+            <param name="detectionScore">Confidence score of the detected face.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.GetId">
+            <summary>
+            Gets the ID of the detected face.
+            </summary>
+            <returns>ID of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.SetId(System.Int32)">
+            <summary>
+            Sets the ID of the detected face.
+            </summary>
+            <param name="id">ID of the detected face.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.GetLandmarks">
+            <summary>
+            Gets the landmarks (eyes, nose and mouth corners) of the detected face.
+            </summary>
+            <returns>Landmarks (eyes, nose and mouth corners) of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.SetLandmarks(id3.Face.PointList)">
+            <summary>
+            Sets the landmarks (eyes, nose and mouth corners) of the detected face.
+            </summary>
+            <param name="landmarks">Landmarks (eyes, nose and mouth corners) of the detected face.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.FromBuffer(System.Byte[])">
+            <summary>
+            Imports the face object from a buffer.
+            </summary>
+            <param name="data">Buffer to import the face object from.</param>
+            <returns>Created detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.FromFile(System.String)">
+            <summary>
+            Imports the face object from a file.
+            </summary>
+            <param name="path">Path to the file to import the face object from.</param>
+            <returns>Created detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.FromValues(id3.Face.Rectangle,System.Int32,System.Int32,id3.Face.PointList)">
+            <summary>
+            Creates a detected face from values.
+            </summary>
+            <param name="bounds">Bounds of the detected face.</param>
+            <param name="detectionScore">Confidence score of the detected face.</param>
+            <param name="id">ID of the detected face.</param>
+            <param name="landmarks">Landmarks (eyes, nose and mouth corners) of the detected face.</param>
+            <returns>Created detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.GetDistanceToCamera(id3.Face.Image)">
+            <summary>
+            Gets the distance between the detected face and the camera when using a depth map in pixels.
+            </summary>
+            <param name="depthImage">Depth image to process.</param>
+            <returns>Computed distance to camera in pixels.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.GetInterocularDistance">
+            <summary>
+            Gets the distance between the eyes (IOD) of the detected face in pixels.
+            </summary>
+            <returns>Computed interocular distance (IOD) in pixels.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.GetPortraitBounds(System.Single,System.Single,System.Single)">
+            <summary>
+            Gets the portrait bounds of the detected face.
+            </summary>
+            <param name="eyeImageWidthRatio">Ratio between eye distance and image width. Must be in the range ]0;1[. Default recommended value is 0.25.</param>
+            <param name="eyeImageHeightRatio">Ratio between eye distance to top and image height. Must be in the range ]0;1[. Default recommended value is 0.45.</param>
+            <param name="imageRatio">Ratio between image height and image width. Default recommended value is 1.33 (4/3).</param>
+            <returns>Portrait bounds of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.Rescale(System.Single)">
+            <summary>
+            Rescales the detected face object bounding box and landmarks. This function can be useful if the image was downscaled to speed up detection, then you need to upscale the detected face to fit the source image size.
+            </summary>
+            <param name="scale">The multiplicative rescaling factor to apply to the face object.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.Rotate(System.Int32,id3.Face.Point)">
+            <summary>
+            Rotates the face object by a given angle in degrees from a given center.
+            </summary>
+            <param name="angle">Angle of the rotation to apply to the face object.</param>
+            <param name="center">Center of the rotation to apply to the face object.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.Save(System.String)">
+            <summary>
+            Saves the face object to a file.
+            </summary>
+            <param name="path">Path to the file to export the face object to.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.ToBuffer">
+            <summary>
+            Exports the face object to a buffer.
+            </summary>
+            <returns>Buffer to export the face object to.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFace.Translate(System.Int32,System.Int32)">
+            <summary>
+            Translates the face object.
+            </summary>
+            <param name="tx">Translation to apply to the face object alongside the x-axis.</param>
+            <param name="ty">Translation to apply to the face object alongside the y-axis.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.DetectedFaceList">
+            <summary>
+            This class represents a DetectedFaceList object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.#ctor">
+            <summary>
+            Initializes a new instance of the DetectedFaceList class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the DetectedFaceList class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native DetectedFaceList object.</param>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.Dispose">
+            <summary>
+            Releases the memory allocated for the DetectedFaceList object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.Finalize">
+            <summary>
+            Releases the memory allocated for the DetectedFaceList object.
+            </summary>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.Clone">
+            <summary>
+            Clones the DetectedFaceList object.
+            </summary>
+            <returns>The newly created DetectedFaceList object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="P:id3.Face.DetectedFaceList.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.Add(id3.Face.DetectedFace)">
+            <summary>
+            Adds a DetectedFace object to the DetectedFaceList.
+            </summary>
+            <param name="detectedFace">The DetectedFace object to add.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.Clear">
+            <summary>
+            Clears the DetectedFaceList object.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.Get(System.Int32)">
+            <summary>
+            Gets the DetectedFace object at the given index.
+            </summary>
+            <param name="index">Index of the DetectedFace object to get.</param>
+            <returns>The got DetectedFace object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.GetCount">
+            <summary>
+            Gets the number of elements in the DetectedFaceList object.
+            </summary>
+            <returns>The number of elements in the DetectedFaceList object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.RemoveAt(System.Int32)">
+            <summary>
+            Removes the DetectedFace object at the given index.
+            </summary>
+            <param name="index">Index of the DetectedFace object to remove.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.FindDetectedFace(System.Int32)">
+            <summary>
+            Finds a detected face by ID.
+            </summary>
+            <param name="id">ID of the detected face to find in the list.</param>
+            <returns>Found detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.GetIdList">
+            <summary>
+            Gets the list of IDs in the list.
+            </summary>
+            <returns>List of IDs in the list.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.GetLargestFace">
+            <summary>
+            Gets the largest face in the list.
+            </summary>
+            <returns>Largest detected face in the list.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.DetectedFaceList.RescaleAll(System.Single)">
+            <summary>
+            Rescales all detected faces in the list.
+            </summary>
+            <param name="scale">Scale factor to apply. Range is [0;+inf[.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.FaceAnalyser">
+            <summary>
+            This class represents a FaceAnalyser object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.#ctor">
+            <summary>
+            Initializes a new instance of the FaceAnalyser class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the FaceAnalyser class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native FaceAnalyser object.</param>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.Dispose">
+            <summary>
+            Releases the memory allocated for the FaceAnalyser object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.Finalize">
+            <summary>
+            Releases the memory allocated for the FaceAnalyser object.
+            </summary>
+        </member>
+        <member name="P:id3.Face.FaceAnalyser.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="P:id3.Face.FaceAnalyser.ExpressionSensibility">
+            <summary>
+            Sensibility of the expression classifier. The higher the value, the more sensitive the algorithm will be, meaning that it will be less likely to estimate neutral expression out of the detected face.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.GetExpressionSensibility">
+            <summary>
+            Gets the sensibility of the expression classifier. The higher the value, the more sensitive the algorithm will be, meaning that it will be less likely to estimate neutral expression out of the detected face.
+            </summary>
+            <returns>Sensibility of the expression classifier. The higher the value, the more sensitive the algorithm will be, meaning that it will be less likely to estimate neutral expression out of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.SetExpressionSensibility(System.Int32)">
+            <summary>
+            Sets the sensibility of the expression classifier. The higher the value, the more sensitive the algorithm will be, meaning that it will be less likely to estimate neutral expression out of the detected face.
+            </summary>
+            <param name="expressionSensibility">Sensibility of the expression classifier. The higher the value, the more sensitive the algorithm will be, meaning that it will be less likely to estimate neutral expression out of the detected face.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.ComputeAge(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Computes the age of a detected face.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Estimated age of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.ComputeAttributes(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Computes the attributes of a detected face.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Estimated attributes of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.ComputeBackgroundUniformity(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Computes the background uniformity behind a detected face. This function must be used for a portrait image with only one face in it. A high uniformity score means that the background is uniform.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Estimated background uniformity. Both color and texture scores are in the range [0:100]. The minimum recommended thresholds are respectively 80 for color and 80 for texture.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.ComputeExpression(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Computes the expression of a detected face.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Estimated expression of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.ComputeEyeGaze(id3.Face.Image,id3.Face.DetectedFace,id3.Face.PointList)">
+            <summary>
+            Computes the eye gaze of a detected face.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <param name="landmarks">Estimated landmarks of the detected face. Must be computed with the face analyser.</param>
+            <returns>Estimated gaze of left and right eyes of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.ComputeEyeOpenness(id3.Face.Image,id3.Face.DetectedFace,id3.Face.PointList)">
+            <summary>
+            Computes the eye openness of a detected face. The minimum recommanded value for is 90.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <param name="landmarks">Estimated landmarks of the detected face. Must be computed with the face analyser.</param>
+            <returns>Estimated openness scores of left and right eyes of the detected face in this order.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.ComputeEyeRedness(id3.Face.Image,id3.Face.DetectedFace,id3.Face.PointList)">
+            <summary>
+            Computes the eye redness of a detected face. The maximum recommanded value for an ICAO-compliant portrait is 10.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <param name="landmarks">Estimated landmarks of the detected face. Must be computed with the face analyser.</param>
+            <returns>Estimated redness scores of left and right eyes of the detected face in this order.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.ComputeGeometricAttributes(id3.Face.Image,id3.Face.DetectedFace,id3.Face.PointList)">
+            <summary>
+            Computes the geometric attributes of a detected face. This function must be used for a portrait image with only one face in it.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <param name="landmarks">Estimated landmarks of the detected face. Must be computed with the face analyser.</param>
+            <returns>Estimated geometric attributes of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.ComputeGlassesAttributes(id3.Face.Image,id3.Face.DetectedFace,id3.Face.PointList)">
+            <summary>
+            Computes the glasses attributes of a detected face. This function must be used for a portrait image with only one face in it.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <param name="landmarks">Estimated landmarks of the detected face. Must be computed with the face analyser.</param>
+            <returns>Estimated glasses attributes of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.ComputeLandmarks(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Computes 68 landmarks of a detected face.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Estimated landmarks of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.ComputePhotographicAttributes(id3.Face.Image,id3.Face.DetectedFace,id3.Face.PointList)">
+            <summary>
+            Computes the photographic attributes of a detected face. This function must be used for a portrait image with only one face in it.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <param name="landmarks">Estimated landmarks of the detected face. Must be computed with the face analyser.</param>
+            <returns>Estimated photographic attributes of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.ComputePose(id3.Face.DetectedFace)">
+            <summary>
+            Computes the pose of a detected face.
+            </summary>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Estimated pose of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.DetectFaceMask(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Detects the presence of a face mask on a detected face. A high score means that there is a high chance that the person is wearing a mask. The minimum recommended threshold is 15.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Face mask presence score of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceAnalyser.DetectOcclusions(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Detects the presence of occlusions on top of a detected face.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Occlusion scores of the detected face.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.FaceCandidate">
+            <summary>
+            This class represents a FaceCandidate object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceCandidate.#ctor">
+            <summary>
+            Initializes a new instance of the FaceCandidate class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceCandidate.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the FaceCandidate class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native FaceCandidate object.</param>
+        </member>
+        <member name="M:id3.Face.FaceCandidate.Dispose">
+            <summary>
+            Releases the memory allocated for the FaceCandidate object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceCandidate.Finalize">
+            <summary>
+            Releases the memory allocated for the FaceCandidate object.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceCandidate.Clone">
+            <summary>
+            Clones the FaceCandidate object.
+            </summary>
+            <returns>The newly created FaceCandidate object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="P:id3.Face.FaceCandidate.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="P:id3.Face.FaceCandidate.Id">
+            <summary>
+            ID of the most similar face template as defined in the reference face template list used to perform the search.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.FaceCandidate.Score">
+            <summary>
+            Match score between the face probe template and the most similar one in the reference face template list used to perform the search.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceCandidate.GetId">
+            <summary>
+            Gets the ID of the most similar face template as defined in the reference face template list used to perform the search.
+            </summary>
+            <returns>ID of the most similar face template as defined in the reference face template list used to perform the search.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceCandidate.GetScore">
+            <summary>
+            Gets the match score between the face probe template and the most similar one in the reference face template list used to perform the search.
+            </summary>
+            <returns>Match score between the face probe template and the most similar one in the reference face template list used to perform the search.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.FaceCandidateList">
+            <summary>
+            This class represents a FaceCandidateList object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceCandidateList.#ctor">
+            <summary>
+            Initializes a new instance of the FaceCandidateList class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceCandidateList.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the FaceCandidateList class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native FaceCandidateList object.</param>
+        </member>
+        <member name="M:id3.Face.FaceCandidateList.Dispose">
+            <summary>
+            Releases the memory allocated for the FaceCandidateList object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceCandidateList.Finalize">
+            <summary>
+            Releases the memory allocated for the FaceCandidateList object.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceCandidateList.Clone">
+            <summary>
+            Clones the FaceCandidateList object.
+            </summary>
+            <returns>The newly created FaceCandidateList object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="P:id3.Face.FaceCandidateList.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceCandidateList.Add(id3.Face.FaceCandidate)">
+            <summary>
+            Adds a FaceCandidate object to the FaceCandidateList.
+            </summary>
+            <param name="faceCandidate">The FaceCandidate object to add.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceCandidateList.Clear">
+            <summary>
+            Clears the FaceCandidateList object.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceCandidateList.Get(System.Int32)">
+            <summary>
+            Gets the FaceCandidate object at the given index.
+            </summary>
+            <param name="index">Index of the FaceCandidate object to get.</param>
+            <returns>The got FaceCandidate object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceCandidateList.GetCount">
+            <summary>
+            Gets the number of elements in the FaceCandidateList object.
+            </summary>
+            <returns>The number of elements in the FaceCandidateList object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceCandidateList.RemoveAt(System.Int32)">
+            <summary>
+            Removes the FaceCandidate object at the given index.
+            </summary>
+            <param name="index">Index of the FaceCandidate object to remove.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.FaceDetector">
+            <summary>
+            This class represents a FaceDetector object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceDetector.#ctor">
+            <summary>
+            Initializes a new instance of the FaceDetector class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceDetector.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the FaceDetector class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native FaceDetector object.</param>
+        </member>
+        <member name="M:id3.Face.FaceDetector.Dispose">
+            <summary>
+            Releases the memory allocated for the FaceDetector object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceDetector.Finalize">
+            <summary>
+            Releases the memory allocated for the FaceDetector object.
+            </summary>
+        </member>
+        <member name="P:id3.Face.FaceDetector.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="P:id3.Face.FaceDetector.ConfidenceThreshold">
+            <summary>
+            Confidence threshold. Default value is 70. Range is [0;100]. Setting a high threshold reduces false detection but can increase the number of undetected faces.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.FaceDetector.Model">
+            <summary>
+            Model used to detect and track faces. Default value is FaceDetector3A which is the best available algorithm in this SDK in terms of accuracy. Some better accuracy/speed balances can be found by choosing another model. For more information refer to the user guide.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.FaceDetector.NmsIouThreshold">
+            <summary>
+            Non-maximum suppression (NMS) intersection-over-union (IOU) threshold. Default value is 40. Range is [0;100]. Setting a high threshold allows to detect more overlapping faces which can be useful in a multi-face secenario. On the contrary, in a portrait scenario, a low NMS IOU threshold should be preferred.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.FaceDetector.ProcessingUnit">
+            <summary>
+            Processing unit where to run the detection process. Default value is CPU.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.FaceDetector.ThreadCount">
+            <summary>
+            Number of threads to use for detection or tracking. Default value is 1. Allocating more than 1 thread here can increase the speed of the process.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.GetConfidenceThreshold">
+            <summary>
+            Gets the confidence threshold. Default value is 70. Range is [0;100]. Setting a high threshold reduces false detection but can increase the number of undetected faces.
+            </summary>
+            <returns>Confidence threshold. Default value is 70. Range is [0;100]. Setting a high threshold reduces false detection but can increase the number of undetected faces.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.SetConfidenceThreshold(System.Int32)">
+            <summary>
+            Sets the confidence threshold. Default value is 70. Range is [0;100]. Setting a high threshold reduces false detection but can increase the number of undetected faces.
+            </summary>
+            <param name="confidenceThreshold">Confidence threshold. Default value is 70. Range is [0;100]. Setting a high threshold reduces false detection but can increase the number of undetected faces.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.GetModel">
+            <summary>
+            Gets the model used to detect and track faces. Default value is FaceDetector3A which is the best available algorithm in this SDK in terms of accuracy. Some better accuracy/speed balances can be found by choosing another model. For more information refer to the user guide.
+            </summary>
+            <returns>Model used to detect and track faces. Default value is FaceDetector3A which is the best available algorithm in this SDK in terms of accuracy. Some better accuracy/speed balances can be found by choosing another model. For more information refer to the user guide.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.SetModel(id3.Face.FaceModel)">
+            <summary>
+            Sets the model used to detect and track faces. Default value is FaceDetector3A which is the best available algorithm in this SDK in terms of accuracy. Some better accuracy/speed balances can be found by choosing another model. For more information refer to the user guide.
+            </summary>
+            <param name="model">Model used to detect and track faces. Default value is FaceDetector3A which is the best available algorithm in this SDK in terms of accuracy. Some better accuracy/speed balances can be found by choosing another model. For more information refer to the user guide.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.GetNmsIouThreshold">
+            <summary>
+            Gets the non-maximum suppression (NMS) intersection-over-union (IOU) threshold. Default value is 40. Range is [0;100]. Setting a high threshold allows to detect more overlapping faces which can be useful in a multi-face secenario. On the contrary, in a portrait scenario, a low NMS IOU threshold should be preferred.
+            </summary>
+            <returns>Non-maximum suppression (NMS) intersection-over-union (IOU) threshold. Default value is 40. Range is [0;100]. Setting a high threshold allows to detect more overlapping faces which can be useful in a multi-face secenario. On the contrary, in a portrait scenario, a low NMS IOU threshold should be preferred.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.SetNmsIouThreshold(System.Int32)">
+            <summary>
+            Sets the non-maximum suppression (NMS) intersection-over-union (IOU) threshold. Default value is 40. Range is [0;100]. Setting a high threshold allows to detect more overlapping faces which can be useful in a multi-face secenario. On the contrary, in a portrait scenario, a low NMS IOU threshold should be preferred.
+            </summary>
+            <param name="nmsIouThreshold">Non-maximum suppression (NMS) intersection-over-union (IOU) threshold. Default value is 40. Range is [0;100]. Setting a high threshold allows to detect more overlapping faces which can be useful in a multi-face secenario. On the contrary, in a portrait scenario, a low NMS IOU threshold should be preferred.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.GetProcessingUnit">
+            <summary>
+            Gets the processing unit where to run the detection process. Default value is CPU.
+            </summary>
+            <returns>Processing unit where to run the detection process. Default value is CPU.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.SetProcessingUnit(id3.Face.ProcessingUnit)">
+            <summary>
+            Sets the processing unit where to run the detection process. Default value is CPU.
+            </summary>
+            <param name="processingUnit">Processing unit where to run the detection process. Default value is CPU.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.GetThreadCount">
+            <summary>
+            Gets the number of threads to use for detection or tracking. Default value is 1. Allocating more than 1 thread here can increase the speed of the process.
+            </summary>
+            <returns>Number of threads to use for detection or tracking. Default value is 1. Allocating more than 1 thread here can increase the speed of the process.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.SetThreadCount(System.Int32)">
+            <summary>
+            Sets the number of threads to use for detection or tracking. Default value is 1. Allocating more than 1 thread here can increase the speed of the process.
+            </summary>
+            <param name="threadCount">Number of threads to use for detection or tracking. Default value is 1. Allocating more than 1 thread here can increase the speed of the process.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.DetectFaces(id3.Face.Image)">
+            <summary>
+            Detects faces in an image and store their info in a DetectedFaceList object. The algorithm searches for faces in the range [16px;512px]. If the image is too large to fit this range, one must resize it before the detection process.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <returns>List of detected faces.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.LoadParameters">
+            <summary>
+            Loads the set parameters. This function is optional, if not called the loading of the parameters will occur during the first call to DetectFaces() or TrackFaces().
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceDetector.TrackFaces(id3.Face.Image,id3.Face.DetectedFaceList)">
+            <summary>
+            Tracks faces in an image and update their info in a DetectedFaceList object. The algorithm searches for faces in the range [16px;512px]. If the image is too large to fit this range, one must resize it before the detection process. In a realtime process, one must use this function instead of &quot;detect&quot; to keep the face IDs stable in time.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFaceList">List of detected faces.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.FaceEncoder">
+            <summary>
+            This class represents a FaceEncoder object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceEncoder.#ctor">
+            <summary>
+            Initializes a new instance of the FaceEncoder class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceEncoder.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the FaceEncoder class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native FaceEncoder object.</param>
+        </member>
+        <member name="M:id3.Face.FaceEncoder.Dispose">
+            <summary>
+            Releases the memory allocated for the FaceEncoder object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceEncoder.Finalize">
+            <summary>
+            Releases the memory allocated for the FaceEncoder object.
+            </summary>
+        </member>
+        <member name="P:id3.Face.FaceEncoder.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="P:id3.Face.FaceEncoder.Model">
+            <summary>
+            Model used to create templates. Default value is FaceEncoder9A which is the best available algorithm in this SDK in terms of accuracy. Some better accuracy/speed balances can be found by choosing another model. For more information refer to the user guide.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.FaceEncoder.ProcessingUnit">
+            <summary>
+            Processing unit where to run the encoding process. Default value is CPU.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.FaceEncoder.ThreadCount">
+            <summary>
+            Number of threads to use for encoding templates. Default value is 1. Allocating more than 1 thread here can increase the speed of the process.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceEncoder.GetModel">
+            <summary>
+            Gets the model used to create templates. Default value is FaceEncoder9A which is the best available algorithm in this SDK in terms of accuracy. Some better accuracy/speed balances can be found by choosing another model. For more information refer to the user guide.
+            </summary>
+            <returns>Model used to create templates. Default value is FaceEncoder9A which is the best available algorithm in this SDK in terms of accuracy. Some better accuracy/speed balances can be found by choosing another model. For more information refer to the user guide.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceEncoder.SetModel(id3.Face.FaceModel)">
+            <summary>
+            Sets the model used to create templates. Default value is FaceEncoder9A which is the best available algorithm in this SDK in terms of accuracy. Some better accuracy/speed balances can be found by choosing another model. For more information refer to the user guide.
+            </summary>
+            <param name="model">Model used to create templates. Default value is FaceEncoder9A which is the best available algorithm in this SDK in terms of accuracy. Some better accuracy/speed balances can be found by choosing another model. For more information refer to the user guide.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceEncoder.GetProcessingUnit">
+            <summary>
+            Gets the processing unit where to run the encoding process. Default value is CPU.
+            </summary>
+            <returns>Processing unit where to run the encoding process. Default value is CPU.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceEncoder.SetProcessingUnit(id3.Face.ProcessingUnit)">
+            <summary>
+            Sets the processing unit where to run the encoding process. Default value is CPU.
+            </summary>
+            <param name="processingUnit">Processing unit where to run the encoding process. Default value is CPU.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceEncoder.GetThreadCount">
+            <summary>
+            Gets the number of threads to use for encoding templates. Default value is 1. Allocating more than 1 thread here can increase the speed of the process.
+            </summary>
+            <returns>Number of threads to use for encoding templates. Default value is 1. Allocating more than 1 thread here can increase the speed of the process.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceEncoder.SetThreadCount(System.Int32)">
+            <summary>
+            Sets the number of threads to use for encoding templates. Default value is 1. Allocating more than 1 thread here can increase the speed of the process.
+            </summary>
+            <param name="threadCount">Number of threads to use for encoding templates. Default value is 1. Allocating more than 1 thread here can increase the speed of the process.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceEncoder.ComputeQuality(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Computes the quality of a detected face. Here, quality expresses the match capability of an image: a high quality image will generate less match errors (false acceptance or false rejection) than a low quality one.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Estimated quality of the detected face. Range is [0:100].</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceEncoder.CreateTemplate(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Extracts the unique features of a detected face and store them in a FaceTemplate.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Generated face template.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.FaceLibrary">
+            <summary>
+            This class represents a FaceLibrary object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceLibrary.CheckLicense(System.String)">
+            <summary>
+            Checks the license file.
+            </summary>
+            <param name="licensePath">License path.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceLibrary.CheckLicenseBuffer(System.Byte[])">
+            <summary>
+            Checks the license from a buffer.
+            </summary>
+            <param name="licenseBuffer">License buffer.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceLibrary.LoadModel(System.String,id3.Face.FaceModel,id3.Face.ProcessingUnit)">
+            <summary>
+            Loads a model from the zoo into the required processing unit.
+            </summary>
+            <param name="modelPath">Path to the models' directory.</param>
+            <param name="faceModel">Face model to load.</param>
+            <param name="processingUnit">Processing unit to load the model into.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceLibrary.LoadModelBuffer(System.Byte[],id3.Face.FaceModel,id3.Face.ProcessingUnit)">
+            <summary>
+            Loads a model from the zoo into the required processing unit.
+            </summary>
+            <param name="modelBuffer">Buffer containing the model to load.</param>
+            <param name="faceModel">Face model to load.</param>
+            <param name="processingUnit">Processing unit to load the model into.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceLibrary.UnloadModel(id3.Face.FaceModel,id3.Face.ProcessingUnit)">
+            <summary>
+            Unloads a model from the processing unit it was loaded into.
+            </summary>
+            <param name="faceModel">Face model to unload.</param>
+            <param name="processingUnit">Processing unit to unload the model from.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.FaceMatcher">
+            <summary>
+            This class represents a FaceMatcher object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceMatcher.#ctor">
+            <summary>
+            Initializes a new instance of the FaceMatcher class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceMatcher.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the FaceMatcher class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native FaceMatcher object.</param>
+        </member>
+        <member name="M:id3.Face.FaceMatcher.Dispose">
+            <summary>
+            Releases the memory allocated for the FaceMatcher object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceMatcher.Finalize">
+            <summary>
+            Releases the memory allocated for the FaceMatcher object.
+            </summary>
+        </member>
+        <member name="P:id3.Face.FaceMatcher.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceMatcher.CompareTemplateLists(id3.Face.FaceTemplateList,id3.Face.FaceTemplateList,id3.Face.PoolingMethod)">
+            <summary>
+            Compares two template lists and outputs a comparison score.
+            </summary>
+            <param name="referenceList">Reference template list.</param>
+            <param name="probeList">Probe template list.</param>
+            <param name="poolingMethod">Pooling method to apply during the match process.</param>
+            <returns>Comparison score. In the range [0:65535].</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceMatcher.CompareTemplates(id3.Face.FaceTemplate,id3.Face.FaceTemplate)">
+            <summary>
+            Compares two templates and outputs a comparison score.
+            </summary>
+            <param name="reference">Reference template.</param>
+            <param name="probe">Probe template.</param>
+            <returns>Comparison score. In the range [0:65535].</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceMatcher.SearchTemplate(id3.Face.FaceTemplateDict,id3.Face.FaceTemplate,System.Int32,id3.Face.FaceCandidateList)">
+            <summary>
+            Performs a one-to-many search of a biometric probe against a previously initialized dictionary of biometric references and outputs a candidate list.
+            </summary>
+            <param name="referenceDict">Reference template dictionary.</param>
+            <param name="probe">Probe template.</param>
+            <param name="maxCandidates">Maximum number of candidates to output.</param>
+            <param name="candidateList">List of candidates sorted by decreasing match score.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.FacePad">
+            <summary>
+            This class represents a FacePad object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FacePad.#ctor">
+            <summary>
+            Initializes a new instance of the FacePad class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FacePad.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the FacePad class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native FacePad object.</param>
+        </member>
+        <member name="M:id3.Face.FacePad.Dispose">
+            <summary>
+            Releases the memory allocated for the FacePad object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FacePad.Finalize">
+            <summary>
+            Releases the memory allocated for the FacePad object.
+            </summary>
+        </member>
+        <member name="P:id3.Face.FacePad.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FacePad.ComputeBlurrinessScore(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Computes a blurriness score for a color image. An attack presented on a low resolution support has more chance to be blurred than a bonafide. The maximum recommended value is 20.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Computed blurriness score. In the range [0:100].</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FacePad.ComputeColorBasedScore(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Computes the PAD score of a detected face using only the color image. A high score means a high probability for the face to be bona-fide, hence not an attack. The minimum recommended value is 50.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Computed PAD score. In the range [0:100].</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FacePad.ComputeDepthBasedScore(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Computes the PAD score of a detected face using a depth map image. A high score means a high probability for the face to be bona-fide, hence not an attack. The minimum recommended value is 10.
+            </summary>
+            <param name="image">Source image to process. Must be Grayscale 16 Bits.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Computed PAD score. In the range [0:100].</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FacePad.ComputeMoireScore(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Computes the Moiré score of a detected face using a color image. An attack presented on a screen will likely present Moiré effects whereas a bonafide will not. The maximum recommended value is 10.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Computed Moiré score. In the range [0:100].</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FacePad.DetectAttackSupport(id3.Face.Image,id3.Face.DetectedFace)">
+            <summary>
+            Detects if an attack support surrounds the detected face. The recommended usage is to consider the image to be an attack as soon as an attack support is detected.
+            </summary>
+            <param name="image">Source image to process.</param>
+            <param name="detectedFace">Detected face to process.</param>
+            <returns>Detected face attack support.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.FaceTemplate">
+            <summary>
+            This class represents a FaceTemplate object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplate.#ctor">
+            <summary>
+            Initializes a new instance of the FaceTemplate class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplate.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the FaceTemplate class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native FaceTemplate object.</param>
+        </member>
+        <member name="M:id3.Face.FaceTemplate.Dispose">
+            <summary>
+            Releases the memory allocated for the FaceTemplate object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplate.Finalize">
+            <summary>
+            Releases the memory allocated for the FaceTemplate object.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplate.Clone">
+            <summary>
+            Clones the FaceTemplate object.
+            </summary>
+            <returns>The newly created FaceTemplate object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="P:id3.Face.FaceTemplate.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="P:id3.Face.FaceTemplate.Format">
+            <summary>
+            Format of the face template.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplate.GetFormat">
+            <summary>
+            Gets the format of the face template.
+            </summary>
+            <returns>Format of the face template.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplate.FromBuffer(System.Byte[])">
+            <summary>
+            Imports the face template object from a buffer.
+            </summary>
+            <param name="data">Buffer to import the face template object from.</param>
+            <returns>Created face template.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplate.FromFile(System.String)">
+            <summary>
+            Imports the face template object from a file.
+            </summary>
+            <param name="path">Path to the file to import the face template object from.</param>
+            <returns>Created face template.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplate.Save(id3.Face.FaceTemplateBufferType,System.String)">
+            <summary>
+            Exports the face template object to a file.
+            </summary>
+            <param name="templateBufferType">Face template buffer type to export the face template object to.</param>
+            <param name="path">Path to the file to export the face template object to.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplate.ToBdt">
+            <summary>
+            Exports the face template object to a Biometric Data Template (BDT) buffer. This buffer can only be used with id3 Face Match on Card specific implementations to verify a face template.
+            </summary>
+            <returns>Buffer to export the BDT buffer to.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplate.ToBit(System.Int32,System.Byte)">
+            <summary>
+            Exports the face template object to a Biometric Information Template (BIT) buffer. This buffer can only be used with id3 Face Match on Card specific implementations to enroll a face template. Threshold value is required and should be set according to the used Face Encoder and desired security level. Threshold values are specific and can be found in the id3 Face Match-On-Card documentation. Reference data qualifier should be set according to the id3 Face Match-On-Card documentation.
+            </summary>
+            <param name="threshold">Matching threshold for this BIT buffer.</param>
+            <param name="referenceDataQualifier">Reference data qualifier.</param>
+            <returns>Buffer to export the BIT buffer to.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplate.ToBuffer(id3.Face.FaceTemplateBufferType)">
+            <summary>
+            Exports the face template object to a buffer.
+            </summary>
+            <param name="templateBufferType">Face template buffer type to export the face template object to.</param>
+            <returns>Buffer to export the face template object to.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.FaceTemplateDict">
+            <summary>
+            This class represents a FaceTemplateDict object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplateDict.#ctor">
+            <summary>
+            Initializes a new instance of the FaceTemplateDict class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplateDict.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the FaceTemplateDict class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native FaceTemplateDict object.</param>
+        </member>
+        <member name="M:id3.Face.FaceTemplateDict.Dispose">
+            <summary>
+            Releases the memory allocated for the FaceTemplateDict object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplateDict.Finalize">
+            <summary>
+            Releases the memory allocated for the FaceTemplateDict object.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplateDict.Clone">
+            <summary>
+            Clones the FaceTemplateDict object.
+            </summary>
+            <returns>The newly created FaceTemplateDict object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="P:id3.Face.FaceTemplateDict.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplateDict.Add(System.String,id3.Face.FaceTemplate)">
+            <summary>
+            Adds a FaceTemplate object to the FaceTemplateDict.
+            </summary>
+            <param name="key">The key of the FaceTemplate object to add.</param>
+            <param name="faceTemplate">The FaceTemplate object to add.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplateDict.Clear">
+            <summary>
+            Clears the FaceTemplateDict object.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplateDict.Get(System.String)">
+            <summary>
+            Gets the FaceTemplate object with the given key.
+            </summary>
+            <param name="key">Key of the FaceTemplate object to get.</param>
+            <returns>The got FaceTemplate object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplateDict.GetCount">
+            <summary>
+            Gets the number of elements in the FaceTemplateDict object.
+            </summary>
+            <returns>The number of elements in the FaceTemplateDict object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplateDict.Remove(System.String)">
+            <summary>
+            Removes the FaceTemplate object with the given key.
+            </summary>
+            <param name="key">Key of the FaceTemplate object to remove.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.FaceTemplateList">
+            <summary>
+            This class represents a FaceTemplateList object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplateList.#ctor">
+            <summary>
+            Initializes a new instance of the FaceTemplateList class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplateList.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the FaceTemplateList class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native FaceTemplateList object.</param>
+        </member>
+        <member name="M:id3.Face.FaceTemplateList.Dispose">
+            <summary>
+            Releases the memory allocated for the FaceTemplateList object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplateList.Finalize">
+            <summary>
+            Releases the memory allocated for the FaceTemplateList object.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplateList.Clone">
+            <summary>
+            Clones the FaceTemplateList object.
+            </summary>
+            <returns>The newly created FaceTemplateList object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="P:id3.Face.FaceTemplateList.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceTemplateList.Add(id3.Face.FaceTemplate)">
+            <summary>
+            Adds a FaceTemplate object to the FaceTemplateList.
+            </summary>
+            <param name="faceTemplate">The FaceTemplate object to add.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplateList.Clear">
+            <summary>
+            Clears the FaceTemplateList object.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplateList.Get(System.Int32)">
+            <summary>
+            Gets the FaceTemplate object at the given index.
+            </summary>
+            <param name="index">Index of the FaceTemplate object to get.</param>
+            <returns>The got FaceTemplate object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplateList.GetCount">
+            <summary>
+            Gets the number of elements in the FaceTemplateList object.
+            </summary>
+            <returns>The number of elements in the FaceTemplateList object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.FaceTemplateList.RemoveAt(System.Int32)">
+            <summary>
+            Removes the FaceTemplate object at the given index.
+            </summary>
+            <param name="index">Index of the FaceTemplate object to remove.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.Image">
+            <summary>
+            This class represents a Image object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.Image.#ctor">
+            <summary>
+            Initializes a new instance of the Image class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.Image.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the Image class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native Image object.</param>
+        </member>
+        <member name="M:id3.Face.Image.Dispose">
+            <summary>
+            Releases the memory allocated for the Image object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.Image.Finalize">
+            <summary>
+            Releases the memory allocated for the Image object.
+            </summary>
+        </member>
+        <member name="M:id3.Face.Image.Clone">
+            <summary>
+            Clones the Image object.
+            </summary>
+            <returns>The newly created Image object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="P:id3.Face.Image.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="P:id3.Face.Image.Data">
+            <summary>
+            Raw data buffer of the image.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.Image.Height">
+            <summary>
+            Height in pixels.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.Image.PixelDepth">
+            <summary>
+            Pixel depth.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.Image.PixelFormat">
+            <summary>
+            Pixel format.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.Image.Stride">
+            <summary>
+            Stride in bytes.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="P:id3.Face.Image.Width">
+            <summary>
+            Width in pixels.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occurred during Face Library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.GetData">
+            <summary>
+            Gets the raw data buffer of the image.
+            </summary>
+            <returns>Raw data buffer of the image.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.GetHeight">
+            <summary>
+            Gets the height in pixels.
+            </summary>
+            <returns>Height in pixels.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.GetPixelDepth">
+            <summary>
+            Gets the pixel depth.
+            </summary>
+            <returns>Pixel depth.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.GetPixelFormat">
+            <summary>
+            Gets the pixel format.
+            </summary>
+            <returns>Pixel format.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.GetStride">
+            <summary>
+            Gets the stride in bytes.
+            </summary>
+            <returns>Stride in bytes.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.GetWidth">
+            <summary>
+            Gets the width in pixels.
+            </summary>
+            <returns>Width in pixels.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.CorrectGamma(System.Int32,System.Int32,System.Single)">
+            <summary>
+            Applies a gamma correction to the image object.
+            </summary>
+            <param name="contrast">Contrast coefficient to apply. Range is [-255;255]. Default value is 0.</param>
+            <param name="brightness">Brightness coefficient to apply. Range is [-255;255]. Default value is 0.</param>
+            <param name="gamma">Gamma coefficient to apply. Range is [0.25;2.50]. Default value is 1.00.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.Downscale(System.Int32)">
+            <summary>
+            Downscales an image so that its maximum dimension equals the given maximum size while preserving the aspect ratio. If the maximum dimension is already smaller than the given maximum size, the function does nothing and the returned scale ratio is 1.
+            </summary>
+            <param name="maxSize">Maximum size to fit the image in. Range is [1:+inf[.</param>
+            <returns>Applied scale ratio. Range is ]0:1].</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.ExtractRoi(id3.Face.Rectangle)">
+            <summary>
+            Extracts a region of interest in the image object according to the given bounds.
+            </summary>
+            <param name="bounds">Bounds of the crop to extract.</param>
+            <returns>Extracted region of interest.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.Flip(System.Boolean,System.Boolean)">
+            <summary>
+            Flips the image object.
+            </summary>
+            <param name="flipHorizontally">Set to 'true' to flip horizontally the image.</param>
+            <param name="flipVertically">Set to 'true' to flip vertically the image.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.FromBuffer(System.Byte[],id3.Face.PixelFormat)">
+            <summary>
+            Imports the image object from a buffer.
+            </summary>
+            <param name="data">Buffer to import the image object from.</param>
+            <param name="pixelFormat">The destination pixel format to convert the input to.</param>
+            <returns>Created image.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.FromFile(System.String,id3.Face.PixelFormat)">
+            <summary>
+            Imports the image object from a file.
+            </summary>
+            <param name="filepath">Path to the file to import the image object from.</param>
+            <param name="pixelFormat">The destination pixel format to convert the input to.</param>
+            <returns>Created image.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.FromRawBuffer(System.Byte[],System.Int32,System.Int32,System.Int32,id3.Face.PixelFormat,id3.Face.PixelFormat)">
+            <summary>
+            Imports the image object from a raw buffer.
+            </summary>
+            <param name="pixels">Buffer containing the pixels of the image.</param>
+            <param name="width">Width in pixels of the image.</param>
+            <param name="height">Height in pixels of the image.</param>
+            <param name="stride">Stride in pixels of the image.</param>
+            <param name="srcPixelFormat">The source pixel format of the input image.</param>
+            <param name="dstPixelFormat">The destination pixel format to convert the input image to.</param>
+            <returns>Created image.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.FromYuvPlanes(System.Byte[],System.Byte[],System.Byte[],System.Int32,System.Int32,System.Int32,System.Int32,id3.Face.PixelFormat)">
+            <summary>
+            Imports the image object from YUV planes.
+            </summary>
+            <param name="yPlane">Buffer containing the Y plane.</param>
+            <param name="uPlane">Buffer containing the U plane.</param>
+            <param name="vPlane">Buffer containing the V plane.</param>
+            <param name="yWidth">Width in pixels of the Y plane.</param>
+            <param name="yHeight">Height in pixels of the Y plane.</param>
+            <param name="uvPixelStride">Pixel-level stride in pixels of the U and V planes.</param>
+            <param name="uvRowStride">Row-level stride in pixels of the U and V planes.</param>
+            <param name="dstPixelFormat">The destination pixel format to convert the input image to.</param>
+            <returns>Created image.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.GetPixels">
+            <summary>
+            Gets a pointer to the pixels of the image. Unsafe! The user must handle the pixels pointer carefully.
+            </summary>
+            <returns>Pointer to the pixels of the image.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.Reallocate(System.Int32,System.Int32,id3.Face.PixelFormat)">
+            <summary>
+            Reallocates the internal memory of an image object from parameters. If the given parameters are the same as the ones of the object, then there is nothing done in this function.
+            </summary>
+            <param name="width">Width to reallocate the image object to.</param>
+            <param name="height">Height to reallocate the image object to.</param>
+            <param name="pixelFormat">Pixel format to reallocate the image object to.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.Resize(System.Int32,System.Int32)">
+            <summary>
+            Resizes the image object to the required width and height.
+            </summary>
+            <param name="width">Width to resize the image object to.</param>
+            <param name="height">Height to resize the image object to.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.Rotate(System.Int32)">
+            <summary>
+            Rotates the image object of the required angle. The rotation is performed counter-clockwise.
+            </summary>
+            <param name="angle">Counter-clockwise angle to apply. Supported values are [0, 90, 180, 270].</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.Save(System.String,System.Single)">
+            <summary>
+            Exports the image object to a file. The compression level meaning depends on the used algorithm:
+            - For JPEG compression, the value is the expected quality and may vary from 1 to 100.
+            - For JPEG2000 compression, the value is the compression rate and may vary from 1 to 512.
+            - For PNG compression, the value is the compression rate and may vary from 1 to 10.
+            - For all other formats, the value is ignored.
+            </summary>
+            <param name="filepath">Path to the file to export the image object to.</param>
+            <param name="compressionLevel">Compression level to apply.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.Set(System.Int32,System.Int32,id3.Face.PixelFormat,System.IntPtr)">
+            <summary>
+            Sets the image object fields. This function does not allocate any memory and is unsafe! The user must handle the pixels pointer carefully.
+            </summary>
+            <param name="width">Width in pixels of the image.</param>
+            <param name="height">Height in pixels of the image.</param>
+            <param name="pixelFormat">The pixel format of the image.</param>
+            <param name="pixels">Pointer to the pixels of the image. Unsafe!</param>
+            <returns>Created image.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.ToBuffer(id3.Face.ImageFormat,System.Single)">
+            <summary>
+            Exports the image object to a buffer. The compression level meaning depends on the used algorithm:
+            - For JPEG compression, the value is the expected quality and may vary from 1 to 100.
+            - For JPEG2000 compression, the value is the compression rate and may vary from 1 to 512.
+            - For PNG compression, the value is the compression rate and may vary from 1 to 10.
+            - For all other formats, the value is ignored.
+            </summary>
+            <param name="imageFormat">The image format to export the image to.</param>
+            <param name="compressionLevel">Compression level to apply.</param>
+            <returns>Buffer to export the image object to.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.ToBufferObject(id3.Face.ImageFormat,System.Single,id3.Face.ImageBuffer)">
+            <summary>
+            Exports the image object to a buffer object. The compression level meaning depends on the used algorithm:
+            - For JPEG compression, the value is the expected quality and may vary from 1 to 100.
+            - For JPEG2000 compression, the value is the compression rate and may vary from 1 to 512.
+            - For PNG compression, the value is the compression rate and may vary from 1 to 10.
+            - For all other formats, the value is ignored.
+            </summary>
+            <param name="imageFormat">The image format to export the image to.</param>
+            <param name="compressionLevel">Compression level to apply.</param>
+            <param name="buffer">Buffer object to export the image object to.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.Image.Transpose">
+            <summary>
+            Transposes the image object.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.ImageBuffer">
+            <summary>
+            This class represents a ImageBuffer object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageBuffer.#ctor">
+            <summary>
+            Initializes a new instance of the ImageBuffer class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageBuffer.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the ImageBuffer class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native ImageBuffer object.</param>
+        </member>
+        <member name="M:id3.Face.ImageBuffer.Dispose">
+            <summary>
+            Releases the memory allocated for the ImageBuffer object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageBuffer.Finalize">
+            <summary>
+            Releases the memory allocated for the ImageBuffer object.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageBuffer.Clone">
+            <summary>
+            Clones the ImageBuffer object.
+            </summary>
+            <returns>The newly created ImageBuffer object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="P:id3.Face.ImageBuffer.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageBuffer.GetData">
+            <summary>
+            Gets the image buffer data.
+            </summary>
+            <returns>Data of the image buffer object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.ImageDict">
+            <summary>
+            This class represents a ImageDict object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageDict.#ctor">
+            <summary>
+            Initializes a new instance of the ImageDict class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageDict.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the ImageDict class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native ImageDict object.</param>
+        </member>
+        <member name="M:id3.Face.ImageDict.Dispose">
+            <summary>
+            Releases the memory allocated for the ImageDict object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageDict.Finalize">
+            <summary>
+            Releases the memory allocated for the ImageDict object.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageDict.Clone">
+            <summary>
+            Clones the ImageDict object.
+            </summary>
+            <returns>The newly created ImageDict object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="P:id3.Face.ImageDict.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageDict.Add(System.String,id3.Face.Image)">
+            <summary>
+            Adds a Image object to the ImageDict.
+            </summary>
+            <param name="key">The key of the Image object to add.</param>
+            <param name="image">The Image object to add.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.ImageDict.Clear">
+            <summary>
+            Clears the ImageDict object.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.ImageDict.Get(System.String)">
+            <summary>
+            Gets the Image object with the given key.
+            </summary>
+            <param name="key">Key of the Image object to get.</param>
+            <returns>The got Image object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.ImageDict.GetCount">
+            <summary>
+            Gets the number of elements in the ImageDict object.
+            </summary>
+            <returns>The number of elements in the ImageDict object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.ImageDict.Remove(System.String)">
+            <summary>
+            Removes the Image object with the given key.
+            </summary>
+            <param name="key">Key of the Image object to remove.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.ImageList">
+            <summary>
+            This class represents a ImageList object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageList.#ctor">
+            <summary>
+            Initializes a new instance of the ImageList class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageList.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the ImageList class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native ImageList object.</param>
+        </member>
+        <member name="M:id3.Face.ImageList.Dispose">
+            <summary>
+            Releases the memory allocated for the ImageList object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageList.Finalize">
+            <summary>
+            Releases the memory allocated for the ImageList object.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageList.Clone">
+            <summary>
+            Clones the ImageList object.
+            </summary>
+            <returns>The newly created ImageList object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="P:id3.Face.ImageList.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="M:id3.Face.ImageList.Add(id3.Face.Image)">
+            <summary>
+            Adds a Image object to the ImageList.
+            </summary>
+            <param name="image">The Image object to add.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.ImageList.Clear">
+            <summary>
+            Clears the ImageList object.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.ImageList.Get(System.Int32)">
+            <summary>
+            Gets the Image object at the given index.
+            </summary>
+            <param name="index">Index of the Image object to get.</param>
+            <returns>The got Image object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.ImageList.GetCount">
+            <summary>
+            Gets the number of elements in the ImageList object.
+            </summary>
+            <returns>The number of elements in the ImageList object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.ImageList.RemoveAt(System.Int32)">
+            <summary>
+            Removes the Image object at the given index.
+            </summary>
+            <param name="index">Index of the Image object to remove.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.PointList">
+            <summary>
+            This class represents a PointList object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.PointList.#ctor">
+            <summary>
+            Initializes a new instance of the PointList class.
+            </summary>
+        </member>
+        <member name="M:id3.Face.PointList.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of the PointList class from a specified handle.
+            </summary>
+            <param name="handle">Handle to the native PointList object.</param>
+        </member>
+        <member name="M:id3.Face.PointList.Dispose">
+            <summary>
+            Releases the memory allocated for the PointList object.
+            Forces garbage collection.
+            </summary>
+        </member>
+        <member name="M:id3.Face.PointList.Finalize">
+            <summary>
+            Releases the memory allocated for the PointList object.
+            </summary>
+        </member>
+        <member name="M:id3.Face.PointList.Clone">
+            <summary>
+            Clones the PointList object.
+            </summary>
+            <returns>The newly created PointList object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="P:id3.Face.PointList.Handle">
+            <summary>
+            Gets the native handle.
+            </summary>
+        </member>
+        <member name="M:id3.Face.PointList.Add(id3.Face.Point)">
+            <summary>
+            Adds a Point object to the PointList.
+            </summary>
+            <param name="point">The Point object to add.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.PointList.Clear">
+            <summary>
+            Clears the PointList object.
+            </summary>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.PointList.Get(System.Int32)">
+            <summary>
+            Gets the Point object at the given index.
+            </summary>
+            <param name="index">Index of the Point object to get.</param>
+            <returns>The got Point object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.PointList.GetCount">
+            <summary>
+            Gets the number of elements in the PointList object.
+            </summary>
+            <returns>The number of elements in the PointList object.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.PointList.RemoveAt(System.Int32)">
+            <summary>
+            Removes the Point object at the given index.
+            </summary>
+            <param name="index">Index of the Point object to remove.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.License">
+            <summary>
+            This class represents a License object of the Face module.
+            </summary>
+        </member>
+        <member name="M:id3.Face.License.Activate(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Retrieves a license file using id3 account credentials and a product reference.
+            </summary>
+            <param name="hardwareCode">The hardware code on which the license file will be attached, to be retrieved using the GetHostHardwareCode function.</param>
+            <param name="login">The id3 account login.</param>
+            <param name="password">The id3 account password.</param>
+            <param name="productReference">The requested product reference.</param>
+            <param name="commentary">Commentary associated to this license activation.</param>
+            <param name="path">Path to the retrieved license file.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.ActivateActivationKey(System.String,System.String,System.String,System.String)">
+            <summary>
+            Retrieves a license file using an activation key.
+            </summary>
+            <param name="hardwareCode">The hardware code on which the license file will be attached, to be retrieved using the GetHostHardwareCode function.</param>
+            <param name="activationKey">The id3 activation key.</param>
+            <param name="commentary">Commentary associated to this license activation.</param>
+            <param name="path">Path to the retrieved license file.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.ActivateActivationKeyBuffer(System.String,System.String,System.String)">
+            <summary>
+            Retrieves a license file buffer using an activation key.
+            </summary>
+            <param name="hardwareCode">The hardware code on which the license file will be attached, to be retrieved using the GetHostHardwareCode function.</param>
+            <param name="activationKey">The id3 activation key.</param>
+            <param name="commentary">Commentary associated to this license activation.</param>
+            <returns>Pointer to a pre-allocated buffer to receive the license data.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.ActivateBuffer(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Retrieves a license file buffer using id3 account credentials and a product reference.
+            </summary>
+            <param name="hardwareCode">The hardware code on which the license file will be attached, to be retrieved using the GetHostHardwareCode function.</param>
+            <param name="login">The id3 account login.</param>
+            <param name="password">The id3 account password.</param>
+            <param name="productReference">The requested product reference.</param>
+            <param name="commentary">Commentary associated to this license activation.</param>
+            <returns>Pointer to a pre-allocated buffer to receive the license data.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.ActivateSerialKey(System.String,System.String,System.String,System.String)">
+            <summary>
+            Retrieves a license file using a serial key.
+            </summary>
+            <param name="hardwareCode">The hardware code on which the license file will be attached, to be retrieved using the GetHostHardwareCode function.</param>
+            <param name="serialKey">The id3 serial key.</param>
+            <param name="commentary">Commentary associated to this license activation.</param>
+            <param name="path">Path to the retrieved license file.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.ActivateSerialKeyBuffer(System.String,System.String,System.String)">
+            <summary>
+            Retrieves a license file buffer using a serial key.
+            </summary>
+            <param name="hardwareCode">The hardware code on which the license file will be attached, to be retrieved using the GetHostHardwareCode function.</param>
+            <param name="serialKey">The id3 serial key.</param>
+            <param name="commentary">Commentary associated to this license activation.</param>
+            <returns>Pointer to a pre-allocated buffer to receive the license data.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.CheckModule(System.String)">
+            <summary>
+            Checks if a module is present in the license.
+            
+            This function checks if a module (defined by his name as a string) is present in a previously loaded license.
+            </summary>
+            <param name="moduleName">The module name.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetExpiryDate">
+            <summary>
+            Retrieves the license expiry date.
+            </summary>
+            <returns>Pointer to a pre-allocated buffer to receive the license expiry date.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetExternalDriveHardwareCode(id3.Face.LicenseHardwareCodeType,System.String)">
+            <summary>
+            Retrieves the hardware code of the external drive you run the library on. This function works on Windows only.
+            </summary>
+            <param name="hardwareCodeType">The requested hardware code type. Must be Windows USB.</param>
+            <param name="externalDrivePath">On Windows to activate a license on a USB device, it must contain the path to the requested USB drive (e.g 'G:\').</param>
+            <returns>Pointer to a pre-allocated buffer to receive the device hardware code.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetHostHardwareCode(id3.Face.LicenseHardwareCodeType)">
+            <summary>
+            Retrieves the hardware code of the device using the requested hardware code type.
+            
+            This function retrieves the hardware code of the device you run the library on.
+            
+            The optional parameter is required:
+             - On Android, it must be the JNIEnv* pointer cast as a void*.
+             - In other cases, it must be set to NULL.
+            </summary>
+            <param name="hardwareCodeType">The requested hardware code type.</param>
+            <returns>Pointer to a pre-allocated buffer to receive the device hardware code.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetLicenseFileHardwareCode">
+            <summary>
+            Retrieves the hardware code of the previously loaded license file.
+            </summary>
+            <returns>Pointer to a pre-allocated buffer to receive the license file hardware code.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetLicenseFileSerial">
+            <summary>
+            Retrieves the serial of the previously loaded license file.
+            </summary>
+            <returns>Pointer to a pre-allocated buffer to receive the license file serial.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetLicenseName">
+            <summary>
+            Retrieves the license name.
+            </summary>
+            <returns>Pointer to a pre-allocated buffer to receive the name.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetLicenseOwner">
+            <summary>
+            Retrieves the license owner.
+            </summary>
+            <returns>Pointer to a pre-allocated buffer to receive the owner.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetLicensePath">
+            <summary>
+            Retrieves the license path.
+            </summary>
+            <returns>Pointer to a pre-allocated buffer to receive the license path.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetLicenseType">
+            <summary>
+            Retrieves the license type.
+            </summary>
+            <returns>Pointer to a pre-allocated id3LicenseType enum value to receive the type.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetModuleCount">
+            <summary>
+            Retrieves the number of modules in the license.
+            </summary>
+            <returns>The number of modules in the license.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetModuleName(System.Int32)">
+            <summary>
+            Retrieves the name of a given module in the license.
+            </summary>
+            <param name="index">index of the module in range [0 ; GetModuleCount() - 1].</param>
+            <returns>Pointer to a pre-allocated buffer to receive the name.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetModuleValue(System.String)">
+            <summary>
+            Retrieves the value of a given module in the license.
+            </summary>
+            <param name="name">Name of the requested module.</param>
+            <returns>Pointer to an int which will contain the requested value.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetProductReference">
+            <summary>
+            Retrieves the license product reference.
+            </summary>
+            <returns>Pointer to a pre-allocated buffer to receive the product reference.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.GetRemainingDays">
+            <summary>
+            Retrieves the number of trial remaining days.
+            </summary>
+            <returns>Pointer to an int which will contain the requested remainingDays.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.LoadLicense(System.String)">
+            <summary>
+            Loads and checks a license from a file.
+            
+             This function does two things:
+              - First it loads the license from a file using the given path
+              - Then it checks the validity of the license regarding the host it is called on (Windows, Linux, Android ...)
+            
+             Calling this function is required to get access to the license member getters.
+            
+             The optional parameter is required on Android and must be the JNIEnv* pointer casted as a void*.
+             It can be set as NULL for other devices.
+            </summary>
+            <param name="licensePath">Absolute or relative path to the license file.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.LoadLicenseBuffer(System.Byte[])">
+            <summary>
+            Loads and checks a license from a buffer.
+            
+             This function does two things:
+              - First it loads the license from a buffer
+              - Then it checks the validity of the license regarding the host it is called on (Windows, Linux, Android ...)
+            
+             Calling one of the license loading function is required to get access to all the license member getters.
+            
+             The optional parameter is required on Android and must be the JNIEnv* pointer casted as a void*.
+             It can be set as NULL for other devices.
+            </summary>
+            <param name="licenseData">A buffer containing the license file data.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.Reactivate(System.String,System.String,System.String)">
+            <summary>
+            Reactivates a license file using hardware code and product reference.
+            </summary>
+            <param name="hardwareCode">The hardware code on which the license file will be attached, to be retrieved using the GetHostHardwareCode function.</param>
+            <param name="productReference">The requested product reference.</param>
+            <param name="path">Path to the retrieved license file.</param>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="M:id3.Face.License.ReactivateBuffer(System.String,System.String)">
+            <summary>
+            Reactivates a license file buffer using hardware code and product reference.
+            </summary>
+            <param name="hardwareCode">The hardware code on which the license file will be attached, to be retrieved using the GetHostHardwareCode function.</param>
+            <param name="productReference">The requested product reference.</param>
+            <returns>Pointer to a pre-allocated buffer to receive the license data.</returns>
+            <exception cref="T:id3.Face.FaceException">An error has occured during Face library execution.</exception>
+        </member>
+        <member name="T:id3.Face.FaceAttackSupport">
+            <summary>
+            This enumeration represents the possible values for a FaceAttackSupport of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceAttackSupport.None">
+            <summary>
+            No attack support.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceAttackSupport.IdCard">
+            <summary>
+            ID card support.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceAttackSupport.Screen">
+            <summary>
+            Screen support (includes smartphones, tablets, laptops, etc).
+            </summary>
+        </member>
+        <member name="T:id3.Face.FaceExpression">
+            <summary>
+            This enumeration represents the possible values for a FaceExpression of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceExpression.Angriness">
+            <summary>
+            Angriness.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceExpression.Disgust">
+            <summary>
+            Disgust.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceExpression.Fear">
+            <summary>
+            Fear.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceExpression.Happiness">
+            <summary>
+            Happiness.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceExpression.Neutrality">
+            <summary>
+            Neutrality.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceExpression.Sadness">
+            <summary>
+            Sadness.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceExpression.Surprise">
+            <summary>
+            Surprise.
+            </summary>
+        </member>
+        <member name="T:id3.Face.FaceMatcherThreshold">
+            <summary>
+            This enumeration represents the possible values for a FaceMatcherThreshold of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceMatcherThreshold.Fmr100">
+            <summary>
+            False Match Rate = 1%
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceMatcherThreshold.Fmr1000">
+            <summary>
+            False Match Rate = 0.1% (1/1K)
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceMatcherThreshold.Fmr10000">
+            <summary>
+            False Match Rate = 0.01% (1/10K)
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceMatcherThreshold.Fmr100000">
+            <summary>
+            False Match Rate = 0.001% (1/100K)
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceMatcherThreshold.Fmr1000000">
+            <summary>
+            False Match Rate = 0.0001% (1/1M)
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceMatcherThreshold.Fmr10000000">
+            <summary>
+            False Match Rate = 0.00001% (1/10M)
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceMatcherThreshold.Fmr100000000">
+            <summary>
+            False Match Rate = 0.000001% (1/100M)
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceMatcherThreshold.Fmr1000000000">
+            <summary>
+            False Match Rate = 0.0000001% (1/1B)
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceMatcherThreshold.Fmr10000000000">
+            <summary>
+            False Match Rate = 0.00000001% (1/10B)
+            </summary>
+        </member>
+        <member name="T:id3.Face.FaceModel">
+            <summary>
+            This enumeration represents the possible values for a FaceModel of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceDetector3A">
+            <summary>
+            Face detector 3A. Highest accuracy detector in this SDK, mainly for server-based or offline applications.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceDetector3B">
+            <summary>
+            Face detector 3B. Light and accurate detector, mainly for mobile/embedded real-time detection/tracking applications.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceEncoder8A">
+            <summary>
+            Face encoder 8A. Legacy model.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceEncoder8B">
+            <summary>
+            Face encoder 8B. Legacy model.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceEncoder9A">
+            <summary>
+            Face encoder 9A. Highest accuracy face encoder in this SDK, mainly for server-based 1:N applications.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceEncoder9B">
+            <summary>
+            Face encoder 8B. Light and accurate face encoder, mainly for mobile/embedded 1:1 applications.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FacePeriocularEncoder2A">
+            <summary>
+            Periocular encoder 2A. Highest accuracy periocular encoder in this SDK. Provides an efficient alternative to face encoders when people wear masks in server-based 1:N applications.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceEncodingQualityEstimator3A">
+            <summary>
+            Face encoding quality estimator 3A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceLandmarksEstimator2A">
+            <summary>
+            Face landmarks estimator 2A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceAgeEstimator1A">
+            <summary>
+            Face age estimator 1A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceAttributesClassifier2A">
+            <summary>
+            Face attributes estimator 2A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceExpressionClassifier1A">
+            <summary>
+            Face expression classifier 1A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.EyeOpennessDetector1A">
+            <summary>
+            Eye openness detector 1A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.EyeRednessDetector1A">
+            <summary>
+            Eye redness detector 1A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.EyeGazeEstimator2A">
+            <summary>
+            Eye gaze estimator 2A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceBackgroundUniformity1A">
+            <summary>
+            Face background uniformity estimator 1A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceMaskClassifier2A">
+            <summary>
+            Face mask classifier 2A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceOcclusionDetector1A">
+            <summary>
+            Face occlusion detector 1A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FacePoseEstimator1A">
+            <summary>
+            Face pose estimator 1A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceColorBasedPad1A">
+            <summary>
+            Face color-based presentation attack detector (PAD) 1A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceBlurrinessDetector1A">
+            <summary>
+            Face blurriness detector 1A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceMoireDetector1A">
+            <summary>
+            Face Moiré detector 1A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceAttackSupportDetector1A">
+            <summary>
+            Face attack support detector 1A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceModel.FaceDepthBasedPad2A">
+            <summary>
+            Face depth-based presentation attack detector (PAD) 2A.
+            </summary>
+        </member>
+        <member name="T:id3.Face.FaceTemplateFormat">
+            <summary>
+            This enumeration represents the possible values for a FaceTemplateFormat of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceTemplateFormat.Undefined">
+            <summary>
+            Undefined template format.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceTemplateFormat.V8A">
+            <summary>
+            Template generated with model FaceEncoder8A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceTemplateFormat.V8B">
+            <summary>
+            Template generated with model FaceEncoder8B.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceTemplateFormat.V9A">
+            <summary>
+            Template generated with model FaceEncoder9A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceTemplateFormat.V9B">
+            <summary>
+            Template generated with model FaceEncoder9B.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceTemplateFormat.PeriocularV2A">
+            <summary>
+            Template generated with model FacePeriocularEncoder2A.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceTemplateFormat.PeriocularV2B">
+            <summary>
+            Template generated with model FacePeriocularEncoder2B.
+            </summary>
+        </member>
+        <member name="T:id3.Face.FaceTemplateBufferType">
+            <summary>
+            This enumeration represents the possible values for a FaceTemplateBufferType of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceTemplateBufferType.Normal">
+            <summary>
+            Standard face template buffer type.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceTemplateBufferType.Card">
+            <summary>
+            Card compact face template buffer type. For match-on-card enrolment applications, this buffer type is mandatory.
+            </summary>
+        </member>
+        <member name="T:id3.Face.PoolingMethod">
+            <summary>
+            This enumeration represents the possible values for a PoolingMethod of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.PoolingMethod.Average">
+            <summary>
+            Average pooling method. Merges instances (scores, templates, etc) into one.
+            </summary>
+        </member>
+        <member name="F:id3.Face.PoolingMethod.Maximum">
+            <summary>
+            Maximum pooling method. Selects best instance according to a given metric.
+            </summary>
+        </member>
+        <member name="T:id3.Face.ProcessingUnit">
+            <summary>
+            This enumeration represents the possible values for a ProcessingUnit of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ProcessingUnit.Cpu">
+            <summary>
+            CPU.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ProcessingUnit.Gpu">
+            <summary>
+            GPU.
+            </summary>
+        </member>
+        <member name="T:id3.Face.ImageError">
+            <summary>
+            This enumeration represents the possible values for a ImageError of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageError.Success">
+            <summary>
+            No error.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageError.Base">
+            <summary>
+            Base error code for Image module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageError.Minimum">
+            <summary>
+            Minimum error code for Image module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageError.InvalidHandle">
+            <summary>
+            The handle is invalid.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageError.InvalidParameter">
+            <summary>
+            The parameter is invalid.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageError.InsufficientBuffer">
+            <summary>
+            The given buffer is too small.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageError.ImageSizeMismatch">
+            <summary>
+            The image sizes are not compatible for the requested operation.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageError.PixelFormatMismatch">
+            <summary>
+            The pixel formats are not compatible.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageError.KeyAlreadyExists">
+            <summary>
+            The given key is already used in the dictionary. Multiple values per key is not supported.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageError.KeyNotFound">
+            <summary>
+            The given key is not present in the dictionary.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageError.InvalidPixelFormat">
+            <summary>
+            The required pixel format is not correct.
+            </summary>
+        </member>
+        <member name="T:id3.Face.ImageFormat">
+            <summary>
+            This enumeration represents the possible values for a ImageFormat of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageFormat.Bmp">
+            <summary>
+            BMP.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageFormat.Jpeg">
+            <summary>
+            JPEG.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageFormat.Png">
+            <summary>
+            PNG.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageFormat.Tiff">
+            <summary>
+            Tiff.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageFormat.Jpeg2000">
+            <summary>
+            JPEG 2000.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageFormat.Webp">
+            <summary>
+            WEBP.
+            </summary>
+        </member>
+        <member name="F:id3.Face.ImageFormat.Raw">
+            <summary>
+            Raw.
+            </summary>
+        </member>
+        <member name="T:id3.Face.PixelFormat">
+            <summary>
+            This enumeration represents the possible values for a PixelFormat of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.PixelFormat.Undefined">
+            <summary>
+            Undefined.
+            </summary>
+        </member>
+        <member name="F:id3.Face.PixelFormat.Grayscale8Bits">
+            <summary>
+            8-bits grayscale.
+            </summary>
+        </member>
+        <member name="F:id3.Face.PixelFormat.Grayscale16Bits">
+            <summary>
+            16-bits grayscale.
+            </summary>
+        </member>
+        <member name="F:id3.Face.PixelFormat.GrayscaleFloat">
+            <summary>
+            Floating point grayscale.
+            </summary>
+        </member>
+        <member name="F:id3.Face.PixelFormat.Bgr24Bits">
+            <summary>
+            24 bits BGR.
+            </summary>
+        </member>
+        <member name="F:id3.Face.PixelFormat.Rgb24Bits">
+            <summary>
+            24 bits RGB.
+            </summary>
+        </member>
+        <member name="F:id3.Face.PixelFormat.Bgra">
+            <summary>
+            32 bits BGRA.
+            </summary>
+        </member>
+        <member name="F:id3.Face.PixelFormat.Nv12">
+            <summary>
+            NV12 (YUV semi-planar format).
+            </summary>
+        </member>
+        <member name="F:id3.Face.PixelFormat.I420">
+            <summary>
+            I420 (YUV packed format).
+            </summary>
+        </member>
+        <member name="F:id3.Face.PixelFormat.Yuy2">
+            <summary>
+            YUY2 (YUV packed format).
+            </summary>
+        </member>
+        <member name="T:id3.Face.LicenseHardwareCodeType">
+            <summary>
+            This enumeration represents the possible values for a LicenseHardwareCodeType of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseHardwareCodeType.WindowsOs">
+            <summary>
+            License locked on Windows OS.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseHardwareCodeType.WindowsUsb">
+            <summary>
+            License locked on Windows USB stick.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseHardwareCodeType.LinuxOs">
+            <summary>
+            License locked on Linux OS.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseHardwareCodeType.Android">
+            <summary>
+            License locked on Android device.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseHardwareCodeType.AndroidPackageName">
+            <summary>
+            License locked on Android application package name.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseHardwareCodeType.Ios">
+            <summary>
+            License locked on iOS device.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseHardwareCodeType.Macos">
+            <summary>
+            License locked on macOS.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseHardwareCodeType.JetsonNano">
+            <summary>
+            License locked on Jetson Nano.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseHardwareCodeType.IosBundleid">
+            <summary>
+            License locked on iOS application Bundle ID.
+            </summary>
+        </member>
+        <member name="T:id3.Face.LicenseType">
+            <summary>
+            This enumeration represents the possible values for a LicenseType of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseType.Classic">
+            <summary>
+            Classic id3 license.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseType.Trial">
+            <summary>
+            Trial id3 license with a time limitation.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseType.Online">
+            <summary>
+            Online id3 license with an online check.
+            </summary>
+        </member>
+        <member name="T:id3.Face.BackgroundUniformity">
+            <summary>
+            This structure represents a BackgroundUniformity object of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.BackgroundUniformity.ColorUniformity">
+            
+             Color uniformity score. In the range [0:100]. Recommended threshold is 80.
+            
+        </member>
+        <member name="F:id3.Face.BackgroundUniformity.StructureUniformity">
+            
+             Structure uniformity score. In the range [0:100]. Recommended threshold is 80.
+            
+        </member>
+        <member name="M:id3.Face.BackgroundUniformity.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the BackgroundUniformity structure from its members.
+            <param name="colorUniformity">Color uniformity score. In the range [0:100]. Recommended threshold is 80.</param>
+            <param name="structureUniformity">Structure uniformity score. In the range [0:100]. Recommended threshold is 80.</param>
+            </summary>
+        </member>
+        <member name="M:id3.Face.BackgroundUniformity.#ctor(id3.Face.BackgroundUniformity)">
+            <summary>
+            Initializes a new instance of the BackgroundUniformity structure from another BackgroundUniformity.
+            </summary>
+            <param name="backgroundUniformity">The BackgroundUniformity to copy.</param>
+        </member>
+        <member name="T:id3.Face.DetectedFaceAttackSupport">
+            <summary>
+            This structure represents a DetectedFaceAttackSupport object of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.DetectedFaceAttackSupport.AttackSupport">
+            
+             Attack support type.
+            
+        </member>
+        <member name="F:id3.Face.DetectedFaceAttackSupport.Score">
+            
+             Confidence score of the detected attack support. In the range [0:100].
+            
+        </member>
+        <member name="M:id3.Face.DetectedFaceAttackSupport.#ctor(id3.Face.FaceAttackSupport,System.Int32)">
+            <summary>
+            Initializes a new instance of the DetectedFaceAttackSupport structure from its members.
+            <param name="attackSupport">Attack support type.</param>
+            <param name="score">Confidence score of the detected attack support. In the range [0:100].</param>
+            </summary>
+        </member>
+        <member name="M:id3.Face.DetectedFaceAttackSupport.#ctor(id3.Face.DetectedFaceAttackSupport)">
+            <summary>
+            Initializes a new instance of the DetectedFaceAttackSupport structure from another DetectedFaceAttackSupport.
+            </summary>
+            <param name="detectedFaceAttackSupport">The DetectedFaceAttackSupport to copy.</param>
+        </member>
+        <member name="T:id3.Face.EyeGaze">
+            <summary>
+            This structure represents a EyeGaze object of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.EyeGaze.LeftEyeXGaze">
+            
+             Value indicating the gaze alongside the x-axis of the left eye. Values vary in the range [-1, +1]. The maximum recommended value for an ICAO-compliant portrait is +/-0.40.
+            
+        </member>
+        <member name="F:id3.Face.EyeGaze.LeftEyeYGaze">
+            
+             Value indicating the gaze alongside the y-axis of the left eye. Values vary in the range [-1, +1]. The maximum recommended value for an ICAO-compliant portrait is +/-0.40.
+            
+        </member>
+        <member name="F:id3.Face.EyeGaze.RightEyeXGaze">
+            
+             Value indicating the gaze alongside the x-axis of the right eye. Values vary in the range [-1, +1]. The maximum recommended value for an ICAO-compliant portrait is +/-0.40.
+            
+        </member>
+        <member name="F:id3.Face.EyeGaze.RightEyeYGaze">
+            
+             Value indicating the gaze alongside the y-axis of the right eye. Values vary in the range [-1, +1]. The maximum recommended value for an ICAO-compliant portrait is +/-0.40.
+            
+        </member>
+        <member name="M:id3.Face.EyeGaze.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the EyeGaze structure from its members.
+            <param name="leftEyeXGaze">Value indicating the gaze alongside the x-axis of the left eye. Values vary in the range [-1, +1]. The maximum recommended value for an ICAO-compliant portrait is +/-0.40.</param>
+            <param name="leftEyeYGaze">Value indicating the gaze alongside the y-axis of the left eye. Values vary in the range [-1, +1]. The maximum recommended value for an ICAO-compliant portrait is +/-0.40.</param>
+            <param name="rightEyeXGaze">Value indicating the gaze alongside the x-axis of the right eye. Values vary in the range [-1, +1]. The maximum recommended value for an ICAO-compliant portrait is +/-0.40.</param>
+            <param name="rightEyeYGaze">Value indicating the gaze alongside the y-axis of the right eye. Values vary in the range [-1, +1]. The maximum recommended value for an ICAO-compliant portrait is +/-0.40.</param>
+            </summary>
+        </member>
+        <member name="M:id3.Face.EyeGaze.#ctor(id3.Face.EyeGaze)">
+            <summary>
+            Initializes a new instance of the EyeGaze structure from another EyeGaze.
+            </summary>
+            <param name="eyeGaze">The EyeGaze to copy.</param>
+        </member>
+        <member name="T:id3.Face.FaceAttributes">
+            <summary>
+            This structure represents a FaceAttributes object of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceAttributes.Glasses">
+            
+             Value indicating whether the person is wearing glasses or not. 100 means that the person is definitely wearing glasses. The minimum recommended threshold is 10.
+            
+        </member>
+        <member name="F:id3.Face.FaceAttributes.Hat">
+            
+             Value indicating whether the person is wearing a hat or not. 100 means that the person is definitely wearing a hat. The minimum recommended threshold is 10.
+            
+        </member>
+        <member name="F:id3.Face.FaceAttributes.MakeUp">
+            
+             Value indicating whether the person is wearing make-up or not. 100 means that the person is definitely wearing make-up. The minimum recommended threshold is 50.
+            
+        </member>
+        <member name="F:id3.Face.FaceAttributes.Male">
+            
+             Value indicating whether the person is a male or a female. A value close to 0 means that the person is estimated to be female. A value close to 100 means that the person is estimated to be male. The recommended threshold is 50.
+            
+        </member>
+        <member name="F:id3.Face.FaceAttributes.MouthOpen">
+            
+             Value indicating whether the person's mouth is open or not. 100 means that the person's mouth is definitely open. The minimum recommended threshold is 35.
+            
+        </member>
+        <member name="F:id3.Face.FaceAttributes.Smile">
+            
+             Value indicating whether the person is smiling or not. 100 means that the person is definitely smiling. The minimum recommended threshold is 75.
+            
+        </member>
+        <member name="M:id3.Face.FaceAttributes.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the FaceAttributes structure from its members.
+            <param name="glasses">Value indicating whether the person is wearing glasses or not. 100 means that the person is definitely wearing glasses. The minimum recommended threshold is 10.</param>
+            <param name="hat">Value indicating whether the person is wearing a hat or not. 100 means that the person is definitely wearing a hat. The minimum recommended threshold is 10.</param>
+            <param name="makeUp">Value indicating whether the person is wearing make-up or not. 100 means that the person is definitely wearing make-up. The minimum recommended threshold is 50.</param>
+            <param name="male">Value indicating whether the person is a male or a female. A value close to 0 means that the person is estimated to be female. A value close to 100 means that the person is estimated to be male. The recommended threshold is 50.</param>
+            <param name="mouthOpen">Value indicating whether the person's mouth is open or not. 100 means that the person's mouth is definitely open. The minimum recommended threshold is 35.</param>
+            <param name="smile">Value indicating whether the person is smiling or not. 100 means that the person is definitely smiling. The minimum recommended threshold is 75.</param>
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceAttributes.#ctor(id3.Face.FaceAttributes)">
+            <summary>
+            Initializes a new instance of the FaceAttributes structure from another FaceAttributes.
+            </summary>
+            <param name="faceAttributes">The FaceAttributes to copy.</param>
+        </member>
+        <member name="T:id3.Face.FaceOcclusionScores">
+            <summary>
+            This structure represents a FaceOcclusionScores object of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FaceOcclusionScores.LeftEyeOcclusionScore">
+            
+             Value indicating whether the left eye is occluded or not. 100 means that the left eye is definitely occluded. The maximum recommended value is 50.
+            
+        </member>
+        <member name="F:id3.Face.FaceOcclusionScores.MouthOcclusionScore">
+            
+             Value indicating whether the mouth is occluded or not. 100 means that the mouth is definitely occluded. The maximum recommended value is 30.
+            
+        </member>
+        <member name="F:id3.Face.FaceOcclusionScores.NoseOcclusionScore">
+            
+             Value indicating whether the nose is occluded or not. 100 means that the nose is definitely occluded. The maximum recommended value is 50.
+            
+        </member>
+        <member name="F:id3.Face.FaceOcclusionScores.RightEyeOcclusionScore">
+            
+             Value indicating whether the right eye is occluded or not. 100 means that the right eye is definitely occluded. The maximum recommended value is 50.
+            
+        </member>
+        <member name="M:id3.Face.FaceOcclusionScores.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the FaceOcclusionScores structure from its members.
+            <param name="leftEyeOcclusionScore">Value indicating whether the left eye is occluded or not. 100 means that the left eye is definitely occluded. The maximum recommended value is 50.</param>
+            <param name="mouthOcclusionScore">Value indicating whether the mouth is occluded or not. 100 means that the mouth is definitely occluded. The maximum recommended value is 30.</param>
+            <param name="noseOcclusionScore">Value indicating whether the nose is occluded or not. 100 means that the nose is definitely occluded. The maximum recommended value is 50.</param>
+            <param name="rightEyeOcclusionScore">Value indicating whether the right eye is occluded or not. 100 means that the right eye is definitely occluded. The maximum recommended value is 50.</param>
+            </summary>
+        </member>
+        <member name="M:id3.Face.FaceOcclusionScores.#ctor(id3.Face.FaceOcclusionScores)">
+            <summary>
+            Initializes a new instance of the FaceOcclusionScores structure from another FaceOcclusionScores.
+            </summary>
+            <param name="faceOcclusionScores">The FaceOcclusionScores to copy.</param>
+        </member>
+        <member name="T:id3.Face.FacePose">
+            <summary>
+            This structure represents a FacePose object of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.FacePose.Pitch">
+            
+             Pitch angle in degrees.
+            
+        </member>
+        <member name="F:id3.Face.FacePose.Roll">
+            
+             Roll angle in degrees.
+            
+        </member>
+        <member name="F:id3.Face.FacePose.Yaw">
+            
+             Yaw angle in degrees.
+            
+        </member>
+        <member name="M:id3.Face.FacePose.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the FacePose structure from its members.
+            <param name="pitch">Pitch angle in degrees.</param>
+            <param name="roll">Roll angle in degrees.</param>
+            <param name="yaw">Yaw angle in degrees.</param>
+            </summary>
+        </member>
+        <member name="M:id3.Face.FacePose.#ctor(id3.Face.FacePose)">
+            <summary>
+            Initializes a new instance of the FacePose structure from another FacePose.
+            </summary>
+            <param name="facePose">The FacePose to copy.</param>
+        </member>
+        <member name="T:id3.Face.GeometricAttributes">
+            <summary>
+            This structure represents a GeometricAttributes object of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.GeometricAttributes.HeadImageHeightRatio">
+            
+             Value indicating if the distance between the base of the chin and the crown is less than 80% of the total height of the image. For ICAO compliance, the value must be in the range 60 to 90.
+            
+        </member>
+        <member name="F:id3.Face.GeometricAttributes.HeadImageWidthRatio">
+            
+             Value indicating if the image width is conform to the (image width / head width) ratio of 7:5. The head width is defined as the distance between the left and right ears. For ICAO compliance, the value must be in the range 50 to 75.
+            
+        </member>
+        <member name="F:id3.Face.GeometricAttributes.HorizontalPosition">
+            
+             Value indicating if the head is correctly centered horizontally. For ICAO compliance, the value must be in the range 45 to 55.
+            
+        </member>
+        <member name="F:id3.Face.GeometricAttributes.Resolution">
+            
+             Value indicating if the image resolution is sufficient. The minimum recommended value is 90.
+            
+        </member>
+        <member name="F:id3.Face.GeometricAttributes.VerticalPosition">
+            
+             Value indicating if the distance from the bottom edge of the image to the imaginary line passing through the center of the eyes is between 50% - 70% of the total vertical length of the image. For ICAO compliance, the value must be in the range 30 to 50.
+            
+        </member>
+        <member name="M:id3.Face.GeometricAttributes.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the GeometricAttributes structure from its members.
+            <param name="headImageHeightRatio">Value indicating if the distance between the base of the chin and the crown is less than 80% of the total height of the image. For ICAO compliance, the value must be in the range 60 to 90.</param>
+            <param name="headImageWidthRatio">Value indicating if the image width is conform to the (image width / head width) ratio of 7:5. The head width is defined as the distance between the left and right ears. For ICAO compliance, the value must be in the range 50 to 75.</param>
+            <param name="horizontalPosition">Value indicating if the head is correctly centered horizontally. For ICAO compliance, the value must be in the range 45 to 55.</param>
+            <param name="resolution">Value indicating if the image resolution is sufficient. The minimum recommended value is 90.</param>
+            <param name="verticalPosition">Value indicating if the distance from the bottom edge of the image to the imaginary line passing through the center of the eyes is between 50% - 70% of the total vertical length of the image. For ICAO compliance, the value must be in the range 30 to 50.</param>
+            </summary>
+        </member>
+        <member name="M:id3.Face.GeometricAttributes.#ctor(id3.Face.GeometricAttributes)">
+            <summary>
+            Initializes a new instance of the GeometricAttributes structure from another GeometricAttributes.
+            </summary>
+            <param name="geometricAttributes">The GeometricAttributes to copy.</param>
+        </member>
+        <member name="T:id3.Face.GlassesAttributes">
+            <summary>
+            This structure represents a GlassesAttributes object of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.GlassesAttributes.FrameOnEye">
+            
+             Value indicating if the glasses frame is not on the eyes. The lower the better.
+            
+        </member>
+        <member name="F:id3.Face.GlassesAttributes.HeavyFrame">
+            
+             Value indicating if the glasses' frame is too heavy. In the range [0; 100]. The closer to 100 the better. The minimum recommended value is 80.
+            
+        </member>
+        <member name="F:id3.Face.GlassesAttributes.TintedGlasses">
+            
+             Value indicating if the glasses are tinted. The lower the better. The minimum recommended value is 25.
+            
+        </member>
+        <member name="M:id3.Face.GlassesAttributes.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the GlassesAttributes structure from its members.
+            <param name="frameOnEye">Value indicating if the glasses frame is not on the eyes. The lower the better.</param>
+            <param name="heavyFrame">Value indicating if the glasses' frame is too heavy. In the range [0; 100]. The closer to 100 the better. The minimum recommended value is 80.</param>
+            <param name="tintedGlasses">Value indicating if the glasses are tinted. The lower the better. The minimum recommended value is 25.</param>
+            </summary>
+        </member>
+        <member name="M:id3.Face.GlassesAttributes.#ctor(id3.Face.GlassesAttributes)">
+            <summary>
+            Initializes a new instance of the GlassesAttributes structure from another GlassesAttributes.
+            </summary>
+            <param name="glassesAttributes">The GlassesAttributes to copy.</param>
+        </member>
+        <member name="T:id3.Face.PhotographicAttributes">
+            <summary>
+            This structure represents a PhotographicAttributes object of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.PhotographicAttributes.Brightness">
+            
+             Value indicating if the image brightness is sufficient. The higher the better.
+            
+        </member>
+        <member name="F:id3.Face.PhotographicAttributes.EqualBrightness">
+            
+             Value indicating if one side of the face is ligther than the other side. The lower the better.
+            
+        </member>
+        <member name="F:id3.Face.PhotographicAttributes.FaceContrast">
+            
+             Value indicating if the contrast of the face is fine. The minimum recommended value is 110.
+            
+        </member>
+        <member name="F:id3.Face.PhotographicAttributes.FlashReflection">
+            
+             Value indicating if a flash reflection is present on the face. The lower the better. The maximum recommended value is 70.
+            
+        </member>
+        <member name="F:id3.Face.PhotographicAttributes.NaturalSkinColor">
+            
+             Value indicating if the skin is natural. The minimum recommended value is 10.
+            
+        </member>
+        <member name="F:id3.Face.PhotographicAttributes.Pixelation">
+            
+             Value indicating if the image is pixelized. The lower the better. The maximum recommended value is 50.
+            
+        </member>
+        <member name="F:id3.Face.PhotographicAttributes.Sharpness">
+            
+             Value indicating if the image sharpness is sufficient. The higher the better. The minimum recommended value is 40.
+            
+        </member>
+        <member name="M:id3.Face.PhotographicAttributes.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the PhotographicAttributes structure from its members.
+            <param name="brightness">Value indicating if the image brightness is sufficient. The higher the better.</param>
+            <param name="equalBrightness">Value indicating if one side of the face is ligther than the other side. The lower the better.</param>
+            <param name="faceContrast">Value indicating if the contrast of the face is fine. The minimum recommended value is 110.</param>
+            <param name="flashReflection">Value indicating if a flash reflection is present on the face. The lower the better. The maximum recommended value is 70.</param>
+            <param name="naturalSkinColor">Value indicating if the skin is natural. The minimum recommended value is 10.</param>
+            <param name="pixelation">Value indicating if the image is pixelized. The lower the better. The maximum recommended value is 50.</param>
+            <param name="sharpness">Value indicating if the image sharpness is sufficient. The higher the better. The minimum recommended value is 40.</param>
+            </summary>
+        </member>
+        <member name="M:id3.Face.PhotographicAttributes.#ctor(id3.Face.PhotographicAttributes)">
+            <summary>
+            Initializes a new instance of the PhotographicAttributes structure from another PhotographicAttributes.
+            </summary>
+            <param name="photographicAttributes">The PhotographicAttributes to copy.</param>
+        </member>
+        <member name="T:id3.Face.Point">
+            <summary>
+            This structure represents a Point object of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.Point.X">
+            
+             X-coordinate of the point.
+            
+        </member>
+        <member name="F:id3.Face.Point.Y">
+            
+             Y-coordinate of the point.
+            
+        </member>
+        <member name="M:id3.Face.Point.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the Point structure from its members.
+            <param name="x">X-coordinate of the point.</param>
+            <param name="y">Y-coordinate of the point.</param>
+            </summary>
+        </member>
+        <member name="M:id3.Face.Point.#ctor(id3.Face.Point)">
+            <summary>
+            Initializes a new instance of the Point structure from another Point.
+            </summary>
+            <param name="point">The Point to copy.</param>
+        </member>
+        <member name="T:id3.Face.Rectangle">
+            <summary>
+            This structure represents a Rectangle object of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.Rectangle.BottomLeft">
+            
+             Bottom-left corner of the rectangle.
+            
+        </member>
+        <member name="F:id3.Face.Rectangle.BottomRight">
+            
+             Bottom-right corner of the rectangle.
+            
+        </member>
+        <member name="F:id3.Face.Rectangle.TopLeft">
+            
+             Top-left corner of the rectangle.
+            
+        </member>
+        <member name="F:id3.Face.Rectangle.TopRight">
+            
+             Top-right corner of the rectangle.
+            
+        </member>
+        <member name="M:id3.Face.Rectangle.#ctor(id3.Face.Point,id3.Face.Point,id3.Face.Point,id3.Face.Point)">
+            <summary>
+            Initializes a new instance of the Rectangle structure from its members.
+            <param name="bottomLeft">Bottom-left corner of the rectangle.</param>
+            <param name="bottomRight">Bottom-right corner of the rectangle.</param>
+            <param name="topLeft">Top-left corner of the rectangle.</param>
+            <param name="topRight">Top-right corner of the rectangle.</param>
+            </summary>
+        </member>
+        <member name="M:id3.Face.Rectangle.#ctor(id3.Face.Rectangle)">
+            <summary>
+            Initializes a new instance of the Rectangle structure from another Rectangle.
+            </summary>
+            <param name="rectangle">The Rectangle to copy.</param>
+        </member>
+        <member name="T:id3.Face.LicenseError">
+            <summary>
+            This enumeration represents the possible values for a LicenseError of the Face module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.Success">
+            <summary>
+            No error.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.Base">
+            <summary>
+            Base error code of the License module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.Minimum">
+            <summary>
+            Minimum error code of the License module.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.LicenseNotFound">
+            <summary>
+            No license was found.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.InvalidLicense">
+            <summary>
+            License is not valid or a required module is not licensed.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.ExpiredLicense">
+            <summary>
+            The license has expired.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.InvalidHardwareId">
+            <summary>
+            Installation code does not match hardware ID.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.AlreadyFulfilled">
+            <summary>
+            The license is already fulfilled by another user (or computer).
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.ModuleError">
+            <summary>
+            A required module is not licensed or the usage limit has been reached.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.WriteError">
+            <summary>
+            The license file cannot be accessed in write mode.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.InsufficientBuffer">
+            <summary>
+            The given buffer is too small.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.InvalidHandle">
+            <summary>
+            The handle is invalid.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.InvalidParameter">
+            <summary>
+            One of the parameters is incorrect.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.InsufficientLicenseCredits">
+            <summary>
+            The number of available licenses has been reached. There isn't any available license remaining.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.InvalidSerial">
+            <summary>
+            The serial is invalid.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.InvalidCredentials">
+            <summary>
+            Invalid login or password.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.RevokedLicense">
+            <summary>
+            The license is revoked or does not exist anymore.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.BlockedLicense">
+            <summary>
+            The license is blocked after a predefined period.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.UnreachableServer">
+            <summary>
+            The license server is currently unreachable.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.LicenseOtherError">
+            <summary>
+            An unexpected error happened.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.MissingFile">
+            <summary>
+            No license file was provided.
+            </summary>
+        </member>
+        <member name="F:id3.Face.LicenseError.DeviceNotCompatible">
+            <summary>
+            This device is not compatible with id3 licensing system.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,19 @@
+mbedTLS
+-------
+This software uses the mbedTLS library.
+mbedTLS is used under the Apache License, Version 2.0.
+
+libcurl
+-------
+This software uses the libcurl library.
+libcurl is used under a MIT/X derivate license.
+
+OpenCV
+------
+This software uses the OpenCV library.
+OpenCV is used under a 3-clause BSD license.
+
+MNN
+---
+This software uses the MNN library.
+MNN is used under the Apache License, Version 2.0.

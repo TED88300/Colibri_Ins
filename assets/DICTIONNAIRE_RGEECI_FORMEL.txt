@@ -1,0 +1,4234 @@
+﻿[Dictionary]
+[Level]
+Label=DIC_RGEECI_FORMEL Level
+Name=DIC_RGEECI_FORMEL_LEVEL
+
+[IdItems]
+
+[Item]
+Label=IdB4a: Sous-préfecture
+Name=QF_IDB4A
+Start=3
+Len=5
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=IdB4a: Sous-préfecture
+Name=QF_IDB4A_VS1
+Value=211;ABOBO
+Value=212;ADJAME
+Value=213;ATTECOUBE
+Value=214;COCODY
+Value=215;KOUMASSI
+Value=216;MARCORY
+Value=217;PLATEAU
+Value=218;PORT-BOUET
+Value=219;TREICHVILLE
+Value=220;YOPOUGON
+Value=202;ANYAMA
+Value=203;BINGERVILLE
+Value=204;BROFODOUME
+Value=205;SONGON
+Value=1701;BEDIALA
+Value=1702;DALOA
+Value=1703;GADOUAN
+Value=1704;GBOGUHE
+Value=1705;GONATE
+Value=1706;ZAIBO
+Value=2701;BOGUEDIA
+Value=2702;IBOGUHE
+Value=2703;ISSIA
+Value=2704;NAHIO
+Value=2705;NAMANE
+Value=2706;SAIOUA
+Value=2707;TAPEGUIA
+Value=4801;BAZRA-NATTIS
+Value=4802;DANANON
+Value=4803;DANIA
+Value=4804;KETRO BASSAM
+Value=4805;SEITIFLA
+Value=4806;VAVOUA
+Value=9501;DOMANGBEU
+Value=9502;GREGBEU
+Value=9503;GUESSABO
+Value=9504;ZOUKOUGBEU
+Value=2901;DASSOUNGBOHO
+Value=2902;KANOROBA
+Value=2903;KARAKORO
+Value=2904;KIEMOU
+Value=2905;KONI
+Value=2906;KORHOGO
+Value=2907;KOMBOLOKOURA
+Value=2908;KOMBORODOUGOU
+Value=2909;LATAHA
+Value=2910;NAFOUN
+Value=2911;NAPIE
+Value=2912;N'GANON
+Value=2913;NIOFOIN
+Value=2914;SIRASSO
+Value=2915;SOHOUO
+Value=2916;TIORONIARADOUGOU
+Value=7501;BORON
+Value=7502;DIKODOUGOU
+Value=7503;GUIEMBE
+Value=9001;BAHOUAKAHA
+Value=9002;KAGBOLODOUGOU
+Value=9003;SEDIOGO
+Value=9004;SINEMATIALI
+Value=10301;BOUGOU
+Value=10302;KATIALI
+Value=10303;KATOGO
+Value=10304;M'BENGUE
+Value=801;ANDO-KEKRENOU
+Value=802;BEOUMI
+Value=803;BODOKRO
+Value=804;LOLOBO (DE BEOUMI)
+Value=805;MARABADJASSA
+Value=806;N'GUESSANKRO (DE BEOUMI)
+Value=807;KONDROBO
+Value=1301;BOUAKE
+Value=1302;BOUNDA
+Value=1303;BROBO
+Value=1304;DJEBONOUA
+Value=1305;MAMINI
+Value=3601;AYAOU-SRAN
+Value=3602;DIBRI-ASRIKRO
+Value=3603;SAKASSOU
+Value=3604;TOUMODI-SAKASSOU
+Value=7401;BOTRO
+Value=7402;DIABO
+Value=7403;KROFOINSOU
+Value=7404;LANGUIBONOU
+Value=101;ABENGOUROU
+Value=102;AMELEKIA
+Value=103;ANIASSUE
+Value=104;EBILASSOKRO
+Value=105;NIABLE
+Value=106;YAKASSE-FEYASSE
+Value=107;ZARANOU
+Value=601;AGNIBILEKROU
+Value=602;AKOBOISSUE
+Value=603;DAME
+Value=604;DUFFREBO
+Value=605;TANGUELAN
+Value=7301;BETTIE
+Value=7302;DIAMARAKRO
+Value=901;BIANKOUMA
+Value=902;BLAPLEU
+Value=903;GBANGBEGOUINE
+Value=904;GBONNE
+Value=905;GOUINE
+Value=906;KPATA
+Value=907;SANTA (DE BIANKOUMA)
+Value=1801;DALEU
+Value=1802;DANANE
+Value=1803;GBON-HOUYE
+Value=1804;KOUAN-HOULE
+Value=1805;MAHAPLEU
+Value=1806;SEILEU
+Value=1807;ZONNEU
+Value=3101;BOGOUINE
+Value=3102;FAGNAMPLEU
+Value=3103;GBANGBEGOUINE-YATI
+Value=3104;LOGOUALE
+Value=3105;MAN
+Value=3106;PODIAGOUINE
+Value=3107;SANDOUGOU-SOBA
+Value=3108;SANGOUINE
+Value=3109;YAPLEU
+Value=3110;ZAGOUE
+Value=3111;ZIOGOUINE
+Value=6601;BANNEU
+Value=6602;BIN-HOUYE
+Value=6603;GOULALEU
+Value=6604;TEAPLEU
+Value=6605;YELLEU
+Value=6606;ZOUAN-HOUNIEN
+Value=10601;SIPILOU
+Value=10602;YORODOUGOU
+Value=4901;KOSSOU
+Value=4902;YAMOUSSOUKRO
+Value=7201;ATTIEGOUAKRO
+Value=7202;LOLOBO (DE ATTIEGOUAKRO)
+Value=1001;APPIMANDOUM
+Value=1002;PINDA-BOROKO
+Value=1003;BONDO
+Value=1004;BONDOUKOU
+Value=1005;GOUMERE
+Value=1006;LAOUDI BA
+Value=1007;SAPLI-SEPINGO
+Value=1008;SOROBANGO
+Value=1009;TABAGNE
+Value=1010;TAGADI
+Value=1011;TAOUDI
+Value=1012;YEZIMALA
+Value=4301;AMANVI
+Value=4302;DIAMBA
+Value=4303;TANDA
+Value=4304;TIEDIO
+Value=7001;BOAHIA
+Value=7002;KOKOMIAN
+Value=7003;KOUASSI-DATEKRO
+Value=7004;KOUN-FAO
+Value=7005;TANKESSE
+Value=7006;TIENKOIKRO
+Value=8901;BANDAKAGNI-TOMORA
+Value=8902;DIMANDOUGOU
+Value=8903;SANDEGUE
+Value=8904;YOROBODI
+Value=9301;ASSUEFRY
+Value=9302;KOUASSIA-NIAGUINI
+Value=9303;TRANSUA
+Value=3701;DOBA
+Value=3702;DOGBO
+Value=3703;GABIADJI
+Value=3704;GRAND-BEREBY
+Value=3705;SAN-PEDRO
+Value=4201;DAPO-IBOKE
+Value=4202;DJAMANDIOKE
+Value=4203;DJOUROUTOU
+Value=4204;GRABO
+Value=4205;OLODIO
+Value=4206;TABOU
+Value=3401;BAKO
+Value=3402;BOUGOUSSO
+Value=3403;DIOULATIEDOUGOU
+Value=3404;ODIENNE
+Value=3405;TIEME
+Value=6701;FENGOLO
+Value=6702;MADINANI
+Value=6703;N'GOLOBLASSO
+Value=8801;KIMBIRILA-SUD
+Value=8802;SAMATIGUILA
+Value=10001;GBELEBAN
+Value=10002;SEYDOUGOU
+Value=10003;SAMANGO
+Value=10501;GBONGAHA
+Value=10502;SEGUELON
+Value=2001;ABIGUI
+Value=2002;DJANGOKRO
+Value=2003;DIMBOKRO
+Value=2004;NOFOU
+Value=5301;BENGASSOU
+Value=5302;BOCANDA
+Value=5303;KOUADIOBLEKRO
+Value=5304;N'ZECREZESSOU
+Value=10201;KOUASSI-KOUASSIKRO
+Value=10202;MEKRO
+Value=1201;BEGBESSOU
+Value=1202;BONON
+Value=1203;BOUAFLE
+Value=1204;N'DOUFFOUKANKRO
+Value=1205;PAKOUABO
+Value=1206;TIBEITA
+Value=1207;ZAGUIETA
+Value=4001;BAZRE
+Value=4002;KONONFLA
+Value=4003;KOUETINFLA
+Value=4004;SINFRA
+Value=5001;GOHITAFLA
+Value=5002;IRIEFLA
+Value=5003;KANZRA
+Value=5004;MAMINIGUI
+Value=5005;VOUEBOUFLA
+Value=5006;ZANZRA
+Value=5007;ZUENOULA
+Value=301;ABOISSO
+Value=302;ADAOU
+Value=303;ADJOUAN
+Value=304;AYAME
+Value=305;BIANOUAN
+Value=306;KOUAKRO
+Value=307;MAFERE
+Value=308;YAOU
+Value=5101;ADIAKE
+Value=5102;ASSINIE
+Value=5103;ETUEBOUE
+Value=5501;BONGO
+Value=5502;BONOUA
+Value=5503;GRAND-BASSAM
+Value=9201;NOE
+Value=9202;NOUAMOU
+Value=9203;TIAPOUM
+Value=3901;BOBI
+Value=3902;DIARABANA
+Value=3903;DUALLA
+Value=3904;KAMALO
+Value=3905;MASSALA
+Value=3906;SEGUELA
+Value=3907;SIFIE
+Value=3908;WOROFLA
+Value=8001;DJIBROSSO
+Value=8002;FADIADOUGOU
+Value=8003;KANI
+Value=8004;MORONDO
+Value=2101;CHIEPO
+Value=2102;DIDOKO
+Value=2103;DIVO
+Value=2104;HIRE
+Value=2105;NEBO
+Value=2106;OGOUDOU
+Value=2107;ZEGO
+Value=3001;DJIDJI
+Value=3002;GAGORE
+Value=3003;GOUDOUKO
+Value=3004;LAKOTA
+Value=3005;NIAMBEZARIA
+Value=3006;ZIKISSO
+Value=7901;DAIRO-DIDIZO
+Value=7902;GUITRY
+Value=7903;LAUZOUA
+Value=7904;YOCOBOUE
+Value=501;ABOUDE
+Value=502;ANANGUIE
+Value=503;AGBOVILLE
+Value=504;ATTOBROU
+Value=505;AZAGUIE
+Value=506;CECHI
+Value=507;GRAND-MORIE
+Value=508;GUESSIGUIE
+Value=509;LOVIGUIE
+Value=510;ORESS-KROBOU
+Value=511;RUBINO
+Value=4501;GBOLOUVILLE
+Value=4502;MOROKRO
+Value=4503;N'DOUCI
+Value=4504;TIASSALE
+Value=6501;GOMON
+Value=6502;SIKENSI
+Value=10701;PACOBO
+Value=10702;TAABO
+Value=2401;BAYOTA
+Value=2402;DAHIEPA-KEHI
+Value=2403;DIGNAGO
+Value=2404;DOUGROUPALEGNOA
+Value=2405;DOUKOUYO
+Value=2406;GAGNOA
+Value=2407;GALEBRE
+Value=2408;GNAGBODOUGNOA
+Value=2409;GUIBEROUA
+Value=2410;OURAGAHIO
+Value=2411;SERIHIO
+Value=2412;YOPOHUE
+Value=3501;DIEGONEFLA
+Value=3502;GUEPAHOUO
+Value=3503;OUME
+Value=3504;TONLA
+Value=2601;BEDY-GOAZON
+Value=2602;GUIGLO
+Value=2603;KAADE
+Value=2604;NIZAHON
+Value=5801;BAKOUBLY
+Value=5802;MEO
+Value=5803;NEZOBLY
+Value=5804;PEHE
+Value=5805;TIOBLY
+Value=5806;TOULEPLEU
+Value=5901;BLOLEQUIN
+Value=5902;DIBOKE
+Value=5903;DOKE
+Value=5904;TINHOU
+Value=5905;ZEAGLO
+Value=10801;TAI
+Value=10802;ZAGNE
+Value=4601;DIOMAN
+Value=4602;FOUNGBESSO
+Value=4603;GUINTEGUELA
+Value=4604;TOUBA
+Value=8201;BOOKO
+Value=8202;BOROTOU
+Value=8203;KORO
+Value=8204;MAHANDOUGOU
+Value=8205;NIOKOSSO
+Value=8701;GBELO
+Value=8702;GOUEKAN
+Value=8703;KOONAN
+Value=8704;OUANINOU
+Value=8705;SABOUDOUGOU
+Value=8706;SANTA (DE OUANINOU)
+Value=1501;BAYA
+Value=1502;BOUNDIALI
+Value=1503;GANAONI
+Value=1504;KASSERE
+Value=1505;SIEMPURGO
+Value=4401;DEBETE
+Value=4402;KANAKONO
+Value=4403;PAPARA
+Value=4404;TENGRELA
+Value=8301;BLESSEGUE
+Value=8302;GBON
+Value=8303;KOLIA
+Value=8304;KOUTO
+Value=8305;SIANHALA
+Value=4701;ANGODA
+Value=4702;KOKUMBO
+Value=4703;KPOUEBO
+Value=4704;TOUMODI
+Value=5701;LOMOKANKRO
+Value=5702;MOLONOU
+Value=5703;TIEBISSOU
+Value=5704;YAKPABO-SAKASSOU
+Value=6101;BOLI
+Value=6102;DIDIEVI
+Value=6103;MOLONOU BLE
+Value=6104;RAVIART
+Value=6105;TIE-N'DIEKRO
+Value=9801;BONIKRO
+Value=9802;DJEKANOU
+Value=3201;BOUANDOUGOU
+Value=3202;MANKONO
+Value=3203;MARHANDALLAH
+Value=3204;SARHALA
+Value=3205;TIENINGBOUE
+Value=6901;KONGASSO
+Value=6902;KOUNAHIRI
+Value=9701;DIANRA
+Value=9702;DIANRA VILLAGE
+Value=1401;BOUKO
+Value=1402;BOUNA
+Value=1403;ONDEFIDOUO
+Value=1404;YOUNDOUO
+Value=6301;BOGOFA
+Value=6302;KOTOUBA
+Value=6303;KAKPIN
+Value=6304;NASSIAN
+Value=6305;SOMINASSE
+Value=7601;DANOA
+Value=7602;DOROPO
+Value=7603;KALAMON
+Value=7604;NIAMOUE
+Value=9101;GOGO
+Value=9102;TEHINI
+Value=9103;TOUGBO
+Value=6801;KIMBIRILA-NORD
+Value=6802;MINIGNAN
+Value=6803;SOKORO
+Value=6804;TIENKO
+Value=8101;GOULIA
+Value=8102;KANIASSO
+Value=8103;MAHANDIANA-SOKOURANI
+Value=3801;DAKPADOU
+Value=3802;GRIHIRI
+Value=3803;LOBAKUYA
+Value=3804;MEDON
+Value=3805;SAGO
+Value=3806;SASSANDRA
+Value=7701;DAHIRI
+Value=7702;FRESCO
+Value=7703;GBAGBAM
+Value=2501;AHOUANOU
+Value=2502;BACANDA
+Value=2503;EBONOU
+Value=2504;GRAND-LAHOU
+Value=2505;TOUKOUZOU
+Value=5401;DABOU
+Value=5402;LOPOU
+Value=5403;TOUPAH
+Value=5601;ATTOUTOU A
+Value=5602;JACQUEVILLE
+Value=701;BANGOLO
+Value=702;BEOUE-ZIBIAO
+Value=703;BLENIMEOUIN
+Value=704;DIEOUZON
+Value=705;GOHOUO-ZAGNA
+Value=706;GUINGLO-TAHOUAKE
+Value=707;KAHIN-ZARABAON
+Value=708;ZEO
+Value=709;ZOU
+Value=2201;BAGOHOUO
+Value=2202;DUEKOUE
+Value=2203;GBAPLEU
+Value=2204;GUEHIEBLY
+Value=2205;GUEZON (DE DUEKOUE)
+Value=6201;KOUIBLY
+Value=6202;NIDROU
+Value=6203;OUYABLY-GNONDROU
+Value=6204;TOTRODROU
+Value=9901;FACOBLY
+Value=9902;GUEZON (DE FACOBLY)
+Value=9903;KOUA
+Value=9904;SEMIEN
+Value=9905;TIENY-SIABLY
+Value=1601;BASSAWA
+Value=1602;BONIEREDOUGOU
+Value=1603;DABAKALA
+Value=1604;FOUMBOLO
+Value=1605;NIEMENE
+Value=1606;SATAMA-SOKORO
+Value=1607;SATAMA-SOKOURA
+Value=1608;SOKALA-SOBARA
+Value=1609;TIENDENE-BAMBARASSO
+Value=1610;YAOSSEDOUGOU
+Value=2801;FRONAN
+Value=2802;KATIOLA
+Value=2803;TIMBE
+Value=8501;ARIKOKAHA
+Value=8502;BADIKAHA
+Value=8503;NIAKARAMADOUGOU
+Value=8504;NIEDEKAHA
+Value=8505;TAFIRE
+Value=8506;TORTIYA
+Value=401;ADZOPE
+Value=402;AGOU
+Value=403;ANNEPE
+Value=404;ASSIKOI
+Value=405;BECEDI-BRIGNAN
+Value=406;YAKASSE-ME
+Value=5201;ABOISSO-COMOE
+Value=5202;ALEPE
+Value=5203;ALLOSSO
+Value=5204;DANGUIRA
+Value=5205;OGHLWAPO
+Value=6001;AFFERY
+Value=6002;AKOUPE
+Value=6003;BECOUEFIN
+Value=9401;ABONGOUA
+Value=9402;BIEBY
+Value=9403;YAKASSE-ATTOBROU
+Value=1901; AKPASSANOU
+Value=1902;ANANDA
+Value=1903;DAOUKRO
+Value=1904;ETTROKRO
+Value=1905;N'GATTAKRO
+Value=1906; OUELLE
+Value=1907;SAMANZA
+Value=3301;BONGUERA
+Value=3302;KONDOSSOU
+Value=3303;M'BAHIAKRO
+Value=6401;ANIANOU
+Value=6402;FAMIENKRO
+Value=6403;KOFFI-AMONKRO
+Value=6404;NAFANA (DE PRIKRO)
+Value=6405;PRIKRO
+Value=4101;GRAND-ZATTRY
+Value=4102;LILIYO
+Value=4103;OKROUYO
+Value=4104;SOUBRE
+Value=7801;DABOUYO
+Value=7802;GUEYO
+Value=9601;BUYO
+Value=9602;DAPEOUA
+Value=10401;GNAMANGUI
+Value=10402;MEAGUI
+Value=10403;OUPOYO
+Value=2301;FERKESSEDOUGOU
+Value=2302;KOUMBALA
+Value=2303;TOGONIERE
+Value=8601;DIAWALA
+Value=8602;KAOUARA
+Value=8603;NIELLE
+Value=8604;OUANGOLODOUGOU
+Value=8605;TOUMOUKORO
+Value=10101;BILIMONO
+Value=10102;KONG
+Value=10103;NAFANA(DE KONG)
+Value=10104;SIKOLO
+Value=1101;ANDE
+Value=1102;ASSIE-KOUMASSI
+Value=1103;BONGOUANOU
+Value=1104;N'GUESSANKRO (DE BONGOUANOU)
+Value=7101;ARRAH
+Value=7102;KOTOBI
+Value=7103;KREGBE
+Value=8401;ANOUMABA
+Value=8402;ASSAHARA
+Value=8403;M'BATTO
+Value=8404;TIEMELEKRO
+
+[Item]
+Label=B4.b: Commune
+Name=QF_B4B
+Start=8
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=B4.b: Commune
+Name=QF_B4B_VS1
+Value=1;COMMUNAL
+Value=98;NON COMMUNAL
+Value=11;ABIDJAN(ABOBO)
+Value=12;ABIDJAN(ADJAME)
+Value=13;ABIDJAN(ATTECOUBE)
+Value=14;ABIDJAN(COCODY)
+Value=15;ABIDJAN(KOUMASSI)
+Value=16;ABIDJAN(MARCORY)
+Value=17;ABIDJAN(PLATEAU)
+Value=18;ABIDJAN(PORT-BOUET)
+Value=19;ABIDJAN(TREICHVILLE)
+Value=20;ABIDJAN(YOPOUGON)
+
+[Item]
+Label=B5: Milieu d'implantation
+Name=QF_B5
+Start=10
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=B5: Milieu d'implantation
+Name=QF_B5_VS1
+Value=1;Urbain
+Value=2;Rural
+
+[Item]
+Label=B6: Zone de Recensement (ZR)
+Name=QF_B6
+Start=11
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=B6: Zone de Recensement (ZR)
+Name=QF_B6_VS1
+Value=1:9999
+
+[Item]
+Label=B7.c: Numéro de l'îlot
+Name=QF_B7C
+Start=15
+Len=5
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=B7.c: Numéro de l'îlot
+Name=QF_B7C_VS1
+Value=1:9997
+Value=9999;Numéro d'îlot manquant
+
+[Item]
+Label=Numéro d'ordre
+Name=QF_NUMORDRE
+Start=20
+Len=6
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=A1: Code agent recenseur
+Name=QF_A1
+Start=26
+Len=5
+DataType=Numeric
+ZeroFill=Yes
+
+[Record]
+Label=A : INFORMATIONS GENERALES SUR LE QUESTIONNAIRE
+Name=QF_A
+RecordTypeValue='AA'
+Required=No
+RecordLen=123
+
+[Item]
+Label=A3: Numero questionnaire
+Name=QF_A3
+Start=31
+Len=12
+DataType=Alpha
+
+[Item]
+Label=B1: District
+Name=QF_B1
+Start=43
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B2: Région
+Name=QF_B2
+Start=45
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B3: Departement
+Name=QF_B3
+Start=47
+Len=3
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B4.a: Sous-préfecture
+Name=QF_B4A
+Start=50
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=Fin interview
+Name=QF_INTERVIEW
+Start=52
+Len=1
+DataType=Alpha
+
+[Item]
+Label=A1A: Nom et prénoms de l'agent recenseur
+Name=QF_A1A
+Start=53
+Len=35
+DataType=Alpha
+
+[Item]
+Label=A2: Code chef d'équipe
+Name=QF_A2
+Start=88
+Len=5
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=A2a: Nom et prénoms du chef d'équipe
+Name=QF_A2A
+Start=93
+Len=31
+DataType=Alpha
+
+[Record]
+Label=B : LOCALISATION DE L’ENTREPRISE/ETABLISSEMENT
+Name=QF_B
+RecordTypeValue='BB'
+Required=No
+RecordLen=643
+
+[Item]
+Label=B11: Date debut entretien
+Name=QF_B11
+Start=31
+Len=8
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B11: Date debut entretien (année)
+Name=QF_B11AA
+Start=31
+Len=4
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B11: Date debut entretien (mois)
+Name=QF_B11MM
+Start=35
+Len=2
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B11: Date debut entretien (jour)
+Name=QF_B11JJ
+Start=37
+Len=2
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B12: Heure début entretien
+Name=QF_B12
+Start=39
+Len=4
+DataType=Alpha
+
+[Item]
+Label=B12: Heure début entretien (heure)
+Name=QF_B12HH
+Start=39
+Len=2
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=B12: Heure début entretien (heure)
+Name=QF_B12HH_VS1
+Value=0:23;0-23
+
+[Item]
+Label=B12: Heure début entretien (minute)
+Name=QF_B12MN
+Start=41
+Len=2
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=B12: Heure début entretien (minute)
+Name=QF_B12MN_VS1
+Value=0:59;0-59
+
+[Item]
+Label=B7.a: Village/Localité
+Name=QF_B7A
+Start=43
+Len=3
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B7.b: Quartier/campement
+Name=QF_B7B
+Start=46
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=Options GPS
+Name=QF_CHOIX_GPS
+Start=50
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Options GPS
+Name=QF_CHOIX_GPS_VS1
+Value=1;Reprendre coordonnées GPS
+Value=2;Prendre les coordonnées plus tard
+Value=3;Coordonnées GPS Acceptées
+
+[ValueSet]
+Label=Plot GPS
+Name=QF_CHOIX_GPS_VS2
+Value=1;Prendre coordonnées GPS
+Value=2;Prendre les coordonnées plus tard
+
+[ValueSet]
+Label=Plot GPS
+Name=QF_CHOIX_GPS_VS3
+Value=3;Coordonnées GPS Acceptées
+Value=1;Reprendre coordonnées GPS
+
+[Item]
+Label=B8.1: Longitude
+Name=QF_B81
+Start=51
+Len=14
+DataType=Numeric
+Decimal=9
+DecimalChar=Yes
+ZeroFill=Yes
+
+[Item]
+Label=B8.2: Latitude
+Name=QF_B82
+Start=65
+Len=14
+DataType=Numeric
+Decimal=9
+DecimalChar=Yes
+ZeroFill=Yes
+
+[Item]
+Label=B8.3: Précision
+Name=QF_B83
+Start=79
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B9: Adresse géographique précise de l'unité (rue,immeuble,...)
+Name=QF_B9
+Start=81
+Len=70
+DataType=Alpha
+
+[Item]
+Label=B10.: Mode d'administration du questionnaire
+Name=QF_B10
+Start=151
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=B10.: Mode d'administration du questionnaire
+Name=QF_B10_VS1
+Value=1;Entretien direct support tablette
+Value=2;Entretien direct support papier
+Value=3;Dépôt de questionnaire physique
+Value=4;Remplissage en ligne
+Value=5;Remplissage par email
+
+[Item]
+Label=B13 : Nom de l’interlocuteur
+Name=QF_B13
+Start=152
+Len=60
+DataType=Alpha
+
+[Item]
+Label=B14 : Fonction du l’interlocuteur
+Name=QF_B14
+Start=212
+Len=60
+DataType=Alpha
+
+[Item]
+Label=B15 : E-mail de l’interlocuteur
+Name=QF_B15
+Start=272
+Len=70
+DataType=Alpha
+
+[Item]
+Label=B16 : Numéro de téléphone de l’interlocuteur
+Name=QF_B16
+Start=342
+Len=10
+DataType=Alpha
+
+[Item]
+Label=B17 : Dénomination ou Raison sociale de l’entreprise/établissement
+Name=QF_B17
+Start=352
+Len=100
+DataType=Alpha
+
+[Item]
+Label=B18 : : Sigle de l’entreprise/établissement
+Name=QF_B18
+Start=452
+Len=70
+DataType=Alpha
+
+[Item]
+Label=B19.a: Téléphone fixe 1 de l'entreprise
+Name=QF_B19A
+Start=522
+Len=10
+DataType=Alpha
+
+[Item]
+Label=B19.b: Téléphone fixe 2 de l'entreprise
+Name=QF_B19B
+Start=532
+Len=10
+DataType=Alpha
+
+[Item]
+Label=B19.aa: Téléphone portable 1 de l'entreprise
+Name=QF_B19AA
+Start=542
+Len=10
+DataType=Alpha
+
+[Item]
+Label=B19.ab: Téléphone portable 2 de l'entreprise
+Name=QF_B19AB
+Start=552
+Len=10
+DataType=Alpha
+
+[Item]
+Label=B20: E-mail de l'entreprise
+Name=QF_B20
+Start=562
+Len=70
+DataType=Alpha
+
+[Item]
+Label=B21: Date de l’enregistrement partiel
+Name=QF_B21
+Start=632
+Len=8
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B21: Année enregistrement partiel
+Name=QF_B21AA
+Start=632
+Len=4
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B21: Mois enregistrement partiel
+Name=QF_B21MM
+Start=636
+Len=2
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B21: Jour enregistrement partiel
+Name=QF_B21JJ
+Start=638
+Len=2
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=B21a: Heure de l’enregistrement partiel
+Name=QF_B21A
+Start=640
+Len=4
+DataType=Alpha
+
+[Item]
+Label=B21a: Heure enregistrement partiel
+Name=QF_B21AHH
+Start=640
+Len=2
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=B21a: Heure enregistrement partiel
+Name=QF_B21AHH_VS1
+Value=0:23;0-23
+
+[Item]
+Label=B21a: Minute enregistrement partiel
+Name=QF_B21AMN
+Start=642
+Len=2
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=B21a: Minute enregistrement partiel
+Name=QF_B21AMN_VS1
+Value=0:59;0-59
+
+[Record]
+Label=C : IDENTIFICATION DU REPONDANT ET DE L’ENTREPRISE/ L’ETABLISSEMENT
+Name=QF_C
+RecordTypeValue='CC'
+Required=No
+RecordLen=1329
+
+[Item]
+Label=C1: Nom du repondant
+Name=QF_C1
+Start=31
+Len=70
+DataType=Alpha
+
+[Item]
+Label=C2: Fonction du repondant
+Name=QF_C2
+Start=101
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C2: Fonction du repondant ?
+Name=QF_C2_VS1
+Value=0;???
+Value=1;Propriétaire de l’entreprise/établissement
+Value=2;Gérant de l'unité
+Value=3;Travailleur
+Value=4;Voisin Immédiat
+Value=5;Autre à préciser
+
+[Item]
+Label=C2.a: Autre fonction du repondant à préciser
+Name=QF_C2A
+Start=102
+Len=80
+DataType=Alpha
+
+
+[Item]
+Label=C3.a1: Contact 1 du repondant
+Name=QF_C3A1
+Start=171
+Len=10
+DataType=Alpha
+
+[Item]
+Label=C3.a2: Contact 2 du repondant
+Name=QF_C3A2
+Start=181
+Len=10
+DataType=Alpha
+
+[Item]
+Label=C3.b: E-mail du repondant
+Name=QF_C3B
+Start=191
+Len=70
+DataType=Alpha
+
+[Item]
+Label=C4: Dénomination ou raison sociale de l'entreprise
+Name=QF_C4
+Start=261
+Len=110
+DataType=Alpha
+
+[Item]
+Label=C5: Sigle de l'entreprise
+Name=QF_C5
+Start=371
+Len=110
+DataType=Alpha
+
+[Item]
+Label=C6.a: Téléphone fixe 1 de l'entreprise
+Name=QF_C6A
+Start=481
+Len=10
+DataType=Numeric
+
+[Item]
+Label=C6.b: Téléphone fixe 2 de l'entreprise
+Name=QF_C6B
+Start=491
+Len=10
+DataType=Numeric
+
+[Item]
+Label=C7.a: Téléphone portable 1 de l'entreprise
+Name=QF_C7A
+Start=501
+Len=10
+DataType=Alpha
+
+[Item]
+Label=C7.b: Téléphone portable 2 de l'entreprise
+Name=QF_C7B
+Start=511
+Len=10
+DataType=Alpha
+
+[Item]
+Label=C8: Boite postale de l'entreprise
+Name=QF_C8
+Start=521
+Len=70
+DataType=Alpha
+
+[Item]
+Label=C9: Fax de l'entreprise
+Name=QF_C9
+Start=591
+Len=10
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=C10: E-mail de l'entreprise
+Name=QF_C10
+Start=601
+Len=70
+DataType=Alpha
+
+[Item]
+Label=C11: Site web de l'entreprise
+Name=QF_C11
+Start=671
+Len=70
+DataType=Alpha
+
+[Item]
+Label=C12: Date de création de l'entreprise / établissement(Mois/Année)
+Name=QF_C12
+Start=741
+Len=6
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=Mois de création de l'entreprise
+Name=QF_C12MM
+Start=741
+Len=2
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Mois de création de l'entreprise
+Name=QF_C12MM_VS1
+Value=1:12
+Value=98;Ne sait pas
+
+[Item]
+Label=Année de création de l'entreprise
+Name=QF_C12AAAA
+Start=743
+Len=4
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Année de création de l'entreprise
+Name=QF_C12AAAA_VS1
+Value=1900:2023
+
+[Item]
+Label=C13: Date de debut d'exploitation:(Mois/Année)
+Name=QF_C13
+Start=747
+Len=6
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=Mois de debut d'exploitation
+Name=QF_C13MM
+Start=747
+Len=2
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Mois de debut d'exploitation
+Name=QF_C13MM_VS1
+Value=1:12
+Value=98;Ne sait pas
+
+[Item]
+Label=Année de debut d'exploitation
+Name=QF_C13AAAA
+Start=749
+Len=4
+ItemType=SubItem
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Année de debut d'exploitation
+Name=QF_C13AAAA_VS1
+Value=1900:2023
+
+[Item]
+Label=C14: Quelle est votre activité principale actuelle?
+Name=QF_C14
+Start=753
+Len=100
+DataType=Alpha
+
+[Item]
+Label=C14.a: Codification CIAP(réserver à l'INS)
+Name=QF_C14A
+Start=853
+Len=9
+DataType=Alpha
+
+[ValueSet]
+Label=C14.a: Codification CIAP(réserver à l'INS)
+Name=QF_C14A_VS1
+Value='0';
+Value='C10010103';Abattage, transformation et conservation d'autres viandes de boucherie
+Value='C10010101';Abattage, transformation et conservation de la viande de bovins
+Value='C10010102';Abattage, transformation et conservation de la viande de porcins
+Value='C10010104';Abattage, transformation et conservation de la viande de volailles
+Value='Q88000000';Action sociale sans hébergement
+Value='C24030002';Activité de fonderie pour tiers
+Value='Q86020001';Activité des médecins généralistes
+Value='Q86020002';Activité des médecins spécialistes
+Value='A01040101';Activités agricoles exécutées pour le compte de tiers
+Value='N81000100';Activités combinées de soutien aux bâtiments
+Value='M69020000';Activités comptables
+Value='R90000000';Activités créatives, artistiques et de spectacle
+Value='M71000100';Activités d’architecture et d'ingénierie
+Value='K66000202';Activités d’auxiliaires financiers
+Value='O84010000';Activités d'administration générale, économique et sociale
+Value='K66000300';Activités d'auxiliaires d'assurance
+Value='K64010100';Activités de banque centrale
+Value='N82000100';Activités de bureau, routage et centres d'appels
+Value='M71000200';Activités de contrôle et analyses techniques
+Value='K64030100';Activités de micro finance
+Value='N81000200';Activités de nettoyage
+Value='O84020000';Activités de prérogative publique
+Value='O84030000';Activités de sécurité sociale obligatoire
+Value='H53000100';Activités de service postal universel
+Value='B09010000';Activités de soutien à l’extraction d’hydrocarbures
+Value='A01040300';Activités de soutien à la chasse
+Value='A02030001';Activités de soutien à la sylviculture
+Value='A02030002';Activités de soutien à l'exploitation forestière
+Value='B09020000';Activités de soutien aux autres industries extractives
+Value='N82000300';Activités de soutien aux entreprises n.c.a.
+Value='K66000201';Activités de transfert de fonds
+Value='M73000101';Activités des agences de publicité
+Value='N79000000';Activités des agences de réservation et voyagistes
+Value='L68020000';Activités des agences immobilières
+Value='S94030300';Activités des autres organisations associatives
+Value='I56020000';Activités des débits de boissons
+Value='K64020000';Activités des fonds de placements, holdings et similaires
+Value='G46010000';Activités des Intermédiaires du commerce de gros
+Value='T97000000';Activités des ménages en tant qu'employeurs de personnel domestique
+Value='S94010000';Activités des organisations économiques, patronales et professionnelles
+Value='U99000000';Activités des organisations extraterritoriales
+Value='S94030200';Activités des organisations politiques
+Value='S94030100';Activités des organisations religieuses
+Value='M70000100';Activités des sièges sociaux
+Value='S94020000';Activités des syndicats des travailleurs
+Value='Q86030100';Activités des tradipraticiens
+Value='A01040102';Activités d'exploitation de systèmes d'irrigation
+Value='Q87000000';Activités d'Hébergement médico-social et social
+Value='Q86010000';Activités hospitalières
+Value='T98000100';Activités indifférenciées des ménages en tant que producteurs de biens pour usage propre
+Value='T98000200';Activités indifférenciées des ménages en tant que producteurs de services pour usage propre
+Value='M69010000';Activités juridiques
+Value='R93010000';Activités liées au sport
+Value='N78000000';Activités liées aux ressources humaines
+Value='C32000300';Activités manufacturières n.c.a
+Value='M74000200';Activités photographiques
+Value='R93020000';Activités récréatives et de loisirs
+Value='A01040200';Activités soutien à l'élevage
+Value='M74000100';Activités spécialisées de design
+Value='M75000000';Activités vétérinaires
+Value='N81000300';Aménagement paysager
+Value='C15010100';Apprêt, tannage des cuirs et fourrures
+Value='K65000201';Assurance dommage
+Value='K65000101';Assurance vie
+Value='C10050103';Autre travail des grains
+Value='J58010004';Autres activités d’édition
+Value='H53000200';Autres activités de courrier et de distribution
+Value='K64030200';Autres activités de crédits et autres intermédiations non monétaires
+Value='P85040000';Autres activités d'enseignement
+Value='J63000200';Autres activités liées à l'information
+Value='Q86030200';Autres activités pour la santé humaine
+Value='M74000300';Autres activités spécialisées, scientifiques et techniques n.c.a.
+Value='G47030600';Autres commerces de détail hors magasin
+Value='B08020500';Autres extractions
+Value='K64010200';Autres intermédiations monétaires (Banques commerciales)
+Value='S96000400';Autres services personnels n.c.a
+Value='C10020300';Autres transformation et conservation des poissons, crustacés et mollusques
+Value='F43000400';Autres travaux spécialisés de construction
+Value='C10060200';Biscuiterie et pâtisserie de conservation
+Value='K65000102';Caisse de retraite (privé)
+Value='E36000000';Captage, traitement et distribution d'eau
+Value='A01030200';Chasse
+Value='S96000200';Coiffure et soins de beauté
+Value='C19020000';Cokéfaction
+Value='E37000000';Collecte et traitement des eaux usées
+Value='E38000100';Collecte, traitement et élimination des déchets
+Value='G47010000';Commerce de détail en magasin non spécialisé
+Value='G47020400';Commerce de détail en magasin spécialisé d'articles et appareils d'équipement domestique
+Value='G47020900';Commerce de détail en magasin spécialisé d'autres produits n.c.a.
+Value='G47020800';Commerce de détail en magasin spécialisé de carburants automobiles
+Value='G47020600';Commerce de détail en magasin spécialisé de livres, journaux et articles de sport et de loisirs
+Value='G47020100';Commerce de détail en magasin spécialisé de produits alimentaires, boissons et tabacs manufacturés
+Value='G47020200';Commerce de détail en magasin spécialisé de produits pharmaceutiques et médicaux, de parfumerie et de produits de beauté
+Value='G47020500';Commerce de détail en magasin spécialisé de quincaillerie, peintures, verre, tapis et revêtement de sols et murs
+Value='G47020300';Commerce de détail en magasin spécialisé de textiles, habillement, chaussures et articles en cuir
+Value='G47020700';Commerce de détail en magasin spécialisé d'équipements informatiques et de matériels de télécommunication, audio ou vidéo
+Value='G47030500';Commerce de détail sur éventaires et marchés d'articles non alimentaires divers
+Value='G47030300';Commerce de détail sur éventaires et marchés de céréales, tubercules et d'autres produits alimentaires, boissons et tabacs manufacturés
+Value='G47030200';Commerce de détail sur éventaires et marchés de fruits et légumes frais
+Value='G47030400';Commerce de détail sur éventaires et marchés de textiles, habillement, chaussures et articles en cuir
+Value='G47030100';Commerce de détail sur éventaires et marchés de viandes et poissons
+Value='G46040400';Commerce de gros d’autres produits intermédiaires non agricoles
+Value='G46020200';Commerce de gros d'animaux vivants, de peaux et cuirs
+Value='G46050200';Commerce de gros d'autres équipements industriels et fournitures diverses
+Value='G46030300';Commerce de gros de biens de consommation non alimentaires divers
+Value='G46040200';Commerce de gros de bois
+Value='G46040100';Commerce de gros de carburants et combustibles
+Value='G46050100';Commerce de gros de machines, d'équipements et fournitures
+Value='G46040300';Commerce de gros de matériaux de construction, quincaillerie et fournitures pour plomberie
+Value='G46020100';Commerce de gros de produits agricoles bruts et d'aliments pour animaux
+Value='G46020300';Commerce de gros de produits alimentaires, boissons et tabacs manufacturés
+Value='G46030200';Commerce de gros de produits pharmaceutiques et médicaux
+Value='G46030100';Commerce de gros de textiles, habillement et chaussures
+Value='G46060000';Commerce de gros non spécialisé
+Value='G45040001';Commerce de motocycles
+Value='G45030000';Commerce de pièces détachées et d'accessoires automobiles
+Value='G45010000';Commerce de véhicules automobiles
+Value='C10020102';Congélation crustacés et mollusques
+Value='C10020101';Congélation de poissons
+Value='M70000200';Conseil de gestion
+Value='J62000200';Conseil et autres activités informatiques
+Value='R91000000';Conservation et valorisation du patrimoine
+Value='C30010200';Construction aéronautique
+Value='F42000300';Construction d’autres ouvrages de génie civil
+Value='F41020000';Construction de bâtiments complets
+Value='F42000103';Construction de ponts et tunnels
+Value='F42000200';Construction de réseaux et de lignes
+Value='F42000101';Construction de routes et autoroutes
+Value='C29000000';Construction de véhicules automobiles
+Value='C30010400';Construction de véhicules militaires de combat
+Value='F42000102';Construction de voies ferrées de surface et souterraines
+Value='C30010300';Construction ferroviaire
+Value='C30010100';Construction navale
+Value='A02020000';Cueillettes, récolte de produits forestiers non ligneux
+Value='A01010304';Culture d’agrumes
+Value='A01010302';Culture d'autres fruits tropicaux
+Value='A01010403';Culture d'autres légumes
+Value='A01021000';Culture d'autres produits destinés à l'industrie ou à l'exportation
+Value='A01010101';Culture de blé
+Value='A02010101';Culture de bois sur pied
+Value='A01020802';Culture de coco
+Value='A01010303';Culture de fruits non tropicaux
+Value='A01020501';Culture de la banane
+Value='A01010301';Culture de la banane plantain
+Value='A01020700';Culture de la canne a sucre
+Value='A01020503';Culture de la mangue
+Value='A01020600';Culture de l'anacarde
+Value='A01020502';Culture de l'ananas
+Value='A01010201';Culture de l'igname
+Value='A01010103';Culture de maïs
+Value='A01020801';Culture de palmier à huile
+Value='A01010402';Culture de plantes à épices et aromatiques
+Value='A01010102';Culture de riz
+Value='A01010401';Culture de tomate
+Value='A01010402';Culture d'oignon
+Value='A01020100';Culture du cacao
+Value='A01020200';Culture du café
+Value='A01020400';Culture du coton
+Value='A01010202';Culture du manioc
+Value='A01010104';Cultures d'autres céréales
+Value='A01020803';Cultures d'autres graines et fruits oléagineux
+Value='A01010203';Cultures d'autres tubercules
+Value='F43000100';Démolition et préparation des sites
+Value='E39000000';Dépollution et gestion des déchets
+Value='J58010002';Édition de journaux et de revues et périodiques
+Value='J58010001';Édition de livres
+Value='J58020000';Édition de logiciels
+Value='J58010003';Édition de répertoires et de fichiers d’adresses
+Value='J60000100';Édition et diffusion de programmes radio
+Value='A01040104';Egrainage du coton
+Value='A01030105';Élevage d'animaux vivant n.c.a.
+Value='A01030101';Élevage de bovins
+Value='A03020201';Elevage de crustacés, mollusques et d'autres animaux aquatiques
+Value='A01030103';Élevage de porcins
+Value='A01030104';Élevage de volailles
+Value='A01030102';Élevage d'ovins et de caprins
+Value='C13010300';Ennoblissement de textile
+Value='N80000000';Enquêtes et sécurité
+Value='P85030200';Enseignement post-secondaire non supérieur
+Value='P85010001';Enseignement pré-primaire
+Value='P85010002';Enseignement primaire
+Value='P85020100';Enseignement secondaire général
+Value='P85020200';Enseignement secondaire technique ou professionnel
+Value='P85030100';Enseignement supérieur
+Value='H52010000';Entreposage
+Value='G45020000';Entretien et réparation de véhicules automobiles
+Value='M73000200';Études de marché et sondages
+Value='A02010102';Exploitation des Pépinières d'arbres destinées à la sylviculture
+Value='H52020200';Exploitation d'infrastructures de transport
+Value='B07020200';Extraction d'autres minerais de métaux non ferreux
+Value='B07020102';Extraction d'autres minerais de métaux précieux
+Value='B05000000';Extraction de charbon et de lignite
+Value='B06000200';Extraction de gaz naturel
+Value='B07020101';Extraction de minerai d'or
+Value='B07010000';Extraction de minerais de fer
+Value='B06000100';Extraction de pétrole brut
+Value='B08020100';Extraction de phosphates et de sels de potassium, naturels
+Value='B08020400';Extraction de pierres précieuses et semi-précieuses
+Value='B08010000';Extraction de pierres, de sables et d'argiles
+Value='B08020300';Extraction ou production de sel et de natron
+Value='B08020200';Extractions de minéraux pour l'industrie chimique
+Value='C10080602';Fabrication d’aliments homogénéisés et diététiques
+Value='C10080500';Fabrication d’aliments pour animaux
+Value='C27030000';Fabrication d’autres matériels électriques
+Value='C10080603';Fabrication d’autres produits alimentaires
+Value='C22020002';Fabrication d’emballage en matières plastiques
+Value='C23030201';Fabrication d’ouvrages en béton, en ciment ou en plâtre
+Value='C26020103';Fabrication d'antennes, paraboles et parties d'appareils de communication
+Value='C27020004';Fabrication d'appareils ménagers non électriques
+Value='C15010200';Fabrication d'articles de voyage, de maroquinerie et de sellerie
+Value='C16020300';Fabrication d'articles divers en bois ou liège, vannerie et sparterie
+Value='C17000300';Fabrication d'articles en papier ou en carton
+Value='C22020003';Fabrication d'articles ménagers en matières plastiques
+Value='C22010200';Fabrication d'autres articles en caoutchouc
+Value='C11010200';Fabrication d'autres boissons alcoolisées
+Value='C15020002';Fabrication d'autres chaussures et articles chaussants
+Value='C27020002';Fabrication d'autres électroménagers blancs
+Value='C26020104';Fabrication d'autres équipements de communication
+Value='C30020000';Fabrication d'autres équipements de transport
+Value='C10040002';Fabrication d'autres huiles brutes et de tourteaux
+Value='C25020001';Fabrication d'autres ouvrages en métaux
+Value='C23020300';Fabrication d'autres produits céramiques
+Value='C20020600';Fabrication d'autres produits chimiques
+Value='C20010200';Fabrication d'autres produits chimiques de base
+Value='C24010003';Fabrication d'autres produits de la première transformation de l'acier
+Value='C22020004';Fabrication d'autres produits du tavail du plastique
+Value='C26020203';Fabrication d'autres produits électroniques grand public
+Value='C14010000';Fabrication d'autres vêtements
+Value='C11010102';Fabrication de bière
+Value='C32000100';Fabrication de bijoux
+Value='C11020000';Fabrication de boissons non alcoolises et d'eaux minérales
+Value='C23020100';Fabrication de carreaux en céramique
+Value='C26010102';Fabrication de cartes électroniques
+Value='C17000200';Fabrication de carton ondulé et emballages en papier ou en carton
+Value='C15020001';Fabrication de chaussures et semelles en plastique
+Value='C23030102';Fabrication de chaux et plâtre
+Value='C23030101';Fabrication de ciment
+Value='C26010101';Fabrication de Composants électroniques
+Value='C10080400';Fabrication de condiments et assaisonnements
+Value='C10080202';Fabrication de confiserie
+Value='C22020001';Fabrication de demi-produits, tuyaux et éléments pour la construction, en matières plastiques
+Value='C16020100';Fabrication de feuilles de placage, de contreplaques et de panneaux
+Value='C20020500';Fabrication de fibres artificielles ou synthétiques
+Value='C23010003';Fabrication de fibres de verre et d'articles techniques en verre
+Value='C27010004';Fabrication de Fils, câbles et matériel d'installation électrique
+Value='C25010003';Fabrication de générateurs de vapeur
+Value='C27010003';Fabrication de lampe et d’appareils d’éclairage électrique
+Value='C28010000';Fabrication de machines d'usage général
+Value='C28020000';Fabrication de machines d'usage spécifique
+Value='C11010101';Fabrication de malt
+Value='C31000100';Fabrication de matelas et sommiers
+Value='C26020101';Fabrication de matériel professionnel d'émission de l'image et du son
+Value='C21000200';Fabrication de médicaments traditionnels
+Value='C31000200';Fabrication de meubles
+Value='C27010001';Fabrication de moteurs, génératrices et transformateurs électriques et de matériel de distribution et de commande électrique
+Value='C10060100';Fabrication de pain et de pâtisseries fraîches
+Value='C20020200';Fabrication de parfums et de produits de toilette
+Value='C27020003';Fabrication de Parties d’appareils domestiques divers
+Value='C17000100';Fabrication de pâte a papier, de papier et de carton
+Value='C10060300';Fabrication de pâtes alimentaires, de semoules et de produits farineux similaires
+Value='C20020400';Fabrication de peintures et vernis, adjuvants et encres d'imprimerie
+Value='C24030001';Fabrication de pièces de fonderie
+Value='C10080601';Fabrication de plats préparés
+Value='C26020102';Fabrication de postes téléphoniques d'usagers et téléphones cellulaires
+Value='C12000000';Fabrication de produits à base de tabac
+Value='C20020300';Fabrication de produits agrochimiques
+Value='C10050202';Fabrication de produits amylacés
+Value='C20010100';Fabrication de produits azotés et d'engrais
+Value='C10080100';Fabrication de produits laitiers et de glaces
+Value='C23030300';Fabrication de produits minéraux non métalliques n.c.a.
+Value='C26020202';Fabrication de récepteurs de télévision
+Value='C26020201';Fabrication de récepteurs radio et autoradios
+Value='C27020001';Fabrication de Réfrigérateurs et congélateurs domestiques
+Value='C25010002';Fabrication de réservoirs, citernes et conteneurs métalliques
+Value='C20020100';Fabrication de savons, détergents et produits d'entretien
+Value='C25010001';Fabrication de structures métalliques pour construction
+Value='C10080201';Fabrication de sucre
+Value='C26010103';Fabrication de supports magnétiques et optiques
+Value='C13020100';Fabrication de tapis et moquettes
+Value='C10080301';Fabrication de thé
+Value='C24010002';Fabrication de tubes et tuyaux en acier
+Value='C23020200';Fabrication de tuiles et briques
+Value='C23010002';Fabrication de verre creux
+Value='C23010001';Fabrication de verre plat
+Value='C26030002';Fabrication d'équipements de précision et d'horlogerie
+Value='C26030001';Fabrication d'équipements d'imagerie médicale
+Value='C26030003';Fabrication d'équipements optique et photographique
+Value='C26010202';Fabrication d'équipements périphériques
+Value='C13020200';Fabrication d'étoffes à mailles et d'articles textiles non vestimentaires
+Value='C10040001';Fabrication d'huiles brutes de palme ou de palmiste
+Value='C10040002';Fabrication d'huiles raffinées
+Value='C32000200';Fabrication d'instruments de musique
+Value='C26010201';Fabrication d'ordinateurs
+Value='C16020200';Fabrication d'ouvrages de charpente, de menuiseries et d'emballages en bois
+Value='C22010100';Fabrication et rechapage de pneumatiques
+Value='C27010002';Fabrication Piles et accumulateurs électriques
+Value='C13010100';Filature de textile
+Value='K66000100';Gestion de Fonds pour tiers
+Value='N77000400';Gestion des droits de propriété industrielle
+Value='I55000001';Hébergement dans les hôtels et assimilés
+Value='I55000002';Hébergement dans les structures non hôtelières
+Value='A01020300';Hévéaculture
+Value='A01020900';Horticulture et Reproduction des plantes
+Value='C18010000';Imprimerie et activités connexes
+Value='C21000100';Industrie pharmaceutique
+Value='C33020000';Installation de machines et d'équipements professionnels
+Value='S96000100';Lavage et nettoyage de textiles
+Value='N77000300';Location d'articles personnels et domestiques n.c.a.
+Value='N77000200';Location de machines et d'équipements n.c.a.
+Value='N77000100';Location de véhicules automobiles
+Value='L68010000';Location immobilière et activités sur biens propres
+Value='H52020100';Manutention
+Value='C24020002';Métallurgie de l’aluminium
+Value='C24020003';Métallurgie des autres métaux non ferreux
+Value='N82000200';Organisation de foires, salons et congrès
+Value='R92000000';Organisation de jeux de hasard et d'argent
+Value='H52020300';Organisation du transport de fret
+Value='A03010202';Pêche de crustacés et mollusques en eau douce
+Value='A03010201';Pêche de Poissons en eau douce
+Value='A03010102';Pêche en mer de crustacés et de mollusques
+Value='A03010101';Pêche en mer de Poissons
+Value='A03020100';Pisciculture
+Value='Q86020003';Pratique dentaire
+Value='C10010200';Préparation de produits à base de viande
+Value='J59020000';Production audio et édition musicale
+Value='A02010202';Production de Bois bruts
+Value='A02010203';Production de bois de chauffage
+Value='A02020300';Production de charbon de bois
+Value='A02010201';Production de Grumes
+Value='C24020001';Production de métaux précieux
+Value='D35020000';Production et distribution de combustibles gazeux et de glace
+Value='J59010000';Production vidéo : cinéma et télévision
+Value='D35010000';Production, transport et distribution d'électricité
+Value='J62000100';Programmation informatique
+Value='J60000200';Programmation télévisuelle; Télédiffusion
+Value='F41010000';Promotion immobilière
+Value='C19010000';Raffinage du pétrole
+Value='K65000202';Réassurance
+Value='M72020000';Recherche-développement en sciences humaines et sociales
+Value='M72010000';Recherche-développement en sciences physiques et naturelles
+Value='E38000200';Récupération
+Value='M73000102';Régie publicitaire de médias
+Value='S95020000';Réparation de biens personnels et domestiques
+Value='C33010000';Réparation de machines et d'équipements professionnels
+Value='G45040002';Réparation de motocycles
+Value='S95010200';Réparation d'équipements de communication
+Value='S95010100';Réparation d'ordinateurs et d'équipements périphériques
+Value='C18020000';Reproduction d'enregistrement
+Value='I56010000';Restauration
+Value='C16010000';Sciage, Rabotage
+Value='C10020200';Séchage, salage ou fumage du poisson
+Value='C14020000';Service de couture sur mesure
+Value='S96000300';Services funéraires
+Value='C24010001';Sidérurgie
+Value='J61000000';Télécommunications
+Value='C13010200';Tissage de textile
+Value='J63000100';Traitement de données, hébergement et activités connexes ; Création de portails Internet
+Value='A01040105';Traitement des semences
+Value='A01040103';Traitement primaire des récoltes
+Value='C10050102';Transformation du blé
+Value='C10070100';Transformation du cacao
+Value='C10070200';Transformation du café
+Value='C10050201';Transformation du manioc
+Value='C10050101';Transformation du riz
+Value='C10030000';Transformation et conservation de fruits et légumes
+Value='H51000200';Transports aériens de fret et transports spatiaux
+Value='H51000100';Transports aériens de passagers
+Value='H49010000';Transports ferroviaires
+Value='H50020000';Transports fluviaux
+Value='H50010000';Transports maritimes et côtiers
+Value='H49030000';Transports par conduites
+Value='H49020200';Transports routiers de marchandises
+Value='H49020100';Transports routiers de passagers
+Value='C23030202';Travail de la pierre
+Value='C25020002';Travail des métaux et mécanique générale
+Value='F43000300';Travaux de finition
+Value='F43000200';Travaux d'installation
+
+[Item]
+Label=C14b Quel est le type d'activité réalisée dans ce local ?
+Name=QF_C14B
+Start=862
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C14b Quel est le type d'activité réalisée dans ce local ?
+Name=QF_C14B_VS1
+Value=1;Hôtel
+Value=2;Restaurant/Bistrot/Bars/Maquis/Cave
+Value=3;Boutique/Superette
+Value=4;Grande surface/ centre commercial
+Value=5;Kiosque à café
+Value=6;Vente sur table/étagère (étale)
+Value=7;Boulangerie/pâtisserie
+Value=8;Enseignement
+Value=9;Point LONACI
+Value=10;Poissonnerie
+Value=11;Point mobile money
+Value=12;Cordonnerie
+Value=13;Pharmacie
+Value=14;Salon de beauté
+Value=15;Ferronnerie
+Value=16;Garage
+Value=17;Banque/Assurance
+Value=18;Coopérative
+Value=19;Dépôt de boisson
+Value=20;Dépôt de gaz
+Value=21;Lavage
+Value=22;Pressing
+Value=23;atelier de couture
+Value=24;Clinique
+Value=25;Banque/Assurance
+Value=26;Auto-école
+Value=27;Eglise/Mosquée
+Value=28;ONG/ Associations
+Value=90;Autres à préciser
+
+[Item]
+Label=C14b Autre type d'activité réalisée dans ce local ?
+Name=QF_C14BAUTRE
+Start=864
+Len=100
+DataType=Alpha
+
+[ValueSet]
+Label=C14b Autre type d'activité réalisée dans ce local ?
+Name=QF_C14BAUTRE_VS1
+Value='1';Hôtel
+Value='2';Restaurant/Bistrot/Bars/Maquis/Cave
+Value='3';Boutique/Superette
+Value='4';Grande surface/ centre commercial
+Value='5';Kiosque à café
+Value='6';Vente sur table/étagère (étale)
+Value='7';Boulangerie/pâtisserie
+Value='8';Enseignement
+Value='9';Point LONACI
+Value='10';Poissonnerie
+Value='11';Point mobile money
+Value='12';Cordonnerie
+Value='13';Pharmacie
+Value='14';Salon de beauté
+Value='15';Ferronnerie
+Value='16';Garage
+Value='17';Banque/Assurance
+Value='18';Coopérative
+Value='19';Dépôt de boisson
+Value='20';Dépôt de gaz
+Value='21';Lavage
+Value='22';Pressing
+Value='23';atelier de couture
+Value='24';Clinique
+Value='25';Banque/Assurance
+Value='26';Auto-école
+Value='27';Eglise/Mosquée
+Value='28';ONG/ Associations
+Value='90';Autres à préciser
+
+[Item]
+Label=C15: Avez-vous des activités secondaires?
+Name=QF_C15
+Note=SUR QUESTIONNAIRE PAPIER\r\n
+Note=\r\n
+Note=C16: Quelles sont vos activités secondaires?
+Start=964
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C15: Avez-vous des activités secondaires?
+Name=QF_C15_VS1
+Value=0;???
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=C16: Votre entreprise dispose t-elle d'un numéro d'identification unique(IDU) du CEPICI ?
+Name=QF_C16
+Start=965
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C16: Votre entreprise dispose t-elle d'un numéro d'identification unique(IDU) du CEPICI ?
+Name=QF_C16_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=Pouvez-vous nous donner ce numéro IDU?
+Name=QF_C16A0
+Start=966
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Pouvez-vous nous donner ce numéro IDU?
+Name=QF_C16A0_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=C16.a: Si oui, donner ce numéro IDU
+Name=QF_C16A
+Start=967
+Len=14
+DataType=Alpha
+
+[Item]
+Label=Saisir les 13 chiffres de l'IDU
+Name=QF_C16A1
+Start=981
+Len=13
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=Saisir la lettre de fin de l'IDU
+Name=QF_C16A2
+Start=994
+Len=1
+DataType=Alpha
+
+[Item]
+Label=C17a: Votre entreprise dispose-t-elle d’un numéro de Registre de Commerce (RC)?
+Name=QF_C17A
+Start=995
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C17a: Votre entreprise dispose-t-elle d’un numéro de Registre de Commerce (RC)?
+Name=QF_C17A_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=C17.a1: Si oui, donnez le numéro de registre de commerce
+Name=QF_C17A1
+Start=996
+Len=20
+DataType=Alpha
+
+[Item]
+Label=C17b: Votre entreprise dispose-t-elle d’un numéro de registre Métier (RM)?
+Name=QF_C17B
+Start=1016
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C17b: Votre entreprise dispose-t-elle d’un numéro de registre Métier (RM)?
+Name=QF_C17B_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=Pouvez-vous nous donner ce numéro RM?
+Name=QF_C17B0
+Start=1017
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Pouvez-vous nous donner ce numéro RM?
+Name=QF_C17B0_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=C17.b1: Si oui, donnez le numéro de registre de métier
+Name=QF_C17B1
+Start=1018
+Len=20
+DataType=Alpha
+
+[Item]
+Label=Saisir les 2 premièrs chiffres du RM
+Name=QF_C17B11
+Start=1038
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=-
+Name=QF_C17B12
+Start=1040
+Len=1
+DataType=Alpha
+
+[Item]
+Label=Saisir les 2 premières lettres du RM
+Name=QF_C17B13
+Start=1041
+Len=2
+DataType=Alpha
+
+[Item]
+Label=-
+Name=QF_C17B14
+Start=1043
+Len=1
+DataType=Alpha
+
+[Item]
+Label=Saisir les 4 chiffres précedents les 2 lettres saisies du RM
+Name=QF_C17B15
+Start=1044
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=-
+Name=QF_C17B16
+Start=1048
+Len=1
+DataType=Alpha
+
+[Item]
+Label=Saisir les 7 derniers chiffres du RM
+Name=QF_C17B17
+Start=1049
+Len=7
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=Saisir les 2 dernières lettres du RM
+Name=QF_C17B18
+Start=1056
+Len=2
+DataType=Alpha
+
+[Item]
+Label=C18: Votre entreprise dispose t-elle d'un numéro de compte contribuable(NCC)?
+Name=QF_C18
+Start=1058
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C18: Votre entreprise dispose t-elle d'un numéro de compte contribuable(NCC)?
+Name=QF_C18_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=C18.a: Si oui, donnez le numéro de compte contribuable
+Name=QF_C18A
+Start=1059
+Len=8
+DataType=Alpha
+
+[Item]
+Label=C19: Votre entreprise est-elle déclarée à la CNPS?
+Name=QF_C19
+Start=1067
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C19: Votre entreprise est-elle déclarée à la CNPS?
+Name=QF_C19_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=Pouvez-vous nous donner ce numéro CNPS?
+Name=QF_C19A0
+Start=1068
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Pouvez-vous nous donner ce numéro CNPS?
+Name=QF_C19A0_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=C19.a: Si oui, donnez le numéro CNPS (en 7 chiffres)
+Name=QF_C19A
+Start=1069
+Len=7
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=C20.a : Votre entreprise tient-elle une comptabilité formelle écrite en fin d’exercice ?
+Name=QF_C20A
+Start=1076
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C20.a : Votre entreprise tient-elle une comptabilité formelle écrite en fin d’exercice ?
+Name=QF_C20A_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=C20.b : Votre entreprise produit t-elle un document comptable en fin d’exercice ?
+Name=QF_C20B
+Start=1077
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C20.b : Votre entreprise produit t-elle un document comptable en fin d’exercice ?
+Name=QF_C20B_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=C21 : Quel est l’état d’activité de l'entreprise ?
+Name=QF_C21
+Start=1078
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C21 : Quel est l’état d’activité de l'entreprise ?
+Name=QF_C21_VS1
+Value=1;Activité non encore démarrée
+Value=2;En activité
+Value=3;En veille ou en cessation momentanée
+Value=4;Cessation totale d’activité
+
+[Item]
+Label=C22: Quelle est la forme juridique de votre entreprise ?
+Name=QF_C22
+Start=1079
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C22: Quelle est la forme juridique de votre entreprise ?
+Name=QF_C22_VS1
+Value=1;Société en Nom Collectif
+Value=2;Société en Commandite Simple
+Value=3;Société en Participations
+Value=4;Société de fait
+Value=5;Société à Responsabilité limitée (SARL)
+Value=6;Société par Actions simplifiées (SAS)
+Value=7;Entreprise individuelle (pers. physique)
+Value=8;Société anonyme (SA)
+Value=9;Groupement d'Intérêt économique (GIE)
+Value=10;Ets public industriel et commercial (EPIC)
+Value=11;Autres(à préciser)
+
+[Item]
+Label=C22.a: Autre forme juridique à préciser
+Name=QF_C22A
+Start=1081
+Len=80
+DataType=Alpha
+
+[Item]
+Label=C23: Votre entreprise est-elle majoritairement (Plus de 50%) à capitaux:
+Name=QF_C23
+Start=1161
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C23: Votre entreprise est-elle majoritairement (Plus de 50%) à capitaux:
+Name=QF_C23_VS1
+Value=1;Public
+Value=2;Privé national
+Value=3;Privé étranger
+
+[Item]
+Label=C24: Quel est le statut de votre structure ?
+Name=QF_C24
+Start=1162
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C24: Quel est le statut de votre structure ?
+Name=QF_C24_VS1
+Value=1;Siège
+Value=2;Etablissement secondaire
+Value=3;Établissement unique
+
+[Item]
+Label=C24.a: Si votre structure est le siège, Combien d’établissements avez-vous ?
+Name=QF_C24A
+Start=1163
+Len=3
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C24.a: Si votre structure est le siège, Combien d’établissements avez-vous ?
+Name=QF_C24A_VS1
+Value=0:999
+Value=998;NE SAIT PAS
+
+[Item]
+Label=C24.b.1: Si votre entreprise est un établissement, donnez le nom ou la raison sociale du siège
+Name=QF_C24B1
+Start=1166
+Len=80
+DataType=Alpha
+
+[Item]
+Label=C24.b.2: Si votre entreprise est un établissement, donnez l'adresse géographique du siège(rue,immeuble,...)
+Name=QF_C24B2
+Start=1246
+Len=70
+DataType=Alpha
+
+[Item]
+Label=C25a. Quelle est le capital social de l’entreprise en 2021 en francs cfa?
+Name=QF_C25A
+Start=1316
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=C27: Utilisez-vous des logiciels métiers au sein de votre entreprise ?
+Name=QF_C27
+Start=1327
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C27: Utilisez-vous des logiciels métiers au sein de votre entreprise ?
+Name=QF_C27_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=C28: Votre entreprise dispose-t-elle d’une connexion internet  ?
+Name=QF_C28
+Start=1328
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C28: Votre entreprise dispose-t-elle d’une connexion internet  ?
+Name=QF_C28_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=C29: Dans le cadre de votre activité, proposez-vous des produits ou des services en ligne ?
+Name=QF_C29
+Start=1329
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C29: Dans le cadre de votre activité, proposez-vous des produits ou des services en ligne ?
+Name=QF_C29_VS1
+Value=1;Oui
+Value=2;Non
+
+[Record]
+Label=D : CARACTERISTIQUES ECONOMIQUES ET FINANCIERES DE L’ENTREPRISE/ETABLISSEMENT
+Name=QF_D
+RecordTypeValue='DD'
+Required=No
+RecordLen=370
+
+[Item]
+Label=D1.a21: Quel est le montant de votre capital Social en 2021 ?
+Name=QF_D1A21
+Start=31
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D1.a20: Quel est le montant de votre capital Social en 2020?
+Name=QF_D1A20
+Start=42
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D1.a19: Quel est le montant de votre capital Social en 2019 ?
+Name=QF_D1A19
+Start=53
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D1.b21: Quel est le montant de votre chiffre d’affaires hors taxes en 2021 ?
+Name=QF_D1B21
+Start=64
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D1.b20: Quel est le montant de votre chiffre d’affaires hors taxes en 2020 ?
+Name=QF_D1B20
+Start=75
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D1.b19: Quel est le montant de votre chiffre d’affaires hors taxes en 2019 ?
+Name=QF_D1B19
+Start=86
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D1.c21: Quel est le montant de votre valeur ajoutée brute en 2021 ?
+Name=QF_D1C21
+Start=97
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D1.c20: Quel est le montant de votre valeur ajoutée brute en 2020 ?
+Name=QF_D1C20
+Start=108
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D1.c19: Quel est le montant de votre valeur ajoutée brute en 2019 ?
+Name=QF_D1C19
+Start=119
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D2: Exportez-vous en partie ou en totalité vos produits/services ?
+Name=QF_D2
+Start=130
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=D2: Exportez-vous en partie ou en totalité vos produits/services ?
+Name=QF_D2_VS1
+Value=1;Oui, en partie
+Value=2;Oui, totalité
+Value=3;Non
+
+[Item]
+Label=D2.a21: Si oui, donnez la valeur de vos exportations en 2021
+Name=QF_D2A21
+Start=131
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D2.a20: Si oui, donnez la valeur de vos exportations en 2020
+Name=QF_D2A20
+Start=142
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D2.a19: Si oui, donnez la valeur de vos exportations en 2019
+Name=QF_D2A19
+Start=153
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.a: Quel est l'effectif total des employés de votre Entreprise/Etablissement en 2021 ?
+Name=QF_D3A
+Start=164
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l1h21: Quel est l'effectif total des employés Hommes en 2021 ?
+Name=QF_D3L1H21
+Start=168
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l1f21: Quel est l'effectif total des employés Femmes en 2021 ?
+Name=QF_D3L1F21
+Start=172
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l2h21: Quel est l'effectif total des employés nationaux hommes en 2021 ?
+Name=QF_D3L2H21
+Start=176
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l2f21: Quel est l'effectif total des employés nationaux femmes en 2021 ?
+Name=QF_D3L2F21
+Start=180
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l3h21: Quel est l'effectif des employés Hommes permanents nationaux en 2021 ?
+Name=QF_D3L3H21
+Start=184
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l3f21: Quel est l'effectif des employés Femmes permanents nationaux en 2021 ?
+Name=QF_D3L3F21
+Start=188
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l4h21: Quel est l'effectif des employés Hommes saisonniers/temporaires nationaux en 2021 ?
+Name=QF_D3L4H21
+Start=192
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l4f21: Quel est l'effectif des employés Femmes saisonniers/temporaires nationaux en 2021 ?
+Name=QF_D3L4F21
+Start=196
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l5h21: Quel est l'effectif total des employés Hommes non nationaux en 2021 ?
+Name=QF_D3L5H21
+Start=200
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l5f21: Quel est l'effectif total des employés Femmes non nationaux en 2021 ?
+Name=QF_D3L5F21
+Start=204
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l6h21: Quel est l'effectif des employés Hommes permanents non nationaux en 2021 ?
+Name=QF_D3L6H21
+Start=208
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l6f21: Quel est l'effectif des employés Femmes permanents non nationaux en 2021 ?
+Name=QF_D3L6F21
+Start=212
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l7h21: Quel est l'effectif des employés Hommes saisonniers/temporaires non nationaux en 2021 ?
+Name=QF_D3L7H21
+Start=216
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l7f21: Quel est l'effectif des employés Femmes saisonniers/temporaires non nationaux en 2021 ?
+Name=QF_D3L7F21
+Start=220
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D4.L121: Quel est la masse salariale totale en FCFA de votre entreprise/établissement en 2021 ?
+Name=QF_D4L121
+Start=224
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l1h20: Quel est l'effectif total des employés Hommes en 2020 ?
+Name=QF_D3L1H20
+Start=235
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l1f20: Quel est l'effectif total des employés Femmes en 2020 ?
+Name=QF_D3L1F20
+Start=239
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l2h20: Quel est l'effectif total des employés nationaux hommes en 2020 ?
+Name=QF_D3L2H20
+Start=243
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l2f20: Quel est l'effectif total des employés nationaux femmes en 2020 ?
+Name=QF_D3L2F20
+Start=247
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l5h20: Quel est l'effectif total des employés Hommes non nationaux en 2020 ?
+Name=QF_D3L5H20
+Start=251
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l5f20: Quel est l'effectif total des employés Femmes non nationaux en 2020 ?
+Name=QF_D3L5F20
+Start=255
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l1h19: Quel est l'effectif total des employés Hommes en 2019 ?
+Name=QF_D3L1H19
+Start=259
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l1f19: Quel est l'effectif total des employés Femmes en 2019 ?
+Name=QF_D3L1F19
+Start=263
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l2h19: Quel est l'effectif total des employés nationaux hommes en 2019 ?
+Name=QF_D3L2H19
+Start=267
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l2f19: Quel est l'effectif total des employés nationaux femmes en 2019 ?
+Name=QF_D3L2F19
+Start=271
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l5h19: Quel est l'effectif total des employés Hommes non nationaux en 2019 ?
+Name=QF_D3L5H19
+Start=275
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D3.l5f19: Quel est l'effectif total des employés Femmes non nationaux en 2019 ?
+Name=QF_D3L5F19
+Start=279
+Len=4
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D4.L221: Quel est la masse salariale en FCFA du personnel permanents en 2021 ?
+Name=QF_D4L221
+Start=283
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D4.L321: Quel est la masse salariale en FCFA du personnel saisonniers en 2021 ?
+Name=QF_D4L321
+Start=294
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=D5 Quel est le montant total des Capitaux propres (en FCFA)
+Name=QF_D5
+Start=305
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=D5 Quel est le montant total des Capitaux propres (en FCFA)
+Name=QF_D5_VS1
+Value=-9999999995:99999999995
+Value=99999999998;Ne sait pas
+
+[Item]
+Label=D6 Quel est le montant total des Actifs immobilisés (en FCFA)
+Name=QF_D6
+Start=316
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=D6 Quel est le montant total des Actifs immobilisés (en FCFA)
+Name=QF_D6_VS1
+Value=-9999999995:99999999995
+Value=99999999998;Ne sait pas
+
+[Item]
+Label=D7 Quel est le montant total des Actif (en FCFA)
+Name=QF_D7
+Start=327
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=D7 Quel est le montant total des Actif (en FCFA)
+Name=QF_D7_VS1
+Value=-9999999995:99999999995
+Value=99999999998;Ne sait pas
+
+[Item]
+Label=D8 Quel est le montant total des Ressources stables (en FCFA)
+Name=QF_D8
+Start=338
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=D8 Quel est le montant total des Ressources stables (en FCFA)
+Name=QF_D8_VS1
+Value=-9999999995:99999999995
+Value=99999999998;Ne sait pas
+
+[Item]
+Label=D9 Quel est le montant total des charges ordinaires (en FCFA)
+Name=QF_D9
+Start=349
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=D9 Quel est le montant total des charges ordinaires (en FCFA)
+Name=QF_D9_VS1
+Value=-9999999995:99999999995
+Value=99999999998;Ne sait pas
+
+[Item]
+Label=D10 Quel est le montant total des Impôts et taxes (en FCFA)
+Name=QF_10
+Start=360
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=D10 Quel est le montant total des Impôts et taxes (en FCFA)
+Name=QF_10_VS1
+Value=-9999999995:99999999995
+Value=99999999998;Ne sait pas
+
+[Record]
+Label=E : PRINCIPALES CONTRAINTES ET DISPOSITIFS D’APPUI AUX ENTREPRISES
+Name=QF_E
+RecordTypeValue='FF'
+Required=No
+RecordLen=190
+
+[Item]
+Label=I1: Quelles sont les principales contraintes que votre entreprise rencontre dans le cadre de votre activité (choix multiples) ?
+Name=QF_E1
+Start=31
+Len=21
+DataType=Alpha
+
+[ValueSet]
+Label=I1: Quelles sont les principales contraintes que votre entreprise rencontre dans le cadre de votre activité (choix multiples) ?
+Name=QF_E1_VS1
+Value='A                    ';a: Insuffisance de personnel qualifié
+Value='B                    ';b: Coût élevé de la main d'œuvre
+Value='C                    ';c: Formalités administratives contraignantes
+Value='D                    ';d: Taxes et impôts trop élevés
+Value='E                    ';e: Coût du transport élevé (FRET)
+Value='F                    ';f: Mauvais état des infrastructures routières
+Value='G                    ';g: Difficultés d'approvisionnement en matières premières et autres intrants (quantité et qualité)
+Value='H                    ';h: Lourdeurs des procédures de règlement des contentieux
+Value='I                    ';i: Difficultés d'écoulement de la production/insuffisance de débouchés
+Value='J                    ';j: Manque/ Faible accès aux technologies spécialisées
+Value='K                    ';k : Manque de machines et pièces de rechange
+Value='L                    ';l: Manque d’expertise technique (maintenance machines)
+Value='M                    ';m: Manque de local adapté/terrain
+Value='N                    ';n: Difficultés d'accès à la commande publique
+Value='O                    ';o: Accès limité aux structures d'appui aux entreprises
+Value='P                    ';p: Difficultés d'accès au crédit (Banque et Microfinance)
+Value='Q                    ';q: Difficultés d'approvisionnement en énergie
+Value='R                    ';r: Concurrence déloyale
+Value='S                    ';s: Corruption (racket, pot de vins, etc.)
+Value='T                    ';t: Autres à préciser
+Value='U                    ';u:Aucune contrainte
+
+[Item]
+Label=Autre contrainte à préciser
+Name=QF_E1AUTRE
+Start=52
+Len=80
+DataType=Alpha
+
+[Item]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_1ERE
+Start=132
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_1ERE_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Deuxième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_2IEME
+Start=134
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_2IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Troisième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_3IEME
+Start=136
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_3IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Quatrième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_4IEME
+Start=138
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_4IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Cinquième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_5IEME
+Start=140
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_5IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Sixième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_6IEME
+Start=142
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_6IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Septième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_7IEME
+Start=144
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_7IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Huitième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_8IEME
+Start=146
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_8IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Neuvième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_9IEME
+Start=148
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_9IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Dixième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_10IEME
+Start=150
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_10IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=onzième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_11IEME
+Start=152
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_11IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Douzième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_12IEME
+Start=154
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_12IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Treizième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_13IEME
+Start=156
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_13IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Quatorzième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_14IEME
+Start=158
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_14IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Quinzième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_15IEME
+Start=160
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_15IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Seizième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_16IEME
+Start=162
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Première contrainte par ordre d'importance
+Name=CLASSEMENT_E1_16IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Dix Septième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_17IEME
+Start=164
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Dix Septième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_17IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Dix huitième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_18IEME
+Start=166
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Dix huitième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_18IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=Dix neuvième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_19IEME
+Start=168
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Dix neuvième contrainte  par ordre d'importance
+Name=CLASSEMENT_E1_19IEME_VS1
+Value=1; Insuffisance de personnel qualifié
+Value=2;Coût élevé de la main d'œuvre
+Value=3;Formalités administratives contraignantes
+Value=4;Taxes et impôts trop élevés
+Value=5;Coût du transport élevé
+Value=6;Difficultés d'approvisionnement en matière première (quantité et qualité)
+Value=7;Lourdeurs des procédures de règlement des contentieux
+Value=8;Difficultés d'écoulement de la production
+Value=9;Manque de technologie spécialisée/machines et pièces de rechange
+Value=10;Manque de local adapté
+Value=11;Difficultés d'accès à la commande publique
+Value=12;Accès limité aux structures d'appui aux entreprises
+Value=13;Difficultés d'accès au crédit (Banque et Microfinance)
+Value=14;Difficultés d'approvisionnement en énergie
+Value=15;Corruption
+Value=16;Autres à préciser
+
+[Item]
+Label=a: Insuffisance de personnel qualifié
+Name=QF_E1A
+Start=170
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=a: Insuffisance de personnel qualifié
+Name=QF_E1A_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=b: Coût élevé de la main d'œuvre
+Name=QF_E1B
+Start=171
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=b: Coût élevé de la main d'œuvre
+Name=QF_E1B_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=c: Formalités administratives contraignantes
+Name=QF_E1C
+Start=172
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=c: Formalités administratives contraignantes
+Name=QF_E1C_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=d: Taxes et impôts trop élevés
+Name=QF_E1D
+Start=173
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=d: Taxes et impôts trop élevés
+Name=QF_E1D_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=e: Coût du transport élevé (FRET)
+Name=QF_E1E
+Start=174
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=e: Coût du transport élevé (FRET)
+Name=QF_E1E_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=f: Mauvais état des infrastructures routières
+Name=QF_E1F
+Start=175
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=f: Mauvais état des infrastructures routières
+Name=QF_E1F_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=g: Difficultés d'approvisionnement en matières premières et autres intrants (quantité et qualité)
+Name=QF_E1G
+Start=176
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=g: Difficultés d'approvisionnement en matières premières et autres intrants (quantité et qualité)
+Name=QF_E1G_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=h: Lourdeurs des procédures de règlement des contentieux
+Name=QF_E1H
+Start=177
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=h: Lourdeurs des procédures de règlement des contentieux
+Name=QF_E1H_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=i: Difficultés d'écoulement de la production/insuffisance de débouchés
+Name=QF_E1I
+Start=178
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=i: Difficultés d'écoulement de la production/insuffisance de débouchés
+Name=QF_E1I_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=j: Manque/Faible accès aux technologies spécialisées
+Name=QF_E1J
+Start=179
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=j: Manque/Faible accès aux technologies spécialisées
+Name=QF_E1J_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=k : Manque de machines et pièces de rechange
+Name=QF_E1K
+Start=180
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=k : Manque de machines et pièces de rechange
+Name=QF_E1K_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=l: Manque d’expertise technique (maintenance machines)
+Name=QF_E1L
+Start=181
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=l: Manque d’expertise technique (maintenance machines)
+Name=QF_E1L_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=m: Manque de local adapté/terrain
+Name=QF_E1M
+Start=182
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=m: Manque de local adapté/terrain
+Name=QF_E1M_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=n: Difficultés d'accès à la commande publique
+Name=QF_E1N
+Start=183
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=n: Difficultés d'accès à la commande publique
+Name=QF_E1N_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=o: Accès limité aux structures d'appui aux entreprises
+Name=QF_E1O
+Start=184
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=o: Accès limité aux structures d'appui aux entreprises
+Name=QF_E1O_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=p: Difficultés d'accès au crédit (Banque et Microfinance)
+Name=QF_E1P
+Start=185
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=p: Difficultés d'accès au crédit (Banque et Microfinance)
+Name=QF_E1P_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=q: Difficultés d'approvisionnement en énergie
+Name=QF_E1Q
+Start=186
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=q: Difficultés d'approvisionnement en énergie
+Name=QF_E1Q_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=r: Concurrence déloyale
+Name=QF_E1R
+Start=187
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=r: Concurrence déloyale
+Name=QF_E1R_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=s: Corruption (racket, pot de vins, etc.)
+Name=QF_E1S
+Start=188
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=s: Corruption (racket, pot de vins, etc.)
+Name=QF_E1S_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=t. Autre contrainte (à préciser)
+Name=QF_E1T
+Start=189
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=t. Autre contrainte (à préciser)
+Name=QF_E1T_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=u. Aucune contrainte
+Name=QF_E1U
+Start=190
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=u. Aucune contrainte
+Name=QF_E1U_VS1
+Value=1;Oui
+Value=2;Non
+
+[Record]
+Label=F: FILTRE TYPE ENTREPRISE
+Name=QF_F
+RecordTypeValue='EE'
+Required=No
+RecordLen=64
+
+[Item]
+Label=F01 : Votre entreprise dispose-t-elle d’un numéro de Registre de Commerce (RC)?
+Name=QF_F01
+Start=31
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=F01 : Votre entreprise dispose-t-elle d’un numéro de Registre de Commerce (RC)?
+Name=QF_F01_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=F01.a: Si oui, donnez le numéro de registre de commerce
+Name=QF_F01A
+Start=32
+Len=20
+DataType=Alpha
+
+[Item]
+Label=F02: Votre entreprise dispose t-elle d'un numéro de compte contribuable(NCC)?
+Name=QF_F02
+Start=52
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=F02: Votre entreprise dispose t-elle d'un numéro de compte contribuable(NCC)?
+Name=QF_F02_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=F02.a: Si oui, donnez le numéro de compte contribuable
+Name=QF_F02A
+Start=53
+Len=8
+DataType=Alpha
+
+[Item]
+Label=F03 : Votre entreprise tient-elle, une comptabilité formelle écrite
+Name=QF_F03
+Start=61
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=F03 : Votre entreprise tient-elle, une comptabilité formelle écrite
+Name=QF_F03_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=F04 : Votre entreprise produit-elle un document comptable en fin d’exercice
+Name=QF_F04
+Start=62
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=F04 : Votre entreprise produit-elle un document comptable en fin d’exercice
+Name=QF_F04_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=F05 : Votre structure est-elle une Organisation Non Gouvernemental (ONG) ou une Institution sans but lucratif
+Name=QF_F05
+Start=63
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=F05 : Votre structure est-elle une Organisation Non Gouvernemental (ONG) ou une Institution sans but lucratif
+Name=QF_F05_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=F06 : Résultat du filtre
+Name=QF_F06
+Start=64
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=F06 : Résultat du filtre
+Name=QF_F06_VS1
+Value=1;Entreprise formelle
+Value=2;Entreprise informelle
+
+[Record]
+Label=C15 : LISTE DES ACTIVITES SECONDAIRES
+Name=QF_AS
+RecordTypeValue='GG'
+Required=No
+MaxRecords=5
+RecordLen=141
+
+[Item]
+Label=Numéro de ligne
+Name=NLIGNEC15
+Start=31
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=Libellé activité secondaire
+Name=QF_C15A
+Start=32
+Len=100
+DataType=Alpha
+
+[Item]
+Label=Code CIAP activité secondaire
+Name=QF_C15B
+Start=132
+Len=9
+DataType=Alpha
+
+[ValueSet]
+Label=Code CIAP activité secondaire
+Name=QF_C15B_VS1
+Value='Q86010000';Activités hospitalières
+Value='Q86020001';Activité des médecins généralistes
+Value='Q86020002';Activité des médecins spécialistes
+Value='Q86020003';Pratique dentaire
+Value='Q86030100';Activités des tradipraticiens
+Value='Q86030200';Autres activités pour la santé humaine
+Value='Q87000000';Activités d'Hébergement médico-social et social
+Value='Q88000000';Action sociale sans hébergement
+Value='R90000000';Activités créatives, artistiques et de spectacle
+Value='R91000000';Conservation et valorisation du patrimoine
+Value='R92000000';Organisation de jeux de hasard et d'argent
+Value='R93010000';Activités liées au sport
+Value='R93020000';Activités récréatives et de loisirs
+Value='S94010000';Activités des organisations économiques, patronales et professionnelles
+Value='S94020000';Activités des syndicats des travailleurs
+Value='S94030100';Activités des organisations religieuses
+Value='S94030200';Activités des organisations politiques
+Value='S94030300';Activités des autres organisations associatives
+Value='S95010100';Réparation d'ordinateurs et d'équipements périphériques
+Value='S95010200';Réparation d'équipements de communication
+Value='S95020000';Réparation de biens personnels et domestiques
+Value='S96000100';Lavage et nettoyage de textiles
+Value='S96000200';Coiffure et soins de beauté
+Value='S96000300';Services funéraires
+Value='S96000400';Autres services personnels n.c.a
+Value='T97000000';Activités des ménages en tant qu'employeurs de personnel domestique
+Value='T98000100';Activités indifférenciées des ménages en tant que producteurs de biens pour usage propre
+Value='T98000200';Activités indifférenciées des ménages en tant que producteurs de services pour usage propre
+Value='U99000000';Activités des organisations extraterritoriales
+Value='A01010101';Culture de blé
+Value='A01010102';Culture de riz
+Value='A01010103';Culture de maïs
+Value='A01010104';Cultures d'autres céréales
+Value='A01010201';Culture de l'igname
+Value='A01010202';Culture du manioc
+Value='A01010203';Cultures d'autres tubercules
+Value='A01010301';Culture de la banane plantain
+Value='A01010302';Culture d'autres fruits tropicaux
+Value='A01010303';Culture de fruits non tropicaux
+Value='A01010304';Culture d’agrumes
+Value='A01010401';Culture de tomate
+Value='A01010402';Culture d'oignon
+Value='A01010403';Culture d'autres légumes
+Value='A01010402';Culture de  plantes à épices et aromatiques
+Value='A01020100';Culture du  cacao
+Value='A01020200';Culture du café
+Value='A01020300';Hévéaculture
+Value='A01020400';Culture du coton
+Value='A01020501';Culture de la banane
+Value='A01020502';Culture de l'ananas
+Value='A01020503';Culture de la mangue
+Value='A01020600';Culture de l'anacarde
+Value='A01020700';Culture de la canne a sucre
+Value='A01020801';Culture de palmier à huile
+Value='A01020802';Culture de coco
+Value='A01020803';Cultures d'autres graines et fruits oléagineux
+Value='A01020900';Horticulture et Reproduction des plantes
+Value='A01021000';Culture d'autres produits destinés à l'industrie ou à l'exportation
+Value='A01030101';Élevage de bovins
+Value='A01030102';Élevage d'ovins et de caprins
+Value='A01030103';Élevage de porcins
+Value='A01030104';Élevage de volailles
+Value='A01030105';Élevage d'animaux vivant n.c.a.
+Value='A01030200';Chasse
+Value='A01040101';Activités agricoles exécutées pour le compte de tiers
+Value='A01040102';Activités d'exploitation de systèmes d'irrigation
+Value='A01040103';Traitement primaire des récoltes
+Value='A01040104';Egrainage du coton
+Value='A01040105';Traitement des semences
+Value='A01040200';Activités soutien à l'élevage
+Value='A01040300';Activités de soutien à la chasse
+Value='A02010101';Culture de bois sur pied
+Value='A02010102';Exploitation des Pépinières d'arbres destinées à la sylviculture
+Value='A02010201';Production de Grumes
+Value='A02010202';Production de Bois bruts
+Value='A02010203';Production  de bois de chauffage
+Value='A02020300';Production de charbon de bois
+Value='A02020000';Cueillettes, récolte de produits forestiers non ligneux
+Value='A02030001'; Activités de soutien à la sylviculture
+Value='A02030002'; Activités de soutien à l'exploitation forestière
+Value='A03010101';Pêche en mer de Poissons
+Value='A03010102';Pêche en mer de crustacés et de mollusques
+Value='A03010201';Pêche de Poissons en eau douce
+Value='A03010202';Pêche de crustacés et mollusques en eau douce
+Value='A03020100';Pisciculture
+Value='A03020201';Elevage de crustacés, mollusques et d'autres animaux aquatiques
+Value='B05000000';Extraction de charbon et de lignite
+Value='B06000100';Extraction de pétrole brut
+Value='B06000200';Extraction de gaz naturel
+Value='B07010000';Extraction de minerais de fer
+Value='B07020101';Extraction de minerai d'or
+Value='B07020102';Extraction d'autres minerais de métaux précieux
+Value='B07020200';Extraction d'autres minerais de métaux non ferreux
+Value='B08010000';Extraction de pierres, de sables et d'argiles
+Value='B08020100';Extraction de phosphates et de sels de potassium, naturels
+Value='B08020200';Extractions de minéraux pour l'industrie chimique
+Value='B08020300';Extraction ou production de sel et de natron
+Value='B08020400';Extraction de pierres précieuses et semi-précieuses
+Value='B08020500';Autres extractions
+Value='B09010000';Activités de soutien à l’extraction d’hydrocarbures
+Value='B09020000';Activités de soutien aux autres industries extractives
+Value='C10010101';Abattage, transformation et conservation de la viande de bovins
+Value='C10010102';Abattage, transformation et conservation de la viande de porcins
+Value='C10010103';Abattage, transformation et conservation d'autres viandes de boucherie
+Value='C10010104';Abattage, transformation et conservation de la viande de volailles
+Value='C10010200';Préparation de produits à base de viande
+Value='C10020101';Congélation de poissons
+Value='C10020102';Congélation crustacés et mollusques
+Value='C10020200';Séchage, salage ou fumage du poisson
+Value='C10020300';Autres transformation et conservation des poissons, crustacés et mollusques
+Value='C10030000';Transformation et conservation de fruits et légumes
+Value='C10040001';Fabrication d'huiles brutes de palme ou de palmiste
+Value='C10040002';Fabrication d'autres huiles brutes et de tourteaux
+Value='C10040002';Fabrication d'huiles raffinées
+Value='C10050101';Transformation du riz
+Value='C10050102';Transformation du blé
+Value='C10050103';Autre travail des grains
+Value='C10050201';Transformation du manioc
+Value='C10050202';Fabrication de produits amylacés
+Value='C10060100';Fabrication de pain et de pâtisseries fraîches
+Value='C10060200';Biscuiterie et pâtisserie de conservation
+Value='C10060300';Fabrication de pâtes alimentaires, de semoules et de produits farineux similaires
+Value='C10070100';Transformation du cacao
+Value='C10070200';Transformation du café
+Value='C10080100';Fabrication de produits laitiers et de glaces
+Value='C10080201';Fabrication de sucre
+Value='C10080202';Fabrication de confiserie
+Value='C10080301';Fabrication de thé
+Value='C10080400';Fabrication de condiments et assaisonnements
+Value='C10080500';Fabrication d’aliments pour animaux
+Value='C10080601';Fabrication de plats préparés
+Value='C10080602';Fabrication d’aliments homogénéisés et diététiques
+Value='C10080603';Fabrication d’autres produits alimentaires
+Value='C11010101';Fabrication de malt
+Value='C11010102';Fabrication de  bière
+Value='C11010200';Fabrication d'autres boissons alcoolisées
+Value='C11020000';Fabrication de boissons non alcoolises et d'eaux minérales
+Value='C12000000';Fabrication de produits à base de tabac
+Value='C13010100';Filature de textile
+Value='C13010200';Tissage de textile
+Value='C13010300';Ennoblissement de textile
+Value='C13020100';Fabrication de tapis et moquettes
+Value='C13020200';Fabrication d'étoffes à mailles et d'articles textiles non vestimentaires
+Value='C14010000';Fabrication d'autres vêtements
+Value='C14020000';Service de couture sur mesure
+Value='C15010100';Apprêt, tannage des cuirs et fourrures
+Value='C15010200';Fabrication d'articles de voyage, de maroquinerie et de sellerie
+Value='C15020001';Fabrication de chaussures et semelles en plastique
+Value='C15020002';Fabrication d'autres chaussures et articles chaussants
+Value='C16010000';Sciage, Rabotage
+Value='C16020100';Fabrication de feuilles de placage, de contreplaques et de panneaux
+Value='C16020200';Fabrication d'ouvrages de charpente,  de menuiseries et d'emballages en bois
+Value='C16020300';Fabrication d'articles divers en bois ou liège, vannerie et sparterie
+Value='C17000100';Fabrication de pâte a papier, de papier et de carton
+Value='C17000200';Fabrication de carton ondulé et emballages en papier ou en carton
+Value='C17000300';Fabrication d'articles en papier ou en carton
+Value='C18010000';Imprimerie et activités connexes
+Value='C18020000';Reproduction d'enregistrement
+Value='C19010000';Raffinage du pétrole
+Value='C19020000';Cokéfaction
+Value='C20010100';Fabrication de produits azotés et d'engrais
+Value='C20010200';Fabrication d'autres produits chimiques  de base
+Value='C20020100';Fabrication de savons, détergents et produits d'entretien
+Value='C20020200';Fabrication de parfums et de produits de toilette
+Value='C20020300';Fabrication de produits agrochimiques
+Value='C20020400';Fabrication de peintures et vernis, adjuvants et encres d'imprimerie
+Value='C20020500';Fabrication de fibres artificielles ou synthétiques
+Value='C20020600';Fabrication d'autres produits chimiques
+Value='C21000100';Industrie pharmaceutique
+Value='C21000200';Fabrication de médicaments traditionnels
+Value='C22010100';Fabrication et rechapage de pneumatiques
+Value='C22010200';Fabrication d'autres articles en caoutchouc
+Value='C22020001';Fabrication de demi-produits, tuyaux et éléments pour la construction, en matières plastiques
+Value='C22020002';Fabrication d’emballage en matières plastiques
+Value='C22020003';Fabrication d'articles ménagers en matières plastiques
+Value='C22020004';Fabrication d'autres produits du tavail du plastique
+Value='C23010001';Fabrication de verre plat
+Value='C23010002';Fabrication de verre creux
+Value='C23010003';Fabrication de fibres de verre et d'articles techniques en verre
+Value='C23020100';Fabrication de carreaux en céramique
+Value='C23020200';Fabrication de tuiles et briques
+Value='C23020300';Fabrication d'autres produits céramiques
+Value='C23030101';Fabrication de ciment
+Value='C23030102';Fabrication de chaux et plâtre
+Value='C23030201';Fabrication d’ouvrages en béton, en ciment ou en plâtre
+Value='C23030202';Travail de  la  pierre
+Value='C23030300';Fabrication de produits minéraux non métalliques n.c.a.
+Value='C24010001';Sidérurgie
+Value='C24010002';Fabrication de tubes et tuyaux en acier
+Value='C24010003';Fabrication d'autres produits de la première transformation de l'acier
+Value='C24020001';Production de métaux précieux
+Value='C24020002';Métallurgie de l’aluminium
+Value='C24020003';Métallurgie des autres métaux non ferreux
+Value='C24030001';Fabrication de pièces de fonderie
+Value='C24030002';Activité de fonderie pour tiers
+Value='C25010001';Fabrication de structures métalliques pour construction
+Value='C25010002';Fabrication de réservoirs, citernes et conteneurs métalliques
+Value='C25010003';Fabrication de générateurs de vapeur
+Value='C25020001';Fabrication d'autres ouvrages en métaux
+Value='C25020002';Travail des métaux et mécanique générale
+Value='C26010101';Fabrication de Composants électroniques
+Value='C26010102';Fabrication de cartes électroniques
+Value='C26010103';Fabrication de supports magnétiques et optiques
+Value='C26010201';Fabrication d'ordinateurs
+Value='C26010202';Fabrication d'équipements périphériques
+Value='C26020101'; Fabrication de matériel professionnel d'émission de l'image et du son
+Value='C26020102';Fabrication de postes téléphoniques d'usagers et téléphones cellulaires
+Value='C26020103';Fabrication d'antennes, paraboles et parties d'appareils de communication
+Value='C26020104';Fabrication d'autres équipements de communication
+Value='C26020201';Fabrication de récepteurs radio et autoradios
+Value='C26020202';Fabrication de récepteurs de télévision
+Value='C26020203';Fabrication d'autres produits électroniques grand public
+Value='C26030001';Fabrication d'équipements d'imagerie médicale
+Value='C26030002';Fabrication d'équipements de précision et d'horlogerie
+Value='C26030003';Fabrication d'équipements optique et photographique
+Value='C27010001';Fabrication de moteurs, génératrices et transformateurs électriques et de matériel de distribution et de commande électrique
+Value='C27010002';Fabrication Piles et accumulateurs électriques
+Value='C27010003';Fabrication de lampe et d’appareils d’éclairage électrique
+Value='C27010004';Fabrication de Fils, câbles et matériel d'installation électrique
+Value='C27020001';Fabrication de Réfrigérateurs et congélateurs domestiques
+Value='C27020002';Fabrication d'autres électroménagers blancs
+Value='C27020003';Fabrication de Parties d’appareils domestiques divers
+Value='C27020004';Fabrication d'appareils ménagers non électriques
+Value='C27030000';Fabrication d’autres matériels électriques
+Value='C28010000';Fabrication de machines d'usage général
+Value='C28020000';Fabrication de machines d'usage spécifique
+Value='C29000000';Construction de véhicules automobiles
+Value='C30010100';Construction navale
+Value='C30010200';Construction aéronautique
+Value='C30010300';Construction ferroviaire
+Value='C30010400';Construction de véhicules militaires de combat
+Value='C30020000';Fabrication d'autres équipements de transport
+Value='C31000100';Fabrication de matelas et sommiers
+Value='C31000200';Fabrication de meubles
+Value='C32000100';Fabrication de bijoux
+Value='C32000200';Fabrication d'instruments de musique
+Value='C32000300';Activités manufacturières n.c.a
+Value='C33010000';Réparation de machines et d'équipements professionnels
+Value='C33020000';Installation de machines et d'équipements professionnels
+Value='D35010000';Production, transport et distribution d'électricité
+Value='D35020000';Production et distribution de combustibles gazeux et de glace
+Value='E36000000';Captage, traitement et distribution d'eau
+Value='E37000000';Collecte et traitement des eaux usées
+Value='E38000100';Collecte, traitement et élimination des déchets
+Value='E38000200';Récupération
+Value='E39000000';Dépollution et gestion des déchets
+Value='F41010000';Promotion immobilière
+Value='F41020000';Construction de bâtiments complets
+Value='F42000101';Construction de routes et autoroutes
+Value='F42000102';Construction de voies ferrées de surface et souterraines
+Value='F42000103';Construction de ponts et tunnels
+Value='F42000200';Construction de réseaux et de lignes
+Value='F42000300';Construction d’autres ouvrages de génie civil
+Value='F43000100';Démolition et préparation des sites
+Value='F43000200';Travaux d'installation
+Value='F43000300';Travaux de finition
+Value='F43000400';Autres travaux spécialisés de construction
+Value='G45010000';Commerce de véhicules automobiles
+Value='G45020000';Entretien et réparation de véhicules automobiles
+Value='G45030000';Commerce de pièces détachées et d'accessoires automobiles
+Value='G45040001';Commerce de motocycles
+Value='G45040002';Réparation de motocycles
+Value='G46010000';Activités des Intermédiaires du commerce de gros
+Value='G46020100';Commerce de gros de produits agricoles bruts et d'aliments pour animaux
+Value='G46020200';Commerce de gros d'animaux vivants, de peaux et cuirs
+Value='G46020300';Commerce de gros de produits alimentaires, boissons et tabacs manufacturés
+Value='G46030100';Commerce de gros de textiles, habillement et chaussures
+Value='G46030200';Commerce de gros de produits pharmaceutiques et médicaux
+Value='G46030300';Commerce de gros de biens de consommation non alimentaires divers
+Value='G46040100';Commerce de gros de carburants et combustibles
+Value='G46040200';Commerce de gros de bois
+Value='G46040300';Commerce de gros de matériaux de construction, quincaillerie et fournitures pour plomberie
+Value='G46040400';Commerce de gros d’autres produits intermédiaires non agricoles
+Value='G46050100';Commerce de gros de machines, d'équipements et fournitures
+Value='G46050200';Commerce de gros d'autres équipements industriels et fournitures diverses
+Value='G46060000';Commerce de gros non spécialisé
+Value='G47010000';Commerce de détail en magasin non spécialisé
+Value='G47020100';Commerce de détail en magasin spécialisé de produits alimentaires, boissons et tabacs manufacturés
+Value='G47020200';Commerce de détail en magasin spécialisé de produits pharmaceutiques et médicaux, de parfumerie et de produits de beauté
+Value='G47020300';Commerce de détail en magasin spécialisé de textiles, habillement, chaussures et articles en cuir
+Value='G47020400';Commerce de détail en magasin spécialisé d'articles et appareils d'équipement domestique
+Value='G47020500';Commerce de détail en magasin spécialisé de quincaillerie, peintures, verre, tapis et revêtement de sols et murs
+Value='G47020600';Commerce de détail en magasin spécialisé de livres, journaux et articles de sport et de loisirs
+Value='G47020700';Commerce de détail en magasin spécialisé d'équipements informatiques et de matériels de télécommunication, audio ou vidéo
+Value='G47020800';Commerce de détail en magasin spécialisé de carburants automobiles
+Value='G47020900';Commerce de détail en magasin spécialisé d'autres produits n.c.a.
+Value='G47030100';Commerce de détail sur éventaires et marchés de viandes et poissons
+Value='G47030200';Commerce de détail sur éventaires et marchés de fruits et légumes frais
+Value='G47030300';Commerce de détail sur éventaires et marchés de céréales, tubercules et d'autres produits alimentaires, boissons et tabacs manufacturés
+Value='G47030400';Commerce de détail sur éventaires et marchés de textiles, habillement, chaussures et articles en cuir
+Value='G47030500';Commerce de détail sur éventaires et marchés d'articles non alimentaires divers
+Value='G47030600';Autres commerces de détail hors magasin
+Value='H49010000';Transports ferroviaires
+Value='H49020100';Transports routiers de passagers
+Value='H49020200';Transports routiers de marchandises
+Value='H49030000';Transports par conduites
+Value='H50010000';Transports maritimes et côtiers
+Value='H50020000';Transports fluviaux
+Value='H51000100';Transports aériens de passagers
+Value='H51000200';Transports aériens de fret et transports spatiaux
+Value='H52010000';Entreposage
+Value='H52020100';Manutention
+Value='H52020200';Exploitation d'infrastructures de transport
+Value='H52020300';Organisation du transport de fret
+Value='H53000100';Activités de service postal universel
+Value='H53000200';Autres activités de courrier et de distribution
+Value='I55000001';Hébergement dans les hôtels et assimilés
+Value='I55000002';Hébergement dans les structures non hôtelières
+Value='I56010000';Restauration
+Value='I56020000';Activités des débits de boissons
+Value='J58010001';Édition de livres
+Value='J58010002';Édition de journaux et de revues et périodiques
+Value='J58010003';Édition de répertoires et de fichiers d’adresses
+Value='J58010004';Autres activités d’édition
+Value='J58020000';Édition de logiciels
+Value='J59010000';Production vidéo : cinéma et télévision
+Value='J59020000';Production audio et édition musicale
+Value='J60000100';Édition et diffusion de programmes radio
+Value='J60000200';Programmation télévisuelle; Télédiffusion
+Value='J61000000';Télécommunications
+Value='J62000100';Programmation informatique
+Value='J62000200';Conseil et autres activités informatiques
+Value='J63000100';Traitement de données, hébergement et activités connexes ; Création de portails Internet
+Value='J63000200';Autres activités liées à l'information
+Value='K64010100';Activités de banque centrale
+Value='K64010200';Autres intermédiations monétaires (Banques commerciales)
+Value='K64020000';Activités des fonds de placements, holdings et similaires
+Value='K64030100';Activités de micro finance
+Value='K64030200';Autres activités de crédits et autres intermédiations non monétaires
+Value='K65000101';Assurance vie
+Value='K65000102'; Caisse de retraite (privé)
+Value='K65000201';Assurance dommage
+Value='K65000202';Réassurance
+Value='K66000100';Gestion de Fonds pour tiers
+Value='K66000201';Activités de transfert de fonds
+Value='K66000202';Activités d’auxiliaires financiers
+Value='K66000300';Activités d'auxiliaires d'assurance
+Value='L68010000';Location immobilière et activités sur biens propres
+Value='L68020000';Activités des agences immobilières
+Value='M69010000';Activités juridiques
+Value='M69020000';Activités comptables
+Value='M70000100';Activités des sièges sociaux
+Value='M70000200';Conseil de gestion
+Value='M71000100';Activités d’architecture et d'ingénierie
+Value='M71000200';Activités de contrôle et analyses techniques
+Value='M72010000';Recherche-développement en sciences physiques et naturelles
+Value='M72020000';Recherche-développement en sciences humaines et sociales
+Value='M73000101';Activités des agences de publicité
+Value='M73000102';Régie publicitaire de médias
+Value='M73000200';Études de marché et sondages
+Value='M74000100';Activités spécialisées de design
+Value='M74000200';Activités photographiques
+Value='M74000300';Autres activités spécialisées, scientifiques et techniques n.c.a.
+Value='M75000000';Activités vétérinaires
+Value='N77000100';Location de véhicules automobiles
+Value='N77000200';Location de machines et d'équipements n.c.a.
+Value='N77000300';Location d'articles personnels et domestiques n.c.a.
+Value='N77000400';Gestion des droits de propriété industrielle
+Value='N78000000';Activités liées aux ressources humaines
+Value='N79000000';Activités des agences de réservation et voyagistes
+Value='N80000000';Enquêtes et sécurité
+Value='N81000100';Activités combinées de soutien aux bâtiments
+Value='N81000200';Activités de nettoyage
+Value='N81000300';Aménagement paysager
+Value='N82000100';Activités de bureau, routage et centres d'appels
+Value='N82000200';Organisation de foires, salons et congrès
+Value='N82000300';Activités de soutien aux entreprises n.c.a.
+Value='O84010000';Activités d'administration générale, économique et sociale
+Value='O84020000';Activités de prérogative publique
+Value='O84030000';Activités de sécurité sociale obligatoire
+Value='P85010001';Enseignement pré-primaire
+Value='P85010002';Enseignement primaire
+Value='P85020100';Enseignement secondaire général
+Value='P85020200';Enseignement secondaire technique ou professionnel
+Value='P85030100';Enseignement supérieur
+Value='P85030200';Enseignement post-secondaire non supérieur
+Value='P85040000';Autres activités d'enseignement
+
+[Item]
+Label=Autre activité secondaire?
+Name=QF_C15C
+Note=SUR QUESTIONNAIRE PAPIER\r\n
+Note=\r\n
+Note=C16: Quelles sont vos activités secondaires?
+Start=141
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Autre activité secondaire?
+Name=QF_C15C_VS1
+Value=1;Oui
+Value=2;Non
+
+[Record]
+Label=C25 : LISTE DES ACTIONNAIRES
+Name=QF_ACTIONNAIRES
+RecordTypeValue='HH'
+Required=No
+MaxRecords=5
+RecordLen=153
+
+[Item]
+Label=Numéro de ligne
+Name=NLIGNEC25
+Start=31
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=Nom et prénoms ou raison sociale de l'actionnaire
+Name=QF_C25B1
+Start=32
+Len=100
+DataType=Alpha
+
+[Item]
+Label=L'actionnaire est-il une personne physique?
+Name=QF_C25B2
+Note=SUR QUESTIONNAIRE PAPIER\r\n
+Note=\r\n
+Note=C16: Quelles sont vos activités secondaires?
+Start=132
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=L'actionnaire est-il une personne physique?
+Name=QF_C25B2_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=Si personne physique, précisez le sexe de l'actionnaire
+Name=QF_C25B3
+Start=133
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Si personne physique, précisez le sexe de l'actionnaire
+Name=QF_C25B3_VS1
+Value=1;Masculin
+Value=2;Feminin
+Value=3;Sans objet
+
+[Item]
+Label=Quelle est la nationalité de l'actionnaire?
+Name=QF_C25B4
+Start=134
+Len=2
+DataType=Alpha
+
+[ValueSet]
+Label=Quelle est la nationalité de l'actionnaire?
+Name=QF_C25B4_VS1
+Value=01;Bénin
+Value=02;Burkina Faso
+Value=03;Côte d'Ivoire
+Value=04;Guinnée
+Value=05;Mali
+Value=06;Niger
+Value=07;Sénégal
+Value=08;Togo
+Value=09;Nigeria
+Value=10;Maroc
+Value=11;Autres pays d'Afrique
+Value=12;France
+Value=13;Autres pays d'Europe
+Value=14;USA
+Value=15;Autres pays d'Amérique
+Value=16;Chine
+Value=17;Japon
+Value=18;Liban
+Value=20;Autres pays d'Asie
+Value=21;Océanie
+
+[Item]
+Label=Montant de l'action de l'actionnaire
+Name=QF_C25B5
+Start=136
+Len=11
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=Part sociale(en %) de l'actionnaire
+Name=QF_C25B6
+Start=147
+Len=6
+DataType=Numeric
+Decimal=2
+DecimalChar=Yes
+ZeroFill=Yes
+
+[Item]
+Label=Autre actionnaire?
+Name=QF_C25AUTRE
+Note=SUR QUESTIONNAIRE PAPIER\r\n
+Note=\r\n
+Note=C16: Quelles sont vos activités secondaires?
+Start=153
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Autre actionnaire?
+Name=QF_C25AUTRE_VS1
+Value=1;Oui
+Value=2;Non
+
+[Record]
+Label=C26 : INFORMATIONS SUR LE DIRIGEANT
+Name=QF_DIRIGEANT
+RecordTypeValue='II'
+Required=No
+RecordLen=195
+
+[Item]
+Label=Nom et prénoms du dirigeant
+Name=QF_C26A
+Start=31
+Len=60
+DataType=Alpha
+
+[Item]
+Label=Sexe du dirigeant
+Name=QF_C26B
+Start=91
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Sexe du dirigeant
+Name=QF_C26B_VS1
+Value=1;Masculin
+Value=2;Feminin
+
+[Item]
+Label=Age du dirigeant
+Name=QF_C26C
+Start=92
+Len=3
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Age du dirigeant
+Name=QF_C26C_VS1
+Value=18:135
+Value=998;Ne sait pas
+
+[Item]
+Label=Qualité du dirigeant
+Name=QF_C26D
+Start=95
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=Qualité du dirigeant
+Name=QF_C26D_VS1
+Value=0;
+Value=1;Président du Conseil d’Administration
+Value=2;Directeur Général
+Value=3;Administrateur Général
+Value=4;Gérant
+Value=5;Exploitant
+Value=6;Autre à préciser
+
+[Item]
+Label=Autre Qualité
+Name=QF_C26DAUTRE
+Start=96
+Len=100
+DataType=Alpha
+
+[Record]
+Label=C24C ETABLISSEMENTS
+Name=QF_ETS
+RecordTypeValue='KK'
+Required=No
+MaxRecords=10
+RecordLen=192
+
+[Item]
+Label=NumLigneETS
+Name=QF_NUMLIGNEETS
+Start=31
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=NOM OU RAISON SOCIALE DE L’ETABLISSEMENT
+Name=QF_24CNOM
+Start=33
+Len=80
+DataType=Alpha
+
+[Item]
+Label=ADRESSE GEOGRAPHIQUE DE L'ETABLISSEMENT
+Name=QF_24CADRESSE
+Start=113
+Len=80
+DataType=Alpha
+
+[Record]
+Label=RESULTAT
+Name=QF_RESULTAT
+RecordTypeValue='JJ'
+Required=No
+RecordLen=306
+
+[Item]
+Label=R1: Date fin entretien
+Name=QF_R1
+Start=31
+Len=10
+DataType=Alpha
+
+[Item]
+Label=R2: Heure fin entretien
+Name=QF_R2
+Start=41
+Len=8
+DataType=Alpha
+
+[Item]
+Label=R3: Résultat de l'entretien
+Name=QF_R3
+Start=49
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=R3: Résultat de l'entretien
+Name=QF_R3_VS1
+Value=1;Complet
+Value=2;Partiel
+Value=3;Refus
+
+[Item]
+Label=R4: Nombre total de visites
+Name=QF_R4
+Start=50
+Len=2
+DataType=Numeric
+ZeroFill=Yes
+
+[Item]
+Label=R5: Observations sur l'enquête (difficultés techniques, erreurs commises dans l'administration du questionnaire)
+Name=QF_R5
+Start=52
+Len=255
+DataType=Alpha

@@ -1,0 +1,11 @@
+name: id3_face
+description: id3 Face SDK is a cross-platform library aimed at system integrators willing to quickly add face detection and recognition capabilities to their products.
+version: 9.0.4
+homepage: https://www.id3.eu
+
+environment:
+  sdk: '>=2.14.4 <3.0.0'
+
+dependencies:
+  ffi: ^1.1.2
+
