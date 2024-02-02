@@ -18,8 +18,9 @@ class DbTools {
 
   static bool EdtTicket = false;
 
-  static bool gTED = false;
-  static bool gEMULATEUR = false;
+  static bool gDev = true;
+  static bool gTED = gDev;
+  static bool gEMULATEUR = gDev;
 
   static bool gIsRememberLogin = true;
   static bool gIsRememberLoginOffLine = true;
@@ -518,6 +519,11 @@ class DbTools {
     {
       wState = " state = 'cancel' AND ";
       wStateall = " WHERE state = 'cancel' ";
+    }
+    if (DbTools.gCurrentIndex == 4)
+    {
+      wState = " state = 'cancel' AND ";
+      wStateall = " WHERE state = 'confirm' ";
     }
 
     print("getEntreprenantsFiltre wState  ${wState}");

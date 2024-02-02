@@ -66,7 +66,14 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
         print("SplashScreen >>>>> LOGIN ERROR");
         DbTools.gIsRememberLoginOffLine = true;
       }
-    }
+
+
+      print("SplashScreen >>>>> res_Usercommune_id ERROR ${await SharedPref.getStrKey("res_Usercommune_id", "0")}");
+      DbOdoo.res_Usercommune_id = int.parse(await SharedPref.getStrKey("res_Usercommune_id", "0"));
+
+
+
+       }
     if (DbOdoo.Ilots.length > 0) {
       print(" OFFLINE ILOT0 ${DbOdoo.Ilots[0].ilotName}");
     } else {

@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:colibri/Tools/DbOdoo.dart';
 import 'package:colibri/Tools/DbTools.dart';
 import 'package:colibri/Tools/Ins_Entreprenant.dart';
 import 'package:colibri/Tools/gColors.dart';
@@ -27,6 +28,11 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
   Future<List<Entreprenant>>? lfEntreprenant;
   Future<List<Entreprenant>> loadData() async {
     print("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ >>>>");
+
+    try{
+      await DbOdoo.Login(DbTools.gUsername, DbTools.gPassword);
+    } catch (e) {}
+
     await DbTools.gloadDataEntr();
     print("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ glfEntreprenant <<<< ${DbTools.glfEntreprenant.length}");
     await DbTools.getEntreprenantTransf();

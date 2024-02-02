@@ -58,7 +58,7 @@ class BottomNavigationListState extends State<BottomNavigationList>
     "FICHES BROUILLONS",
     "ENTREPRENANTS",
     "FICHES REJETEES",
-    "MESSAGERIE",
+    "FICHES CONFIRMEES",
   ];
 
   List<Widget> children = [
@@ -66,29 +66,29 @@ class BottomNavigationListState extends State<BottomNavigationList>
     I_Liste_Entreprenants(),
     I_Liste_Entreprenants(),
     I_Liste_Entreprenants(),
-    I_DashBoard(),
+    I_Liste_Entreprenants(),
   ];
 
   List<BottomNavigationBarItem> itemsNavID = <BottomNavigationBarItem>[
     BottomNavigationBarItem(
-      icon: Icon(Icons.dashboard),
+      icon: Icon(Icons.dashboard_outlined),
       label: 'Dashboard',
     ),
     BottomNavigationBarItem(
-      icon: Icon(Icons.list_alt),
+      icon: Icon(Icons.playlist_add),
       label: 'Brouillons',
     ),
     BottomNavigationBarItem(
-      icon: Icon(Icons.home, color: Colors.transparent),
-      label: 'Identification',
+      icon: Icon(Icons.list_alt, color: Colors.transparent),
+      label: 'All',
     ),
     BottomNavigationBarItem(
-      icon: Icon(Icons.today),
+      icon: Icon(Icons.playlist_remove),
       label: 'Rejetées',
     ),
     BottomNavigationBarItem(
-      icon: Icon(Icons.message),
-      label: 'Messagerie',
+      icon: Icon(Icons.playlist_add_check),
+      label: 'Confirmées',
     ),
   ];
 
@@ -243,7 +243,7 @@ class BottomNavigationListState extends State<BottomNavigationList>
       floatingActionButton: FloatingActionButton(
         heroTag: "bnl1",
         backgroundColor: gColors.primary,
-        child: const Icon(Icons.people, color: gColors.secondary),
+        child: const Icon(Icons.list_alt, color: gColors.secondary),
         onPressed: () {
           setState(() {
             FocusScope.of(context).unfocus();

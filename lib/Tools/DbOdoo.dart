@@ -54,6 +54,11 @@ class DbOdoo {
   static var res_Svas;
   static var res_Countrys;
 
+  static int nombre_fiche_create = 0;
+  static int nombre_fiche_draft = 0;
+  static int nombre_fiche_valid = 0;
+  static int nombre_fiche_cancel = 0;
+
   static var res_Fournisseurs;
 
   static var Mem_B5 = "";
@@ -66,7 +71,7 @@ class DbOdoo {
     username = user;
     password = pw;
 
-    try {
+   try {
       print("session > ${dbc} ");
       final session = await client.authenticate(dbc, username, password);
       print("session < ${dbc} ${session}");
@@ -83,23 +88,29 @@ class DbOdoo {
           'domain': [
             ['id', '=', uid]
           ],
-          'fields': ['id', 'name', 'email', '__last_update', 'is_collector', 'partner_id', 'is_evaluator', 'is_identificator', 'ville_id', 'cluster_id', 'region_id', 'departement_id', 'sousprefecture_id', 'commune_id', 'localite_id', 'zonerecensement_id', 'quartier_id', 'ilot_id'],
+//          'fields': ['id', 'name', 'email', '__last_update', 'is_collector', 'partner_id', 'is_evaluator', 'is_identificator', 'ville_id', 'cluster_id', 'region_id', 'departement_id', 'sousprefecture_id', 'commune_id', 'localite_id', 'zonerecensement_id', 'quartier_id', 'ilot_id, nombre_fiche_create,nombre_fiche_draft,nombre_fiche_valid,nombre_fiche_cancell'],
         }
       });
 
+    printWrapped("users ${res_User[0].toString()}");
 
-      res_UserId                    = res_User[0]["id"];
-      res_UserMat                   = res_User[0]["partner_id"][0].toString();
-      res_UserName                  = res_User[0]["name"];
-      res_Userilot_id               = res_User[0]["ilot_id"][0];
-      res_Usercluster_id            = res_User[0]["cluster_id"][0];
-      res_Userregion_id             = res_User[0]["region_id"][0];
-      res_Userdepartement_id        = res_User[0]["departement_id"][0];
-      res_Usersousprefecture_id     = res_User[0]["sousprefecture_id"][0];
-      res_Usercommune_id            = res_User[0]["commune_id"][0];
-      res_Userlocalite_id           = res_User[0]["localite_id"][0];
-      res_Userzonerecensement_id    = res_User[0]["zonerecensement_id"][0];
-      res_Userquartier_id           = res_User[0]["quartier_id"][0];
+    res_UserId = res_User[0]["id"];
+      res_UserMat = res_User[0]["partner_id"][0].toString();
+      res_UserName = res_User[0]["name"];
+      res_Userilot_id = res_User[0]["ilot_id"][0];
+      res_Usercluster_id = res_User[0]["cluster_id"][0];
+      res_Userregion_id = res_User[0]["region_id"][0];
+      res_Userdepartement_id = res_User[0]["departement_id"][0];
+      res_Usersousprefecture_id = res_User[0]["sousprefecture_id"][0];
+      res_Usercommune_id = res_User[0]["commune_id"][0];
+      res_Userlocalite_id = res_User[0]["localite_id"][0];
+      res_Userzonerecensement_id = res_User[0]["zonerecensement_id"][0];
+      res_Userquartier_id = res_User[0]["quartier_id"][0];
+
+      nombre_fiche_create = res_User[0]["nombre_fiche_create"];
+      nombre_fiche_draft = res_User[0]["nombre_fiche_draft"];
+      nombre_fiche_valid = res_User[0]["nombre_fiche_confirm"];
+      nombre_fiche_cancel = res_User[0]["nombre_fiche_cancel"];
 
       await SharedPref.setStrKey("res_UserId", res_UserId.toString());
       await SharedPref.setStrKey("res_UserMat", res_UserMat);
@@ -114,44 +125,70 @@ class DbOdoo {
       await SharedPref.setStrKey("res_Userzonerecensement_i", res_Userzonerecensement_id.toString());
       await SharedPref.setStrKey("res_Userquartier_id", res_Userquartier_id.toString());
 
+      await SharedPref.setStrKey("nombre_fiche_create", nombre_fiche_create.toString());
+      await SharedPref.setStrKey("nombre_fiche_draft", nombre_fiche_draft.toString());
+      await SharedPref.setStrKey("nombre_fiche_valid", nombre_fiche_valid.toString());
+      await SharedPref.setStrKey("nombre_fiche_cancel", nombre_fiche_cancel.toString());
+
+
+      print('  >>>>>>>>> nombre_fiche_create: ${nombre_fiche_create}');
+      nombre_fiche_create = int.parse(await SharedPref.getStrKey("nombre_fiche_create", "0"));
+      print('  <<<<<<<<< nombre_fiche_create: ${nombre_fiche_create}');
+
+
+
+
       print('${DateTime.now()} > res_Userilot_id: ${res_Userilot_id}');
       await getIlots(res_Userilot_id);
       await DbTools.getIlot();
       print("ILOT0 ${Ilots[0].ilotName}");
-
 
       await SharedPref.setStrKey("username", username);
       await SharedPref.setStrKey("password", password);
       DbTools.gUsername = username;
       DbTools.gPassword = password;
 
-
       return true;
     } catch (e) {
       print("OdooException ERROR LOGIN");
       print(e);
 
-      await DbTools.getIlot();
-      DbTools.gUsername = await SharedPref.getStrKey("username", "");
-      DbTools.gPassword = await SharedPref.getStrKey("password", "");
-
-      res_UserId = await SharedPref.getStrKey("res_UserId", "");
-      res_UserMat = await SharedPref.getStrKey("res_UserMat", "");
-      res_UserName = await SharedPref.getStrKey("res_UserName", "");
-      res_Userilot_id = await SharedPref.getStrKey("res_Userilot_id", "");
-      res_Usercluster_id = await SharedPref.getStrKey("res_Usercluster_id", "");
-      res_Userregion_id = await SharedPref.getStrKey("res_Userregion_id", "");
-      res_Userdepartement_id = await SharedPref.getStrKey("res_Userdepartement_id", "");
-      res_Usersousprefecture_id = await SharedPref.getStrKey("res_Usersousprefecture_id", "");
-      res_Usercommune_id = await SharedPref.getStrKey("res_Usercommune_id", "");
-      res_Userlocalite_id = await SharedPref.getStrKey("res_Userlocalite_id", "");
-      res_Userzonerecensement_id = await SharedPref.getStrKey("res_Userzonerecensement_id", "");
-      res_Userquartier_id = await SharedPref.getStrKey("res_Userquartier_id", "");
-
-
-
-      return false;
     }
+
+
+    await DbTools.getIlot();
+    DbTools.gUsername = await SharedPref.getStrKey("username", "");
+    DbTools.gPassword = await SharedPref.getStrKey("password", "");
+    print("∆∆∆∆∆∆∆∆∆∆∆ OdooException ERROR LOGIN A");
+
+    res_UserId = await SharedPref.getStrKey("res_UserId", "");
+    res_UserMat = await SharedPref.getStrKey("res_UserMat", "");
+    res_UserName = await SharedPref.getStrKey("res_UserName", "");
+    res_Userilot_id = int.parse(await SharedPref.getStrKey("res_Userilot_id", "0"));
+    res_Usercluster_id = int.parse(await SharedPref.getStrKey("res_Usercluster_id", "0"));
+    res_Userregion_id = int.parse(await SharedPref.getStrKey("res_Userregion_id", "0"));
+    res_Userdepartement_id = int.parse(await SharedPref.getStrKey("res_Userdepartement_id", "0"));
+    res_Usersousprefecture_id = int.parse(await SharedPref.getStrKey("res_Usersousprefecture_id", "0"));
+    res_Usercommune_id =  int.parse( await SharedPref.getStrKey("res_Usercommune_id", "0"));
+    res_Userlocalite_id = int.parse(await SharedPref.getStrKey("res_Userlocalite_id", "0"));
+    res_Userzonerecensement_id = int.parse(await SharedPref.getStrKey("res_Userzonerecensement_id", "0"));
+    res_Userquartier_id = int.parse(await SharedPref.getStrKey("res_Userquartier_id", "0"));
+    print("∆∆∆∆∆∆∆∆∆∆∆ OdooException ERROR LOGIN B");
+
+    print('  >>>>>>>>> nombre_fiche_create: ${nombre_fiche_create}');
+    nombre_fiche_create = int.parse(await SharedPref.getStrKey("nombre_fiche_create", "0"));
+    print('  <<<<<<<<< nombre_fiche_create: ${nombre_fiche_create}');
+
+
+    nombre_fiche_draft = int.parse(await SharedPref.getStrKey("nombre_fiche_draft", "0"));
+    nombre_fiche_valid = int.parse(await SharedPref.getStrKey("nombre_fiche_valid", "0"));
+    nombre_fiche_cancel = int.parse(await SharedPref.getStrKey("nombre_fiche_cancel", "0"));
+
+    print("∆∆∆∆∆∆∆∆∆∆∆ OdooException ERROR LOGIN C");
+
+    return false;
+
+
 
   }
   //*********************************************************
@@ -453,7 +490,6 @@ class DbOdoo {
 
       await EntreprenantUpdIlot();
       await EntreprenantState(DbTools.gActivite_ins.state!);
-
 
       DbTools.gActivite_ins.ACT_TRANSF_OK = 1;
       DbTools.gActivite_ins_Is_New = false;
@@ -834,11 +870,8 @@ class DbOdoo {
   //******************************************************
 
   static Future<int> EntreprenantAddUpd() async {
-
-
     if (DbTools.gEntreprenant.state == "cancel") DbTools.gEntreprenant.state = "draft";
     if (DbTools.gEntreprenant.state == "") DbTools.gEntreprenant.state = "draft";
-
 
     print("♦♦♦♦ EntreprenantAddUpd ${DbTools.gEntreprenant.ENT_Id_Server}");
 

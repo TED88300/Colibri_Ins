@@ -12,10 +12,10 @@ class I_DashBoard extends StatefulWidget {
 class I_DashBoardState extends State<I_DashBoard> {
   String sMatricule = DbOdoo.res_UserMat;
   String sName = DbOdoo.res_UserName;
-  String fCrt = "17";
-  String fBro = "10";
-  String fVal = "3";
-  String fRej = "4";
+  String fCrt = DbOdoo.nombre_fiche_create.toString();
+  String fBro = DbOdoo.nombre_fiche_draft.toString();
+  String fVal = DbOdoo.nombre_fiche_valid.toString();
+  String fRej = DbOdoo.nombre_fiche_cancel.toString();
 
   void initLib() async {
     setState(() {});

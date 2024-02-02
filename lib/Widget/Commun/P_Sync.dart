@@ -26,8 +26,24 @@ class SyncState extends State<Sync> {
   String TextLog = "";
   bool isWork = false;
 
+  int isOnline = -1;
+
   void initLib() async {
     DateSync = await SharedPref.getStrKey("DateSync", "");
+
+    try {
+      bool wRet = await DbOdoo.Login( DbTools.gUsername,  DbTools.gPassword );
+      if (wRet)
+        isOnline = 1;
+      else
+        isOnline = 0;
+    } catch (_) {
+      isOnline = 0;
+    }
+    setState(() {
+
+    });
+
   }
 
   void initState() {
@@ -38,6 +54,9 @@ class SyncState extends State<Sync> {
 
   @override
   Widget build(BuildContext context) {
+
+    print("isOnline $isOnline");
+
     return Container(
         color: Colors.white,
         child: Scaffold(
@@ -50,14 +69,13 @@ class SyncState extends State<Sync> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  height: 20,
+                isOnline == -1 ? Container() :
+                Image.asset(isOnline == 1 ?
+                'assets/images/OnLine.jpg':
+                'assets/images/OffLine.jpg',
+                  width: 100,
+                  height: 100,
                 ),
-                Text("Date dernière Synchro\n${DateSync}",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    )),
                 Container(
                   margin: const EdgeInsets.all(15.0),
                   padding: const EdgeInsets.all(3.0),
@@ -90,9 +108,9 @@ class SyncState extends State<Sync> {
                 width: 250,
                 child: Row(
                   children: <Widget>[
+                    (isOnline != 1) ? Container() :
                     ElevatedButton(
                       onPressed: () async {
-
                         if (isWork) {
                           return;
                         }
