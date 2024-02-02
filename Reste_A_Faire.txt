@@ -1,30 +1,144 @@
 
-Projet V2 :
-Sem 30 Janvier
-Entreprenants : 1J
-Activités : 1J
-Off Line : 1J
-Système :
-Git
 
-//**********************************************
+CREATE TABLE IF NOT EXISTS public.innoving_activite
+(
+    id integer NOT NULL DEFAULT nextval('innoving_activite_id_seq'::regclass),
+    message_main_attachment_id integer,
+    cluster_id integer,
+    region_id integer,
+    departement_id integer,
+    sousprefecture_id integer,
+    commune_id integer,
+    localite_id integer,
+    zonerecensement_id integer,
+    quartier_id integer,
+    ilot_id integer,
+    user_id integer,
+    superviseur_id integer,
+    manager_id integer,
+    equipe_id integer,
+    chef_equipe_id integer,
+    active boolean,
+    name character varying COLLATE pg_catalog."default",
+    image bytea,
+    date_ajout timestamp without time zone,
+    ref character varying COLLATE pg_catalog."default",
+    country_id integer,
+    entreprenant_id integer,
+    type_activite character varying COLLATE pg_catalog."default",
+    statut_registre_commerce character varying COLLATE pg_catalog."default" NOT NULL,
+    num_registre_commerce character varying COLLATE pg_catalog."default",
+    statut_compte_contribuable character varying COLLATE pg_catalog."default" NOT NULL,
+    num_compte_contribuable character varying COLLATE pg_catalog."default",
+    statut_comptabilite_formel character varying COLLATE pg_catalog."default" NOT NULL,
+    doc_fin_exercice character varying COLLATE pg_catalog."default" NOT NULL,
+    type_entreprise character varying COLLATE pg_catalog."default" NOT NULL,
+    type_activite_formel_informel character varying COLLATE pg_catalog."default",
+    activity_birthday date NOT NULL,
+    regime_fiscale character varying COLLATE pg_catalog."default",
+    chiffre_affaire_taxable character varying COLLATE pg_catalog."default" NOT NULL,
+    min_ca double precision,
+    max_ca double precision,
+    forme_activite character varying COLLATE pg_catalog."default",
+    type_taxe character varying COLLATE pg_catalog."default",
+    cga character varying COLLATE pg_catalog."default",
+    date_adhesion date,
+    ref_cga character varying COLLATE pg_catalog."default",
+    periode_imposition character varying COLLATE pg_catalog."default",
+    taux_imposition double precision,
+    taille_activite character varying COLLATE pg_catalog."default" NOT NULL,
+    date_debut_exploitation date,
+    activicte_principal character varying COLLATE pg_catalog."default",
+    ciap character varying COLLATE pg_catalog."default",
+    longueur double precision,
+    largeur double precision,
+    odp double precision,
+    baux_loyer character varying COLLATE pg_catalog."default",
+    pub_longueur character varying COLLATE pg_catalog."default",
+    pub_largeur character varying COLLATE pg_catalog."default",
+    pub_en_mettre_carre double precision,
+    pub_longueur_2 double precision,
+    pub_largeur_2 double precision,
+    pub_en_mettre_carre_2 double precision,
+    barcode character varying COLLATE pg_catalog."default",
+    street character varying COLLATE pg_catalog."default",
+    street2 character varying COLLATE pg_catalog."default",
+    city character varying COLLATE pg_catalog."default",
+    partner_latitude numeric,
+    partner_longitude numeric,
+    date_localization date,
+    gps_precision double precision,
+    autre_type_activite_formel_informel integer,
+    has_activite_secondaire character varying COLLATE pg_catalog."default",
+    name_activite_secondaire character varying COLLATE pg_catalog."default",
+    code_ciap character varying COLLATE pg_catalog."default",
+    autre_activite_secondaire character varying COLLATE pg_catalog."default",
+    declaration_cnps character varying COLLATE pg_catalog."default",
+    numero_cnps_communicable character varying COLLATE pg_catalog."default",
+    numero_cnps integer,
+    etat_fonctionnement_entreprise character varying COLLATE pg_catalog."default",
+    forme_juridique character varying COLLATE pg_catalog."default",
+    autre_forme_juridique character varying COLLATE pg_catalog."default",
+    capital_en_action character varying COLLATE pg_catalog."default",
+    statut_entreprise character varying COLLATE pg_catalog."default",
+    nombre_etablissement character varying COLLATE pg_catalog."default",
+    raison_social character varying COLLATE pg_catalog."default",
+    adresse_geographique_entreprise character varying COLLATE pg_catalog."default",
+    connexion_internet character varying COLLATE pg_catalog."default",
+    effectif_total_employe integer,
+    autre_contrainte character varying COLLATE pg_catalog."default",
+    aucune_contrainte character varying COLLATE pg_catalog."default",
+    sigle_entreprise character varying COLLATE pg_catalog."default",
+    telephone_fixe_1_entreprise character varying(10) COLLATE pg_catalog."default",
+    telephone_fixe_2_entreprise character varying(10) COLLATE pg_catalog."default",
+    telephone_portable_1_entreprise character varying(10) COLLATE pg_catalog."default",
+    telephone_portable_2_entreprise character varying(10) COLLATE pg_catalog."default",
+    email_entreprise character varying(70) COLLATE pg_catalog."default",
+    site_web_entreprise character varying COLLATE pg_catalog."default",
+    date_fin_entretien date,
+    resultat_entretien character varying COLLATE pg_catalog."default" NOT NULL,
+    nombre_visite integer,
+    observation_enquete text COLLATE pg_catalog."default",
+    state character varying COLLATE pg_catalog."default",
+    is_activity boolean,
+    nombre_table integer,
+    nombre_pompe integer,
+    nombre_casque integer,
+    idu_entreprenant character varying(14) COLLATE pg_catalog."default" NOT NULL,
+    champs_renseignes_count double precision,
+    nombre_champs_total integer,
+    nombre_champs_renseignes integer,
+    nombre_champs_non_renseignes integer,
+    champs_non_renseignes text COLLATE pg_catalog."default",
+    champs_requis_renseignes_count double precision,
+    nombre_champs_requis_total integer,
+    nombre_champs_requis_renseignes integer,
+    champs_tel_format_count integer,
+    pourcentage_champs_tel_format double precision,
+    fiche_state character varying COLLATE pg_catalog."default",
+    maj_taux_renseignement boolean,
+    compteur_incoherance_champs_non_renseignes integer,
+    libelles_incoherance_champs_non_renseignes text COLLATE pg_catalog."default",
+    zone_implantation_entreprise character varying COLLATE pg_catalog."default",
+    libelle_zone_implantation_entreprise character varying COLLATE pg_catalog."default",
+    longitude_zone_implantation double precision,
+    latitude_zone_implantation double precision,
+    precision_zone_implantation double precision,
+    numero_batiment integer,
+    option_gps character varying COLLATE pg_catalog."default",
+    numero_sequence_batiment_entreprise integer,
+    effectif_employe_jour integer,
+    create_uid integer,
+    create_date timestamp without time zone,
+    write_uid integer,
+    write_date timestamp without time zone,
+    zip character varying COLLATE pg_catalog."default",
+    state_id integer,
+    surface_local_en_mettre_carre double precision,
+    secteur_id integer,
+    company_type character varying COLLATE pg_catalog."default",
+    idu_is_ok boolean,
+    forme_is_ok boolean,
 
-Ins V1 : 3J + 4J + 6H = 7J + 6H
-Décembre
-Activités
-1J + 1J + 1J = 3J
-Sem 25/12
-Activités : 1/2j + 1/2j + 1h + 2h + 1h + 1H + 2H = 4J + 6H
 
-Projet V2 :  6J + 2H
-Janvier
-Entreprenants :
-4H + 2H + 4h = 1j + 2h
-Activités
-1J + 1J + 1J + 1J + 1J = 5J
-
-Facturation du 29 janvier : 14J
-
-
-
-
+)

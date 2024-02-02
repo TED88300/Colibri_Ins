@@ -8,12 +8,11 @@ class Activite_ins {
   int? ACT_Id_Server = 0;
 
   String? name = "";
-  int? companyId;
   String? createDate;
   String? displayName;
   String? date;
 
-  int? parentId;
+
   String? ref;
   String? lang;
   String? tz;
@@ -22,14 +21,9 @@ class Activite_ins {
   String? website;
   String? state;
   String? comment;
-  double? creditLimit;
+
   String? barcode;
   bool? active;
-  bool? customer;
-  bool? supplier;
-  bool? employee;
-  String? function;
-  String? type;
   String? street;
   String? street2;
   String? zip;
@@ -39,37 +33,19 @@ class Activite_ins {
   String? email;
   String? telephoneFixe1Entreprise;
   String? mobile;
-  bool? isCompany;
-  int? industryId;
-  int? color;
-  bool? partnerShare;
-  String? commercialCompanyName;
-  String? companyName;
+
   int? createUid;
   int? writeUid;
   String? writeDate;
   int? messageMainAttachmentId;
-  int? messageBounce;
-  String? signupToken;
-  String? signupType;
-  String? signupExpiration;
-  int? partnerGid;
-  String? additionalInfo;
-  double? debitLimit;
-  String? lastTimeEntriesChecked;
-  String? invoiceWarn;
-  String? invoiceWarnMsg;
   int? entreprenantId;
-  int? fiscalYearId;
-  String? comptafinexercice;
-  String? docComptafinexercice;
+
   String? activityBirthday; // Date
   String? regimeFiscale;
   String? chiffreAffaireTaxable;
   double? minCa;
   double? maxCa;
   int? secteurId;
-  String? zoneIdMoved0;
   String? typeTaxe;
   String? cga;
   String? dateAdhesion;
@@ -77,7 +53,6 @@ class Activite_ins {
   String? periodeImposition;
   double? tauxImposition;
   String? tailleActivite;
-  String? dateDebutExploitationMoved0;
   String? ciap;
   double? longueur;
   double? largeur;
@@ -92,26 +67,12 @@ class Activite_ins {
   int? pubEnMettreCarre2 = 0;
   String? partnerLatitude;
   String? partnerLongitude;
-  String? iduCepici;
-  String? iduCommunicable;
-  String? numeroIdu;
-  int? chiffreIdu;
-  String? lettreFinIdu;
   String? autreTypeActivite = "";
   int? activicte2;
   String? etatActivite;
   String? formeJuridique;
   String? autreFormeJuridique;
   String? capitalEnAction;
-  String? nameActionnaire;
-  String? typeActionnaire;
-  String? sexeActionnaire;
-  String? nationaliteActionnaire;
-  double? montantAction;
-  double? partSocialeActionnaire;
-  String? autreActionnaire;
-
-
   String? manquePersonnelQualifie;
   String? coutEleveMainOeuvre;
   String? formaliteAdministrativeContraignante;
@@ -135,46 +96,34 @@ class Activite_ins {
   String? autreContrainte;
   String? preciseContrainte;
   String? aucuneContrainte;
+
   String? autreActivte;
   String? autre_activite_secondaire;
   String? autreActivitePrecision;
-  String? autreLocal;
-  String? autreMoyenComptable;
+
   String? codeCiap;
-  String? communiqueRegistreMetier;
   String? connexionInternet;
+
   String? declarationCnps;
   String? designationActivite;
-  int? deux1erChiffreRm;
-  String? deux1erLettreRm;
-  String? deuxDernierLettreRm;
   String? docFinExercice;
   int? effectifTotal;
 
 
   String? etatFonctionnementEntreprise;
-  String? etatInfrastructure;
-  String? importProduit;
-  String? importService;
-  String? localActivicte;
-  String? moyenComptable;
   String? nameActiviteSecondaire;
   String? nombreEtablissement;
   String? numCompteContribuable;
   String? numRegistreCommerce;
-  String? numRegistreMetier;
   int? numeroCnps;
   String? numeroCnpsCommunicable;
   String? periodicite;
-  double? quatreChiffreRm;
-  String? registreMetier;
-  int? septChiffreRm;
   String? statutComptabiliteFormel;
   String? statutCompteContribuable;
   String? statutEntreprise;
   String? statutRegistreCommerce;
+
   String? typeEntreprise;
-  String? utilisationLogicielMetier;
   int? zoneId;
   int? localiteId;
   int? quartierId;
@@ -185,8 +134,6 @@ class Activite_ins {
   String? gpsPrecision;
   String? serviceEnLigne;
   String? hasActivicteSecondaire;
-  String? statutTerrain;
-  String? autreStatusTerrain;
   String? raisonSocial;
   String? adresseGeographiqueEntreprise;
   String? observation;
@@ -194,14 +141,11 @@ class Activite_ins {
   String? telephoneFixe2Entreprise;
   String? telephonePortable1Entreprise;
   String? telephonePortable2Entreprise;
-  String? faxEntreprise;
   String? emailEntreprise;
   String? siteWebEntreprise;
   String? boitePostaleEntreprise;
-
   String? typeActivite;
   String? type_activite_formel_informel;
-
   int? clusterId;
   int? regionId;
   int? departementId;
@@ -226,12 +170,9 @@ class Activite_ins {
   Activite_ins(
       {this.id,
       this.name,
-      this.companyId,
       this.createDate,
       this.displayName,
       this.date,
-//        this.title,
-      this.parentId,
       this.ref,
       this.lang,
       this.tz,
@@ -240,14 +181,9 @@ class Activite_ins {
       this.website,
         this.state,
       this.comment,
-      this.creditLimit,
+
       this.barcode,
       this.active,
-      this.customer,
-      this.supplier,
-      this.employee,
-      this.function,
-      this.type,
       this.street,
       this.street2,
       this.zip,
@@ -257,38 +193,17 @@ class Activite_ins {
       this.email,
       this.telephoneFixe1Entreprise,
       this.mobile,
-      this.isCompany,
-      this.industryId,
-      this.color,
-      this.partnerShare,
-//        this.commercialPartnerId,
-      this.commercialCompanyName,
-      this.companyName,
       this.createUid,
       this.writeUid,
       this.writeDate,
       this.messageMainAttachmentId,
-      this.messageBounce,
-      this.signupToken,
-      this.signupType,
-      this.signupExpiration,
-      this.partnerGid,
-      this.additionalInfo,
-      this.debitLimit,
-      this.lastTimeEntriesChecked,
-      this.invoiceWarn,
-      this.invoiceWarnMsg,
       this.entreprenantId,
-      this.fiscalYearId,
-      this.comptafinexercice,
-      this.docComptafinexercice,
       this.activityBirthday,
       this.regimeFiscale,
       this.chiffreAffaireTaxable,
       this.minCa,
       this.maxCa,
       this.secteurId,
-      this.zoneIdMoved0,
       this.typeTaxe,
       this.cga,
       this.dateAdhesion,
@@ -296,7 +211,6 @@ class Activite_ins {
       this.periodeImposition,
       this.tauxImposition,
       this.tailleActivite,
-      this.dateDebutExploitationMoved0,
       this.ciap,
       this.longueur,
       this.largeur,
@@ -311,24 +225,13 @@ class Activite_ins {
       this.pubEnMettreCarre2,
       this.partnerLatitude,
       this.partnerLongitude,
-      this.iduCepici,
-      this.iduCommunicable,
-      this.numeroIdu,
-      this.chiffreIdu,
-      this.lettreFinIdu,
       this.autreTypeActivite,
       this.activicte2,
       this.etatActivite,
       this.formeJuridique,
       this.autreFormeJuridique,
       this.capitalEnAction,
-      this.nameActionnaire,
-      this.typeActionnaire,
-      this.sexeActionnaire,
-      this.nationaliteActionnaire,
-      this.montantAction,
-      this.partSocialeActionnaire,
-      this.autreActionnaire,
+
       this.manquePersonnelQualifie,
       this.coutEleveMainOeuvre,
       this.formaliteAdministrativeContraignante,
@@ -354,41 +257,28 @@ class Activite_ins {
       this.autreActivte,
       this.autre_activite_secondaire,
       this.autreActivitePrecision,
-      this.autreLocal,
-      this.autreMoyenComptable,
+
       this.codeCiap,
-      this.communiqueRegistreMetier,
       this.connexionInternet,
       this.declarationCnps,
       this.designationActivite,
-      this.deux1erChiffreRm,
-      this.deux1erLettreRm,
-      this.deuxDernierLettreRm,
+
       this.docFinExercice,
       this.effectifTotal,
       this.etatFonctionnementEntreprise,
-      this.etatInfrastructure,
-      this.importProduit,
-      this.importService,
-      this.localActivicte,
-      this.moyenComptable,
+
       this.nameActiviteSecondaire,
       this.nombreEtablissement,
       this.numCompteContribuable,
       this.numRegistreCommerce,
-      this.numRegistreMetier,
       this.numeroCnps,
       this.numeroCnpsCommunicable,
       this.periodicite,
-      this.quatreChiffreRm,
-      this.registreMetier,
-      this.septChiffreRm,
       this.statutComptabiliteFormel,
       this.statutCompteContribuable,
       this.statutEntreprise,
       this.statutRegistreCommerce,
       this.typeEntreprise,
-      this.utilisationLogicielMetier,
       this.zoneId,
       this.localiteId,
       this.quartierId,
@@ -399,8 +289,6 @@ class Activite_ins {
       this.gpsPrecision,
       this.serviceEnLigne,
       this.hasActivicteSecondaire,
-      this.statutTerrain,
-      this.autreStatusTerrain,
       this.raisonSocial,
       this.adresseGeographiqueEntreprise,
       this.observation,
@@ -408,7 +296,6 @@ class Activite_ins {
       this.telephoneFixe2Entreprise,
       this.telephonePortable1Entreprise,
       this.telephonePortable2Entreprise,
-      this.faxEntreprise,
       this.emailEntreprise,
       this.siteWebEntreprise,
       this.boitePostaleEntreprise,
@@ -445,12 +332,10 @@ class Activite_ins {
     if (id == null) id = 0;
     if (ACT_Id_Server == null) ACT_Id_Server = -1;
     if (name == null) name = "";
-    if (companyId == null) companyId = 0;
     if (createDate == null) createDate = "";
     if (displayName == null) displayName = "";
     if (date == null) date = "";
-//    if (title == null) title = 0;
-    if (parentId == null) parentId = 0;
+
     if (ref == null) ref = "";
     if (lang == null) lang = "";
     if (tz == null) tz = "";
@@ -459,14 +344,9 @@ class Activite_ins {
     if (website == null) website = "";
     if (state == null) state = "";
     if (comment == null) comment = "";
-    if (creditLimit == null) creditLimit = 0;
+
     if (barcode == null) barcode = "";
     if (active == null) active = false;
-    if (customer == null) customer = false;
-    if (supplier == null) supplier = false;
-    if (employee == null) employee = false;
-    if (function == null) function = "";
-    if (type == null) type = "";
     if (street == null) street = "";
     if (street2 == null) street2 = "";
     if (zip == null) zip = "";
@@ -476,38 +356,17 @@ class Activite_ins {
     if (email == null) email = "";
     if (telephoneFixe1Entreprise == null) telephoneFixe1Entreprise = "";
     if (mobile == null) mobile = "";
-    if (isCompany == null) isCompany = false;
-    if (industryId == null) industryId = 0;
-    if (color == null) color = 0;
-    if (partnerShare == null) partnerShare = false;
-//    if (commercialPartnerId == null) commercialPartnerId = 0;
-    if (commercialCompanyName == null) commercialCompanyName = "";
-    if (companyName == null) companyName = "";
     if (createUid == null) createUid = 0;
     if (writeUid == null) writeUid = 0;
     if (writeDate == null) writeDate = "";
     if (messageMainAttachmentId == null) messageMainAttachmentId = 0;
-    if (messageBounce == null) messageBounce = 0;
-    if (signupToken == null) signupToken = "";
-    if (signupType == null) signupType = "";
-    if (signupExpiration == null) signupExpiration = "";
-    if (partnerGid == null) partnerGid = 0;
-    if (additionalInfo == null) additionalInfo = "";
-    if (debitLimit == null) debitLimit = 0;
-    if (lastTimeEntriesChecked == null) lastTimeEntriesChecked = "";
-    if (invoiceWarn == null) invoiceWarn = "";
-    if (invoiceWarnMsg == null) invoiceWarnMsg = "";
     if (entreprenantId == null) entreprenantId = 0;
-    if (fiscalYearId == null) fiscalYearId = 0;
-    if (comptafinexercice == null) comptafinexercice = "";
-    if (docComptafinexercice == null) docComptafinexercice = "";
     if (activityBirthday == null) activityBirthday = "";
     if (regimeFiscale == null) regimeFiscale = "";
     if (chiffreAffaireTaxable == null) chiffreAffaireTaxable = "";
     if (minCa == null) minCa = 0.0;
     if (maxCa == null) maxCa = 0.0;
     if (secteurId == null) secteurId = 0;
-    if (zoneIdMoved0 == null) zoneIdMoved0 = "";
     if (typeTaxe == null) typeTaxe = "";
     if (cga == null) cga = "";
     if (dateAdhesion == null) dateAdhesion = "";
@@ -515,7 +374,6 @@ class Activite_ins {
     if (periodeImposition == null) periodeImposition = "";
     if (tauxImposition == null) tauxImposition = 0;
     if (tailleActivite == null) tailleActivite = "";
-    if (dateDebutExploitationMoved0 == null) dateDebutExploitationMoved0 = "";
     if (ciap == null) ciap = "";
     if (longueur == null) longueur = 0;
     if (largeur == null) largeur = 0;
@@ -530,24 +388,12 @@ class Activite_ins {
     if (pubEnMettreCarre2 == null) pubEnMettreCarre2 = 0;
     if (partnerLatitude == null) partnerLatitude = "";
     if (partnerLongitude == null) partnerLongitude = "";
-    if (iduCepici == null) iduCepici = "";
-    if (iduCommunicable == null) iduCommunicable = "";
-    if (numeroIdu == null) numeroIdu = "";
-    if (chiffreIdu == null) chiffreIdu = 0;
-    if (lettreFinIdu == null) lettreFinIdu = "";
     if (autreTypeActivite == null) autreTypeActivite = "";
     if (activicte2 == null) activicte2 = 0;
     if (etatActivite == null) etatActivite = "";
     if (formeJuridique == null) formeJuridique = "";
     if (autreFormeJuridique == null) autreFormeJuridique = "";
     if (capitalEnAction == null) capitalEnAction = "";
-    if (nameActionnaire == null) nameActionnaire = "";
-    if (typeActionnaire == null) typeActionnaire = "";
-    if (sexeActionnaire == null) sexeActionnaire = "";
-    if (nationaliteActionnaire == null) nationaliteActionnaire = "";
-    if (montantAction == null) montantAction = 0;
-    if (partSocialeActionnaire == null) partSocialeActionnaire = 0;
-    if (autreActionnaire == null) autreActionnaire = "";
 
     if (manquePersonnelQualifie == null) manquePersonnelQualifie = "";
     if (coutEleveMainOeuvre == null) coutEleveMainOeuvre = "";
@@ -577,42 +423,25 @@ class Activite_ins {
 
     if (autre_activite_secondaire == null) autre_activite_secondaire = "";
     if (autreActivitePrecision == null) autreActivitePrecision = "";
-    if (autreLocal == null) autreLocal = "";
-    if (autreMoyenComptable == null) autreMoyenComptable = "";
     if (codeCiap == null) codeCiap = "";
-    if (communiqueRegistreMetier == null) communiqueRegistreMetier = "";
     if (connexionInternet == null) connexionInternet = "";
     if (declarationCnps == null) declarationCnps = "";
     if (designationActivite == null) designationActivite = "";
-    if (deux1erChiffreRm == null) deux1erChiffreRm = 0;
-    if (deux1erLettreRm == null) deux1erLettreRm = "";
-    if (deuxDernierLettreRm == null) deuxDernierLettreRm = "";
     if (docFinExercice == null) docFinExercice = "";
     if (effectifTotal == null) effectifTotal = 0;
     if (etatFonctionnementEntreprise == null) etatFonctionnementEntreprise = "";
-    if (etatInfrastructure == null) etatInfrastructure = "";
-    if (importProduit == null) importProduit = "";
-    if (importService == null) importService = "";
-    if (localActivicte == null) localActivicte = "";
-
-    if (moyenComptable == null) moyenComptable = "";
     if (nameActiviteSecondaire == null) nameActiviteSecondaire = "";
     if (nombreEtablissement == null) nombreEtablissement = "";
     if (numCompteContribuable == null) numCompteContribuable = "";
     if (numRegistreCommerce == null) numRegistreCommerce = "";
-    if (numRegistreMetier == null) numRegistreMetier = "";
     if (numeroCnps == null) numeroCnps = 0;
     if (numeroCnpsCommunicable == null) numeroCnpsCommunicable = "";
     if (periodicite == null) periodicite = "";
-    if (quatreChiffreRm == null) quatreChiffreRm = 0;
-    if (registreMetier == null) registreMetier = "";
-    if (septChiffreRm == null) septChiffreRm = 0;
     if (statutComptabiliteFormel == null) statutComptabiliteFormel = "";
     if (statutCompteContribuable == null) statutCompteContribuable = "";
     if (statutEntreprise == null) statutEntreprise = "";
     if (statutRegistreCommerce == null) statutRegistreCommerce = "";
     if (typeEntreprise == null) typeEntreprise = "";
-    if (utilisationLogicielMetier == null) utilisationLogicielMetier = "";
     if (zone == null) zone = "";
 
     if (dateDebutExploitation == null) dateDebutExploitation = "";
@@ -620,8 +449,6 @@ class Activite_ins {
     if (gpsPrecision == null) gpsPrecision = "";
     if (serviceEnLigne == null) serviceEnLigne = "";
     if (hasActivicteSecondaire == null) hasActivicteSecondaire = "";
-    if (statutTerrain == null) statutTerrain = "";
-    if (autreStatusTerrain == null) autreStatusTerrain = "";
     if (raisonSocial == null) raisonSocial = "";
     if (adresseGeographiqueEntreprise == null) adresseGeographiqueEntreprise = "";
     if (observation == null) observation = "";
@@ -629,16 +456,13 @@ class Activite_ins {
     if (telephoneFixe2Entreprise == null) telephoneFixe2Entreprise = "";
     if (telephonePortable1Entreprise == null) telephonePortable1Entreprise = "";
     if (telephonePortable2Entreprise == null) telephonePortable2Entreprise = "";
-    if (faxEntreprise == null) faxEntreprise = "";
     if (emailEntreprise == null) emailEntreprise = "";
     if (siteWebEntreprise == null) siteWebEntreprise = "";
     if (boitePostaleEntreprise == null) boitePostaleEntreprise = "";
     if (typeActivite == null) typeActivite = "";
-
     if (addresseGeo1 == null) addresseGeo1 = "";
     if (addresseGeo2 == null) addresseGeo2 = "";
     if (activiteTypeId == null) activiteTypeId = 0;
-
     if (dateFinEntretien == null) dateFinEntretien = "";
     if (resultatEntretien == null) resultatEntretien = "";
     if (nombreVisite == null) nombreVisite = "";
@@ -646,17 +470,10 @@ class Activite_ins {
   }
 
   Activite_ins.fromJson(Map<String, dynamic> json) {
-    int wcompany_id = 0;
-    if (json['company_id'].toString().compareTo("null") != 0) wcompany_id = json['company_id'];
-    int wparent_id = 0;
-    if (json['parent_id'].toString().compareTo("null") != 0) wparent_id = json['parent_id'];
     int wuser_id = 0;
     if (json['user_id'].toString().compareTo("null") != 0) wuser_id = json['user_id'];
 
 
-
-    double wcredit_limit = 0.0;
-    if (json['credit_limit'].toString().compareTo("null") != 0) wcredit_limit = double.parse(json['credit_limit'].toString());
     int wcountry_id = 0;
     if (json['country_id'].toString().compareTo("null") != 0) wcountry_id = json['country_id'];
     int wcolor = 0;
@@ -668,8 +485,7 @@ class Activite_ins {
     int wmessage_bounce = 0;
     if (json['message_bounce'].toString().compareTo("null") != 0) wmessage_bounce = json['message_bounce'];
 
-    double wdebit_limit = 0.0;
-    if (json['debit_limit'].toString().compareTo("null") != 0) wcredit_limit = double.parse(json['debit_limit'].toString());
+
 
     int wentreprenant_id = 0;
     if (json['entreprenant_id'].toString().compareTo("null") != 0) wentreprenant_id = json['entreprenant_id'];
@@ -695,7 +511,6 @@ class Activite_ins {
     double wpub_largeur_2 = 0;
     if (json['pub_largeur_2'].toString().compareTo("null") != 0) wpub_largeur_2 = double.parse(json['pub_largeur_2'].toString());
 
-    print('surface_local_en_mettre_carre ${json['surface_local_en_mettre_carre']}');
 
     double wsurface_local_en_mettre_carre = 0;
     if (json['surface_local_en_mettre_carre'].toString().compareTo("null") != 0)
@@ -806,12 +621,9 @@ class Activite_ins {
 
     id = json['id'];
     name = json['name'];
-    companyId = wcompany_id;
     createDate = json['create_date'];
     displayName = json['display_name'];
     date = json['date'];
-//    title = wtitle;
-    parentId = wparent_id;
     ref = json['ref'];
     lang = json['lang'];
     tz = json['tz'];
@@ -820,14 +632,9 @@ class Activite_ins {
     website = json['website'];
     state = json['state'];
     comment = json['comment'];
-    creditLimit = wcredit_limit;
+
     barcode = json['barcode'];
     active = json['active'];
-    customer = json['customer'];
-    supplier = json['supplier'];
-    employee = json['employee'];
-    function = json['function'];
-    type = json['type'];
     street = json['street'];
     street2 = json['street2'];
     zip = json['zip'];
@@ -837,41 +644,17 @@ class Activite_ins {
     email = json['email_entreprise'];
     telephoneFixe1Entreprise = json['telephone_fixe_1_entreprise'];
     mobile = json['telephone_portable_1_entreprise'];
-    isCompany = json['is_company'];
-//    industryId = windustry_id;
-    color = wcolor;
-    partnerShare = json['partner_share'];
-//    commercialPartnerId = wcommercial_partner_id;
-    commercialCompanyName = json['commercial_company_name'];
-    companyName = json['company_name'];
+
     createUid = wcreate_uid;
     writeUid = wwrite_uid;
     writeDate = json['write_date'];
-    ;
-//    messageMainAttachmentId = wmessage_main_attachment_id;
-    messageBounce = wmessage_bounce;
-    signupToken = json['signup_token'];
-    signupType = json['signup_type'];
-    signupExpiration = json['signup_expiration'];
-    //   partnerGid = wpartner_gid;
-    additionalInfo = json['additional_info'];
-    debitLimit = wdebit_limit;
-    lastTimeEntriesChecked = json['last_time_entries_checked'];
-    invoiceWarn = json['invoice_warn'];
-    invoiceWarnMsg = json['invoice_warn_msg'];
     entreprenantId = wentreprenant_id;
-    fiscalYearId = wfiscal_year_id;
-
-    comptafinexercice = json['compta_fin_exercice'];
-    docComptafinexercice = json['doc_compta_fin_exercice'];
-
     activityBirthday = json['activity_birthday'];
     regimeFiscale = json['regime_fiscale'];
     chiffreAffaireTaxable = json['chiffre_affaire_taxable'];
     minCa = double.parse(json['min_ca'].toString());
     maxCa = double.parse(json['max_ca'].toString());
     secteurId = wsecteur_id;
-    zoneIdMoved0 = json['zone_id_moved0'];
     typeTaxe = json['type_taxe'];
     cga = json['cga'];
     dateAdhesion = json['date_adhesion'];
@@ -879,7 +662,6 @@ class Activite_ins {
     periodeImposition = json['periode_imposition'];
     tauxImposition = wtaux_imposition;
     tailleActivite = json['taille_activite'];
-    dateDebutExploitationMoved0 = json['date_debut_exploitation_moved0'];
     ciap = json['ciap'];
     longueur = wlongueur;
     largeur = wlargeur;
@@ -892,24 +674,13 @@ class Activite_ins {
     partnerLatitude = "${json['partner_latitude']}";
     partnerLongitude = "${json['partner_longitude']}";
 
-    iduCepici = json['idu_cepici'];
-    iduCommunicable = json['idu_communicable'];
-    numeroIdu = json['numero_idu'];
-    chiffreIdu = wchiffre_idu;
-    lettreFinIdu = json['lettre_fin_idu'];
     autreTypeActivite = json['autre_type_activite'].toString();
     activicte2 = wactivicte_2;
     etatActivite = json['etat_activite'];
     formeJuridique = json['forme_juridique'];
     autreFormeJuridique = json['autre_forme_juridique'];
     capitalEnAction = json['capital_en_action'];
-    nameActionnaire = json['name_actionnaire'];
-    typeActionnaire = json['type_actionnaire'];
-    sexeActionnaire = json['sexe_actionnaire'];
-    nationaliteActionnaire = json['nationalite_actionnaire'];
-    montantAction = wmontant_action;
-    partSocialeActionnaire = wpart_sociale_actionnaire;
-    autreActionnaire = json['autre_actionnaire'];
+
 
     manquePersonnelQualifie = json['manque_personnel_qualifie'];
     coutEleveMainOeuvre = json['cout_eleve_main_oeuvre'];
@@ -934,47 +705,27 @@ class Activite_ins {
     preciseContrainte = json['precise_contrainte'];
     aucuneContrainte = json['aucune_contrainte'];
     autreActivte = json['autre_activte'];
-
     autre_activite_secondaire = json['autre_activite_secondaire'];
     autreActivitePrecision = json['autre_activite_precision'];
-    autreLocal = json['autre_local'];
-    autreMoyenComptable = json['autre_moyen_comptable'];
     codeCiap = json['code_ciap'];
-    communiqueRegistreMetier = json['communique_registre_metier'];
     connexionInternet = json['connexion_internet'];
     declarationCnps = json['declaration_cnps'];
     designationActivite = json['designation_activite'];
-    deux1erChiffreRm = wdeux_1er_chiffre_rm;
-    deux1erLettreRm = json['deux_1er_lettre_rm'];
-    deuxDernierLettreRm = json['deux_dernier_lettre_rm'];
     docFinExercice = json['doc_fin_exercice'];
     effectifTotal = weffectif_total;
     etatFonctionnementEntreprise = json['etat_fonctionnement_entreprise'];
-    etatInfrastructure = json['etat_infrastructure'];
-    importProduit = json['import_produit'];
-    importService = json['import_service'];
-    localActivicte = json['local_activicte'];
-    moyenComptable = json['moyen_comptable'];
     nameActiviteSecondaire = json['name_activite_secondaire'];
     nombreEtablissement = json['nombre_etablissement'];
     numCompteContribuable = json['num_compte_contribuable'];
     numRegistreCommerce = json['num_registre_commerce'];
-    numRegistreMetier = json['num_registre_metier'];
     numeroCnps = wnumero_cnps;
     numeroCnpsCommunicable = json['numero_cnps_communicable'];
     periodicite = json['periodicite'];
-    quatreChiffreRm = wquatre_chiffre_rm;
-    registreMetier = json['registre_metier'];
-    septChiffreRm = wsept_chiffre_rm;
     statutComptabiliteFormel = json['statut_comptabilite_formel'];
     statutCompteContribuable = json['statut_compte_contribuable'];
     statutEntreprise = json['statut_entreprise'];
-
-//    print("json['statut_registre_commerce'] ${json['statut_registre_commerce']}");
-
     statutRegistreCommerce = json['statut_registre_commerce'];
     typeEntreprise = json['type_entreprise'];
-    utilisationLogicielMetier = json['utilisation_logiciel_metier'];
     zoneId = wzone_id;
     localiteId = wlocalite_id;
     quartierId = wquartier_id;
@@ -985,8 +736,6 @@ class Activite_ins {
     gpsPrecision = "${json['gps_precision']}";
     serviceEnLigne = json['service_en_ligne'];
     hasActivicteSecondaire = json['has_activicte_secondaire'];
-    statutTerrain = json['statut_terrain'];
-    autreStatusTerrain = json['autre_status_terrain'];
     raisonSocial = json['raison_social'];
     adresseGeographiqueEntreprise = json['adresse_geographique_entreprise'];
     observation = json['observation'];
@@ -994,7 +743,6 @@ class Activite_ins {
     telephoneFixe2Entreprise = json['telephone_fixe_2_entreprise'];
     telephonePortable1Entreprise = json['telephone_portable_1_entreprise'];
     telephonePortable2Entreprise = json['telephone_portable_2_entreprise'];
-    faxEntreprise = json['fax_entreprise'];
     emailEntreprise = json['email_entreprise'];
     siteWebEntreprise = json['site_web_entreprise'];
     boitePostaleEntreprise = json['boite_postale_entreprise'];
@@ -1006,9 +754,6 @@ class Activite_ins {
     communeId = wcommune_id;
     addresseGeo1 = json['addresse_geo_1'];
     addresseGeo2 = json['addresse_geo_2'];
-//    activiteTypeId = wactivite_type_id;
-
-
     resultatEntretien = json['resultat_entretien'].toString();
     dateFinEntretien = json['date_fin_entretien'];
     nombreVisite = json['nombre_visite'].toString();
@@ -1031,34 +776,14 @@ class Activite_ins {
     final Map<String, dynamic> data = new Map<String, dynamic>();
 
     if (this.active == null) this.active = false;
-    if (this.customer == null) this.customer = false;
-    if (this.supplier == null) this.supplier = false;
-    if (this.employee == null) this.employee = false;
-    if (this.function == null) this.function = "";
-
-    if (this.companyId == null) this.companyId = 0;
-//    if (this.title == null) this.title = 0;
-    if (this.parentId == null) this.parentId = 0;
     if (this.userId == null) this.userId = 0;
-    if (this.creditLimit == null) this.creditLimit = 0;
+
     if (this.stateId == null) this.stateId = 0;
     if (this.countryId == null) this.countryId = 0;
-    if (this.isCompany == null) this.isCompany = true;
-    if (this.industryId == null) this.industryId = 0;
-    if (this.color == null) this.color = 0;
-
-    if (this.partnerShare == null) this.partnerShare = true;
-//    if (this.commercialPartnerId == null) this.commercialPartnerId = 0;
     if (this.createUid == null) this.createUid = 0;
     if (this.writeUid == null) this.writeUid = 0;
     if (this.messageMainAttachmentId == null) this.messageMainAttachmentId = 0;
-    if (this.messageBounce == null) this.messageBounce = 0;
-    if (this.partnerGid == null) this.partnerGid = 0;
-    if (this.debitLimit == null) this.debitLimit = 0;
     if (this.entreprenantId == null) this.entreprenantId = 0;
-    if (this.fiscalYearId == null) this.fiscalYearId = 0;
-    if (this.comptafinexercice == null) this.comptafinexercice = "";
-    if (this.docComptafinexercice == null) this.docComptafinexercice = "";
     if (this.tauxImposition == null) this.tauxImposition = 0;
     if (this.longueur == null) this.longueur = 0;
     if (this.largeur == null) this.largeur = 0;
@@ -1068,17 +793,9 @@ class Activite_ins {
     if (this.pubLargeur2 == null) this.pubLargeur2 = 0;
     if (this.surface_local_en_mettre_carre == null) this.surface_local_en_mettre_carre = 0;
     if (this.pubEnMettreCarre2 == null) this.pubEnMettreCarre2 = 0;
-    if (this.chiffreIdu == null) this.chiffreIdu = 0;
     if (this.activicte2 == null) this.activicte2 = 0;
-
-    if (this.montantAction == null) this.montantAction = 0;
-    if (this.partSocialeActionnaire == null) this.partSocialeActionnaire = 0;
-
-    if (this.deux1erChiffreRm == null) this.deux1erChiffreRm = 0;
     if (this.effectifTotal == null) this.effectifTotal = 0;
     if (this.numeroCnps == null) this.numeroCnps = 0;
-    if (this.quatreChiffreRm == null) this.quatreChiffreRm = 0;
-    if (this.septChiffreRm == null) this.septChiffreRm = 0;
     if (this.zoneId == null) this.zoneId = 0;
     if (this.localiteId == null) this.localiteId = 0;
     if (this.quartierId == null) this.quartierId = 0;
@@ -1089,24 +806,13 @@ class Activite_ins {
     if (this.sousprefectureId == null) this.sousprefectureId = 0;
     if (this.communeId == null) this.communeId = 0;
     if (this.activiteTypeId == null) this.activiteTypeId = 0;
-
     if (this.ACT_TRANSF_OK == null) this.ACT_TRANSF_OK = 0;
     if (this.Id_Tmp == null) this.Id_Tmp = 0;
-
-
-
-
-
-//    //print("ididididididi  ${this.id}");
-
     data['id'] = this.id;
     data['name'] = this.name;
-    data['company_id'] = this.companyId;
     data['create_date'] = this.createDate;
     data['display_name'] = this.displayName;
     data['date'] = this.date;
-//    data['title'] = this.title;
-    data['parent_id'] = this.parentId;
     data['ref'] = this.ref;
     data['lang'] = this.lang;
     data['tz'] = this.tz;
@@ -1116,16 +822,8 @@ class Activite_ins {
     data['website'] = this.website;
     data['state'] = this.state;
     data['comment'] = this.comment;
-    data['credit_limit'] = this.creditLimit;
     data['barcode'] = this.barcode;
 
-//    data['active'] = this.active;
-//    data['customer'] = this.customer;
-    //  data['supplier'] = this.supplier;
-    //data['employee'] = this.employee;
-
-    data['function'] = this.function;
-    data['type'] = this.type;
     data['street'] = this.street;
     data['street2'] = this.street2;
     data['zip'] = this.zip;
@@ -1135,32 +833,12 @@ class Activite_ins {
     data['email'] = this.email;
     data['telephone_fixe_1_entreprise'] = this.telephoneFixe1Entreprise;
     data['mobile'] = this.mobile;
-//    data['is_company'] = this.isCompany;
-    data['industry_id'] = this.industryId;
-    data['color'] = this.color;
-//    data['partner_share'] = this.partnerShare;
-//    data['commercial_partner_id'] = this.commercialPartnerId;
-    data['commercial_company_name'] = this.commercialCompanyName;
-    data['company_name'] = this.companyName;
     data['create_uid'] = this.createUid;
     data['write_uid'] = this.writeUid;
     data['write_date'] = this.writeDate;
     data['message_main_attachment_id'] = this.messageMainAttachmentId;
-    data['message_bounce'] = this.messageBounce;
-    data['signup_token'] = this.signupToken;
-    data['signup_type'] = this.signupType;
-    data['signup_expiration'] = this.signupExpiration;
-    data['partner_gid'] = this.partnerGid;
-    data['additional_info'] = this.additionalInfo;
-    data['debit_limit'] = this.debitLimit;
-    data['last_time_entries_checked'] = this.lastTimeEntriesChecked;
-    data['invoice_warn'] = this.invoiceWarn;
-    data['invoice_warn_msg'] = this.invoiceWarnMsg;
     data['entreprenant_id'] = this.entreprenantId;
-    data['fiscal_year_id'] = this.fiscalYearId;
 
-    data['compta_fin_exercice'] = this.comptafinexercice;
-    data['doc_compta_fin_exercice'] = this.docComptafinexercice;
 
     data['activity_birthday'] = this.activityBirthday;
     data['regime_fiscale'] = this.regimeFiscale;
@@ -1168,7 +846,6 @@ class Activite_ins {
     data['min_ca'] = this.minCa;
     data['max_ca'] = this.maxCa;
     data['secteur_id'] = this.secteurId;
-    data['zone_id_moved0'] = this.zoneIdMoved0;
     data['type_taxe'] = this.typeTaxe;
     data['cga'] = this.cga;
     data['date_adhesion'] = this.dateAdhesion;
@@ -1176,7 +853,6 @@ class Activite_ins {
     data['periode_imposition'] = this.periodeImposition;
     data['taux_imposition'] = this.tauxImposition;
     data['taille_activite'] = this.tailleActivite;
-    data['date_debut_exploitation_moved0'] = this.dateDebutExploitationMoved0;
     data['ciap'] = this.ciap;
     data['longueur'] = this.longueur;
     data['largeur'] = this.largeur;
@@ -1191,24 +867,12 @@ class Activite_ins {
     data['pub_en_mettre_carre_2'] = this.pubEnMettreCarre2;
     data['partner_latitude'] = this.partnerLatitude;
     data['partner_longitude'] = this.partnerLongitude;
-    data['idu_cepici'] = this.iduCepici;
-    data['idu_communicable'] = this.iduCommunicable;
-    data['numero_idu'] = this.numeroIdu;
-    data['chiffre_idu'] = this.chiffreIdu;
-    data['lettre_fin_idu'] = this.lettreFinIdu;
     data['autre_type_activite'] = this.autreTypeActivite;
     data['activicte_2'] = this.activicte2;
     data['etat_activite'] = this.etatActivite;
     data['forme_juridique'] = this.formeJuridique;
     data['autre_forme_juridique'] = this.autreFormeJuridique;
     data['capital_en_action'] = this.capitalEnAction;
-    data['name_actionnaire'] = this.nameActionnaire;
-    data['type_actionnaire'] = this.typeActionnaire;
-    data['sexe_actionnaire'] = this.sexeActionnaire;
-    data['nationalite_actionnaire'] = this.nationaliteActionnaire;
-    data['montant_action'] = this.montantAction;
-    data['part_sociale_actionnaire'] = this.partSocialeActionnaire;
-    data['autre_actionnaire'] = this.autreActionnaire;
 
     data['manque_personnel_qualifie'] = this.manquePersonnelQualifie;
     data['cout_eleve_main_oeuvre'] = this.coutEleveMainOeuvre;
@@ -1236,42 +900,25 @@ class Activite_ins {
 
     data['autre_activite_secondaire'] = this.autre_activite_secondaire;
     data['autre_activite_precision'] = this.autreActivitePrecision;
-    data['autre_local'] = this.autreLocal;
-    data['autre_moyen_comptable'] = this.autreMoyenComptable;
     data['code_ciap'] = this.codeCiap;
-    data['communique_registre_metier'] = this.communiqueRegistreMetier;
     data['connexion_internet'] = this.connexionInternet;
     data['declaration_cnps'] = this.declarationCnps;
     data['designation_activite'] = this.designationActivite;
-    data['deux_1er_chiffre_rm'] = this.deux1erChiffreRm;
-    data['deux_1er_lettre_rm'] = this.deux1erLettreRm;
-    data['deux_dernier_lettre_rm'] = this.deuxDernierLettreRm;
     data['doc_fin_exercice'] = this.docFinExercice;
     data['effectif_total'] = this.effectifTotal;
     data['etat_fonctionnement_entreprise'] = this.etatFonctionnementEntreprise;
-    data['etat_infrastructure'] = this.etatInfrastructure;
-    data['import_produit'] = this.importProduit;
-    data['import_service'] = this.importService;
-    data['local_activicte'] = this.localActivicte;
-
-    data['moyen_comptable'] = this.moyenComptable;
     data['name_activite_secondaire'] = this.nameActiviteSecondaire;
     data['nombre_etablissement'] = this.nombreEtablissement;
     data['num_compte_contribuable'] = this.numCompteContribuable;
     data['num_registre_commerce'] = this.numRegistreCommerce;
-    data['num_registre_metier'] = this.numRegistreMetier;
     data['numero_cnps'] = this.numeroCnps;
     data['numero_cnps_communicable'] = this.numeroCnpsCommunicable;
     data['periodicite'] = this.periodicite;
-    data['quatre_chiffre_rm'] = this.quatreChiffreRm;
-    data['registre_metier'] = this.registreMetier;
-    data['sept_chiffre_rm'] = this.septChiffreRm;
     data['statut_comptabilite_formel'] = this.statutComptabiliteFormel;
     data['statut_compte_contribuable'] = this.statutCompteContribuable;
     data['statut_entreprise'] = this.statutEntreprise;
     data['statut_registre_commerce'] = this.statutRegistreCommerce;
     data['type_entreprise'] = this.typeEntreprise;
-    data['utilisation_logiciel_metier'] = this.utilisationLogicielMetier;
     data['zone_id'] = this.zoneId;
     data['localite_id'] = this.localiteId;
     data['quartier_id'] = this.quartierId;
@@ -1282,8 +929,6 @@ class Activite_ins {
     data['gps_precision'] = this.gpsPrecision;
     data['service_en_ligne'] = this.serviceEnLigne;
     data['has_activicte_secondaire'] = this.hasActivicteSecondaire;
-    data['statut_terrain'] = this.statutTerrain;
-    data['autre_status_terrain'] = this.autreStatusTerrain;
     data['raison_social'] = this.raisonSocial;
     data['adresse_geographique_entreprise'] = this.adresseGeographiqueEntreprise;
     data['observation'] = this.observation;
@@ -1291,13 +936,11 @@ class Activite_ins {
     data['telephone_fixe_2_entreprise'] = this.telephoneFixe2Entreprise;
     data['telephone_portable_1_entreprise'] = this.telephonePortable1Entreprise;
     data['telephone_portable_2_entreprise'] = this.telephonePortable2Entreprise;
-    data['fax_entreprise'] = this.faxEntreprise;
     data['email_entreprise'] = this.emailEntreprise;
     data['site_web_entreprise'] = this.siteWebEntreprise;
     data['boite_postale_entreprise'] = this.boitePostaleEntreprise;
     data['type_activite'] = this.typeActivite;
     data['type_activite_formel_informel'] = this.type_activite_formel_informel;
-
     data['type_activite_formel_informel'] = this.type_activite_formel_informel;
     data['cluster_id'] = this.clusterId;
     data['region_id'] = this.regionId;
@@ -1334,34 +977,14 @@ class Activite_ins {
 
   Map<String, dynamic> toArr() {
     if (this.active == null) this.active = false;
-    if (this.customer == null) this.customer = false;
-    if (this.supplier == null) this.supplier = false;
-    if (this.employee == null) this.employee = false;
-    if (this.function == null) this.function = "";
 
-    if (this.companyId == null) this.companyId = 0;
-//    if (this.title == null) this.title = 0;
-    if (this.parentId == null) this.parentId = 0;
     if (this.userId == null) this.userId = 0;
-    if (this.creditLimit == null) this.creditLimit = 0;
     if (this.stateId == null) this.stateId = 0;
     if (this.countryId == null) this.countryId = 0;
-    if (this.isCompany == null) this.isCompany = true;
-    if (this.industryId == null) this.industryId = 0;
-    if (this.color == null) this.color = 0;
-
-    if (this.partnerShare == null) this.partnerShare = true;
-//    if (this.commercialPartnerId == null) this.commercialPartnerId = 0;
     if (this.createUid == null) this.createUid = 0;
     if (this.writeUid == null) this.writeUid = 0;
     if (this.messageMainAttachmentId == null) this.messageMainAttachmentId = 0;
-    if (this.messageBounce == null) this.messageBounce = 0;
-    if (this.partnerGid == null) this.partnerGid = 0;
-    if (this.debitLimit == null) this.debitLimit = 0;
     if (this.entreprenantId == null) this.entreprenantId = 0;
-    if (this.fiscalYearId == null) this.fiscalYearId = 0;
-    if (this.comptafinexercice == null) this.comptafinexercice = "";
-    if (this.docComptafinexercice == null) this.docComptafinexercice = "";
     if (this.tauxImposition == null) this.tauxImposition = 0;
     if (this.longueur == null) this.longueur = 0;
     if (this.largeur == null) this.largeur = 0;
@@ -1371,17 +994,9 @@ class Activite_ins {
     if (this.pubLargeur2 == null) this.pubLargeur2 = 0;
     if (this.surface_local_en_mettre_carre == null) this.surface_local_en_mettre_carre = 0;
     if (this.pubEnMettreCarre2 == null) this.pubEnMettreCarre2 = 0;
-    if (this.chiffreIdu == null) this.chiffreIdu = 0;
     if (this.activicte2 == null) this.activicte2 = 0;
-
-    if (this.montantAction == null) this.montantAction = 0;
-    if (this.partSocialeActionnaire == null) this.partSocialeActionnaire = 0;
-
-    if (this.deux1erChiffreRm == null) this.deux1erChiffreRm = 0;
     if (this.effectifTotal == null) this.effectifTotal = 0;
     if (this.numeroCnps == null) this.numeroCnps = 0;
-    if (this.quatreChiffreRm == null) this.quatreChiffreRm = 0;
-    if (this.septChiffreRm == null) this.septChiffreRm = 0;
     if (this.zoneId == null) this.zoneId = 0;
     if (this.localiteId == null) this.localiteId = 0;
     if (this.quartierId == null) this.quartierId = 0;
@@ -1398,15 +1013,11 @@ class Activite_ins {
 
 //    //print("ididididididi  ${this.id}");
     var wArgs = {
-//    'id' : this.id,
       'is_activity': true,
       'name': this.name,
-//    'company_id' : this.companyId,
       'create_date': this.createDate,
       'display_name': this.displayName,
       'date': this.date,
-//    'title' : this.title,
-//    'parent_id' : this.parentId,
       'ref': this.ref,
       'lang': this.lang,
       'tz': this.tz,
@@ -1416,62 +1027,35 @@ class Activite_ins {
       'website': this.website,
       'state': this.state,
       'comment': this.comment,
-      'credit_limit': this.creditLimit,
-      'barcode': this.barcode,
 
-      'function': this.function,
-      'type': this.type,
+      'barcode': this.barcode,
       'street': this.street,
       'street2': this.street2,
       'zip': this.zip,
       'city': this.city,
-//    'state_id' : this.stateId,
-//    'country_id' : this.countryId,
+      'state_id' : this.stateId,
+     'country_id' : this.countryId,
       'email_entreprise': this.email,
       'telephone_fixe_1_entreprise': this.telephoneFixe1Entreprise,
       'telephone_portable_1_entreprise': this.mobile,
-//    'industry_id' : this.industryId,
-      'color': this.color,
-//    'commercial_partner_id' : this.commercialPartnerId,
-      'commercial_company_name': this.commercialCompanyName,
-      'company_name': this.companyName,
       'create_uid': this.createUid,
       'write_uid': this.writeUid,
-//    'write_date' : this.writeDate,
-//    'message_main_attachment_id' : this.messageMainAttachmentId,
-      'message_bounce': this.messageBounce,
-//    'signup_token' : this.signupToken,
-      'signup_type': this.signupType,
-//    'signup_expiration' : this.signupExpiration,
-      'partner_gid': this.partnerGid,
-      'additional_info': this.additionalInfo,
-      'debit_limit': this.debitLimit,
-      //  'last_time_entries_checked' : this.lastTimeEntriesChecked,
-      'invoice_warn': this.invoiceWarn,
-      'invoice_warn_msg': this.invoiceWarnMsg,
+       'write_date' : this.writeDate,
+      'message_main_attachment_id' : this.messageMainAttachmentId,
 
       'entreprenant_id': this.entreprenantId,
-
-//    'fiscal_year_id' : this.fiscalYearId,
-
-      'compta_fin_exercice': this.comptafinexercice,
-      'doc_compta_fin_exercice': this.docComptafinexercice,
-
       'activity_birthday': this.activityBirthday,
       'regime_fiscale': this.regimeFiscale,
       'chiffre_affaire_taxable': this.chiffreAffaireTaxable,
       'min_ca': this.minCa,
       'max_ca': this.maxCa,
       'secteur_id': this.secteurId,
-      'zone_id_moved0': this.zoneIdMoved0,
       'type_taxe': this.typeTaxe,
       'cga': this.cga,
       'date_adhesion': this.dateAdhesion,
       'ref_cga': this.refCga,
-//    'periode_imposition' : this.periodeImposition,
       'taux_imposition': this.tauxImposition,
       'taille_activite': this.tailleActivite,
-      'date_debut_exploitation_moved0': this.dateDebutExploitationMoved0,
       'ciap': this.ciap,
       'longueur': this.longueur,
       'largeur': this.largeur,
@@ -1484,24 +1068,12 @@ class Activite_ins {
       'surface_local_en_mettre_carre': this.surface_local_en_mettre_carre,
       'partner_latitude': this.partnerLatitude,
       'partner_longitude': this.partnerLongitude,
-      'idu_cepici': this.iduCepici,
-      'idu_communicable': this.iduCommunicable,
-      'numero_idu': this.numeroIdu,
-      'chiffre_idu': this.chiffreIdu,
-      'lettre_fin_idu': this.lettreFinIdu,
       'autre_type_activite': this.autreTypeActivite,
       'activicte_2': this.activicte2,
       'etat_activite': this.etatActivite,
       'forme_juridique': this.formeJuridique,
       'autre_forme_juridique': this.autreFormeJuridique,
       'capital_en_action': this.capitalEnAction,
-      'name_actionnaire': this.nameActionnaire,
-      'type_actionnaire': this.typeActionnaire,
-      'sexe_actionnaire': this.sexeActionnaire,
-      'nationalite_actionnaire': this.nationaliteActionnaire,
-      'montant_action': this.montantAction,
-      'part_sociale_actionnaire': this.partSocialeActionnaire,
-      'autre_actionnaire': this.autreActionnaire,
 
       'manque_personnel_qualifie': this.manquePersonnelQualifie,
       'cout_eleve_main_oeuvre': this.coutEleveMainOeuvre,
@@ -1529,42 +1101,26 @@ class Activite_ins {
       'autre_activte': this.autreActivte,
       'autre_activite_secondaire': this.autre_activite_secondaire,
       'autre_activite_precision': this.autreActivitePrecision,
-      'autre_local': this.autreLocal,
-      'autre_moyen_comptable': this.autreMoyenComptable,
       'code_ciap': this.codeCiap,
-      'communique_registre_metier': this.communiqueRegistreMetier,
       'connexion_internet': this.connexionInternet,
       'declaration_cnps': this.declarationCnps,
       'designation_activite': this.designationActivite,
-      'deux_1er_chiffre_rm': this.deux1erChiffreRm,
-      'deux_1er_lettre_rm': this.deux1erLettreRm,
-      'deux_dernier_lettre_rm': this.deuxDernierLettreRm,
       'doc_fin_exercice': this.docFinExercice,
       'effectif_total': this.effectifTotal,
       'etat_fonctionnement_entreprise': this.etatFonctionnementEntreprise,
-      'etat_infrastructure': this.etatInfrastructure,
-      'import_produit': this.importProduit,
-      'import_service': this.importService,
-      'local_activicte': this.localActivicte,
-      'moyen_comptable': this.moyenComptable,
       'name_activite_secondaire': this.nameActiviteSecondaire,
       'nombre_etablissement': this.nombreEtablissement,
       'num_compte_contribuable': this.numCompteContribuable,
       'num_registre_commerce': this.numRegistreCommerce,
-      'num_registre_metier': this.numRegistreMetier,
       'numero_cnps': this.numeroCnps,
       'numero_cnps_communicable': this.numeroCnpsCommunicable,
       'periodicite': this.periodicite,
-      'quatre_chiffre_rm': this.quatreChiffreRm,
-      'registre_metier': this.registreMetier,
-      'sept_chiffre_rm': this.septChiffreRm,
       'statut_comptabilite_formel': this.statutComptabiliteFormel,
       'statut_compte_contribuable': this.statutCompteContribuable,
       'statut_entreprise': this.statutEntreprise,
 
       'statut_registre_commerce': this.statutRegistreCommerce,
       'type_entreprise': this.typeEntreprise,
-      'utilisation_logiciel_metier': this.utilisationLogicielMetier,
       'zone_id': this.zoneId,
       'localite_id': this.localiteId,
       'quartier_id': this.quartierId,
@@ -1575,8 +1131,6 @@ class Activite_ins {
       'gps_precision': this.gpsPrecision,
       'service_en_ligne': this.serviceEnLigne,
       'has_activicte_secondaire': this.hasActivicteSecondaire,
-      'statut_terrain': this.statutTerrain,
-      'autre_status_terrain': this.autreStatusTerrain,
       'raison_social': this.raisonSocial,
       'adresse_geographique_entreprise': this.adresseGeographiqueEntreprise,
       'observation': this.observation,
@@ -1584,7 +1138,6 @@ class Activite_ins {
       'telephone_fixe_2_entreprise': this.telephoneFixe2Entreprise,
       'telephone_portable_1_entreprise': this.telephonePortable1Entreprise,
       'telephone_portable_2_entreprise': this.telephonePortable2Entreprise,
-      'fax_entreprise': this.faxEntreprise,
       'email_entreprise': this.emailEntreprise,
       'site_web_entreprise': this.siteWebEntreprise,
       'boite_postale_entreprise': this.boitePostaleEntreprise,
@@ -1622,34 +1175,14 @@ class Activite_ins {
 
   Map<String, dynamic> toArrUpd() {
     if (this.active == null) this.active = false;
-    if (this.customer == null) this.customer = false;
-    if (this.supplier == null) this.supplier = false;
-    if (this.employee == null) this.employee = false;
-    if (this.function == null) this.function = "";
-
-    if (this.companyId == null) this.companyId = 0;
-//    if (this.title == null) this.title = 0;
-    if (this.parentId == null) this.parentId = 0;
     if (this.userId == null) this.userId = 0;
-    if (this.creditLimit == null) this.creditLimit = 0;
+
     if (this.stateId == null) this.stateId = 0;
     if (this.countryId == null) this.countryId = 0;
-    if (this.isCompany == null) this.isCompany = true;
-    if (this.industryId == null) this.industryId = 0;
-    if (this.color == null) this.color = 0;
-
-    if (this.partnerShare == null) this.partnerShare = true;
-//    if (this.commercialPartnerId == null) this.commercialPartnerId = 0;
     if (this.createUid == null) this.createUid = 0;
     if (this.writeUid == null) this.writeUid = 0;
     if (this.messageMainAttachmentId == null) this.messageMainAttachmentId = 0;
-    if (this.messageBounce == null) this.messageBounce = 0;
-    if (this.partnerGid == null) this.partnerGid = 0;
-    if (this.debitLimit == null) this.debitLimit = 0;
     if (this.entreprenantId == null) this.entreprenantId = 0;
-    if (this.fiscalYearId == null) this.fiscalYearId = 0;
-    if (this.comptafinexercice == null) this.comptafinexercice = "";
-    if (this.docComptafinexercice == null) this.docComptafinexercice = "";
     if (this.tauxImposition == null) this.tauxImposition = 0;
     if (this.longueur == null) this.longueur = 0;
     if (this.largeur == null) this.largeur = 0;
@@ -1659,16 +1192,9 @@ class Activite_ins {
     if (this.pubLargeur2 == null) this.pubLargeur2 = 0;
     if (this.surface_local_en_mettre_carre == null) this.surface_local_en_mettre_carre = 0;
     if (this.pubEnMettreCarre2 == null) this.pubEnMettreCarre2 = 0;
-    if (this.chiffreIdu == null) this.chiffreIdu = 0;
     if (this.activicte2 == null) this.activicte2 = 0;
-    if (this.montantAction == null) this.montantAction = 0;
-    if (this.partSocialeActionnaire == null) this.partSocialeActionnaire = 0;
-
-    if (this.deux1erChiffreRm == null) this.deux1erChiffreRm = 0;
     if (this.effectifTotal == null) this.effectifTotal = 0;
     if (this.numeroCnps == null) this.numeroCnps = 0;
-    if (this.quatreChiffreRm == null) this.quatreChiffreRm = 0;
-    if (this.septChiffreRm == null) this.septChiffreRm = 0;
     if (this.zoneId == null) this.zoneId = 0;
     if (this.localiteId == null) this.localiteId = 0;
     if (this.quartierId == null) this.quartierId = 0;
@@ -1689,12 +1215,10 @@ class Activite_ins {
       'id': this.id,
       'is_activity': true,
       'name': this.name,
-//      'company_id' : this.companyId,
       'create_date': this.createDate,
       'display_name': this.displayName,
       'date': this.date,
-//      'title' : this.title,
-//      'parent_id' : this.parentId,
+
       'ref': this.ref,
       'lang': this.lang,
       'tz': this.tz,
@@ -1704,62 +1228,30 @@ class Activite_ins {
       'website': this.website,
       'state': this.state,
       'comment': this.comment,
-      'credit_limit': this.creditLimit,
       'barcode': this.barcode,
-
-      'function': this.function,
-      'type': this.type,
       'street': this.street,
       'street2': this.street2,
       'zip': this.zip,
       'city': this.city,
-//      'state_id' : this.stateId,
-//      'country_id' : this.countryId,
       'email_entreprise': this.email,
       'telephone_fixe_1_entreprise': this.telephoneFixe1Entreprise,
       'telephone_portable_1_entreprise': this.mobile,
-
-//      'industry_id' : this.industryId,
-      'color': this.color,
-
-//      'commercial_partner_id' : this.commercialPartnerId,
-      'commercial_company_name': this.commercialCompanyName,
-      'company_name': this.companyName,
       'create_uid': this.createUid,
       'write_uid': this.writeUid,
       'write_date': this.writeDate,
-//      'message_main_attachment_id' : this.messageMainAttachmentId,
-      'message_bounce': this.messageBounce,
-//    'signup_token' : this.signupToken,
-      'signup_type': this.signupType,
-      'signup_expiration': this.signupExpiration,
-      'partner_gid': this.partnerGid,
-      'additional_info': this.additionalInfo,
-      'debit_limit': this.debitLimit,
-      'last_time_entries_checked': this.lastTimeEntriesChecked,
-      'invoice_warn': this.invoiceWarn,
-      'invoice_warn_msg': this.invoiceWarnMsg,
       'entreprenant_id': this.entreprenantId,
-//      'fiscal_year_id' : this.fiscalYearId,
-
-      'compta_fin_exercice': this.comptafinexercice,
-      'doc_compta_fin_exercice': this.docComptafinexercice,
-
       'activity_birthday': this.activityBirthday,
       'regime_fiscale': this.regimeFiscale,
       'chiffre_affaire_taxable': this.chiffreAffaireTaxable,
       'min_ca': this.minCa,
       'max_ca': this.maxCa,
       'secteur_id': this.secteurId,
-      'zone_id_moved0': this.zoneIdMoved0,
       'type_taxe': this.typeTaxe,
       'cga': this.cga,
       'date_adhesion': this.dateAdhesion,
       'ref_cga': this.refCga,
-//      'periode_imposition' : this.periodeImposition,
       'taux_imposition': this.tauxImposition,
       'taille_activite': this.tailleActivite,
-      'date_debut_exploitation_moved0': this.dateDebutExploitationMoved0,
       'ciap': this.ciap,
       'longueur': this.longueur,
       'largeur': this.largeur,
@@ -1772,25 +1264,12 @@ class Activite_ins {
       'surface_local_en_mettre_carre': this.surface_local_en_mettre_carre,
       'partner_latitude': this.partnerLatitude,
       'partner_longitude': this.partnerLongitude,
-      'idu_cepici': this.iduCepici,
-      'idu_communicable': this.iduCommunicable,
-      'numero_idu': this.numeroIdu,
-      'chiffre_idu': this.chiffreIdu,
-      'lettre_fin_idu': this.lettreFinIdu,
       'autre_type_activite': this.autreTypeActivite,
       'activicte_2': this.activicte2,
       'etat_activite': this.etatActivite,
       'forme_juridique': this.formeJuridique,
       'autre_forme_juridique': this.autreFormeJuridique,
       'capital_en_action': this.capitalEnAction,
-      'name_actionnaire': this.nameActionnaire,
-      'type_actionnaire': this.typeActionnaire,
-      'sexe_actionnaire': this.sexeActionnaire,
-      'nationalite_actionnaire': this.nationaliteActionnaire,
-      'montant_action': this.montantAction,
-      'part_sociale_actionnaire': this.partSocialeActionnaire,
-      'autre_actionnaire': this.autreActionnaire,
-
       'manque_personnel_qualifie': this.manquePersonnelQualifie,
       'cout_eleve_main_oeuvre': this.coutEleveMainOeuvre,
       'formalite_administrative_contraignante': this.formaliteAdministrativeContraignante,
@@ -1817,41 +1296,25 @@ class Activite_ins {
       'autre_activte': this.autreActivte,
       'autre_activite_secondaire': this.autre_activite_secondaire,
       'autre_activite_precision': this.autreActivitePrecision,
-      'autre_local': this.autreLocal,
-      'autre_moyen_comptable': this.autreMoyenComptable,
       'code_ciap': this.codeCiap,
-      'communique_registre_metier': this.communiqueRegistreMetier,
       'connexion_internet': this.connexionInternet,
       'declaration_cnps': this.declarationCnps,
       'designation_activite': this.designationActivite,
-      'deux_1er_chiffre_rm': this.deux1erChiffreRm,
-      'deux_1er_lettre_rm': this.deux1erLettreRm,
-      'deux_dernier_lettre_rm': this.deuxDernierLettreRm,
       'doc_fin_exercice': this.docFinExercice,
       'effectif_total': this.effectifTotal,
       'etat_fonctionnement_entreprise': this.etatFonctionnementEntreprise,
-      'etat_infrastructure': this.etatInfrastructure,
-      'import_produit': this.importProduit,
-      'import_service': this.importService,
-      'local_activicte': this.localActivicte,
-      'moyen_comptable': this.moyenComptable,
       'name_activite_secondaire': this.nameActiviteSecondaire,
       'nombre_etablissement': this.nombreEtablissement,
       'num_compte_contribuable': this.numCompteContribuable,
       'num_registre_commerce': this.numRegistreCommerce,
-      'num_registre_metier': this.numRegistreMetier,
       'numero_cnps': this.numeroCnps,
       'numero_cnps_communicable': this.numeroCnpsCommunicable,
       'periodicite': this.periodicite,
-      'quatre_chiffre_rm': this.quatreChiffreRm,
-      'registre_metier': this.registreMetier,
-      'sept_chiffre_rm': this.septChiffreRm,
       'statut_comptabilite_formel': this.statutComptabiliteFormel,
       'statut_compte_contribuable': this.statutCompteContribuable,
       'statut_entreprise': this.statutEntreprise,
       'statut_registre_commerce': this.statutRegistreCommerce,
       'type_entreprise': this.typeEntreprise,
-      'utilisation_logiciel_metier': this.utilisationLogicielMetier,
       'zone_id': this.zoneId,
       'localite_id': this.localiteId,
       'quartier_id': this.quartierId,
@@ -1862,8 +1325,6 @@ class Activite_ins {
       'gps_precision': this.gpsPrecision,
       'service_en_ligne': this.serviceEnLigne,
       'has_activicte_secondaire': this.hasActivicteSecondaire,
-      'statut_terrain': this.statutTerrain,
-      'autre_status_terrain': this.autreStatusTerrain,
       'raison_social': this.raisonSocial,
       'adresse_geographique_entreprise': this.adresseGeographiqueEntreprise,
       'observation': this.observation,
@@ -1871,7 +1332,6 @@ class Activite_ins {
       'telephone_fixe_2_entreprise': this.telephoneFixe2Entreprise,
       'telephone_portable_1_entreprise': this.telephonePortable1Entreprise,
       'telephone_portable_2_entreprise': this.telephonePortable2Entreprise,
-      'fax_entreprise': this.faxEntreprise,
       'email_entreprise': this.emailEntreprise,
       'site_web_entreprise': this.siteWebEntreprise,
       'boite_postale_entreprise': this.boitePostaleEntreprise,
@@ -1884,10 +1344,6 @@ class Activite_ins {
       'commune_id': this.communeId,
       'addresse_geo_1': this.addresseGeo1,
       'addresse_geo_2': this.addresseGeo2,
-//      'activite_type_id' : this.activi,teTypeId,
-//      'signup_expiration' : wsignup_expiration,
-//      'last_time_entries_checked' : wsignup_expiration,
-
       'zone_implantation_entreprise': this.zone_implantation_entreprise,
       'libelle_zone_implantation_entreprise': this.libelle_zone_implantation_entreprise,
       'numero_batiment': this.numero_batiment,
@@ -1900,34 +1356,13 @@ class Activite_ins {
 
   Map<String, dynamic> toArrUpdSimple() {
     if (this.active == null) this.active = false;
-    if (this.customer == null) this.customer = false;
-    if (this.supplier == null) this.supplier = false;
-    if (this.employee == null) this.employee = false;
-    if (this.function == null) this.function = "";
-
-    if (this.companyId == null) this.companyId = 0;
-//    if (this.title == null) this.title = 0;
-    if (this.parentId == null) this.parentId = 0;
     if (this.userId == null) this.userId = 0;
-    if (this.creditLimit == null) this.creditLimit = 0;
     if (this.stateId == null) this.stateId = 0;
     if (this.countryId == null) this.countryId = 0;
-    if (this.isCompany == null) this.isCompany = true;
-    if (this.industryId == null) this.industryId = 0;
-    if (this.color == null) this.color = 0;
-
-    if (this.partnerShare == null) this.partnerShare = true;
-//    if (this.commercialPartnerId == null) this.commercialPartnerId = 0;
     if (this.createUid == null) this.createUid = 0;
     if (this.writeUid == null) this.writeUid = 0;
     if (this.messageMainAttachmentId == null) this.messageMainAttachmentId = 0;
-    if (this.messageBounce == null) this.messageBounce = 0;
-    if (this.partnerGid == null) this.partnerGid = 0;
-    if (this.debitLimit == null) this.debitLimit = 0;
     if (this.entreprenantId == null) this.entreprenantId = 0;
-    if (this.fiscalYearId == null) this.fiscalYearId = 0;
-    if (this.comptafinexercice == null) this.comptafinexercice = "";
-    if (this.docComptafinexercice == null) this.docComptafinexercice = "";
     if (this.tauxImposition == null) this.tauxImposition = 0;
     if (this.longueur == null) this.longueur = 0;
     if (this.largeur == null) this.largeur = 0;
@@ -1937,16 +1372,9 @@ class Activite_ins {
     if (this.pubLargeur2 == null) this.pubLargeur2 = 0;
     if (this.surface_local_en_mettre_carre == null) this.surface_local_en_mettre_carre = 0;
     if (this.pubEnMettreCarre2 == null) this.pubEnMettreCarre2 = 0;
-    if (this.chiffreIdu == null) this.chiffreIdu = 0;
     if (this.activicte2 == null) this.activicte2 = 0;
-    if (this.montantAction == null) this.montantAction = 0;
-    if (this.partSocialeActionnaire == null) this.partSocialeActionnaire = 0;
-
-    if (this.deux1erChiffreRm == null) this.deux1erChiffreRm = 0;
     if (this.effectifTotal == null) this.effectifTotal = 0;
     if (this.numeroCnps == null) this.numeroCnps = 0;
-    if (this.quatreChiffreRm == null) this.quatreChiffreRm = 0;
-    if (this.septChiffreRm == null) this.septChiffreRm = 0;
     if (this.zoneId == null) this.zoneId = 0;
     if (this.localiteId == null) this.localiteId = 0;
     if (this.quartierId == null) this.quartierId = 0;

@@ -21,7 +21,7 @@ class I_Liste_ActivitesInsState extends State<I_Liste_ActivitesIns> {
 
     await DbTools.getActivitesInsAllTest();
 
-    print("loadData ${DbTools.gEntreprenant.id}");
+    print("loadData ${DbTools.gEntreprenant.id} ${DbTools.gEntreprenant.Id_Tmp!}");
     return await DbTools.getActivitesIns(DbTools.gEntreprenant.id!, DbTools.gEntreprenant.Id_Tmp!);
   }
 
@@ -204,7 +204,7 @@ class I_Liste_ActivitesInsState extends State<I_Liste_ActivitesIns> {
 
   ListView ActiviteListView(data) {
     DbTools.isUpdate = false;
-    print(">->->->->->->->->-> ActiviteListView DbTools.isUpdate TAP ${DbTools.isUpdate}");
+    print(">->->->->->->->->-> ActiviteListView ${DbTools.isUpdate}");
 
     return ListView.builder(
         itemCount: data.length,
@@ -223,7 +223,7 @@ class I_Liste_ActivitesInsState extends State<I_Liste_ActivitesIns> {
                   context: context,
                   builder: (BuildContext context) => AlertDialog(
                     title: const Text('MODIFICATION IMPOSSIBLE', style: TextStyle(color: Colors.red)),
-                    content: Text("Activité en mode [${DbTools.gEntreprenant.state}]. La modification n'est pas possible"),
+                    content: Text("Activité en mode [${DbTools.gActivite_ins.state}]. La modification n'est pas possible"),
                     actions: <Widget>[
                       ElevatedButton(
                         onPressed: () {
@@ -239,10 +239,6 @@ class I_Liste_ActivitesInsState extends State<I_Liste_ActivitesIns> {
                   ),
                 );
               }
-
-
-                  print(">TAP ActiviteListView ${activite_ins.name} ${activite_ins.ACT_Id_Server}");
-
 
                   print(">TAP ActiviteListView ${DbTools.gActivite_ins.ACT_Id_Server}");
                   await DbTools.initFournisseurDownMennu(DbTools.gActivite_ins.id!);
@@ -302,7 +298,7 @@ class I_Liste_ActivitesInsState extends State<I_Liste_ActivitesIns> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       AutoSizeText(
-                        "Type / Secteur",
+                        "${activite_ins.state}",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.normal,

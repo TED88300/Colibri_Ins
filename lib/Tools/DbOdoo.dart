@@ -130,13 +130,9 @@ class DbOdoo {
       await SharedPref.setStrKey("nombre_fiche_valid", nombre_fiche_valid.toString());
       await SharedPref.setStrKey("nombre_fiche_cancel", nombre_fiche_cancel.toString());
 
-
       print('  >>>>>>>>> nombre_fiche_create: ${nombre_fiche_create}');
       nombre_fiche_create = int.parse(await SharedPref.getStrKey("nombre_fiche_create", "0"));
       print('  <<<<<<<<< nombre_fiche_create: ${nombre_fiche_create}');
-
-
-
 
       print('${DateTime.now()} > res_Userilot_id: ${res_Userilot_id}');
       await getIlots(res_Userilot_id);
@@ -288,6 +284,7 @@ class DbOdoo {
       var element = DbOdoo.Ins_Activites[i];
       element.ACT_TRANSF_OK = 1;
       element.ACT_Id_Server = element.id;
+      gColors.printWrapped(" entreprenantId  ${element.entreprenantId}");
       gColors.printWrapped(" Ins_Activites.toJson()  ${element.toJson()}");
 
       try {

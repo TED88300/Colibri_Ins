@@ -163,7 +163,7 @@ class SyncState extends State<Sync> {
 
                         for (int i = 0; i < lfEntreprenant.length; ++i) {
                           var element = lfEntreprenant[i];
-                          print("element ${element.name} ${element.nomPrenomDirigeant} ${element.profession}");
+                          print("lfEntreprenant ${element.name} ${element.nomPrenomDirigeant} ${element.profession}");
                         }
 
                         wDt = DateTime.now();
@@ -171,6 +171,10 @@ class SyncState extends State<Sync> {
                         lfActivite = await DbTools.getActivitesInsAll();
                         wDt2 = DateTime.now();
 
+                        for (int i = 0; i < lfActivite.length; ++i) {
+                          var element = lfActivite[i];
+                          print("lfActivite ${element.name} ${element.entreprenantId}");
+                        }
 
 
                         difference = wDt2.difference(wDt).inMilliseconds;

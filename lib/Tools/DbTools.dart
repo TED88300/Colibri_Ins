@@ -220,7 +220,7 @@ class DbTools {
     var wgetDatabasesPath = await getDatabasesPath();
     print("getDatabasesPath() $wgetDatabasesPath");
     database = openDatabase(
-      join(await getDatabasesPath(), "sAMEapridrsENS.db"),
+      join(await getDatabasesPath(), "22chs34eameNS.db"),
       onCreate: (db, version) async{
         print("onCreate $version");
 
@@ -230,39 +230,36 @@ class DbTools {
 
 
         String wTmp =  "CREATE TABLE IF NOT EXISTS "
-            "Activites_Ins(id INTEGER PRIMARY KEY,name TEXT,company_id INTEGER,create_date TEXT,display_name TEXT,date date,title INTEGER,parent_id INTEGER,ref TEXT,lang TEXT,tz TEXT,"
-            "user_id INTEGER,vat TEXT,website TEXT,comment TEXT,credit_limit DOUBLE,barcode TEXT,active BOOL,customer BOOL,supplier BOOL,employee BOOL,function TEXT,type TEXT,street TEXT,"
-            "street2 TEXT,zip TEXT,city TEXT,state_id INTEGER,country_id INTEGER,email TEXT,mobile TEXT,is_company BOOL,industry_id INTEGER,color INTEGER,partner_share BOOL,"
-            "commercial_partner_id INTEGER,commercial_company_name TEXT,company_name TEXT,create_uid INTEGER,write_uid INTEGER,write_date TEXT,message_main_attachment_id INTEGER,"
-            "message_bounce INTEGER,signup_token TEXT,signup_type TEXT,signup_expiration TEXT,partner_gid INTEGER,additional_info TEXT,debit_limit DOUBLE,last_time_entries_checked TEXT,"
-            "invoice_warn TEXT,invoice_warn_msg TEXT,entreprenant_id INTEGER,fiscal_year_id INTEGER,activity_birthday TEXT,regime_fiscale TEXT,chiffre_affaire_taxable TEXT,min_ca TEXT,max_ca TEXT,"
-            "secteur_id INTEGER,zone_id_moved0 TEXT,type_taxe TEXT,cga TEXT,date_adhesion TEXT,ref_cga TEXT,periode_imposition TEXT,taux_imposition DOUBLE,taille_activite TEXT,date_debut_exploitation_moved0 TEXT,"
+            "Activites_Ins(id INTEGER PRIMARY KEY,name TEXT,company_id,create_date TEXT,display_name TEXT,date date,title INTEGER,ref TEXT,lang TEXT,tz TEXT,"
+            "user_id INTEGER,vat TEXT,website TEXT,comment TEXT,barcode TEXT,active BOOL,street TEXT,"
+            "street2 TEXT,zip TEXT,city TEXT,state_id INTEGER,country_id INTEGER,email TEXT,mobile TEXT,create_uid INTEGER,write_uid INTEGER,write_date TEXT,message_main_attachment_id INTEGER,"
+            "entreprenant_id INTEGER,INTEGER,activity_birthday TEXT,regime_fiscale TEXT,chiffre_affaire_taxable TEXT,min_ca TEXT,max_ca TEXT,"
+            "secteur_id INTEGER,type_taxe TEXT,cga TEXT,date_adhesion TEXT,ref_cga TEXT,periode_imposition TEXT,taux_imposition DOUBLE,taille_activite TEXT,"
             "ciap TEXT,longueur DOUBLE,largeur DOUBLE,odp DOUBLE,baux_loyer TEXT,pub_longueur DOUBLE,pub_largeur DOUBLE,pub_en_mettre_carre DOUBLE,pub_longueur_2 DOUBLE,pub_largeur_2 DOUBLE,surface_local_en_mettre_carre DOUBLE,"
-            "pub_en_mettre_carre_2 DOUBLE,partner_latitude TEXT,partner_longitude TEXT,idu_cepici TEXT,idu_communicable TEXT,numero_idu TEXT,chiffre_idu INTEGER,lettre_fin_idu TEXT,autre_type_activite TEXT,"
-            "activicte_2 INTEGER,etat_activite TEXT,forme_juridique TEXT,autre_forme_juridique TEXT,capital_en_action TEXT,name_actionnaire TEXT,type_actionnaire TEXT,sexe_actionnaire TEXT,"
-            "nationalite_actionnaire TEXT,montant_action DOUBLE,part_sociale_actionnaire DOUBLE,autre_actionnaire TEXT,ca_ht_n_1 DOUBLE,ca_ht_n_2 DOUBLE,ca_ht_n_3 DOUBLE, manque_personnel_qualifie TEXT,"
+            "pub_en_mettre_carre_2 DOUBLE,partner_latitude TEXT,partner_longitude TEXT,autre_type_activite TEXT,"
+            "activicte_2 INTEGER,etat_activite TEXT,forme_juridique TEXT,autre_forme_juridique TEXT,capital_en_action TEXT,"
+            "ca_ht_n_1 DOUBLE,ca_ht_n_2 DOUBLE,ca_ht_n_3 DOUBLE, manque_personnel_qualifie TEXT,"
             "cout_eleve_main_oeuvre TEXT,formalite_administrative_contraignante TEXT,taxe_impot_eleve TEXT,cout_tranport_eleve TEXT,mauvais_etat_infrastructure TEXT,difficulte_approvisionnement_matiere_premiere TEXT,"
             "procedure_contentieux TEXT,ecoulement_production TEXT,acces_au_technologie TEXT,manque_machine TEXT,manque_expertise_technique TEXT,"
             "manque_local_adapte TEXT,acces_commande_public TEXT,acces_structure_appui TEXT,acces_credit_bancaire TEXT,approvisionnement_energie TEXT,concurrence_deloyale TEXT,corruption TEXT,"
-            "autre_contrainte TEXT,precise_contrainte TEXT,aucune_contrainte TEXT,autre_activte TEXT,autre_activite_precision TEXT,autre_local TEXT,"
-            "autre_moyen_comptable TEXT,code_ciap TEXT,communique_registre_metier TEXT,connexion_internet TEXT,declaration_cnps TEXT,designation_activite TEXT,"
-            "deux_1er_chiffre_rm INTEGER,deux_1er_lettre_rm TEXT,deux_dernier_lettre_rm TEXT,doc_fin_exercice TEXT,effectif_nationaux_femme_permanent INTEGER,"
+            "autre_contrainte TEXT,precise_contrainte TEXT,aucune_contrainte TEXT,autre_activte TEXT,autre_activite_precision TEXT,"
+            "code_ciap TEXT,connexion_internet TEXT,declaration_cnps TEXT,designation_activite TEXT,"
+            "doc_fin_exercice TEXT,effectif_nationaux_femme_permanent INTEGER,"
             "effectif_nationaux_femme_temporaire INTEGER,effectif_nationaux_homme_permanent INTEGER,effectif_nationaux_homme_temporaire INTEGER,"
             "effectif_non_nationaux_femme INTEGER,effectif_non_nationaux_femme_permanent INTEGER,effectif_non_nationaux_femme_temporaire INTEGER,"
             "effectif_non_nationaux_homme INTEGER,effectif_non_nationaux_homme_permanent INTEGER,effectif_non_nationaux_homme_temporaire INTEGER,effectif_total INTEGER,"
             "effectif_total_femme INTEGER,effectif_total_homme INTEGER,effectif_total_nationaux_femme INTEGER,effectif_total_nationaux_homme INTEGER,"
-            "etat_fonctionnement_entreprise TEXT,etat_infrastructure TEXT,import_produit TEXT,import_service TEXT,local_activicte TEXT,"
-            "moyen_comptable TEXT,"
-            "name_activite_secondaire TEXT,nombre_etablissement TEXT,num_compte_contribuable TEXT,num_registre_commerce TEXT,num_registre_metier TEXT,"
-            "numero_cnps INTEGER,numero_cnps_communicable TEXT,periodicite TEXT,quatre_chiffre_rm DOUBLE,registre_metier TEXT,sept_chiffre_rm INTEGER,"
+            "etat_fonctionnement_entreprise TEXT,"
+            "name_activite_secondaire TEXT,nombre_etablissement TEXT,num_compte_contribuable TEXT,num_registre_commerce TEXT,"
+            "numero_cnps INTEGER,numero_cnps_communicable TEXT,periodicite TEXT,"
             "statut_comptabilite_formel TEXT,statut_compte_contribuable TEXT,statut_entreprise TEXT,statut_registre_commerce TEXT,type_entreprise TEXT,"
-            "utilisation_logiciel_metier TEXT,zone_id INTEGER,localite_id INTEGER,quartier_id INTEGER,ilot_id INTEGER,zone TEXT,date_debut_exploitation date,"
-            "activicte_principal TEXT,gps_precision TEXT,service_en_ligne TEXT,has_activicte_secondaire TEXT,statut_terrain TEXT,autre_status_terrain TEXT,"
+            "zone_id INTEGER,localite_id INTEGER,quartier_id INTEGER,ilot_id INTEGER,zone TEXT,date_debut_exploitation date,"
+            "activicte_principal TEXT,gps_precision TEXT,service_en_ligne TEXT,has_activicte_secondaire TEXT,"
             "raison_social TEXT,adresse_geographique_entreprise TEXT,observation TEXT,sigle_entreprise TEXT,telephone_fixe_1_entreprise TEXT,telephone_fixe_2_entreprise TEXT,"
-            "telephone_portable_1_entreprise TEXT,telephone_portable_2_entreprise TEXT,fax_entreprise TEXT,email_entreprise TEXT,site_web_entreprise TEXT,"
+            "telephone_portable_1_entreprise TEXT,telephone_portable_2_entreprise TEXT,email_entreprise TEXT,site_web_entreprise TEXT,"
             "boite_postale_entreprise TEXT,type_activite TEXT,cluster_id INTEGER,region_id INTEGER,departement_id INTEGER,sousprefecture_id INTEGER,"
-            "commune_id INTEGER,addresse_geo_1 TEXT,addresse_geo_2 TEXT,activite_type_id integer,ACT_TRANSF_OK integer,Id_Tmp integer, compta_fin_exercice TEXT, "
-            "doc_compta_fin_exercice TEXT,  autre_activite_secondaire TEXT, type_activite_formel_informel TEXT, zone_implantation_entreprise TEXT,"
+            "commune_id INTEGER,addresse_geo_1 TEXT,addresse_geo_2 TEXT,activite_type_id integer,ACT_TRANSF_OK integer,Id_Tmp integer,  "
+            "autre_activite_secondaire TEXT, type_activite_formel_informel TEXT, zone_implantation_entreprise TEXT,"
             " libelle_zone_implantation_entreprise TEXT, numero_batiment TEXT, numero_sequence_batiment_entreprise TEXT, ImageBase64_PHOTO_ACT TEXT , state TEXT "
             ", date_fin_entretien TEXT, resultat_entretien TEXT, nombre_visite TEXT, observation_enquete TEXT,  is_activity INTEGER ,  ACT_Id_Server INTEGER     )";
 
@@ -633,7 +630,6 @@ class DbTools {
     final List<Map<String, dynamic>> maps = await db.query("Activites_Ins");
     for (int i = 0; i < maps.length; ++i) {
       Activite_ins wActivite_ins = Activite_ins.fromJson(maps[i]);
-      print(" zone_implantation_entreprise t ${wActivite_ins.id} tmp ${wActivite_ins.Id_Tmp} T ${wActivite_ins.ACT_TRANSF_OK} > ${wActivite_ins.ACT_Id_Server}");
     }
   }
 
@@ -641,20 +637,24 @@ class DbTools {
 
   static Future<List<Activite_ins>> getActivitesIns(int entreprenantId, int Id_Tmp) async {
     final db = await database;
-    print("getActivitesIns entreprenantId ${entreprenantId}");
+    print("getActivitesIns entreprenantId ${entreprenantId} ${Id_Tmp}");
     final List<Map<String, dynamic>> maps = await db.query(
       "Activites_Ins",
       orderBy: "name ASC",
+      where: "entreprenant_id = ?",
+     whereArgs: [entreprenantId],
 
-  //    where: "id = 7490",
 
-      where: "entreprenant_id = ? OR Id_Tmp = ?",
-      whereArgs: [entreprenantId, Id_Tmp],
+//      where: "entreprenant_id = ? OR Id_Tmp = ?",
+  //    whereArgs: [entreprenantId, Id_Tmp],
+
+
     );
     print("getActivites length ${maps.length}");
 
 
     return List.generate(maps.length, (i) {
+      print("getActivites maps[i] ${maps[i]}");
       return Activite_ins.fromJson(maps[i]);
     });
 
