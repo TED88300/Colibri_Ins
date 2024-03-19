@@ -253,11 +253,6 @@ class _FlutterWifiIoTState extends State<FlutterWifiIoT> {
               builder: (BuildContext context, AsyncSnapshot<int?> signal) {
                 return Text("Signal: ${signal.data}");
               }),
-
-
-
-
-
         ]);
       } else {
         htPrimaryWidgets.addAll(<Widget>[
@@ -278,8 +273,6 @@ class _FlutterWifiIoTState extends State<FlutterWifiIoT> {
             });
           },
         ),
-
-
       ]);
     }
 

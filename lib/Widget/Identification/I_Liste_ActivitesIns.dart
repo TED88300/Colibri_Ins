@@ -116,20 +116,25 @@ class I_Liste_ActivitesInsState extends State<I_Liste_ActivitesIns> {
                   DbTools.gActivite_ins.numero_batiment = "0";
                   DbTools.gActivite_ins.numero_sequence_batiment_entreprise = "0";
                   DbTools.gActivite_ins.typeTaxe = "???";
-                  DbTools.gActivite_ins.dateDebutExploitation = "1900-01-01";
-                  DbTools.gActivite_ins.name = "TEDD";
-                  DbTools.gActivite_ins.activityBirthday = "2020-01-01";
-                  DbTools.gActivite_ins.street = "Rue du Bac";
-                  DbTools.gActivite_ins.telephoneFixe1Entreprise = "2112345678";
-                  DbTools.gActivite_ins.mobile = "0712345679";
-                  DbTools.gActivite_ins.chiffreAffaireTaxable = "123456789";
-                  DbTools.gActivite_ins.tailleActivite = "Petite";
-                  DbTools.gActivite_ins.activictePrincipal = "Artiste Peintre";
-                  DbTools.gActivite_ins.barcode = "261223";
 
+                  DbTools.gActivite_ins.dateDebutExploitation = "1900-01-01";
                   DbTools.gActivite_ins.partnerLatitude = "0";
                   DbTools.gActivite_ins.partnerLongitude = "0";
                   DbTools.gActivite_ins.gpsPrecision = "0";
+
+                  if (DbTools.gTED)
+                    {
+                      DbTools.gActivite_ins.name = "TEDD";
+                      DbTools.gActivite_ins.activityBirthday = "2020-01-01";
+                      DbTools.gActivite_ins.street = "Rue du Bac";
+                      DbTools.gActivite_ins.telephoneFixe1Entreprise = "2112345678";
+                      DbTools.gActivite_ins.mobile = "0712345679";
+                      DbTools.gActivite_ins.chiffreAffaireTaxable = "123456789";
+                      DbTools.gActivite_ins.tailleActivite = "Petite";
+                      DbTools.gActivite_ins.activictePrincipal = "Artiste Peintre";
+                      DbTools.gActivite_ins.barcode = "261223";
+                    }
+
 
 
 

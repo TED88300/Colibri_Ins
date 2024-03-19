@@ -212,7 +212,7 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
   Widget build(BuildContext context) {
     Screen_QF_C26DAUTRE = Tools.Get_Screen(QF_C26DAUTRE, context, DbTools.gEntreprenant.autreQualite!, 0, false);
 
-    print("build build build build build ");
+    print("build build build build build ${DbTools.gID3_OK}");
 
     wError = "";
     wErrorCNI = "";
@@ -522,6 +522,7 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
                           elevation: 4,
                         ),
                         child: Text(
+
                           DbTools.gID3_OK ? "Suivant" : "Enregistrer",
                           style: TextStyle(color: Colors.white, fontSize: 25),
                         ),

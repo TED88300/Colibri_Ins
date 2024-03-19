@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:colibri/Tools/DbOdoo.dart';
+import 'package:colibri/Tools/DbTools.dart';
 
 /*
 ilot_id
@@ -364,17 +365,20 @@ class Entreprenant {
     zonerecensementId = DbOdoo.res_Userzonerecensement_id;
     quartierId = DbOdoo.res_Userquartier_id;
 
-    nomRepondant = "TED";
-    contact1Repondant = "0712345678";
-    nomPrenomDirigeant = "TED 1";
-    lieu_naissance = "lieu_naissance Lieu";
-    cni = "NCni";
-    telephoneDirigeant = "0787654321";
-    profession = "profession";
-    birthday = "1964-04-02";
-    dateValiditePiece = "2030-05-18";
-    adresseDirigeant = "adresseDirigeant Adresse";
-    state = "draft";
+    if (DbTools.gTED)
+      {
+        nomRepondant = "TED";
+        contact1Repondant = "0712345678";
+        nomPrenomDirigeant = "TED 1";
+        lieu_naissance = "lieu_naissance Lieu";
+        cni = "NCni";
+        telephoneDirigeant = "0787654321";
+        profession = "profession";
+        birthday = "1964-04-02";
+        dateValiditePiece = "2030-05-18";
+        adresseDirigeant = "adresseDirigeant Adresse";
+        state = "draft";
+      }
     ImageBase64_PHOTO_ENTR = "";
     ID3_templateBytes64 = "";
     ID3_croppedBytes64 = "";

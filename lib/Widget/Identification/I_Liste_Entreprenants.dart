@@ -124,10 +124,10 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
             Padding(
               padding: const EdgeInsets.only(right: 0.0),
               child:
-
               FloatingActionButton(
                 child: const Icon(Icons.add, color: gColors.secondary),
                 backgroundColor: gColors.primary,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
                 onPressed: () async {
                   await _launchEnrol();
                 },
@@ -152,6 +152,7 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
 
   Widget searchWidget() {
     return Container(
+      color : Colors.white,
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -171,22 +172,8 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
                       controller: Search,
                       onChanged: (String wSearchText) {
                         print("onChanged Search $wSearchText");
-
-/*
-                        if (wSearchText.length >= 2) {
-                            searchText = wSearchText;
-                            Reload();
-                        } else if (searchText == "") {
-                            searchText = wSearchText;
-                            Reload();
-                        }
-*/
-
                         searchText = wSearchText;
                         Reload();
-
-
-
                       },
                       decoration: new InputDecoration(
                         hintText: "Recherche",
@@ -253,6 +240,7 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
           String initials = getInitials(entreprenant.nomPrenomDirigeant!);
 
           return ListTile(
+              tileColor : Colors.white,
             onTap: () {
               print("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈Upd ");
               DbTools.gEntreprenant = entreprenant;
@@ -295,7 +283,8 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
                       ),
                     ]),
                 AutoSizeText(
-                  "${entreprenant.state} id ${entreprenant.id} Tmp ${entreprenant.Id_Tmp} TRF ${entreprenant.ENT_TRANSF_OK} > Srv ${entreprenant.ENT_Id_Server}",
+//                  "${entreprenant.state} id ${entreprenant.id} Tmp ${entreprenant.Id_Tmp} TRF ${entreprenant.ENT_TRANSF_OK} > Srv ${entreprenant.ENT_Id_Server}",
+                  "${entreprenant.telephoneDirigeant}",
                   overflow: TextOverflow.clip,
                   softWrap: true,
                   style: TextStyle(color: gColors.secondary, fontSize: 20),
@@ -325,28 +314,21 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
   }
 
   //*******************************************************************
-
   String wError = "";
   String? wScan = "";
   String _message = "";
   Image? ImageCNI = null;
 
   Future _launchEnrol() async {
-
     DbTools.gEntreprenant = Entreprenant();
     DbTools.gEntreprenant.init();
+    DbTools.gEntreprenant.state = "draft";
 
-
-
-
-print("_launchEnrol DbTools.gID3_OK ${DbTools.gID3_OK}");
-
+    print("_launchEnrol DbTools.gID3_OK ${DbTools.gID3_OK}");
     DbTools.pagesEntr = DbTools.gID3_OK ? 4 : 3;
     DbTools.pageEntr = 1;
     PushPop.PushPop_Push(true);
     Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYC_Ins_0(this.I_Liste_EntreprenantsState_callback)));
     return;
-
-
   }
 }

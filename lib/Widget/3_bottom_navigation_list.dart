@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:colibri/Tools/DbOdoo.dart';
 import 'package:colibri/Tools/DbPostGres.dart';
 import 'package:colibri/Tools/DbTools.dart';
 import 'package:colibri/Tools/gColors.dart';
@@ -110,6 +111,8 @@ class BottomNavigationListState extends State<BottomNavigationList>
   }
 
   void initLib() async {
+
+
     print("BottomNavigationList initLib >");
     var getLocation = await IntentChannel.getLocation();
 
@@ -133,7 +136,11 @@ class BottomNavigationListState extends State<BottomNavigationList>
     setState(() {});
   }
 
-  void RecStat() async {}
+  void RecStat() async {
+
+
+
+  }
 
   void initState() {
     DbTools.Menu_screenVoidCallback =Menu_screenVoidCallback;
@@ -180,20 +187,25 @@ class BottomNavigationListState extends State<BottomNavigationList>
   Widget Block_MenuApp(BuildContext context) {
     bool isTransf = DbTools.fEntreprenantaTransf || DbTools.fActivite_insTransf;
 
+
+
     print("∆∆∆∆∆∆∆∆∆ isTransf ${isTransf} ${DbTools.gCurrentIndex}");
 
     String title_string = itemsTitre[DbTools.gCurrentIndex];
     Widget wchildren = children[DbTools.gCurrentIndex];
+
     return Scaffold(
       key: _scaffoldState,
       resizeToAvoidBottomInset: false,
       endDrawer: I_SideDrawer(),
 
 //      I_SideDrawer(),
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.white,
+
       appBar: AppBar(
         title: AutoSizeText(
           title_string,
+          style: TextStyle(color: Colors.white),
           maxLines: 1,
         ),
         actions: [
@@ -243,6 +255,8 @@ class BottomNavigationListState extends State<BottomNavigationList>
       floatingActionButton: FloatingActionButton(
         heroTag: "bnl1",
         backgroundColor: gColors.primary,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+
         child: const Icon(Icons.list_alt, color: gColors.secondary),
         onPressed: () {
           setState(() {

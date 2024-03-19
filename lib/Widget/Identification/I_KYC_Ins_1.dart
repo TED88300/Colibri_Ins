@@ -385,17 +385,30 @@ class I_KYC_Ins_1State extends State<I_KYC_Ins_1> {
 
         DbTools.gEntreprenant.state = "draft";
 
+        var mrz = result['mrz'];
+        print("mrz : ${mrz}");
 
 
         var image = result['image'];
         print("image : ${image}");
-        DbTools.gEntreprenant.ImageBase64_PHOTO_ENTR = image;
+        if (image != null)
+          {
 
-        var mrz = result['mrz'];
-        print("mrz : ${mrz}");
+            DbTools.gEntreprenant.ImageBase64_PHOTO_ENTR = image;
+            print("DbTools.gEntreprenant.ImageBase64_PHOTO_ENTR : ${DbTools.gEntreprenant.ImageBase64_PHOTO_ENTR}");
+            PushPop.PushPop_Push(false);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYC_Ins_2(widget.I_Liste_EntreprenantsState_callback)));
+          }
+        else
+          {
+            PushPop.PushPop_Push(false);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYC_Photo(widget.I_Liste_EntreprenantsState_callback)));
+          }
 
-        PushPop.PushPop_Push(false);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYC_Ins_2(widget.I_Liste_EntreprenantsState_callback)));
+
+
+
+
       } else {}
     } catch (e) {}
   }

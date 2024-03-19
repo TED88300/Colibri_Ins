@@ -43,8 +43,7 @@ class I_KYB_Ins7FState extends State<I_KYB_Ins7F> {
   Item QF_C24B2 = Item();
   Screen Screen_QF_C24B2 = Screen();
 
-  Item QI_C20A = Item();
-  Screen Screen_QI_C20A = Screen();
+
   Item QI_C20B = Item();
   Screen Screen_QI_C20B = Screen();
   Item QF_C20C1 = Item();
@@ -77,7 +76,6 @@ class I_KYB_Ins7FState extends State<I_KYB_Ins7F> {
     QF_C24A = Tools.Get_UNIQUE  ("Q_C24A");
     QF_C24B1 = Tools.Get_UNIQUE ("Q_C24B1");
     QF_C24B2 = Tools.Get_UNIQUE ("Q_C24B2");
-    QI_C20A = Tools.Get_UNIQUE  ("Q_C24");
     QI_C20B = Tools.Get_UNIQUE  ("Q_C24A");
     QF_C20C1 = Tools.Get_UNIQUE ("Q_C24B1");
     QF_C20C2 = Tools.Get_UNIQUE ("Q_C24B2");
@@ -123,10 +121,13 @@ class I_KYB_Ins7FState extends State<I_KYB_Ins7F> {
     Screen_QF_C24B1 = Tools.Get_Screen(QF_C24B1, context, DbTools.gActivite_ins.raisonSocial!, 0, false);
     Screen_QF_C24B2 = Tools.Get_Screen(QF_C24B2, context, DbTools.gActivite_ins.adresseGeographiqueEntreprise!, 0, false);
 
-    Screen_QI_C20A = Tools.Get_Screen(QI_C20A, context, DbTools.gActivite_ins.statutEntreprise!, 0, false);
     Screen_QF_C20C1 = Tools.Get_Screen(QF_C20C1, context, DbTools.gActivite_ins.raisonSocial!, 0, false);
     Screen_QF_C20C2 = Tools.Get_Screen(QF_C20C2, context, DbTools.gActivite_ins.adresseGeographiqueEntreprise!, 0, false);
     Screen_QI_C30 = Tools.Get_Screen(QI_C30, context, DbTools.gActivite_ins.effectifTotal.toString()!, 0, false);
+
+
+
+
 
     print("Screen_QF_C24A.Screen_Rep_Int ${Screen_QF_C24A.Screen_Rep_Int}");
 
@@ -179,12 +180,7 @@ class I_KYB_Ins7FState extends State<I_KYB_Ins7F> {
                   Screen_QF_C24A.Screen_Rep_Int == 0 || Screen_QF_C24A.Screen_Rep_Int == 998 ? Container() : Screen_QF_C24B1.Screen_Row,
                   Screen_QF_C24A.Screen_Rep_Int == 0 || Screen_QF_C24A.Screen_Rep_Int == 998 ? Container() : Screen_QF_C24B2.Screen_Row,
 
-
-                  Screen_QI_C20A.Screen_Row,
-                  Screen_QI_C20A.Screen_Rep_Int == 1 ? Container() : Screen_QF_C20C1.Screen_Row,
-                  Screen_QI_C20A.Screen_Rep_Int == 1 ? Container() : Screen_QF_C20C2.Screen_Row,
                   Screen_QI_C20B.Screen_Row,
-
                   Screen_QI_C30.Screen_Row,
 
                 ]),
@@ -210,41 +206,12 @@ class I_KYB_Ins7FState extends State<I_KYB_Ins7F> {
                   DbTools.gActivite_ins.nombreEtablissement = Screen_QF_C24A.Screen_Rep_Str;
                   DbTools.gActivite_ins.raisonSocial = Screen_QF_C24B1.Screen_Rep_Str;
                   DbTools.gActivite_ins.adresseGeographiqueEntreprise = Screen_QF_C24B2.Screen_Rep_Str;
-                  DbTools.gActivite_ins.statutEntreprise = Screen_QI_C20A.Screen_Rep_Str;
                   DbTools.gActivite_ins.nombreEtablissement = Screen_QI_C20B.Screen_Rep_Str;
                   DbTools.gActivite_ins.raisonSocial = Screen_QF_C20C1.Screen_Rep_Str;
                   DbTools.gActivite_ins.adresseGeographiqueEntreprise = Screen_QF_C20C2.Screen_Rep_Str;
                   DbTools.gActivite_ins.effectifTotal = Screen_QI_C30.Screen_Rep_Int;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(" statutEntreprise ${DbTools.gActivite_ins.statutEntreprise}");
 
 
                   DbTools.pageEntr++;

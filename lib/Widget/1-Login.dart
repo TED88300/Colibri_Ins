@@ -156,7 +156,7 @@ class LoginState extends State<Login> {
                           child: ElevatedButton(
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
-                                print("gIsRememberLoginOffLine ${DbTools.gIsRememberLoginOffLine}");
+                                print("gIsRememberLoginOffLine ${DbTools.gIsRememberLoginOffLine }");
                                 if (DbTools.gIsRememberLoginOffLine) {
                                   DbTools.gUsername = await SharedPref.getStrKey("username", "");
                                   DbTools.gPassword = await SharedPref.getStrKey("password", "");
@@ -205,6 +205,7 @@ class LoginState extends State<Login> {
                           height: 20,
                           width: 50,
                         ),
+                        Text(DbTools.gVersion, textAlign: TextAlign.left, style: TextStyle(color: Colors.grey, fontSize: 12)),
 
                         Visibility(
                           visible: (!Ecr1),

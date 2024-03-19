@@ -27,7 +27,7 @@ void main() async {
 //  DbTools.gTED = kDebugMode;
 
   DbTools.gID3_OK = false;
-  await activateLicense(hardwareCode);
+  await activateLicenseV2(hardwareCode);
 
   ErrorWidget.builder = (FlutterErrorDetails details) => Container();
 
@@ -46,8 +46,13 @@ void main() async {
     debugShowCheckedModeBanner: false,
     title: 'App',
     theme: ThemeData(
-      primarySwatch: MaterialColor(gColors.primary.value, gColors.getSwatch(gColors.primary)),
+      useMaterial3: false,
+      scaffoldBackgroundColor:Colors.white,
+      cardTheme: CardTheme(
+        surfaceTintColor: Colors.white,
+      ),
 
+      primarySwatch: MaterialColor(gColors.primary.value, gColors.getSwatch(gColors.primary)),
     ),
     home: _defaultHome,
 //    navigatorObservers: [MyObserver()],
@@ -108,17 +113,75 @@ Future<void> activateLicense(String hardwareCode) async {
   }
 
   await loadModels();
-//  DbTools.gID3_OK = true;
+  DbTools.gID3_OK = true;
 
-  DbTools.gID3_OK = false;
+//  DbTools.gID3_OK = false;
 
 
-  print("DbTools.gID3_OK ${DbTools.gID3_OK}");
-  print("DbTools.gID3_OK ${DbTools.gID3_OK}");
-  print("DbTools.gID3_OK ${DbTools.gID3_OK}");
-  print("DbTools.gID3_OK ${DbTools.gID3_OK}");
-  print("DbTools.gID3_OK ${DbTools.gID3_OK}");
+  print("♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎ DbTools.gID3_OK ${DbTools.gID3_OK}");
+  print("♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎ DbTools.gID3_OK ${DbTools.gID3_OK}");
 }
+
+
+Future<void> activateLicenseV2(String hardwareCode) async {
+  print("ID3 activateLicenseV2");
+
+  final licensePath = (await getTemporaryDirectory()).path + '/id3/id3license/id3license_$productReference.lic';
+  final licenseFile = File(licensePath);
+  try {
+    // same here to check license on android we need to pass by platform channel
+    if (Platform.isAndroid) {
+      await Id3AndroidLicense.checkLicenseAndroid(licensePath);
+    } else {
+      sdk.FaceLibrary.checkLicense(licensePath);
+    }
+  } catch (_) {
+    Uint8List? licenseBytes;
+    if (serialKey != "0000-0000-0000-0000") {
+      try {
+        licenseBytes = sdk.License.activateSerialKeyBuffer(
+          hardwareCode,
+          serialKey,
+          "Activated from Face capture sample",
+        );
+      } catch (_) {
+        print("Erreur serialKey ID3 activateSerialKeyBuffer $serialKey");
+        return;
+      }
+    }
+
+    if (login != "login" && password != "password" && productReference != "00000000") {
+      try {
+//        licenseBytes = sdk.License.activateBuffer(hardwareCode, login, password, productReference, "Activated from face capture sample");
+        licenseBytes = sdk.License.activateActivationKeyBuffer(hardwareCode, activationKey, "Activated from face capture sample");
+      } catch (_) {
+        print("Erreur login ID3 activateBuffer $login $password $productReference");
+        return;
+      }
+    }
+    if (!licenseFile.existsSync()) {
+      licenseFile.createSync(recursive: true);
+    }
+    licenseFile.writeAsBytesSync(licenseBytes!);
+    if (Platform.isAndroid) {
+      await Id3AndroidLicense.checkLicenseAndroid(licensePath);
+    } else {
+      sdk.FaceLibrary.checkLicense(licensePath);
+    }
+  }
+
+  await loadModels();
+  DbTools.gID3_OK = true;
+
+//  DbTools.gID3_OK = false;
+
+
+  print("♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎ DbTools.gID3_OK ${DbTools.gID3_OK}");
+  print("♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎ DbTools.gID3_OK ${DbTools.gID3_OK}");
+}
+
+
+
 
 Future<void> loadModels() async {
   final faceDetector = await rootBundle.load('assets/models/face_detector_v3b.id3nn');

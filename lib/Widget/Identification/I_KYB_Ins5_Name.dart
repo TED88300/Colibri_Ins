@@ -33,8 +33,6 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
   String Edt_Nom_Error = "";
   String Edt_Adresse_Error = "";
 
-
-
   late FocusNode EmptyFocusNode;
   late FocusNode EmptyFocusNodeD;
   late FocusNode EmptyFocusNodeM;
@@ -151,7 +149,6 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
 
     Edt_Nom.text = DbTools.gActivite_ins.name!;
 
-
     if (DbTools.gActivite_ins.activiteTypeId! < 0) DbTools.gActivite_ins.activiteTypeId = 0;
     Type_Act = lType_Act[DbTools.gActivite_ins.activiteTypeId!];
 
@@ -165,7 +162,6 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
           DbTools.selectedSecteur = wSecteur;
         }
      }
-
 
     Forme_Act = DbTools.selectedSecteur!.secteur_forme;
     print(">Forme_Act  ${DbTools.selectedSecteur}");
@@ -672,7 +668,7 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
 
 // 21, 25, 27
 //  01 05 07
-    if (!gColors.ctrlTelFIXE(Edt_Tel.text, VideOK: false)) {
+    if (!gColors.ctrlTelFIXEPORT(Edt_Tel.text, VideOK: false)) {
       isOK = false;
       await gColors.PopupError(context, "Erreur de saisie", "Téléphone Invalide");
       Edt_Tel_Error = "Erreur de saisie : Téléphone Invalide";
@@ -688,7 +684,7 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
       return isOK;
     }
 
-    if (!gColors.ctrlTelPORT(Screen_QF_B19B.Screen_Rep_Str, VideOK: true)) {
+    if (!gColors.ctrlTelFIXEPORT(Screen_QF_B19B.Screen_Rep_Str, VideOK: true)) {
       isOK = false;
       await gColors.PopupError(context, "Erreur de saisie", "Téléphone2 Invalide");
       Edt_Tel_Error = "Erreur de saisie : Téléphone Invalide";

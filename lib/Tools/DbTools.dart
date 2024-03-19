@@ -13,17 +13,18 @@ import 'package:package_info/package_info.dart';
 import "package:path/path.dart";
 import "package:sqflite/sqflite.dart";
 
+
 class DbTools {
   DbTools();
 
   static bool EdtTicket = false;
 
-  static bool gDev = true;
+  static bool gDev = false;
   static bool gTED = gDev;
-  static bool gEMULATEUR = gDev;
+  static bool gEMULATEUR =  false; //gDev;
 
   static bool gIsRememberLogin = true;
-  static bool gIsRememberLoginOffLine = true;
+  static bool gIsRememberLoginOffLine = false;
 
   static int gCurrentIndex = 2;
   static int gCurrentIndexVP = 2;
@@ -40,15 +41,8 @@ class DbTools {
   static var gUsername = "";
   static var gPassword = "";
 
-
-
-
-
   static late Entreprenant gEntreprenant;
   static late Activite_ins gActivite_ins;
-
-
-
   static late List<Taxe> lTaxe;
   static late List<TaxeHisto> lTaxeHisto;
 
@@ -59,15 +53,11 @@ class DbTools {
   static int taxe_Solde1 = 0;
   static int taxe_Solde2 = 0;
   static int taxe_Payement = 0;
-
   static int taxe_Solde1_Month = 0;
-
   static var gTaxeMonth = [];
   static var gTaxeMonthLabel = [];
   static var gTaxeMonthDet = [];
   static var gTaxeMonthDet2 = [];
-
-
   static late var gImageBase64_PHOTO_ACT = "";
 
   static var strEntr = "KYC";

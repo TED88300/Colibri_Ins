@@ -9,6 +9,7 @@ import 'package:colibri/Tools/gColors.dart';
 import 'package:colibri/Tools/shared_pref.dart';
 import 'package:http/http.dart' as http;
 import 'package:odoo_rpc/odoo_rpc.dart';
+import 'package:postgres/postgres.dart';
 
 import 'DbTools.dart';
 
@@ -63,7 +64,41 @@ class DbOdoo {
 
   static var Mem_B5 = "";
 
-  static Future<bool> Login(String user, String pw) async {
+  static Future<void> setData(PostgreSQLConnection connection, String table,
+      Map<String, dynamic> data) async {
+    await connection.execute(
+        'INSERT INTO $table (${data.keys.join(', ')}) VALUES (${data.keys.map((k) => '@$k').join(', ')})',
+        substitutionValues: data);
+  }
+
+  static Future<int> Debug_Data_insAdd(String code, String debug_data, String activite, String name) async {
+
+    try {
+
+      var databaseConnection = PostgreSQLConnection("51.255.70.124", 5432, "id30_v2", username: "id30", password: "azertyuiopP#554");
+
+
+       var wArgs = {
+         'activite': activite,
+         'name': name,
+         'User_id': res_UserId,
+         'ilot_id': res_Userilot_id,
+         'code': code,
+         'debug_data': debug_data,
+       };
+
+     await databaseConnection.open().then((value) async {
+       print("Database Connected!");
+       await setData(databaseConnection, "innoving_debug_data", wArgs);
+       await databaseConnection.close();
+     });
+    } catch (e) {
+      print("Debug_Data_insAdd ERROR SQL INSERT $e");
+    }
+    return 1;
+  }
+
+      static Future<bool> Login(String user, String pw) async {
 //    print("client ${client.sessionId}");
 
     print('Login: $user $pw');
@@ -72,12 +107,14 @@ class DbOdoo {
     password = pw;
 
    try {
-      print("session > ${dbc} ");
+      print("Login session > ${dbc} ");
       final session = await client.authenticate(dbc, username, password);
-      print("session < ${dbc} ${session}");
+      print("Login session < ${dbc} ${session}");
 
       final uid = session.userId;
-      print("uid ${uid}");
+      print("Login uid ${uid}");
+
+
 
       res_User = await client.callKw({
         'model': 'res.users',
@@ -92,27 +129,45 @@ class DbOdoo {
         }
       });
 
-    printWrapped("users ${res_User[0].toString()}");
 
-    res_UserId = res_User[0]["id"];
+
+      printWrapped("Login users ${res_User[0].toString()}");
+      print ("---");
+
+      res_UserId = res_User[0]["id"];
+      print ("A");
       res_UserMat = res_User[0]["partner_id"][0].toString();
+      print ("A2");
       res_UserName = res_User[0]["name"];
+      print ("A3 ${res_User[0]["ilot_id"][0]}");
       res_Userilot_id = res_User[0]["ilot_id"][0];
+      print ("A4");
       res_Usercluster_id = res_User[0]["cluster_id"][0];
+      print ("A5");
       res_Userregion_id = res_User[0]["region_id"][0];
+      print ("A6");
       res_Userdepartement_id = res_User[0]["departement_id"][0];
+      print ("A7");
       res_Usersousprefecture_id = res_User[0]["sousprefecture_id"][0];
+      print ("A8");
       res_Usercommune_id = res_User[0]["commune_id"][0];
+      print ("A9");
       res_Userlocalite_id = res_User[0]["localite_id"][0];
+      print ("A10");
       res_Userzonerecensement_id = res_User[0]["zonerecensement_id"][0];
+      print ("A1");
       res_Userquartier_id = res_User[0]["quartier_id"][0];
+      print ("A2");
 
-      nombre_fiche_create = res_User[0]["nombre_fiche_create"];
+
+    nombre_fiche_create = res_User[0]["nombre_fiche_create"];
       nombre_fiche_draft = res_User[0]["nombre_fiche_draft"];
       nombre_fiche_valid = res_User[0]["nombre_fiche_confirm"];
       nombre_fiche_cancel = res_User[0]["nombre_fiche_cancel"];
 
-      await SharedPref.setStrKey("res_UserId", res_UserId.toString());
+    print ("B");
+
+    await SharedPref.setStrKey("res_UserId", res_UserId.toString());
       await SharedPref.setStrKey("res_UserMat", res_UserMat);
       await SharedPref.setStrKey("res_UserName", res_UserName);
       await SharedPref.setStrKey("res_Userilot_id", res_Userilot_id.toString());
@@ -146,10 +201,11 @@ class DbOdoo {
 
       return true;
     } catch (e) {
-      print("OdooException ERROR LOGIN");
+      print("OdooException ERROR LOGIN $e");
       print(e);
 
     }
+
 
 
     await DbTools.getIlot();
@@ -373,9 +429,11 @@ class DbOdoo {
 
   static Future<int> Activite_insAdd() async {
     int activiteId = 0;
+    var wArgs = DbTools.gActivite_ins.toArr();
 
     try {
-      var wArgs = DbTools.gActivite_ins.toArr();
+
+      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "${wArgs}", "INSERT", "ACTIVITE");
 
       print("♦♦♦♦ INSERT ODOO ♦♦♦♦");
       print("♦♦♦♦♦♦♦♦ INSERT ODOO toArrUpd ${wArgs} ");
@@ -385,6 +443,8 @@ class DbOdoo {
         'args': [wArgs],
         'kwargs': {},
       }) as Future<dynamic>);
+
+      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "OK ID = ${activiteId}", "INSERT", "ACTIVITE");
 
       print(' O D O O ');
       print('> INSERT ODOO OK ID = ${activiteId}');
@@ -418,6 +478,10 @@ class DbOdoo {
 
       return activiteId;
     } catch (e) {
+
+      await DbOdoo.Debug_Data_insAdd("$wArgs", e.toString(), "INSERT", "ACTIVITE");
+
+
       print(' O D O O ');
       print('ERROR ODOO');
       printWrapped(e.toString());
@@ -468,11 +532,17 @@ class DbOdoo {
     print("Activite_insUpd ${DbTools.gActivite_ins.name}");
     String? wCGA = DbTools.gActivite_ins.cga;
 
+    var wArgs = DbTools.gActivite_ins.toArrUpd();
     try {
       printWrapped("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ Activite_insUpd updateActivite_ins ");
       await DbTools.updateActivite_ins(DbTools.gActivite_ins);
-      var wArgs = DbTools.gActivite_ins.toArrUpd();
       printWrapped("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ Activite_insUpd update ${wArgs} ");
+
+      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ UPDATE ODOO ♦♦♦♦", "${wArgs}", "UPDATE", "ACTIVITE");
+
+
+      print("♦♦♦♦ UPDATE ODOO ♦♦♦♦");
+      print("♦♦♦♦♦♦♦♦ UPDATE ODOO toArrUpd ${wArgs} ");
 
       await client.callKw({
         'model': 'innoving.activite',
@@ -480,6 +550,9 @@ class DbOdoo {
         'args': [DbTools.gActivite_ins.id, wArgs],
         'kwargs': {},
       });
+
+      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "OK ID = ${DbTools.gActivite_ins.id}", "UPDATE", "ACTIVITE");
+
 
       print(' O D O O ');
       printWrapped("> Activite_insUpd A ODOO OK");
@@ -498,6 +571,10 @@ class DbOdoo {
 
       return activiteId;
     } catch (e) {
+
+      await DbOdoo.Debug_Data_insAdd("$wArgs", e.toString(), "INSERT", "ACTIVITE");
+
+
       print("Activite write ERROR ODDO >>> Lenght ${e.toString().length}");
       printWrapped("ERROR ODDO : ${e.toString()}");
       print("Activite write ERROR ODDO <<<");
@@ -518,7 +595,14 @@ class DbOdoo {
   static Future<int> Activite_insAddUpd() async {
     print("♦♦♦♦ Activite_insAddUpd ${DbTools.gActivite_ins.ACT_Id_Server}");
 
+
+
+
     if (DbTools.gActivite_ins.resultatEntretien == null) DbTools.gActivite_ins.resultatEntretien = "";
+    if (DbTools.gActivite_ins.statutEntreprise == "4") DbTools.gActivite_ins.statutEntreprise = "0";
+
+
+
     if (DbTools.gActivite_ins.ACT_Id_Server! < 0) {
       print("♦♦♦♦ INSERT DANS LE SERVEUR ");
       await Activite_insAdd();
@@ -668,11 +752,14 @@ class DbOdoo {
   static Future<int> EntreprenantAdd() async {
     int? Entreprenant_id = 0;
     int? Entreprenant_id_Tmp = 0;
+    var wArgs = DbTools.gEntreprenant.toArrInsert();
 
     try {
-      var wArgs = DbTools.gEntreprenant.toArrInsert();
       print("♦♦♦♦ INSERT ODOO ♦♦♦♦");
       print("♦♦♦♦♦♦♦♦ INSERT ODOO toArrUpd ${wArgs} ");
+
+      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "${wArgs}", "INSERT", "Entreprenant");
+
 
       Entreprenant_id = await (client.callKw({
         'model': 'innoving.entreprenant',
@@ -680,6 +767,10 @@ class DbOdoo {
         'args': [wArgs],
         'kwargs': {},
       }) as Future<dynamic>);
+
+
+      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "OK ID = ${Entreprenant_id}", "INSERT", "Entreprenant");
+
 
       print(' O D O O ');
       print('> INSERT ODOO OK ID = ${Entreprenant_id}');
@@ -713,6 +804,10 @@ class DbOdoo {
       }
       return 1;
     } catch (e) {
+
+      await DbOdoo.Debug_Data_insAdd("$wArgs", e.toString(), "INSERT", "Entreprenant");
+
+
       print(' O D O O ');
       print('ERROR ODOO');
       printWrapped(e.toString());
@@ -758,10 +853,12 @@ class DbOdoo {
   static Future<int> EntreprenantUpd() async {
     int? Entreprenant_id = 0;
 
+    var wArgs = DbTools.gEntreprenant.toArrUpd();
     try {
       await DbTools.updateEntreprenant(DbTools.gEntreprenant);
 
-      var wArgs = DbTools.gEntreprenant.toArrUpd();
+      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ UPDATE ODOO ♦♦♦♦", "${wArgs}", "UPDATE", "Entreprenant");
+
       print("♦♦♦♦ UPDATE ODOO ♦♦♦♦");
       print("♦♦♦♦♦♦♦♦ UPDATE ODOO toArrUpd ${wArgs} ");
       await client.callKw({
@@ -770,6 +867,8 @@ class DbOdoo {
         'args': [DbTools.gEntreprenant.id, wArgs],
         'kwargs': {},
       });
+
+      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ UPDATE ODOO ♦♦♦♦", "OK ID = ${DbTools.gEntreprenant.id}", "UPDATE", "Entreprenant");
 
       print(' O D O O ');
       print('> UPDATE ODOO OK ID = ${Entreprenant_id}');
@@ -782,12 +881,14 @@ class DbOdoo {
 
       return 1;
     } catch (e) {
+
+      await DbOdoo.Debug_Data_insAdd("$wArgs", e.toString(), "UPDATE", "Entreprenant");
+
       print(' O D O O ');
       print('ERROR ODOO');
       printWrapped(e.toString());
       print('ERROR ODOO');
       print(' O D O O ');
-
       try {
         int newErrEntreprenantId = await getErrEntreprenantId();
         print(" >>> ERROR ODDO newErrEntreprenantId $newErrEntreprenantId");
@@ -869,6 +970,8 @@ class DbOdoo {
   static Future<int> EntreprenantAddUpd() async {
     if (DbTools.gEntreprenant.state == "cancel") DbTools.gEntreprenant.state = "draft";
     if (DbTools.gEntreprenant.state == "") DbTools.gEntreprenant.state = "draft";
+
+
 
     print("♦♦♦♦ EntreprenantAddUpd ${DbTools.gEntreprenant.ENT_Id_Server}");
 
