@@ -56,6 +56,7 @@ class I_IdentificateurState extends State<I_Identificateur> {
                     Text("Commune ${DbOdoo.Ilots[0].communeName}",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,)),
                     Text("Localité ${DbOdoo.Ilots[0].localiteName}",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,)),
                     Container(height: 20,),
+                    Text("ZD ${DbOdoo.res_Userzonerecensement_id}",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,)),
                     Text("ZD ${DbOdoo.Ilots[0].zoneRecensementName}",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,)),
                     Text("Quartier ${DbOdoo.Ilots[0].quartierName}",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,)),
                     Container(height: 20,),

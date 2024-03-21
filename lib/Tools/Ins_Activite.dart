@@ -329,6 +329,7 @@ class Activite_ins {
 
 
 
+
     if (id == null) id = 0;
     if (ACT_Id_Server == null) ACT_Id_Server = -1;
     if (name == null) name = "";

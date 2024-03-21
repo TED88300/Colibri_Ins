@@ -19,9 +19,9 @@ class DbTools {
 
   static bool EdtTicket = false;
 
-  static bool gDev = false;
+  static bool gDev = true;
   static bool gTED = gDev;
-  static bool gEMULATEUR =  false; //gDev;
+  static bool gEMULATEUR =  true; //gDev;
 
   static bool gIsRememberLogin = true;
   static bool gIsRememberLoginOffLine = false;
@@ -280,9 +280,6 @@ class DbTools {
             "regionId INTEGER,departementId INTEGER,sousprefectureId INTEGER,communeId INTEGER,localiteId INTEGER,zonerecensementId INTEGER,"
             "quartierId INTEGER, base64Encode TEXT, templateBytes TEXT, ENT_TRANSF_OK INTEGER, Id_Tmp INTEGER, autre_fonction_repondant TEXT, "
             "telephone_dirigeant_whatsapp TEXT, ImageBase64_PHOTO_ENTR TEXT, ID3_templateBytes64 TEXT, ID3_croppedBytes64 TEXT)");
-
-
-
 
         await db.execute(
           "CREATE TABLE Taxes(taxeId INTEGER PRIMARY KEY, taxe_activiteId INTEGER,  taxe_name TEXT, taxe_mt INTEGER)",
@@ -589,6 +586,24 @@ class DbTools {
       return Activite_ins.fromJson(maps[i]);
     });
   }
+
+
+  static Future getActivitesInsTransfEntID(int entreprenantId) async {
+    glfActivite_insTransf.clear();
+
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query("Activites_Ins");
+    for (int i = 0; i < maps.length; ++i) {
+      Activite_ins wActivite_ins = Activite_ins.fromJson(maps[i]);
+      if (wActivite_ins.ACT_TRANSF_OK! == 0 && wActivite_ins.entreprenantId! == entreprenantId)
+        glfActivite_insTransf.add(wActivite_ins);
+    }
+    fActivite_insTransf = glfActivite_insTransf.length > 0;
+    print(" glfActivite_insTransf.length ${glfActivite_insTransf.length}");
+    print(" fActivite_insTransf ${fActivite_insTransf}");
+
+  }
+
 
 
   static Future getActivitesInsTransf() async {

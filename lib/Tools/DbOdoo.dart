@@ -79,8 +79,7 @@ class DbOdoo {
 
 
        var wArgs = {
-         'activite': activite,
-         'name': name,
+         'name': "$name $activite",
          'User_id': res_UserId,
          'ilot_id': res_Userilot_id,
          'code': code,
@@ -177,7 +176,7 @@ class DbOdoo {
       await SharedPref.setStrKey("res_Usersousprefecture_id", res_Usersousprefecture_id.toString());
       await SharedPref.setStrKey("res_Usercommune_id", res_Usercommune_id.toString());
       await SharedPref.setStrKey("res_Userlocalite_id", res_Userlocalite_id.toString());
-      await SharedPref.setStrKey("res_Userzonerecensement_i", res_Userzonerecensement_id.toString());
+      await SharedPref.setStrKey("res_Userzonerecensement_id", res_Userzonerecensement_id.toString());
       await SharedPref.setStrKey("res_Userquartier_id", res_Userquartier_id.toString());
 
       await SharedPref.setStrKey("nombre_fiche_create", nombre_fiche_create.toString());
@@ -436,7 +435,7 @@ class DbOdoo {
       await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "${wArgs}", "INSERT", "ACTIVITE");
 
       print("♦♦♦♦ INSERT ODOO ♦♦♦♦");
-      print("♦♦♦♦♦♦♦♦ INSERT ODOO toArrUpd ${wArgs} ");
+      print("♦♦♦♦♦♦♦♦ INSERT ODOO toArr ${wArgs} ");
       activiteId = await (client.callKw({
         'model': 'innoving.activite',
         'method': 'create',
@@ -500,7 +499,7 @@ class DbOdoo {
 
         DbTools.gActivite_ins.id = activiteId;
         DbTools.gActivite_ins.Id_Tmp = activiteId;
-        DbTools.gActivite_ins.ACT_Id_Server = activiteId;
+        DbTools.gActivite_ins.ACT_Id_Server = -1;
         DbTools.gActivite_ins.ACT_TRANSF_OK = 0;
 
         try {
@@ -581,7 +580,12 @@ class DbOdoo {
 
       try {
         int newErrActiviteId = await getErrActivite_insId();
-//        DbTools.gActivite_ins.id = newErrActiviteId;
+        print("Activite write ERROR ODDO newErrActiviteId $newErrActiviteId");
+        print("Activite write ERROR ODDO ACT_Id_Server ${DbTools.gActivite_ins.ACT_Id_Server}");
+
+
+
+        //        DbTools.gActivite_ins.id = newErrActiviteId;
         DbTools.gActivite_ins.ACT_TRANSF_OK = 0;
         await DbTools.insertUpdateActivite_ins(DbTools.gActivite_ins);
       } catch (f) {
@@ -596,15 +600,13 @@ class DbOdoo {
     print("♦♦♦♦ Activite_insAddUpd ${DbTools.gActivite_ins.ACT_Id_Server}");
 
 
-
-
     if (DbTools.gActivite_ins.resultatEntretien == null) DbTools.gActivite_ins.resultatEntretien = "";
     if (DbTools.gActivite_ins.statutEntreprise == "4") DbTools.gActivite_ins.statutEntreprise = "0";
 
 
 
-    if (DbTools.gActivite_ins.ACT_Id_Server! < 0) {
-      print("♦♦♦♦ INSERT DANS LE SERVEUR ");
+    if (DbTools.gActivite_ins.ACT_Id_Server! <= 0) {
+      print("♦♦♦♦ INSERT DANS LE SERVEUR ${DbTools.gActivite_ins.ACT_Id_Server}");
       await Activite_insAdd();
     } else {
       print("♦♦♦♦ UPDATE DANS LE SERVEUR ");
@@ -613,11 +615,12 @@ class DbOdoo {
 
     print("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ Call Colibri_Send");
     try {
+      print("Colibri_Send  activite Photo jpeg ${DbTools.gActivite_ins.id!} ${DbTools.gActivite_ins.ImageBase64_PHOTO_ACT!}");
       if (DbTools.gActivite_ins.ImageBase64_PHOTO_ACT!.length > 0) {
         await API_Data.Colibri_Send("activite", DbTools.gActivite_ins.id!, "Photo", "jpeg", DbTools.gActivite_ins.ImageBase64_PHOTO_ACT!);
       }
     } catch (_) {
-      print("ERROR Colibri_Send  activiteV2 Photo");
+      print("ERROR Colibri_Send  activiteV2 Photo ${DbTools.gActivite_ins.id!}");
     }
     return 1;
   }
@@ -756,7 +759,7 @@ class DbOdoo {
 
     try {
       print("♦♦♦♦ INSERT ODOO ♦♦♦♦");
-      print("♦♦♦♦♦♦♦♦ INSERT ODOO toArrUpd ${wArgs} ");
+      print("♦♦♦♦♦♦♦♦ INSERT ODOO toArrInsert ${wArgs} ");
 
       await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "${wArgs}", "INSERT", "Entreprenant");
 
@@ -970,9 +973,6 @@ class DbOdoo {
   static Future<int> EntreprenantAddUpd() async {
     if (DbTools.gEntreprenant.state == "cancel") DbTools.gEntreprenant.state = "draft";
     if (DbTools.gEntreprenant.state == "") DbTools.gEntreprenant.state = "draft";
-
-
-
     print("♦♦♦♦ EntreprenantAddUpd ${DbTools.gEntreprenant.ENT_Id_Server}");
 
     int wRes = 0;

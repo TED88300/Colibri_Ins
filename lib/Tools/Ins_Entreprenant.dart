@@ -498,6 +498,7 @@ class Entreprenant {
     if (birthday == null) birthday = "";
     if (countryId == null) countryId = 44;
     if (profession == null) profession = "";
+    if (lieu_naissance == null) lieu_naissance = "";
 
     if (terminal == null) terminal = "";
     if (dateValiditePiece == null) dateValiditePiece = "";
@@ -544,6 +545,7 @@ class Entreprenant {
       'sexe': '${sexe}',
       'birthday': '${birthday}',
       'country_id': '${countryId}',
+      'lieu_naissance': '${lieu_naissance}',
       'profession': '${profession}',
 
       'terminal': '${terminal}',

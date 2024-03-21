@@ -163,7 +163,7 @@ class I_KYB_Ins1State extends State<I_KYB_Ins1> {
           color: Colors.white,
           child: Scaffold(
             appBar: AppBar(
-              title: CommonAppBar.TitleEcr("KYB${DbTools.isFORMEL ? 'F' : 'I'}", "Form. Inform.", pageEntr, DbTools.pagesEntr, "B1"),
+              title: CommonAppBar.TitleEcr("KYB${DbTools.isFORMEL ? 'F' : 'I'}", "Form. Inform. ${DbTools.gActivite_ins.ACT_Id_Server}", pageEntr, DbTools.pagesEntr, "B1"),
               leading: IconButton(
                 icon: Icon(Icons.arrow_back),
                 onPressed: () {

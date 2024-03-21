@@ -1,1 +1,58 @@
-{is_activity: true, name: Tania Boutique , create_date: , display_name: , date: , ref: , lang: , tz: , user_id: 152, vat: , website: , state: confirm, comment: , barcode: 1961053, street: Rue Lac , street2: , zip: , city: San-Pédro, state_id: 0, country_id: 0, email_entreprise: , telephone_fixe_1_entreprise: 0789773330, telephone_portable_1_entreprise: 0789773330, create_uid: 0, write_uid: 0, write_date: , message_main_attachment_id: 0, entreprenant_id: 2630, activity_birthday: 2009-01-31, regime_fiscale: TCE, chiffre_affaire_taxable: 2 000 000, min_ca: 0.0, max_ca: 0.0, secteur_id: 65, type_taxe: ODP, cga: Non, date_adhesion: 1900-01-01, ref_cga: , taux_imposition: 0.0, taille_activite: Très petite, ciap: , longueur: 0.0, largeur: 0.0, odp: 0, baux_loyer: , pub_longueur: 0.0, pub_largeur: 0.0, pub_longueur_2: 0.0, pub_largeur_2: 0.0, surface_local_en_mettre_carre: 0.0, partner_latitude: 48.858948913622804, partner_longitude: 2.2945242153417604, autre_type_activite: , activicte_2: 0, etat_activite: , forme_juridique: , autre_forme_juridique: , capital_en_action: , manque_personnel_qualifie: 2, cout_eleve_main_oeuvre: 2, formalite_administrative_contraignante: 2, taxe_impot_eleve: 2, cout_tranport_eleve: 2, mauvais_etat_infrastructure: 2, difficulte_approvisionnement_matiere_premiere: 2, procedure_contentieux: 2, ecoulement_production: 2, acces_au_technologie: 2, manque_machine: 2, manque_expertise_technique: 2, manque_local_adapte: 2, acces_commande_public: 2, acces_structure_appui: 2, acces_credit_bancaire: 2, approvisionnement_energie: 2, concurrence_deloyale: 2, corruption: 2, autre_contrainte: 2, precise_contrainte: , aucune_contrainte: , autre_activte: 0, autre_activite_secondaire: , autre_activite_precision: , code_ciap: , connexion_internet: , declaration_cnps: 0, designation_activite: , doc_fin_exercice: 2, effectif_total: 0, etat_fonctionnement_entreprise: , name_activite_secondaire: , nombre_etablissement: , num_compte_contribuable: , num_registre_commerce: , numero_cnps: 0, numero_cnps_communicable: , periodicite: , statut_comptabilite_formel: 2, statut_compte_contribuable: 2, statut_entreprise: 0, statut_registre_commerce: 2, type_entreprise: 2, zone_id: 321, localite_id: 47, quartier_id: 511, ilot_id: 2762, zone: , date_debut_exploitation: 2010-12-01 00:00:00.000, activicte_principal: Vendeuse vêtements, gps_precision: 0.0, service_en_ligne: , has_activicte_secondaire: 0, raison_social: , adresse_geographique_entreprise: , observation: , sigle_entreprise: , telephone_fixe_2_entreprise: , telephone_portable_2_entreprise: , site_web_entreprise: , boite_postale_entreprise: , type_activite: , type_activite_formel_informel: Informel, cluster_id: 2, region_id: 2, departement_id: 3, sousprefecture_id: 5, commune_id: 5, addresse_geo_1: , addresse_geo_2: , date_fin_entretien: 2022-01-01, resultat_entretien: 2, nombre_visite: , observation_enquete: , zone_implantation_entreprise: 0, libelle_zone_implantation_entreprise: , numero_batiment: 0, numero_sequence_batiment_entreprise: 0, Id_Tmp: 0, ACT_TRANSF_OK: 0, ACT_Id_Server: -1}
+I/flutter (11640): ♦♦♦♦ EntreprenantAddUpd -1
+I/flutter (11640): ♦♦♦♦ INSERT DANS LE SERVEUR
+I/flutter (11640): ♦♦♦♦ INSERT ODOO ♦♦♦♦
+I/flutter (11640): ♦♦♦♦♦♦♦♦ INSERT ODOO toArrUpd {active: true, userId: 178, ref: , nature_piece: AUTRE, cni: NCni, state: draft, sexe: masculin, birthday: 1964-04-02, country_id: 44, lieu_naissance: lieu_naissance Lieu, profession: profession, terminal: , date_validite_piece: 2030-05-18, milieu_implantation: 1, nom_repondant: AAA OFF, fonction_repondant: 1, autre_fonction_repondant: , contact_1_repondant: 0712345678, contact_2_repondant: , email_repondant: , nom_prenom_dirigeant: AAA OFF, email_dirigeant: , name: AAA OFF, telephone_dirigeant: 0787654321, adresse_dirigeant: adresseDirigeant Adresse, qualite_dirigeant: 1, autre_qualite: , telephone_dirigeant_whatsapp: , cluster_id: 2, region_id: 2, departement_id: 3, sousprefecture_id: 5, commune_id: 5, localite_id: 47, zonerecensement_id: 0, quartier_id: 461, ilot_creation: -1, ImageBase64_PHOTO_ENTR: , ID3_templateBytes64: , ID3_croppedBytes64: }
+I/flutter (11640): Database Connected!
+I/flutter (11640): Database Connected!
+I/flutter (11640):  O D O O 
+I/flutter (11640): ERROR ODOO
+I/flutter (11640): OdooException: {code: 200, message: Odoo Server Error, data: {name: odoo.exceptions.ValidationError, debug: Traceback (most recent call last):
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/service/model.py", line 98, in wrapper
+I/flutter (11640):     return f(dbname, *args, **kwargs)
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/http.py", line 346, in checked_call
+I/flutter (11640):     result = self.endpoint(*a, **kw)
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/http.py", line 948, in __call__
+I/flutter (11640):     return self.method(*args, **kw)
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/http.py", line 526, in response_wrap
+I/flutter (11640):     response = f(*args, **kw)
+I/flutter (11640):   File "/opt/id30_v2/odoo/addons/web/controllers/main.py", line 959, in call_kw
+I/flutter (11640):     return self._call_kw(model, method, args, kwargs)
+I/flutter (11640):   File "/opt/id30_v2/odoo/addons/web/controllers/main.py", line 951, in _call_kw
+I/flutter (11640):     return call_kw(request.env[model], method, args, kwargs)
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/api.py", line 758, in call_kw
+I/flutter (11640):     return _call_kw_model_create(method, model, args, kwargs)
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/api.py", line 738, in _call_kw_model_create
+I/flutter (11640):     result = method(recs, *args, **kwargs)
+I/flutter (11640):   File "<decorator-gen-3>", line 2, in create
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/api.py", line 462, in _model_create_multi
+I/flutter (11640):     return create(self, [arg])
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/models.py", line 3606, in create
+I/flutter (11640):     records = self._create(data_list)
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/models.py", line 3706, in _create
+I/flutter (11640):     cr.execute(query, params)
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/sql_db.py", line 148, in wrapper
+I/flutter (11640):     return f(self, *args, **kwargs)
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/sql_db.py", line 225, in execute
+I/flutter (11640):     res = self._obj.execute(query, params)
+I/flutter (11640): psycopg2.IntegrityError: insert or update on table "innoving_entreprenant" violates foreign key constraint "innoving_entreprenant_zonerecensement_id_fkey"
+I/flutter (11640): DETAIL:  Key (zonerecensement_id)=(0) is not present in table "innoving_zone_recensement".
+I/flutter (11640): During handling of the above exception, another exception occurred:
+I/flutter (11640): Traceback (most recent call last):
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/http.py", line 663, in _handle_exception
+I/flutter (11640):     return super(JsonRequest, self)._handle_exception(exception)
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/http.py", line 321, in _handle_exception
+I/flutter (11640):     raise pycompat.reraise(type(exception), exception, sys.exc_info()[2])
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/tools/pycompat.py", line 87, in reraise
+I/flutter (11640):     raise value
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/http.py", line 705, in dispatch
+I/flutter (11640):     result = self._call_function(**self.params)
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/http.py", line 353, in _call_function
+I/flutter (11640):     return checked_call(self.db, *args, **kwargs)
+I/flutter (11640):   File "/opt/id30_v2/odoo/odoo/service/model.py", line 158, in wrapper
+I/flutter (11640):     raise ValidationError(msg)
+I/flutter (11640): odoo.exceptions.ValidationError: ("L'opération ne peut pas être terminée:un autre modèle nécessite la suppression de l'enregistrement. Si possible, archivez-le à la place.\n\nModèle: Gestion des entreprenants (innoving.entreprenant), Contrainte: innoving_entreprenant_zonerecensement_id_fkey", None)
+I/flutter (11640): , message: L'opération ne peut pas être terminée:un autre modèle nécessite la suppression de l'enregistrement. Si possible, archivez-le à la place.
+I/flutter (11640): Modèle: Gestion des entreprenants (innoving.entreprenant), Contrainte: innoving_entreprenant_zonerecensement_id_fkey
+I/flutter (11640): None, arguments: [L'opération ne peut pas être terminée:un autre modèle nécessite la suppression de l'enregistrement. Si possible, archivez-le à la place.
+I/flutter (11640): Modèle: Gestion des entreprenants (innoving.entreprenant), Contrainte: innoving_entreprenant_zonerecensement_id_fkey, null], exception_type: validation_error}}
+I/flutter (11640): ERROR ODOO

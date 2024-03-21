@@ -49,7 +49,7 @@ class SendState extends State<Send> {
 
     for (var i = 0; i < DbTools.glfEntreprenantaTransf.length; i++) {
       var element = DbTools.glfEntreprenantaTransf[i];
-      TextLog = "     - id ${element.id} :${element.name!}";
+      TextLog = "     - id ${element.id}/${element.Id_Tmp} :${element.name!} (${element.ENT_TRANSF_OK!}) (${element.ENT_Id_Server})";
       TxtLogs.add(TextLog);
       List<Activite_ins> lfActivite;
       lfActivite = await DbTools.getActivitesIns(element.id!, element.Id_Tmp!);
@@ -57,7 +57,7 @@ class SendState extends State<Send> {
         var element2 = lfActivite[i];
         if (element2.ACT_TRANSF_OK == 0)
           {
-            TextLog = "    > ${element2.id} : ${element2.Id_Tmp} : ${element2.name!} (${element2.ACT_TRANSF_OK!})";
+            TextLog = "    > ${element2.id} : ${element2.Id_Tmp} : ${element2.name!} (${element2.ACT_TRANSF_OK!}) (${element2.ACT_Id_Server})";
             TxtLogs.add(TextLog);
           }
       }
@@ -70,7 +70,7 @@ class SendState extends State<Send> {
     TxtLogs.add(TextLog);
     for (var i = 0; i < DbTools.glfActivite_insTransf.length; i++) {
       var element = DbTools.glfActivite_insTransf[i];
-      TextLog = "     - id ${element.id} :${element.name!}";
+      TextLog = "     - id ${element.id}/${element.Id_Tmp} :${element.name!} (${element.ACT_TRANSF_OK!}) (${element.ACT_Id_Server})";
       TxtLogs.add(TextLog);
     }
 
@@ -153,13 +153,38 @@ class SendState extends State<Send> {
                           TextLog = "> EntreprenantId ${DbTools.gEntreprenant.id} t ${DbTools.gEntreprenant.Id_Tmp} ${DbTools.gEntreprenant.ENT_Id_Server}\n";
                           TxtLogs.add(TextLog);
 
+                          int wOldID = DbTools.gEntreprenant.id!;
                           await DbOdoo.EntreprenantAddUpd();
+
+                          await DbTools.getActivitesInsTransfEntID(wOldID);
+
+                          for (var i = 0; i < DbTools.glfActivite_insTransf.length; i++) {
+                            DbTools.gActivite_ins = DbTools.glfActivite_insTransf[i];
+                            DbTools.gEntreprenant = await DbTools.getEntreprenantsID(DbTools.gActivite_ins.entreprenantId!);
+
+                            TextLog = "${DbTools.gActivite_ins.name!}\n";
+                            TxtLogs.add(TextLog);
+                            TextLog =  "-----> Activite_ins ${DbTools.gActivite_ins.id} ${DbTools.gActivite_ins.Id_Tmp}\n";
+                            TxtLogs.add(TextLog);
+                            await DbOdoo.Activite_insAddUpd();
+                            TextLog = "-----< Activite_ins ${DbTools.gActivite_ins.id} ${DbTools.gActivite_ins.Id_Tmp}\n";
+                            TxtLogs.add(TextLog);
+
+                          }
+
+
                           TextLog = "< EntreprenantId ${DbTools.gEntreprenant.id} ${DbTools.gEntreprenant.Id_Tmp}\n";
                           TxtLogs.add(TextLog);
+
+
                           setState(() {
                             textController.text = TextLog;
                           });
                         }
+
+
+
+
                         await DbTools.getActivitesInsTransf();
                         TextLog = "Traitement glfActivite_insTransf ${DbTools.glfActivite_insTransf.length}\n";
                         TxtLogs.add(TextLog);
@@ -177,6 +202,8 @@ class SendState extends State<Send> {
                           TxtLogs.add(TextLog);
 
                         }
+
+
                         await DbTools.getEntreprenantTransf();
                         print("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ glfEntreprenantaTransf <<<< ${DbTools.glfEntreprenantaTransf.length}");
                         await DbTools.getActivitesInsTransf();
