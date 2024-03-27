@@ -467,9 +467,9 @@ class DbOdoo {
 
       try {
         final db = await DbTools.database;
-        gColors.printWrapped(" insertActivite_ins toArr ${DbTools.gActivite_ins.toArr()}");
+        gColors.printWrapped(" insertActivite_ins toArrLocal ${DbTools.gActivite_ins.toArrLocal()}");
         int? repid = await db.insert("Activites_Ins", DbTools.gActivite_ins.toArr());
-        print("insertActivite_ins ${repid}");
+        print("insertActivite_ins repid ${repid}");
       } catch (e) {
         print("ERROR db.insert");
         gColors.printWrapped(e.toString());
@@ -504,9 +504,9 @@ class DbOdoo {
 
         try {
           final db = await DbTools.database;
-          gColors.printWrapped(" insertActivite_ins toArr ${DbTools.gActivite_ins.toArr()}");
-          int? repid = await db.insert("Activites_Ins", DbTools.gActivite_ins.toArr());
-          print("insertActivite_ins ${repid}");
+          gColors.printWrapped(" insertActivite_ins toArrLocal ${DbTools.gActivite_ins.toArrLocal()}");
+          int? repid = await db.insert("Activites_Ins", DbTools.gActivite_ins.toArrLocal());
+          print("insertActivite_ins repid ${repid}");
         } catch (e) {
           print("ERROR db.insert");
           gColors.printWrapped(e.toString());
@@ -598,8 +598,6 @@ class DbOdoo {
 
   static Future<int> Activite_insAddUpd() async {
     print("♦♦♦♦ Activite_insAddUpd ${DbTools.gActivite_ins.ACT_Id_Server}");
-
-
     if (DbTools.gActivite_ins.resultatEntretien == null) DbTools.gActivite_ins.resultatEntretien = "";
     if (DbTools.gActivite_ins.statutEntreprise == "4") DbTools.gActivite_ins.statutEntreprise = "0";
 

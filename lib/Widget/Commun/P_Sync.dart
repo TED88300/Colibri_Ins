@@ -563,8 +563,6 @@ class SyncState extends State<Sync> {
     DateTime wDtTot = DateTime.now();
 
     final db = await DbTools.database;
-//                        db.execute("DROP INDEX `SecteursPK`;");
-
     DbTools.deleteAll("Secteurs");
     int Pas = 5000;
     int Deb = 0;

@@ -1,10 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:colibri/Tools/DbData.dart';
 import 'package:colibri/Tools/DbOdoo.dart';
 import 'package:colibri/Tools/DbPostGres.dart';
 import 'package:colibri/Tools/DbTools.dart';
 import 'package:colibri/Tools/gColors.dart';
 import 'package:colibri/Tools/intent_result.dart';
 import 'package:colibri/Tools/shared_pref.dart';
+import 'package:colibri/Widget/Commun/P_Sync.dart';
 
 import 'package:colibri/Widget/Identification/I_Dashboard.dart';
 import 'package:colibri/Widget/Identification/I_Identificateur.dart';
@@ -17,6 +19,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_beep/flutter_beep.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -110,7 +113,52 @@ class BottomNavigationListState extends State<BottomNavigationList>
     });
   }
 
+
+  Future getSecteurs() async {
+    DbTools.deleteAll("Secteurs");
+    int Pas = 5000;
+    int Deb = 0;
+    int Iter = 9999;
+    for (int i = 0; i < Iter; ++i) {
+      int? NbSecteurs = await DbOdoo.Secteurs(Deb + i * Pas, Pas);
+      if (NbSecteurs == 0) break;
+      await DbOdoo.SecteursIntegration();
+    }
+  }
+
+  Future getCountrys() async {
+    DbTools.deleteAll("Secteurs");
+    int Pas = 5000;
+    int Deb = 0;
+    int Iter = 9999;
+    for (int i = 0; i < Iter; ++i) {
+      int? NbCountrys = await DbOdoo.Countrys(Deb + i * Pas, Pas);
+      if (NbCountrys == 0) break;
+      await DbOdoo.CountrysIntegration();
+
+    }
+  }
+
+
+
   void initLib() async {
+    List<Secteur> lfSecteur;
+    lfSecteur = await DbTools.getSecteursSansTri();
+    print(" initLib lfSecteur > ${lfSecteur.length}");
+    if (lfSecteur.isEmpty ) await getSecteurs();
+    lfSecteur = await DbTools.getSecteursSansTri();
+    print(" initLib lfSecteur <v> ${lfSecteur.length}");
+
+/*
+    List<Country> lfCountry;
+    lfCountry = await DbTools.getCountrys();
+    print(" initLib lfCountry > ${lfCountry.length}");
+    if (lfCountry.isEmpty ) await getCountrys();
+    lfCountry = await DbTools.getCountrys();
+    print(" initLib lfCountry <v> ${lfCountry.length}");
+*/
+
+
 
 
     print("BottomNavigationList initLib >");
@@ -164,6 +212,7 @@ class BottomNavigationListState extends State<BottomNavigationList>
 //    WidgetsBinding.instance!.removeObserver(this);
     super.dispose();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -230,7 +279,10 @@ class BottomNavigationListState extends State<BottomNavigationList>
         ),
         backgroundColor: gColors.primary,
       ),
-      body: wchildren,
+      body:
+
+
+      wchildren,
       bottomNavigationBar: BottomAppBar(
         color: gColors.primary,
         shape: CircularNotchedRectangle(), //shape of notch

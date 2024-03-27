@@ -57,16 +57,13 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
   }
 
   void Entr_screenVoidCallback() {
-    print("screenVoidCallback callback()");
+    print(" ••••• screenVoidCallback callback() ••••• ");
     Reload();
   }
 
 
 
   void initState() {
-
-
-
     DbTools.listEntrVoidCallback =Entr_screenVoidCallback;
     searchText = "";
     Search.text = searchText;

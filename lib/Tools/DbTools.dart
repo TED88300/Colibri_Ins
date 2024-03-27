@@ -19,9 +19,9 @@ class DbTools {
 
   static bool EdtTicket = false;
 
-  static bool gDev = true;
+  static bool gDev = false;
   static bool gTED = gDev;
-  static bool gEMULATEUR =  true; //gDev;
+  static bool gEMULATEUR =  false; //gDev;
 
   static bool gIsRememberLogin = true;
   static bool gIsRememberLoginOffLine = false;
@@ -67,21 +67,13 @@ class DbTools {
   static var strKYB = "KYB";
   static var pagesKYB = 0;
   static var pageKYB = 0;
-
   static bool isFORMEL = true;
-
-
-
   static bool allowWriteFile = false;
 
   static late Function gI_Liste_EntreprenantsState_callback;
   static late Function gI_Liste_BrouillonsState_callback;
   static late Function gI_Liste_RejeteesState_callback;
-
   static String TraceDbg  = "> TraceDbg";
-
-
-
 
   void printWrapped(String text) {
     final pattern = RegExp('.{1,800}'); // 800 is the size of each chunk
@@ -309,6 +301,9 @@ class DbTools {
           "CREATE TABLE Svas(svaid INTEGER PRIMARY KEY, sva_name TEXT, sva_code TEXT)",
         );
 
+
+
+
         await db.execute(
           "CREATE TABLE Countrys(Countryid INTEGER PRIMARY KEY, Country_name TEXT, Country_code TEXT)",
         );
@@ -316,8 +311,11 @@ class DbTools {
 
 
       },
+
+
       onUpgrade: (db, oldVersion, newVersion) {
         print("onUpgrade $oldVersion $newVersion");
+
 
         //       if (newVersion == 2) {db.execute("ALTER TABLE Activites ADD COLUMN activite_type_taxe TEXT");}
       },
@@ -333,12 +331,36 @@ class DbTools {
       version: 1,
     );
 
+    try
+    {
+      final db = await database;
+      await db.execute(
+        "CREATE TABLE Countrys(Countryid INTEGER PRIMARY KEY, Country_name TEXT, Country_code TEXT)",
+      );
+    }
+    catch(err) {
+    }
+
+
+
+
 
 
 //    deleteContribuable(0);
 
     await initDownMennu();
   }
+
+
+  static Future Truncate_param() async {
+  final db = await database;
+  print("getListTables");
+
+  DbTools.deleteAll("Secteurs");
+  DbTools.deleteAll("Countrys");
+
+  }
+
 
   static Future getListTables() async {
     final db = await database;

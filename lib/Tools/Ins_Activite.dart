@@ -760,8 +760,6 @@ class Activite_ins {
     nombreVisite = json['nombre_visite'].toString();
     observationEnquete = json['observation_enquete'];
 
-
-
     zone_implantation_entreprise = wzone_implantation_entreprise;
     libelle_zone_implantation_entreprise = wlibelle_zone_implantation_entreprise;
     numero_batiment = wnumero_batiment;
@@ -769,6 +767,8 @@ class Activite_ins {
     ACT_TRANSF_OK = json['ACT_TRANSF_OK'];
     Id_Tmp = json['Id_Tmp'];
     ACT_Id_Server = wACT_Id_Server;
+
+    ImageBase64_PHOTO_ACT = json['ImageBase64_PHOTO_ACT'];
 
 
   }
@@ -1173,6 +1173,204 @@ class Activite_ins {
     };
     return wArgs;
   }
+
+  Map<String, dynamic> toArrLocal() {
+    if (this.active == null) this.active = false;
+
+    if (this.userId == null) this.userId = 0;
+    if (this.stateId == null) this.stateId = 0;
+    if (this.countryId == null) this.countryId = 0;
+    if (this.createUid == null) this.createUid = 0;
+    if (this.writeUid == null) this.writeUid = 0;
+    if (this.messageMainAttachmentId == null) this.messageMainAttachmentId = 0;
+    if (this.entreprenantId == null) this.entreprenantId = 0;
+    if (this.tauxImposition == null) this.tauxImposition = 0;
+    if (this.longueur == null) this.longueur = 0;
+    if (this.largeur == null) this.largeur = 0;
+    if (this.odp == null) this.odp = 0;
+    if (this.pubEnMettreCarre == null) this.pubEnMettreCarre = 0;
+    if (this.pubLongueur2 == null) this.pubLongueur2 = 0;
+    if (this.pubLargeur2 == null) this.pubLargeur2 = 0;
+    if (this.surface_local_en_mettre_carre == null) this.surface_local_en_mettre_carre = 0;
+    if (this.pubEnMettreCarre2 == null) this.pubEnMettreCarre2 = 0;
+    if (this.activicte2 == null) this.activicte2 = 0;
+    if (this.effectifTotal == null) this.effectifTotal = 0;
+    if (this.numeroCnps == null) this.numeroCnps = 0;
+    if (this.zoneId == null) this.zoneId = 0;
+    if (this.localiteId == null) this.localiteId = 0;
+    if (this.quartierId == null) this.quartierId = 0;
+    if (this.ilotId == null) this.ilotId = 0;
+    if (this.clusterId == null) this.clusterId = 0;
+    if (this.regionId == null) this.regionId = 0;
+    if (this.departementId == null) this.departementId = 0;
+    if (this.sousprefectureId == null) this.sousprefectureId = 0;
+    if (this.communeId == null) this.communeId = 0;
+    if (this.activiteTypeId == null) this.activiteTypeId = 0;
+
+    this.type_activite_formel_informel = "Informel";
+    if (DbTools.isFORMEL) this.type_activite_formel_informel = "Formel";
+
+//    //print("ididididididi  ${this.id}");
+    var wArgs = {
+      'is_activity': true,
+      'name': this.name,
+      'create_date': this.createDate,
+      'display_name': this.displayName,
+      'date': this.date,
+      'ref': this.ref,
+      'lang': this.lang,
+      'tz': this.tz,
+      'user_id': '${DbOdoo.res_UserId}',
+
+      'vat': this.vat,
+      'website': this.website,
+      'state': this.state,
+      'comment': this.comment,
+
+      'barcode': this.barcode,
+      'street': this.street,
+      'street2': this.street2,
+      'zip': this.zip,
+      'city': this.city,
+      'state_id' : this.stateId,
+      'country_id' : this.countryId,
+      'email_entreprise': this.email,
+      'telephone_fixe_1_entreprise': this.telephoneFixe1Entreprise,
+      'telephone_portable_1_entreprise': this.mobile,
+      'create_uid': this.createUid,
+      'write_uid': this.writeUid,
+      'write_date' : this.writeDate,
+      'message_main_attachment_id' : this.messageMainAttachmentId,
+
+      'entreprenant_id': this.entreprenantId,
+      'activity_birthday': this.activityBirthday,
+      'regime_fiscale': this.regimeFiscale,
+      'chiffre_affaire_taxable': this.chiffreAffaireTaxable,
+      'min_ca': this.minCa,
+      'max_ca': this.maxCa,
+      'secteur_id': this.secteurId,
+      'type_taxe': this.typeTaxe,
+      'cga': this.cga,
+      'date_adhesion': this.dateAdhesion,
+      'ref_cga': this.refCga,
+      'taux_imposition': this.tauxImposition,
+      'taille_activite': this.tailleActivite,
+      'ciap': this.ciap,
+      'longueur': this.longueur,
+      'largeur': this.largeur,
+      'odp': this.odp,
+      'baux_loyer': this.bauxLoyer,
+      'pub_longueur': this.pubLongueur,
+      'pub_largeur': this.pubLargeur,
+      'pub_longueur_2': this.pubLongueur2,
+      'pub_largeur_2': this.pubLargeur2,
+      'surface_local_en_mettre_carre': this.surface_local_en_mettre_carre,
+      'partner_latitude': this.partnerLatitude,
+      'partner_longitude': this.partnerLongitude,
+      'autre_type_activite': this.autreTypeActivite,
+      'activicte_2': this.activicte2,
+      'etat_activite': this.etatActivite,
+      'forme_juridique': this.formeJuridique,
+      'autre_forme_juridique': this.autreFormeJuridique,
+      'capital_en_action': this.capitalEnAction,
+
+      'manque_personnel_qualifie': this.manquePersonnelQualifie,
+      'cout_eleve_main_oeuvre': this.coutEleveMainOeuvre,
+      'formalite_administrative_contraignante': this.formaliteAdministrativeContraignante,
+
+      'taxe_impot_eleve': this.taxeImpotEleve,
+      'cout_tranport_eleve': this.coutTranportEleve,
+      'mauvais_etat_infrastructure': this.mauvaisEtatInfrastructure,
+      'difficulte_approvisionnement_matiere_premiere': this.difficulteApprovisionnementMatierePremiere,
+      'procedure_contentieux': this.procedureContentieux,
+      'ecoulement_production': this.ecoulementProduction,
+      'acces_au_technologie': this.accesAuTechnologie,
+      'manque_machine': this.manqueMachine,
+      'manque_expertise_technique': this.manqueExpertiseTechnique,
+      'manque_local_adapte': this.manqueLocalAdapte,
+      'acces_commande_public': this.accesCommandePublic,
+      'acces_structure_appui': this.accesStructureAppui,
+      'acces_credit_bancaire': this.accesCreditBancaire,
+      'approvisionnement_energie': this.approvisionnementEnergie,
+      'concurrence_deloyale': this.concurrenceDeloyale,
+      'corruption': this.corruption,
+      'autre_contrainte': this.autreContrainte,
+      'precise_contrainte': this.preciseContrainte,
+      'aucune_contrainte': this.aucuneContrainte,
+      'autre_activte': this.autreActivte,
+      'autre_activite_secondaire': this.autre_activite_secondaire,
+      'autre_activite_precision': this.autreActivitePrecision,
+      'code_ciap': this.codeCiap,
+      'connexion_internet': this.connexionInternet,
+      'declaration_cnps': this.declarationCnps,
+      'designation_activite': this.designationActivite,
+      'doc_fin_exercice': this.docFinExercice,
+      'effectif_total': this.effectifTotal,
+      'etat_fonctionnement_entreprise': this.etatFonctionnementEntreprise,
+      'name_activite_secondaire': this.nameActiviteSecondaire,
+      'nombre_etablissement': this.nombreEtablissement,
+      'num_compte_contribuable': this.numCompteContribuable,
+      'num_registre_commerce': this.numRegistreCommerce,
+      'numero_cnps': this.numeroCnps,
+      'numero_cnps_communicable': this.numeroCnpsCommunicable,
+      'periodicite': this.periodicite,
+      'statut_comptabilite_formel': this.statutComptabiliteFormel,
+      'statut_compte_contribuable': this.statutCompteContribuable,
+      'statut_entreprise': this.statutEntreprise,
+
+      'statut_registre_commerce': this.statutRegistreCommerce,
+      'type_entreprise': this.typeEntreprise,
+      'zone_id': this.zoneId,
+      'localite_id': this.localiteId,
+      'quartier_id': this.quartierId,
+      'ilot_id': this.ilotId,
+      'zone': this.zone,
+      'date_debut_exploitation': this.dateDebutExploitation,
+      'activicte_principal': this.activictePrincipal,
+      'gps_precision': this.gpsPrecision,
+      'service_en_ligne': this.serviceEnLigne,
+      'has_activicte_secondaire': this.hasActivicteSecondaire,
+      'raison_social': this.raisonSocial,
+      'adresse_geographique_entreprise': this.adresseGeographiqueEntreprise,
+      'observation': this.observation,
+      'sigle_entreprise': this.sigleEntreprise,
+      'telephone_fixe_2_entreprise': this.telephoneFixe2Entreprise,
+      'telephone_portable_1_entreprise': this.telephonePortable1Entreprise,
+      'telephone_portable_2_entreprise': this.telephonePortable2Entreprise,
+      'email_entreprise': this.emailEntreprise,
+      'site_web_entreprise': this.siteWebEntreprise,
+      'boite_postale_entreprise': this.boitePostaleEntreprise,
+      'type_activite': this.typeActivite,
+      'type_activite_formel_informel': this.type_activite_formel_informel,
+
+      'cluster_id': this.clusterId,
+      'region_id': this.regionId,
+      'departement_id': this.departementId,
+      'sousprefecture_id': this.sousprefectureId,
+      'commune_id': this.communeId,
+      'addresse_geo_1': this.addresseGeo1,
+      'addresse_geo_2': this.addresseGeo2,
+//    'activite_type_id' : this.activiteTypeId,
+
+      'date_fin_entretien': this.dateFinEntretien,
+      'resultat_entretien': this.resultatEntretien,
+      'nombre_visite': this.nombreVisite,
+      'observation_enquete': this.observationEnquete,
+
+      'zone_implantation_entreprise': this.zone_implantation_entreprise,
+      'libelle_zone_implantation_entreprise': this.libelle_zone_implantation_entreprise,
+      'numero_batiment': this.numero_batiment,
+      'numero_sequence_batiment_entreprise': this.numero_sequence_batiment_entreprise,
+
+      'ImageBase64_PHOTO_ACT': this.ImageBase64_PHOTO_ACT,
+
+      'Id_Tmp': this.Id_Tmp,
+      'ACT_TRANSF_OK': this.ACT_TRANSF_OK,
+      'ACT_Id_Server': this.ACT_Id_Server,
+    };
+    return wArgs;
+  }
+
 
   Map<String, dynamic> toArrUpd() {
     if (this.active == null) this.active = false;

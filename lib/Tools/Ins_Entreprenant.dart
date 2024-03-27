@@ -13,14 +13,12 @@ chef_equipe_id
 
 class Entreprenant {
   int? id;
-
   int? ENT_TRANSF_OK = 1;
   int? Id_Tmp = 0;
   int? ENT_Id_Server = 0;
   String? ImageBase64_PHOTO_ENTR = "";
   String? ID3_templateBytes64 = "";
   String? ID3_croppedBytes64 = "";
-
   int? clusterId;
   int? regionId;
   int? departementId;
@@ -30,9 +28,7 @@ class Entreprenant {
   int? zonerecensementId;
   int? districtId;
   int? quartierId;
-
   String? milieuImplantation;
-
   String? nomRepondant;
   String? fonctionRepondant;
   String? autre_fonction_repondant;
@@ -60,7 +56,6 @@ class Entreprenant {
   int? active;
   String? code;
   String? state;
-
   Entreprenant(
       {this.id,
       this.clusterId,
@@ -103,7 +98,8 @@ class Entreprenant {
       this.ImageBase64_PHOTO_ENTR,
       this.ID3_templateBytes64,
       this.ENT_TRANSF_OK,
-      this.Id_Tmp});
+      this.Id_Tmp}
+      );
 
   Entreprenant.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -121,12 +117,9 @@ class Entreprenant {
       profession = "";
     else
       profession = json['profession'];
-
     terminal = json['terminal'];
     dateValiditePiece = json['date_validite_piece'];
-
     milieuImplantation = json['milieu_implantation'];
-
     if (json['districtId'] == null)
       districtId = 0;
     else
@@ -534,10 +527,8 @@ class Entreprenant {
     var wArgs = {
 //      'name': '${name}',
       'active': true,
-
       'userId': '${DbOdoo.res_UserId}',
       'ref': '',
-
       'nature_piece': '${naturePiece}',
       'cni': '${cni}',
       'state': '${state}',
@@ -576,9 +567,9 @@ class Entreprenant {
       'zonerecensement_id': '${zonerecensementId}',
       'quartier_id': '${quartierId}',
       'ilot_creation': '-1',
-      'ImageBase64_PHOTO_ENTR': '${ImageBase64_PHOTO_ENTR}',
-      'ID3_templateBytes64': '${ID3_templateBytes64}',
-      'ID3_croppedBytes64': '${ID3_croppedBytes64}',
+//      'ImageBase64_PHOTO_ENTR': '${ImageBase64_PHOTO_ENTR}',
+//      'ID3_templateBytes64': '${ID3_templateBytes64}',
+//      'ID3_croppedBytes64': '${ID3_croppedBytes64}',
     };
     return wArgs;
   }

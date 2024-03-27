@@ -66,10 +66,15 @@ class SendState extends State<Send> {
 
 
 
-    TextLog =  "\n\n>>> Activités à envoyer";
+    TextLog =  "\n\n>>> Activités seules à envoyer >>>";
     TxtLogs.add(TextLog);
     for (var i = 0; i < DbTools.glfActivite_insTransf.length; i++) {
       var element = DbTools.glfActivite_insTransf[i];
+
+      print("♦♦♦♦ Activités à envoyer ACTIVITE PHOTO ${element.ImageBase64_PHOTO_ACT!.length}");
+
+
+
       TextLog = "     - id ${element.id}/${element.Id_Tmp} :${element.name!} (${element.ACT_TRANSF_OK!}) (${element.ACT_Id_Server})";
       TxtLogs.add(TextLog);
     }
@@ -150,18 +155,25 @@ class SendState extends State<Send> {
                           DbTools.gEntreprenant = DbTools.glfEntreprenantaTransf[i];
                           TextLog =  "${DbTools.gEntreprenant.name!}\n";
                           TxtLogs.add(TextLog);
-                          TextLog = "> EntreprenantId ${DbTools.gEntreprenant.id} t ${DbTools.gEntreprenant.Id_Tmp} ${DbTools.gEntreprenant.ENT_Id_Server}\n";
+                          TextLog = "> EntreprenantId  A ${DbTools.gEntreprenant.id} t ${DbTools.gEntreprenant.Id_Tmp} ${DbTools.gEntreprenant.ENT_Id_Server}\n";
                           TxtLogs.add(TextLog);
 
                           int wOldID = DbTools.gEntreprenant.id!;
+                          print ("> EntreprenantId A ${DbTools.gEntreprenant.id} t ${DbTools.gEntreprenant.Id_Tmp} ${DbTools.gEntreprenant.ENT_Id_Server}\n");
                           await DbOdoo.EntreprenantAddUpd();
+                          print ("> EntreprenantId B ${DbTools.gEntreprenant.id} t ${DbTools.gEntreprenant.Id_Tmp} ${DbTools.gEntreprenant.ENT_Id_Server}\n");
 
                           await DbTools.getActivitesInsTransfEntID(wOldID);
 
                           for (var i = 0; i < DbTools.glfActivite_insTransf.length; i++) {
                             DbTools.gActivite_ins = DbTools.glfActivite_insTransf[i];
+/*
+                            print ("> EntreprenantId B ${DbTools.gEntreprenant.id} t ${DbTools.gEntreprenant.Id_Tmp} ${DbTools.gEntreprenant.ENT_Id_Server}\n");
                             DbTools.gEntreprenant = await DbTools.getEntreprenantsID(DbTools.gActivite_ins.entreprenantId!);
+                            print ("> EntreprenantId C ${DbTools.gEntreprenant.id} t ${DbTools.gEntreprenant.Id_Tmp} ${DbTools.gEntreprenant.ENT_Id_Server}\n");
+*/
 
+                            DbTools.gActivite_ins.entreprenantId = DbTools.gEntreprenant.id!;
                             TextLog = "${DbTools.gActivite_ins.name!}\n";
                             TxtLogs.add(TextLog);
                             TextLog =  "-----> Activite_ins ${DbTools.gActivite_ins.id} ${DbTools.gActivite_ins.Id_Tmp}\n";

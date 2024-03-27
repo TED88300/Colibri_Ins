@@ -101,9 +101,9 @@ class I_SideDrawer extends StatelessWidget {
                                     ElevatedButton(
                                       onPressed: () {
                                         Navigator.of(context).pop();
-
                                         Navigator.of(context).pop();
                                         Navigator.push(context, MaterialPageRoute(builder: (context) => Sync()));
+                                        print("RETOUR Sync");
 
                                         
 
@@ -138,7 +138,10 @@ class I_SideDrawer extends StatelessWidget {
                   } else {
                     Navigator.of(context).pop();
                     await Navigator.push(context, MaterialPageRoute(builder: (context) => Sync()));
-                    print("getContribuables D");
+                    print("RETOUR SYNC");
+                    DbTools.listEntrVoidCallback();
+                    print("RETOUR SYNC");
+
                   }
                 },
               ),

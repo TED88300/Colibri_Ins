@@ -87,6 +87,9 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
     DbTools.packageInfo = await PackageInfo.fromPlatform();
     DbTools.gVersion = "V${DbTools.packageInfo.version} b${DbTools.packageInfo.buildNumber}";
     await DbTools.initSqlite();
+
+
+
   }
 
   @override

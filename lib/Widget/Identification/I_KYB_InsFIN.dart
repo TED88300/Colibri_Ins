@@ -182,6 +182,7 @@ class I_KYB_InsFINState extends State<I_KYB_InsFIN> {
       DbTools.gActivite_ins.type_activite_formel_informel = "Informel";
 
     print("♦♦♦♦ SAVE ACTIVITE ${DbTools.gActivite_ins.state}");
+    print("♦♦♦♦ SAVE ACTIVITE PHOTO ${DbTools.gActivite_ins.ImageBase64_PHOTO_ACT}");
     await DbOdoo.Activite_insAddUpd();
 
     await DbTools.getActivitesInsAllTest();
