@@ -1,15 +1,14 @@
 import 'dart:async';
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/Regex.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Tools/intent_result.dart';
-import 'package:colibri/Widget/3_bottom_navigation_list.dart';
-import 'package:colibri/Widget/Identification/I_KYC_Ins_2.dart';
-import 'package:colibri/Widget/Identification/I_KYC_Photo.dart';
-import 'package:colibri/Widget/Identification/I_Liste_Entreprenants.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbOdoo.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/Regex.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Tools/intent_result.dart';
+import 'package:Colibri_Collecte/Widget/3_bottom_navigation_list.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYC_Ins_2.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYC_Photo.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:flutter/material.dart';
 
 import '../../Tools/Tools.dart';
@@ -64,6 +63,8 @@ class I_KYC_Ins_1State extends State<I_KYC_Ins_1> {
     QF_C3A1.Screen_Rep_Mand = true;
     QF_C3A1.Screen_Rep_Error = false;
 
+    print(" DbTools.gEntreprenant.contact2Repondant  ${DbTools.gEntreprenant.contact2Repondant}");
+
     Screen_QF_C3A2 = Tools.Get_ScreenCallBack(QF_C3A2, context, DbTools.gEntreprenant.contact2Repondant!, 0, false, screenVoidCallback);
     QF_C3A2.Screen_Rep_Mand = false;
     QF_C3A2.Screen_Rep_Error = false;
@@ -72,6 +73,12 @@ class I_KYC_Ins_1State extends State<I_KYC_Ins_1> {
     QF_C3B.Screen_Rep_Error = false;
 
     print(" DbTools.gEntreprenant.ImageBase64_PHOTO_ENTR  ${DbTools.gEntreprenant.ImageBase64_PHOTO_ENTR!.length}");
+
+    Screen_QF_C1 = Tools.Get_Screen(QF_C1, context, DbTools.gEntreprenant.nomRepondant!, 0, false);
+    Screen_QF_C2A = Tools.Get_Screen(QF_C2A, context, DbTools.gEntreprenant.autre_fonction_repondant!, 0, false);
+    Screen_QF_C3A1 = Tools.Get_ScreenCallBack(QF_C3A1, context, Screen_QF_C3A1.Screen_Rep_Str, 0, false, screenVoidCallback);
+    Screen_QF_C3A2 = Tools.Get_ScreenCallBack(QF_C3A2, context, Screen_QF_C3A2.Screen_Rep_Str, 0, false, screenVoidCallback);
+    Screen_QF_C3B = Tools.Get_ScreenCallBack(QF_C3B, context, Screen_QF_C3B.Screen_Rep_Str, 0, false, screenVoidCallback);
 
     super.initState();
     setState(() {});
@@ -89,15 +96,11 @@ class I_KYC_Ins_1State extends State<I_KYC_Ins_1> {
     print(">>>>>>>>>>>>>>>>>>>   Build KYC 1 ${DbTools.pageEntr}  $pageEntr <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     QF_C3A1.Screen_Rep_Mand = true;
 
+    QF_C1.Screen_Rep_Error = !gColors.ctrlTelFIXEPORT(Screen_QF_C1.Screen_Rep_Str, VideOK: false);
     QF_C3A1.Screen_Rep_Error = !gColors.ctrlTelFIXEPORT(Screen_QF_C3A1.Screen_Rep_Str, VideOK: false);
     QF_C3A2.Screen_Rep_Error = !gColors.ctrlTelFIXEPORT(Screen_QF_C3A2.Screen_Rep_Str, VideOK: true);
     QF_C3B.Screen_Rep_Error = !Regex.validateEmail(Screen_QF_C3B.Screen_Rep_Str.toLowerCase());
 
-    Screen_QF_C1 = Tools.Get_Screen(QF_C1, context, DbTools.gEntreprenant.nomRepondant!, 0, false);
-    Screen_QF_C2A = Tools.Get_Screen(QF_C2A, context, DbTools.gEntreprenant.autre_fonction_repondant!, 0, false);
-    Screen_QF_C3A1 = Tools.Get_ScreenCallBack(QF_C3A1, context, Screen_QF_C3A1.Screen_Rep_Str!, 0, false, screenVoidCallback);
-    Screen_QF_C3A2 = Tools.Get_ScreenCallBack(QF_C3A2, context, Screen_QF_C3A2.Screen_Rep_Str!, 0, false, screenVoidCallback);
-    Screen_QF_C3B = Tools.Get_ScreenCallBack(QF_C3B, context, Screen_QF_C3B.Screen_Rep_Str!, 0, false, screenVoidCallback);
 
     print(">>>>>>>>>>>>>>>>>>>   Build KYC 1 ${QF_C3A1.Screen_Rep_Error} ${Screen_QF_C3A1.Screen_Rep_Str}  ${Screen_QF_C3A1.Screen_Rep_Type}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 
@@ -210,6 +213,9 @@ class I_KYC_Ins_1State extends State<I_KYC_Ins_1> {
   Future<bool> ctrlSaisie() async {
     bool isOK = true;
 
+
+
+
     if (!gColors.ctrlTelFIXEPORT(Screen_QF_C3A1.Screen_Rep_Str, VideOK: false)) {
       isOK = false;
       await gColors.PopupError(context, "Erreur de saisie", "Contact 1 :Téléphone Invalide");
@@ -250,7 +256,7 @@ class I_KYC_Ins_1State extends State<I_KYC_Ins_1> {
         return;
       }
 
-      if (enrolData!.containsKey("isError") && !(enrolData["isError"]) as bool) {
+      if (enrolData!.containsKey("isError") && !(enrolData["isError"])) {
 //        _message = (enrolData['data'] as Map<dynamic, dynamic>?).toString();
 
         DbTools.pagesEntr = DbTools.gID3_OK ? 2 : 1;

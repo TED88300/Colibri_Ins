@@ -1,8 +1,8 @@
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Widget/Identification/I_KYB_InsFIN.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_InsFIN.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:flutter/material.dart';
 
 import '../../Tools/Tools.dart';
@@ -17,7 +17,6 @@ class I_KYB_Ins10FState extends State<I_KYB_Ins10F> {
   Screen Screen_QF_E1 = Screen();
   Item QF_E1AUTRE = Item();
   Screen Screen_QF_E1AUTRE = Screen();
-
   Item QF_E1A = Item();
   Screen Screen_QF_E1A = Screen();
   Item QF_E1B = Item();
@@ -58,8 +57,8 @@ class I_KYB_Ins10FState extends State<I_KYB_Ins10F> {
   Screen Screen_QF_E1S = Screen();
   Item QF_E1T = Item();
   Screen Screen_QF_E1T = Screen();
-  Item QF_E1U = Item();
-  Screen Screen_QF_E1U = Screen();
+  Item Q_E1AUTRE = Item();
+  Screen Screen_Q_E1AUTRE = Screen();
   int pageEntr = 0;
 
   void screenVoidCallback() {
@@ -91,7 +90,7 @@ class I_KYB_Ins10FState extends State<I_KYB_Ins10F> {
     QF_E1R = Tools.Get_UNIQUE("Q_E1R");
     QF_E1S = Tools.Get_UNIQUE("Q_E1S");
     QF_E1T = Tools.Get_UNIQUE("Q_E1T");
-    QF_E1U = Tools.Get_UNIQUE("Q_E1U");
+    Q_E1AUTRE = Tools.Get_UNIQUE("Q_E1U");
 
 
     Screen_QF_E1 = Tools.Get_ScreenCallBack(QF_E1, context, DbTools.gActivite_ins.contrainteRencontre!, 0, false, screenVoidCallback);
@@ -131,7 +130,7 @@ class I_KYB_Ins10FState extends State<I_KYB_Ins10F> {
     Screen_QF_E1R = Tools.Get_Screen(QF_E1R, context, DbTools.gActivite_ins.concurrenceDeloyale!, 0, false);
     Screen_QF_E1S = Tools.Get_Screen(QF_E1S, context, DbTools.gActivite_ins.corruption!, 0, false);
     Screen_QF_E1T = Tools.Get_Screen(QF_E1T, context, DbTools.gActivite_ins.autreContrainte!, 0, false);
-    Screen_QF_E1U = Tools.Get_Screen(QF_E1U, context, DbTools.gActivite_ins.aucuneContrainte!, 0, false);
+    Screen_Q_E1AUTRE = Tools.Get_Screen(Q_E1AUTRE, context, DbTools.gActivite_ins.preciseContrainte!, 0, false);
 
     print(">>>>>>>>>>>>>>>>>>>   Build  ${Screen_QF_E1.Screen_Rep_Int}  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     return WillPopScope(
@@ -167,7 +166,7 @@ class I_KYB_Ins10FState extends State<I_KYB_Ins10F> {
             padding: const EdgeInsets.all(15),
             child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center, children: [
                   Screen_QF_E1.Screen_Row,
-                  Screen_QF_E1.Screen_Rep_Int != 21 ? Container() : Screen_QF_E1AUTRE.Screen_Row,
+                  Screen_QF_E1.Screen_Rep_Int != 10 ? Container() : Screen_QF_E1AUTRE.Screen_Row,
                   Screen_QF_E1A.Screen_Row,
                   Screen_QF_E1B.Screen_Row,
                   Screen_QF_E1C.Screen_Row,
@@ -188,7 +187,7 @@ class I_KYB_Ins10FState extends State<I_KYB_Ins10F> {
                   Screen_QF_E1R.Screen_Row,
                   Screen_QF_E1S.Screen_Row,
                   Screen_QF_E1T.Screen_Row,
-                  Screen_QF_E1U.Screen_Row,
+                  Screen_Q_E1AUTRE.Screen_Row,
                 ]),
           ),
         ),
@@ -222,9 +221,12 @@ class I_KYB_Ins10FState extends State<I_KYB_Ins10F> {
                   DbTools.gActivite_ins.concurrenceDeloyale = Screen_QF_E1R.Screen_Rep_Str;
                   DbTools.gActivite_ins.corruption = Screen_QF_E1S.Screen_Rep_Str;
                   DbTools.gActivite_ins.autreContrainte = Screen_QF_E1T.Screen_Rep_Str;
-                  DbTools.gActivite_ins.aucuneContrainte = Screen_QF_E1U.Screen_Rep_Str;
+                  DbTools.gActivite_ins.preciseContrainte = Screen_Q_E1AUTRE.Screen_Rep_Str;
                   DbTools.pageEntr++;
                   PushPop.PushPop_Push(false);
+
+                  print("Screen_QF_E1A.Screen_Rep_Str ${Screen_QF_E1A.toString()}");
+
 
                   Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYB_InsFIN()));
                 });

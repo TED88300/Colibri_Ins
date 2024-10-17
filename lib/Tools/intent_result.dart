@@ -1,4 +1,8 @@
+
+import 'dart:convert';
+
 import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 const String packageName = "com.kmtvision.pfo_enrolment_test";
 
@@ -27,41 +31,40 @@ class IntentChannel {
     } catch (_) {
       return [];
     }
-
-
-
   }
 
-
   static Future PrinterON() async {
-
     return await _channel.invokeMethod('EditionON');
-
   }
 
   static Future PrinterOFF() async {
-
     return await _channel.invokeMethod('EditionOFF');
-
   }
 
-
-
-    static Future<List<dynamic>?> Print(String aTxt, String Size, String Align, String Density) async {
-
-
-
+  static Future<List<dynamic>?> Print(
+      String aTxt, String Size, String Align, String Density) async {
     print("IntentChannel Edition");
     try {
-      return await _channel.invokeMethod('Edition',{"PrintText":aTxt,"Size":Size,"Align":Align,"Fmt":Density});
+      return await _channel.invokeMethod('Edition',
+          {"PrintText": aTxt, "Size": Size, "Align": Align, "Fmt": Density});
     } catch (_) {
       print("IntentChannel Edition failed");
       return [];
     }
-
-
-
   }
 
+  static Future<List<dynamic>?> QrCode(String ImageBase64,) async {
+    print("IntentChannel Edition");
+    try {
 
+      List<int> photoAsBytes =  await base64Decode(ImageBase64);
+
+      return await _channel.invokeMethod('QrCode', {"bitmap": photoAsBytes,});
+    } catch (_) {
+      print("IntentChannel Edition failed");
+      return [];
+    }
+  }
 }
+
+

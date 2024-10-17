@@ -1,14 +1,14 @@
 import 'dart:convert';
-import 'package:colibri/Tools/DbData.dart';
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/Regex.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Widget/3_bottom_navigation_list.dart';
-import 'package:colibri/Widget/Identification/I_KYC_Ins_3.dart';
-import 'package:colibri/Widget/Identification/I_Liste_ActivitesIns.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbData.dart';
+import 'package:Colibri_Collecte/Tools/DbOdoo.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/Regex.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Widget/3_bottom_navigation_list.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYC_Ins_3.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_Liste_ActivitesIns.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropdown/flutter_dropdown.dart';
 import 'package:intl/intl.dart';
@@ -79,6 +79,10 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
   }
 
   void initState() {
+
+    print(" I_KYC_Ins_2 initState isUpdate ${DbTools.isUpdate}");
+
+
     pageEntr = DbTools.pageEntr;
 
     EmptyFocusNode = FocusNode();
@@ -92,6 +96,14 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
 
     print(" DbTools.gEntreprenant.toArr()  ${DbTools.gEntreprenant.toArr()}");
 
+    if(!DbTools.isUpdate)
+      {
+        DbTools.gEntreprenant.nomPrenomDirigeant = DbTools.gEntreprenant.nomRepondant;
+        DbTools.gEntreprenant.name = DbTools.gEntreprenant.nomRepondant;
+        DbTools.gEntreprenant.telephoneDirigeant = DbTools.gEntreprenant.contact1Repondant;
+      }
+
+
     int i = 0;
     Edt_CNI.text = DbTools.gEntreprenant.cni!;
     Edt_Nom.text = DbTools.gEntreprenant.nomPrenomDirigeant!;
@@ -99,7 +111,7 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
     print("I_KYC_Ins_2 C");
     Edt_Nais_Lieu.text = DbTools.gEntreprenant.lieu_naissance!;
     print("I_KYC_Ins_2 countryId ${DbTools.gEntreprenant.countryId.toString()}");
-    Edt_Nais_Pays.text = DbTools.gEntreprenant.countryId.toString()!;
+    Edt_Nais_Pays.text = DbTools.gEntreprenant.countryId.toString();
     print("I_KYC_Ins_2 E");
 
     Type_Doc = DbTools.gEntreprenant.naturePiece;
@@ -139,13 +151,17 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
     //wGenre!.contains("masculin") ? radioButtonItem = 'H' : radioButtonItem = 'F';
     //wGenre.contains("masculin") ? Genre_id = 0 : Genre_id = 1;
 
+
+    print(" wGenre |$wGenre|");
+
+
     radioButtonItem = '';
     Genre_id = -1;
-    if (wGenre!.contains("masculin")) {
+    if (wGenre!.contains("Masculin")) {
       radioButtonItem = 'H';
       Genre_id = 0;
     }
-    if (wGenre!.contains("feminin")) {
+    if (wGenre.contains("Feminin")) {
       radioButtonItem = 'F';
       Genre_id = 1;
     }
@@ -182,13 +198,14 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
     Edt_Adresse.text = DbTools.gEntreprenant.adresseDirigeant!;
     print("initState fin e ${DbTools.gEntreprenant.emailDirigeant}");
     Edt_Mail.text = DbTools.gEntreprenant.emailDirigeant!.toLowerCase();
-    print("initState fin e ${DbTools.gEntreprenant.profession}");
+    print(" initState fin e ${DbTools.gEntreprenant.profession}");
     Edt_Prof.text = DbTools.gEntreprenant.profession!.toLowerCase();
     print("initState fin f");
 
     Type_Terminal = DbTools.gEntreprenant.terminal;
     print("initState fin g");
     if (Type_Terminal == "false") Type_Terminal = "Smartphone";
+    if (Type_Terminal == "Feature phone") Type_Terminal = "Téléphone à clavier";
 
     print("Terminal |${DbTools.gEntreprenant.terminal}|");
 
@@ -314,7 +331,7 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
                     children: [
                       Text(
                         "TYPE DE DOCUMENT:",
-                        style: Type_Doc == null || Type_Doc!.isEmpty ? gColors.bodyTextFieldBold.copyWith(color: Colors.red) : gColors.bodyTextFieldBold.copyWith(color: Colors.green),
+                        style: Type_Doc == null || Type_Doc!.isEmpty ? gColors.bodyTextFieldBold.copyWith(color: Colors.red) : gColors.bodyTextFieldBold.copyWith(color: Colors.black),
                       ),
                     ],
                   ),
@@ -338,7 +355,7 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
                               child: DateTime_Exp.year != 1900
                                   ? Text(
                                       'VALIDITE\n${DateFormat('dd-MM-yyyy').format(DateTime_Exp)}',
-                                      style: gColors.bodyTextFieldBold,
+                                      style: gColors.bodyTextFieldBold.copyWith(color: Colors.black),
                                     )
                                   : Text(
                                       'VALIDITE\n???',
@@ -357,7 +374,7 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
                           child: DateTime_Nais_Date.year != 1900
                               ? Text(
                                   'DATE NAISSANCE\n${DateFormat('dd-MM-yyyy').format(DateTime_Nais_Date)}',
-                                  style: gColors.bodyTextFieldBold,
+                                  style: gColors.bodyTextFieldBold.copyWith(color: Colors.black),
                                 )
                               : Text(
                                   'DATE NAISSANCE\n???',
@@ -586,8 +603,8 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
       children: <Widget>[
         Radio(
           value: -1,
-          activeColor: Colors.red,
-          fillColor: MaterialStateProperty.all<Color>(Colors.red),
+          activeColor: Colors.black,
+          fillColor: WidgetStateProperty.all<Color>(Colors.black),
           groupValue: Genre_id,
           onChanged: (dynamic val) {
             setState(() {
@@ -603,6 +620,7 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
         ),
         Radio(
           value: 0,
+          activeColor: Colors.black,
           groupValue: Genre_id,
           onChanged: (dynamic val) {
             setState(() {
@@ -618,6 +636,7 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
         ),
         Radio(
           value: 1,
+          activeColor: Colors.black,
           groupValue: Genre_id,
           onChanged: (dynamic val) {
             setState(() {
@@ -693,7 +712,7 @@ class I_KYC_Ins_2State extends State<I_KYC_Ins_2> {
           width: 15,
         ),
         DropDown(
-          items: ['', 'Smartphone', 'Feature phone'],
+          items: ['', 'Smartphone', 'Téléphone à clavier'],
           initialValue: Type_Terminal,
           icon: Icon(
             Icons.expand_more,

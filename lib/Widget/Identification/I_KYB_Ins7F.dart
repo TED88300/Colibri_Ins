@@ -1,8 +1,8 @@
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Widget/Identification/I_KYB_Ins10F.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_Ins10F.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:flutter/material.dart';
 
 import '../../Tools/Tools.dart';
@@ -21,8 +21,7 @@ class I_KYB_Ins7FState extends State<I_KYB_Ins7F> {
 
   Item QF_C19 = Item();
   Screen Screen_QF_C19 = Screen();
-  Item QF_C19A0 = Item();
-  Screen Screen_QF_C19A0 = Screen();
+
   Item QF_C19A = Item();
   Screen Screen_QF_C19A = Screen();
 
@@ -89,6 +88,9 @@ class I_KYB_Ins7FState extends State<I_KYB_Ins7F> {
     print(" DbTools.gActivite_ins.autreTypeActivite!");
     print(" DbTools.gActivite_ins.autreTypeActivite! ${DbTools.gActivite_ins.autreTypeActivite!}");
 
+    print("  init DbTools.gActivite_ins.statutEntreprise ${DbTools.gActivite_ins.statutEntreprise}");
+
+
 
     super.initState();
 
@@ -105,31 +107,26 @@ class I_KYB_Ins7FState extends State<I_KYB_Ins7F> {
   Widget build(BuildContext context) {
     if (DbTools.gActivite_ins.autreTypeActivite == "null") DbTools.gActivite_ins.autreTypeActivite = "";
 
-    print(" DbTools.gActivite_ins.autreTypeActivite!");
-    print(" DbTools.gActivite_ins.autreTypeActivite! ${DbTools.gActivite_ins.autreTypeActivite!}");
+    print(" DbTools.gActivite_ins.typeActivite! ${DbTools.gActivite_ins.typeActivite!}");
+    if (DbTools.gActivite_ins.statutEntreprise == "4") DbTools.gActivite_ins.statutEntreprise = "0";
 
 
     Screen_QF_C14BAUTRE = Tools.Get_Screen(QF_C14BAUTRE, context, DbTools.gActivite_ins.autreTypeActivite!, 0, false);
 
-   Screen_QF_C19A0 = Tools.Get_Screen(QF_C19A0, context, DbTools.gActivite_ins.numeroCnpsCommunicable!, 0, false);
-    Screen_QF_C19A = Tools.Get_Screen(QF_C19A, context, DbTools.gActivite_ins.numeroCnps.toString()!, 0, false);
+    Screen_QF_C19A = Tools.Get_Screen(QF_C19A, context, DbTools.gActivite_ins.numeroCnps.toString(), 0, false);
     Screen_QF_C21 = Tools.Get_Screen(QF_C21, context, DbTools.gActivite_ins.etatFonctionnementEntreprise!, 0, false);
     Screen_QF_C22A = Tools.Get_Screen(QF_C22A, context, DbTools.gActivite_ins.autreFormeJuridique!, 0, false);
     Screen_QF_C23 = Tools.Get_Screen(QF_C23, context, DbTools.gActivite_ins.capitalEnAction!, 0, false);
     Screen_QF_C24 = Tools.Get_Screen(QF_C24, context, DbTools.gActivite_ins.statutEntreprise!, 0, false);
-
     Screen_QF_C24B1 = Tools.Get_Screen(QF_C24B1, context, DbTools.gActivite_ins.raisonSocial!, 0, false);
     Screen_QF_C24B2 = Tools.Get_Screen(QF_C24B2, context, DbTools.gActivite_ins.adresseGeographiqueEntreprise!, 0, false);
-
-    Screen_QF_C20C1 = Tools.Get_Screen(QF_C20C1, context, DbTools.gActivite_ins.raisonSocial!, 0, false);
-    Screen_QF_C20C2 = Tools.Get_Screen(QF_C20C2, context, DbTools.gActivite_ins.adresseGeographiqueEntreprise!, 0, false);
-    Screen_QI_C30 = Tools.Get_Screen(QI_C30, context, DbTools.gActivite_ins.effectifTotal.toString()!, 0, false);
+    Screen_QI_C30 = Tools.Get_Screen(QI_C30, context, DbTools.gActivite_ins.effectifTotal.toString(), 0, false);
 
 
 
+    print(" Screen_QF_C24 ${Screen_QF_C24.Screen_Rep_Str}");
 
 
-    print("Screen_QF_C24A.Screen_Rep_Int ${Screen_QF_C24A.Screen_Rep_Int}");
 
     print(">>>>>>>>>>>>>>>>>>>   Build   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     return WillPopScope(
@@ -195,24 +192,17 @@ class I_KYB_Ins7FState extends State<I_KYB_Ins7F> {
                 print("Validation OK");
                 setState(() {
                   DbTools.gActivite_ins.autreTypeActivite = Screen_QF_C14BAUTRE.Screen_Rep_Str;
-                  DbTools.gActivite_ins.declarationCnps = Screen_QF_C19.Screen_Rep_Str;
-                  DbTools.gActivite_ins.numeroCnpsCommunicable = Screen_QF_C19A0.Screen_Rep_Str;
+                  DbTools.gActivite_ins.declarationCnps = Screen_QF_C19.Screen_Rep_Int.toString();
                   DbTools.gActivite_ins.numeroCnps = Screen_QF_C19A.Screen_Rep_Int;
                   DbTools.gActivite_ins.etatFonctionnementEntreprise = Screen_QF_C21.Screen_Rep_Str;
                   DbTools.gActivite_ins.formeJuridique = Screen_QF_C22.Screen_Rep_Str;
                   DbTools.gActivite_ins.autreFormeJuridique = Screen_QF_C22A.Screen_Rep_Str;
                   DbTools.gActivite_ins.capitalEnAction = Screen_QF_C23.Screen_Rep_Str;
                   DbTools.gActivite_ins.statutEntreprise = Screen_QF_C24.Screen_Rep_Str;
-                  DbTools.gActivite_ins.nombreEtablissement = Screen_QF_C24A.Screen_Rep_Str;
+                  DbTools.gActivite_ins.nombreEtablissement = "${Screen_QF_C24A.Screen_Rep_Int}";
                   DbTools.gActivite_ins.raisonSocial = Screen_QF_C24B1.Screen_Rep_Str;
                   DbTools.gActivite_ins.adresseGeographiqueEntreprise = Screen_QF_C24B2.Screen_Rep_Str;
-                  DbTools.gActivite_ins.nombreEtablissement = Screen_QI_C20B.Screen_Rep_Str;
-                  DbTools.gActivite_ins.raisonSocial = Screen_QF_C20C1.Screen_Rep_Str;
-                  DbTools.gActivite_ins.adresseGeographiqueEntreprise = Screen_QF_C20C2.Screen_Rep_Str;
                   DbTools.gActivite_ins.effectifTotal = Screen_QI_C30.Screen_Rep_Int;
-
-print(" statutEntreprise ${DbTools.gActivite_ins.statutEntreprise}");
-
 
                   DbTools.pageEntr++;
                   PushPop.PushPop_Push(false);

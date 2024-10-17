@@ -1,8 +1,8 @@
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Widget/Identification/I_KYB_Ins10I.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_Ins10I.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:flutter/material.dart';
 
 import '../../Tools/Tools.dart';
@@ -39,6 +39,10 @@ class I_KYB_Ins7IState extends State<I_KYB_Ins7I> {
   void initState() {
     print("I_KYB_Ins7I initState DbTools.gActivite_ins.autreActivte ${DbTools.gActivite_ins.autreActivte}");
 
+    print("  init DbTools.gActivite_ins.statutEntreprise ${DbTools.gActivite_ins.statutEntreprise}");
+
+
+
     pageEntr = DbTools.pageEntr;
 
     QI_C15 =    Tools.Get_UNIQUE("Q_C19");
@@ -51,6 +55,13 @@ class I_KYB_Ins7IState extends State<I_KYB_Ins7I> {
 
     Screen_QI_C15 = Tools.Get_ScreenCallBack(QI_C15, context, DbTools.gActivite_ins.declarationCnps!, 0, false, screenVoidCallback);
     Screen_QI_C20B = Tools.Get_ScreenCallBack(QI_C20B, context, DbTools.gActivite_ins.nombreEtablissement!, 0, false, screenVoidCallback);
+
+
+    Screen_QI_C15A = Tools.Get_Screen(QI_C15A, context, DbTools.gActivite_ins.numeroCnps.toString(), 0, false);
+    Screen_QI_C20A = Tools.Get_Screen(QI_C20A, context, DbTools.gActivite_ins.statutEntreprise!, 0, false);
+    Screen_QF_C20C1 = Tools.Get_Screen(QF_C20C1, context, DbTools.gActivite_ins.raisonSocial!, 0, false);
+    Screen_QF_C20C2 = Tools.Get_Screen(QF_C20C2, context, DbTools.gActivite_ins.adresseGeographiqueEntreprise!, 0, false);
+    Screen_QI_C30 = Tools.Get_Screen(QI_C30, context, DbTools.gActivite_ins.effectifTotal.toString(), 0, false);
 
     super.initState();
 
@@ -66,11 +77,6 @@ class I_KYB_Ins7IState extends State<I_KYB_Ins7I> {
 
   @override
   Widget build(BuildContext context) {
-    Screen_QI_C15A = Tools.Get_Screen(QI_C15A, context, DbTools.gActivite_ins.numeroCnps.toString()!, 0, false);
-    Screen_QI_C20A = Tools.Get_Screen(QI_C20A, context, DbTools.gActivite_ins.statutEntreprise!, 0, false);
-    Screen_QF_C20C1 = Tools.Get_Screen(QF_C20C1, context, DbTools.gActivite_ins.raisonSocial!, 0, false);
-    Screen_QF_C20C2 = Tools.Get_Screen(QF_C20C2, context, DbTools.gActivite_ins.adresseGeographiqueEntreprise!, 0, false);
-    Screen_QI_C30 = Tools.Get_Screen(QI_C30, context, DbTools.gActivite_ins.effectifTotal.toString()!, 0, false);
 
     return WillPopScope(
         onWillPop: _onWillPop,
@@ -128,10 +134,13 @@ class I_KYB_Ins7IState extends State<I_KYB_Ins7I> {
                       DbTools.gActivite_ins.declarationCnps = Screen_QI_C15.Screen_Rep_Str;
                       DbTools.gActivite_ins.numeroCnps = Screen_QI_C15A.Screen_Rep_Int;
                       DbTools.gActivite_ins.statutEntreprise = Screen_QI_C20A.Screen_Rep_Str;
-                      DbTools.gActivite_ins.nombreEtablissement = Screen_QI_C20B.Screen_Rep_Str;
+                      DbTools.gActivite_ins.nombreEtablissement = "${Screen_QI_C20B.Screen_Rep_Int}";
                       DbTools.gActivite_ins.raisonSocial = Screen_QF_C20C1.Screen_Rep_Str;
                       DbTools.gActivite_ins.adresseGeographiqueEntreprise = Screen_QF_C20C2.Screen_Rep_Str;
                       DbTools.gActivite_ins.effectifTotal = Screen_QI_C30.Screen_Rep_Int;
+
+                      print("  Suivant DbTools.gActivite_ins.statutEntreprise ${DbTools.gActivite_ins.statutEntreprise}");
+
 
                       DbTools.pageEntr++;
                       PushPop.PushPop_Push(false);

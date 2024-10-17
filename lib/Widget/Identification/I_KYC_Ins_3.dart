@@ -1,17 +1,15 @@
 import 'dart:convert';
-import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
-import 'package:colibri/Tools/API_Data.dart';
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Tools/id3/capture_process.dart';
-import 'package:colibri/Widget/3_bottom_navigation_list.dart';
-import 'package:colibri/Widget/Identification/I_Liste_ActivitesIns.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbOdoo.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Tools/id3/capture_process.dart';
+import 'package:Colibri_Collecte/Widget/3_bottom_navigation_list.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_Liste_ActivitesIns.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:flutter/material.dart';
 import 'package:id3_face/id3_face.dart' as sdk;
 
@@ -80,7 +78,10 @@ class I_KYC_Ins_3State extends State<I_KYC_Ins_3> {
   @override
   Widget build(BuildContext context) {
 
-    MatchOK = true;
+
+
+    print("build MatchOK ${MatchOK}");
+
 
     return WillPopScope(
         onWillPop: _onWillPop,
@@ -129,6 +130,9 @@ class I_KYC_Ins_3State extends State<I_KYC_Ins_3> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  MatchOK ?
+                      Image.memory(enrollResult!.croppedBytes, width : 100)
+                  :
                   SizedBox(
                     height: 256,
                     child: (controller == null || !controller!.value.isInitialized)
@@ -203,6 +207,7 @@ class I_KYC_Ins_3State extends State<I_KYC_Ins_3> {
                               MatchOK = false;
                               matchResult = result;
                               if (matchResult != null) MatchOK = matchResult!.score > sdk.FaceMatcherThreshold.fmr10000.value;
+                              print("ONMATCH MatchOK ${MatchOK}");
                             });
                           }
                         },
@@ -263,8 +268,10 @@ class I_KYC_Ins_3State extends State<I_KYC_Ins_3> {
                         DbTools.gEntreprenant.ID3_croppedBytes64 = base64Encode(enrollResult!.croppedBytes);
                         }
 
+                  print(" DbTools.gEntreprenant.milieuImplantation! ${DbTools.gEntreprenant.milieuImplantation!}");
 
-                    int wRes = await DbOdoo.EntreprenantAddUpd();
+
+                  int wRes = await DbOdoo.EntreprenantAddUpd();
                   print("Validation wRes $wRes");
                   if (wRes == -1) {
                     String wError = "Erreur d'enregistrement sur le serveur";
@@ -272,9 +279,6 @@ class I_KYC_Ins_3State extends State<I_KYC_Ins_3> {
                     setState(() {});
                   } else {
                     print("Validation OK");
-
-
-
                     await widget.I_Liste_EntreprenantsState_callback();
                     PushPop.PushPop_Pop(context);
                     setState(() {

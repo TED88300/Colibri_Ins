@@ -1033,6 +1033,9 @@ Start=101
 Len=1
 DataType=Alpha
 
+
+
+
 [ValueSet]
 Label=C2: Fonction du repondant
 Name=Q_C2_VS1
@@ -1041,6 +1044,15 @@ Value=2;Gérant de l'unité
 Value=3;Travailleur
 Value=4;Voisin Immédiat
 Value=5;Autre à préciser
+
+[Item]
+Label=C2.a: Autre fonction du repondant à préciser
+Name=Q_C2A
+Start=102
+Len=80
+DataType=Alpha
+
+
 
 [Item]
 Label=C3.a1: Contact 1 du repondant
@@ -1672,9 +1684,6 @@ Value='90                                                                       
 [Item]
 Label=C15: Avez-vous des activités secondaires?
 Name=Q_C15
-Note=SUR QUESTIONNAIRE PAPIER\r\n
-Note=\r\n
-Note=C16: Quelles sont vos activités secondaires?
 Start=815
 Len=1
 DataType=Numeric
@@ -1685,6 +1694,40 @@ Label=C15: Avez-vous des activités secondaires?
 Name=Q_C15_VS1
 Value=1;Oui
 Value=2;Non
+
+[Item]
+Label=C15.a: Libellé activité secondaire
+Name=Q_C15A
+Start=32
+Len=100
+DataType=Alpha
+
+
+[Item]
+Label=C15.c: Autre activité secondaire?
+Name=Q_C15C
+Start=141
+Len=1
+DataType=Numeric
+ZeroFill=Yes
+
+[ValueSet]
+Label=C15.c: Autre activité secondaire?
+Name=Q_C15C_VS1
+Value=1;Oui
+Value=2;Non
+
+[Item]
+Label=C15.d: Libellé autre activité secondaire
+Name=Q_C15D
+Start=32
+Len=100
+DataType=Alpha
+
+
+
+
+
 
 [Item]
 Label=C19: Votre entreprise est-elle déclarée à la CNPS?
@@ -2845,12 +2888,6 @@ Len=1
 DataType=Numeric
 ZeroFill=Yes
 
-[Item]
-Label=Libellé activité secondaire
-Name=Q_C15A
-Start=32
-Len=100
-DataType=Alpha
 
 [Item]
 Label=Code CIAP activité secondaire
@@ -2858,6 +2895,11 @@ Name=Q_C15B
 Start=132
 Len=9
 DataType=Alpha
+
+
+
+
+
 
 [ValueSet]
 Label=Code CIAP activité secondaire
@@ -3240,29 +3282,6 @@ Value='P85030100';Enseignement supérieur
 Value='P85030200';Enseignement post-secondaire non supérieur
 Value='P85040000';Autres activités d'enseignement
 
-[Item]
-Label=Autre activité secondaire?
-Name=Q_C15C
-Note=SUR QUESTIONNAIRE PAPIER\r\n
-Note=\r\n
-Note=C16: Quelles sont vos activités secondaires?
-Start=141
-Len=1
-DataType=Numeric
-ZeroFill=Yes
-
-[ValueSet]
-Label=Autre activité secondaire?
-Name=Q_C15C_VS1
-Value=1;Oui
-Value=2;Non
-
-[Item]
-Label=Libellé autre activité secondaire
-Name=Q_C15D
-Start=32
-Len=100
-DataType=Alpha
 
 
 [Record]

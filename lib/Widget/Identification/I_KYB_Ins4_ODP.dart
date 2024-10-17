@@ -1,11 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:colibri/Tools/DbData.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Widget/Identification/I_KYB_Ins4_Carte.dart';
-import 'package:colibri/Widget/Identification/I_KYB_Ins5_Name.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_Ins4_Carte.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_Ins5_Name.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropdown/flutter_dropdown.dart';
 
@@ -31,7 +30,9 @@ class I_KYB_Ins4_ODPState extends State<I_KYB_Ins4_ODP> {
 
   TextEditingController Edt_Bal = new TextEditingController();
   TextEditingController Edt_SurfLoc = new TextEditingController();
+  String Edt_SurfLoc_Error = "";
 
+  
   List<Mt> mts = [
     Mt(Mtcfa: "0", Lib: "0 CFA"),
     Mt(Mtcfa: "4000", Lib: "4 000 CFA"),
@@ -121,6 +122,20 @@ class I_KYB_Ins4_ODPState extends State<I_KYB_Ins4_ODP> {
     double SurfP = double.parse(Edt_LongP.text) * double.parse(Edt_LargP.text);
     double SurfE = double.parse(Edt_LongE.text) * double.parse(Edt_LargE.text);
     double larg = 80;
+
+
+    Edt_SurfLoc_Error = "";
+    double SurfLoc = 0;
+    try{
+      SurfLoc = double.parse(Edt_SurfLoc.text);
+    }catch(e)
+    {
+      Edt_SurfLoc.text = "0";
+    }
+    if (SurfLoc == 0) Edt_SurfLoc_Error = "Surface invalide";
+
+
+
 
     int wFlex = 6;
 
@@ -300,7 +315,7 @@ class I_KYB_Ins4_ODPState extends State<I_KYB_Ins4_ODP> {
                     Row(
                       children: [
                         Expanded(
-                          child: gColors.colTextFieldNum(Edt_SurfLoc, 'SURF. DU LOCAL (m2)', EmptyFocusNode8, ""),
+                          child: gColors.colTextFieldNum(Edt_SurfLoc, 'SURF. DU LOCAL (m2)', EmptyFocusNode8, Edt_SurfLoc_Error),
                         ),
                       ],
                     ),
@@ -319,6 +334,23 @@ class I_KYB_Ins4_ODPState extends State<I_KYB_Ins4_ODP> {
             padding: const EdgeInsets.fromLTRB(85, 15, 85, 15),
             child: ElevatedButton(
               onPressed: () async {
+
+                bool isctrlSaisie = await ctrlSaisie();
+                if (!isctrlSaisie) {
+                  return;
+                }
+
+                double SurfLoc = 0;
+                try{
+                  SurfLoc = double.parse(Edt_SurfLoc.text);
+                }catch(e)
+                {
+                  Edt_SurfLoc.text = "0";
+                }
+
+
+
+
                 DbTools.gActivite_ins.odp = Surf.toInt();
                 DbTools.gActivite_ins.longueur = double.parse(Edt_Long.text);
                 DbTools.gActivite_ins.largeur = double.parse(Edt_Larg.text);
@@ -329,7 +361,7 @@ class I_KYB_Ins4_ODPState extends State<I_KYB_Ins4_ODP> {
                 DbTools.gActivite_ins.pubLongueur2 = double.parse(Edt_LongE.text);
                 DbTools.gActivite_ins.pubLargeur2 = double.parse(Edt_LargE.text);
                 DbTools.gActivite_ins.bauxLoyer = Edt_Bal.text;
-                DbTools.gActivite_ins.surface_local_en_mettre_carre = double.parse(Edt_SurfLoc.text);
+                DbTools.gActivite_ins.surface_local_en_mettre_carre = SurfLoc;
 
                 setState(() {
                   DbTools.pageEntr++;
@@ -419,4 +451,35 @@ class I_KYB_Ins4_ODPState extends State<I_KYB_Ins4_ODP> {
   Widget buildDropDownRow(Mt mt) {
     return Text(mt.Lib ?? "Select");
   }
+
+  
+  Future<bool> ctrlSaisie() async {
+    bool isOK = true;
+
+    Edt_SurfLoc_Error = "";
+    double SurfLoc = 0;
+    try{
+      SurfLoc = double.parse(Edt_SurfLoc.text);
+    }catch(e)
+    {
+      Edt_SurfLoc.text = "0";
+    }
+
+    print(' SurfLoc $SurfLoc');
+
+    if (SurfLoc == 0) {
+      isOK = false;
+      await gColors.PopupError(context, "Erreur de saisie", "Surface invalide");
+      Edt_SurfLoc_Error = "Surface invalide";
+      setState(() {});
+      return isOK;
+    }
+
+    
+    return isOK;
+  }
+
+
+
+
 }

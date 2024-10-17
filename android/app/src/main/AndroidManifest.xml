@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mafa.colibri_insV2"
+    package="com.mafa.colibri_Collecte"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -15,10 +15,10 @@
     <application
         android:largeHeap="true"
         tools:replace="android:label"
-        android:label="Colibri Ins V2"
+        android:label="Colibri RR V3"
         android:icon="@mipmap/ic_launcher">
         <activity
-            android:name="com.mafa.colibri_insV2.MainActivity"
+            android:name="com.mafa.colibri_Collecte.MainActivity"
             android:launchMode="singleTop"
             android:exported="true"
             android:theme="@style/LaunchTheme"

@@ -1,4 +1,4 @@
-import 'package:colibri/widgetTools/message_widget.dart';
+import 'package:Colibri_Collecte/widgetTools/message_widget.dart';
 import 'package:flutter/material.dart';
 
 

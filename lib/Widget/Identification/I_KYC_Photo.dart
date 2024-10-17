@@ -3,13 +3,12 @@ import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:camera/camera.dart';
-import 'package:colibri/Tools/DbData.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Widget/3_bottom_navigation_list.dart';
-import 'package:colibri/Widget/Identification/I_KYC_Ins_2.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Widget/3_bottom_navigation_list.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYC_Ins_2.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:flutter/material.dart';
 
 class I_KYC_Photo extends StatefulWidget {
@@ -35,8 +34,6 @@ class I_KYC_PhotoState extends State<I_KYC_Photo> {
   int pageEntr = 0;
 
   void initLib() async {
-
-
 
     WidgetsFlutterBinding.ensureInitialized();
     try {
@@ -145,7 +142,19 @@ class I_KYC_PhotoState extends State<I_KYC_Photo> {
                       try {
                         await _initializeControllerFuture;
                         image = await camerasController.takePicture();
+
+                        print(" image ${camerasController.description.toString()}");
+                        print(" image ${camerasController.resolutionPreset.toString()}");
+
+
+
                         List<int> photoAsBytes = await image!.readAsBytes();
+                        int photoLenght = await image!.length();
+
+                        print(" image ${photoLenght}");
+                        print(" photoAsBytes ${photoAsBytes.length}");
+
+
                         DbTools.gEntreprenant.ImageBase64_PHOTO_ENTR = base64Encode(photoAsBytes);
                         print("I_KYC_Photo ${DbTools.gEntreprenant.ImageBase64_PHOTO_ENTR!.toString().length}");
                         setState(() {

@@ -1,11 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/Ins_Entreprenant.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Widget/Identification/I_KYC_Ins_0.dart';
-import 'package:colibri/Widget/Identification/I_KYC_Ins_Upd.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/Ins_Entreprenant.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYC_Ins_0.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYC_Ins_Upd.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
 import 'package:consumer/consumer.dart';
 import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
@@ -28,10 +27,6 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
   Future<List<Entreprenant>>? lfEntreprenant;
   Future<List<Entreprenant>> loadData() async {
     print("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ >>>>");
-
-    try{
-      await DbOdoo.Login(DbTools.gUsername, DbTools.gPassword);
-    } catch (e) {}
 
     await DbTools.gloadDataEntr();
     print("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ glfEntreprenant <<<< ${DbTools.glfEntreprenant.length}");
@@ -65,7 +60,7 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
 
   void initState() {
     DbTools.listEntrVoidCallback =Entr_screenVoidCallback;
-    searchText = "";
+    searchText = "KOUAKOU";
     Search.text = searchText;
     initLib();
     super.initState();
@@ -116,21 +111,7 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
                     ])),
 
 
-            floatingActionButton:
-            DbTools.gCurrentIndex != 2 ? Container():
-            Padding(
-              padding: const EdgeInsets.only(right: 0.0),
-              child:
-              FloatingActionButton(
-                child: const Icon(Icons.add, color: gColors.secondary),
-                backgroundColor: gColors.primary,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-                onPressed: () async {
-                  await _launchEnrol();
-                },
-              ),
-              //),
-            ),
+
 
 
 
@@ -279,12 +260,25 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
                             fontSize: 20),
                       ),
                     ]),
-                AutoSizeText(
+                Row(
+                  children: [
+                    AutoSizeText(
 //                  "${entreprenant.state} id ${entreprenant.id} Tmp ${entreprenant.Id_Tmp} TRF ${entreprenant.ENT_TRANSF_OK} > Srv ${entreprenant.ENT_Id_Server}",
-                  "${entreprenant.telephoneDirigeant}",
-                  overflow: TextOverflow.clip,
-                  softWrap: true,
-                  style: TextStyle(color: gColors.secondary, fontSize: 20),
+                      "${entreprenant.telephoneDirigeant}",
+                      overflow: TextOverflow.clip,
+                      softWrap: true,
+                      style: TextStyle(color: gColors.secondary, fontSize: 20),
+                    ),
+                    Spacer(),
+                    AutoSizeText(
+//                  "${entreprenant.state} id ${entreprenant.id} Tmp ${entreprenant.Id_Tmp} TRF ${entreprenant.ENT_TRANSF_OK} > Srv ${entreprenant.ENT_Id_Server}",
+                      "${entreprenant.state}",
+                      overflow: TextOverflow.clip,
+                      softWrap: true,
+                      style: TextStyle(color: gColors.secondary, fontSize: 20),
+                    ),
+                    Container(width: 5),
+                  ],
                 ),
                 Container(height: 10),
                 Container(height: 1, color: gColors.primary)
@@ -325,6 +319,7 @@ class I_Liste_EntreprenantsState extends State<I_Liste_Entreprenants> {
     DbTools.pagesEntr = DbTools.gID3_OK ? 4 : 3;
     DbTools.pageEntr = 1;
     PushPop.PushPop_Push(true);
+    DbTools.isUpdate = false;
     Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYC_Ins_0(this.I_Liste_EntreprenantsState_callback)));
     return;
   }

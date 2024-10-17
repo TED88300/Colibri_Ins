@@ -1,25 +1,20 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:colibri/Tools/DbData.dart';
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/DbPostGres.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Tools/intent_result.dart';
-import 'package:colibri/Tools/shared_pref.dart';
-import 'package:colibri/Widget/Commun/P_Sync.dart';
+import 'package:Colibri_Collecte/Tools/DbData.dart';
+import 'package:Colibri_Collecte/Tools/DbOdoo.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Tools/intent_result.dart';
+import 'package:Colibri_Collecte/Tools/shared_pref.dart';
 
-import 'package:colibri/Widget/Identification/I_Dashboard.dart';
-import 'package:colibri/Widget/Identification/I_Identificateur.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_Dashboard.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_Identificateur.dart';
 
-import 'package:colibri/Widget/Identification/I_Liste_Entreprenants.dart';
-import 'package:colibri/Widget/Identification/I_Revoir.dart';
-import 'package:colibri/Widget/Identification/I_SideDrawer.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_Liste_Entreprenants.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_SideDrawer.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_beep/flutter_beep.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -60,7 +55,7 @@ class BottomNavigationListState extends State<BottomNavigationList>
   List<String> itemsTitre = <String>[
     "DASHBOARD",
     "FICHES BROUILLONS",
-    "ENTREPRENANTS",
+    "ENTREPRENANTS ILOT",
     "FICHES REJETEES",
     "FICHES CONFIRMEES",
   ];
@@ -236,8 +231,6 @@ class BottomNavigationListState extends State<BottomNavigationList>
   Widget Block_MenuApp(BuildContext context) {
     bool isTransf = DbTools.fEntreprenantaTransf || DbTools.fActivite_insTransf;
 
-
-
     print("∆∆∆∆∆∆∆∆∆ isTransf ${isTransf} ${DbTools.gCurrentIndex}");
 
     String title_string = itemsTitre[DbTools.gCurrentIndex];
@@ -324,53 +317,51 @@ class BottomNavigationListState extends State<BottomNavigationList>
   void AffMessage(RemoteMessage message) {
     print('AffMessage');
 
-    if (message != null) {
-      print('AffMessage ok');
+    print('AffMessage ok');
 
-      setState(() {
-        DbTools.gCurrentIndex = 0;
-      });
+    setState(() {
+      DbTools.gCurrentIndex = 0;
+    });
 
-      RemoteNotification notification = message.notification!;
-      String? title = notification.title;
-      String? body = notification.body;
+    RemoteNotification notification = message.notification!;
+    String? title = notification.title;
+    String? body = notification.body;
 
-      showDialog(
-          context: context,
-          builder: (_) => new AlertDialog(
-                title: Column(
-                    //Slide3
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image(
-                        image: AssetImage('assets/images/AppIco.png'),
-                        width: 50,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                        child: Text(
-                          title!,
-                          style: TextStyle(
-                            fontSize: 22,
-                          ),
+    showDialog(
+        context: context,
+        builder: (_) => new AlertDialog(
+              title: Column(
+                  //Slide3
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image(
+                      image: AssetImage('assets/images/AppIco.png'),
+                      width: 50,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: Text(
+                        title!,
+                        style: TextStyle(
+                          fontSize: 22,
                         ),
                       ),
-                    ]),
-                content: Text(body!),
-                actions: <Widget>[
-                  ElevatedButton(
-                    child: Text(
-                      "OK",
-                      style: TextStyle(
-                        fontSize: 22,
-                      ),
                     ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  )
-                ],
-              ));
+                  ]),
+              content: Text(body!),
+              actions: <Widget>[
+                ElevatedButton(
+                  child: Text(
+                    "OK",
+                    style: TextStyle(
+                      fontSize: 22,
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                )
+              ],
+            ));
     }
-  }
 }

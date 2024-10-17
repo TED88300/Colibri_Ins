@@ -4,13 +4,12 @@ import 'dart:io';
 import 'package:auto_size_text/auto_size_text.dart';
 
 import 'package:camera/camera.dart';
-import 'package:colibri/Tools/DbData.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Tools/intent_result.dart';
-import 'package:colibri/Widget/Identification/I_KYB_Ins3_Gps.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Tools/intent_result.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_Ins3_Gps.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:flutter/material.dart';
 
 class I_KYB_Ins2_photo extends StatefulWidget {
@@ -177,12 +176,16 @@ class I_KYB_Ins2_photoState extends State<I_KYB_Ins2_photo> {
                     await _initializeControllerFuture;
                     image = await camerasController.takePicture();
 
+
+
                     List<int> photoAsBytes = await image!.readAsBytes();
                     DbTools.gImageBase64_PHOTO_ACT = await base64Encode(photoAsBytes);
 
                     setState(() {
-                      print("");
                     });
+
+
+
                   } catch (e) {
                     // If an error occurs, log the error to the console.
                     print(e);
@@ -243,6 +246,7 @@ class I_KYB_Ins2_photoState extends State<I_KYB_Ins2_photo> {
           )),
     ));
   }
+
 
   Widget ContribuableWidget() {
     return Container(

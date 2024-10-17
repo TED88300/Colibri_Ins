@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:colibri/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
 
 InputDecoration inputStyle(hint) {
   return (

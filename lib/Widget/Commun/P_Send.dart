@@ -1,11 +1,9 @@
-import 'package:colibri/Tools/DbData.dart';
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/Ins_Activite.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:Colibri_Collecte/Tools/DbOdoo.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/DbToolsV3.dart';
+import 'package:Colibri_Collecte/Tools/Ins_Activite.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class Send extends StatefulWidget {
   @override
@@ -29,7 +27,9 @@ class SendState extends State<Send> {
   void initLib() async {
 
     try {
-      await DbOdoo.Login( DbTools.gUsername,  DbTools.gPassword );
+      print("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ P_SEND");
+
+      await DbToolsV3.LoginV3( DbTools.gUsername,  DbTools.gPassword );
       isOnline = 1;
     } catch (_) {
       isOnline = 0;
@@ -46,9 +46,14 @@ class SendState extends State<Send> {
 
     TextLog = "\n>>> Entreprenants à envoyer";
     TxtLogs.add(TextLog);
+    print("••••••••••••••••••••••••• SEND 1");
 
     for (var i = 0; i < DbTools.glfEntreprenantaTransf.length; i++) {
+
+
       var element = DbTools.glfEntreprenantaTransf[i];
+
+
       TextLog = "     - id ${element.id}/${element.Id_Tmp} :${element.name!} (${element.ENT_TRANSF_OK!}) (${element.ENT_Id_Server})";
       TxtLogs.add(TextLog);
       List<Activite_ins> lfActivite;
@@ -64,15 +69,23 @@ class SendState extends State<Send> {
 
     }
 
+    print("••••••••••••••••••••••••• SEND 2");
 
 
     TextLog =  "\n\n>>> Activités seules à envoyer >>>";
     TxtLogs.add(TextLog);
     for (var i = 0; i < DbTools.glfActivite_insTransf.length; i++) {
+
+      print("••••••••••••••••••••••••• SEND 3");
+
+
       var element = DbTools.glfActivite_insTransf[i];
 
-      print("♦♦♦♦ Activités à envoyer ACTIVITE PHOTO ${element.ImageBase64_PHOTO_ACT!.length}");
+      print("••••••••••••••••••••••••• SEND 4");
 
+//      print("♦♦♦♦ Activités à envoyer ACTIVITE PHOTO ${element.ImageBase64_PHOTO_ACT!.length}");
+
+      print("••••••••••••••••••••••••• SEND 5");
 
 
       TextLog = "     - id ${element.id}/${element.Id_Tmp} :${element.name!} (${element.ACT_TRANSF_OK!}) (${element.ACT_Id_Server})";

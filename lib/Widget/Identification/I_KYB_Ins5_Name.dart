@@ -1,19 +1,18 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:colibri/Tools/DbData.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/Tools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Widget/Identification/I_KYB_Ins6F.dart';
-import 'package:colibri/Widget/Identification/I_KYB_Ins6I.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbData.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/Tools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_Ins6F.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_Ins6I.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropdown/flutter_dropdown.dart';
 import 'package:intl/intl.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
-import '../../Tools/DbOdoo.dart';
 
 class I_KYB_Ins5_Name extends StatefulWidget {
   @override
@@ -32,9 +31,11 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
   TextEditingController Edt_Nom = new TextEditingController();
   String Edt_Nom_Error = "";
   String Edt_Adresse_Error = "";
+  String Edt_Ville_Error = "";
 
   late FocusNode EmptyFocusNode;
   late FocusNode EmptyFocusNodeD;
+  late FocusNode EmptyFocusNode3;
   late FocusNode EmptyFocusNodeM;
   late FocusNode EmptyFocusNodem;
 
@@ -48,7 +49,7 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
   //**************************************
   //**************************************
   //**************************************
-
+  TextEditingController Edt_Bal = new TextEditingController();
   TextEditingController Edt_CA_Taxable = new TextEditingController();
   String Edt_CA_Taxable_Error = "";
 
@@ -128,6 +129,7 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
     super.initState();
     EmptyFocusNode = FocusNode();
     EmptyFocusNodeD = FocusNode();
+    EmptyFocusNode3 = FocusNode();
     EmptyFocusNodeM = FocusNode();
     EmptyFocusNodem = FocusNode();
 
@@ -149,8 +151,14 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
 
     Edt_Nom.text = DbTools.gActivite_ins.name!;
 
-    if (DbTools.gActivite_ins.activiteTypeId! < 0) DbTools.gActivite_ins.activiteTypeId = 0;
-    Type_Act = lType_Act[DbTools.gActivite_ins.activiteTypeId!];
+//    if (DbTools.gActivite_ins.activiteTypeId! < 0) DbTools.gActivite_ins.activiteTypeId = 0;
+//    Type_Act = lType_Act[DbTools.gActivite_ins.activiteTypeId!];
+    Type_Act =  DbTools.gActivite_ins.typeActivite;
+
+
+    print("  init typeActivite ${DbTools.gActivite_ins.typeActivite}");
+
+
 
     if (DbTools.gActivite_ins.secteurId! < 0) DbTools.gActivite_ins.secteurId = 0;
 
@@ -205,13 +213,27 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
     }
     int i = 0;
 
-    Edt_CA_Min.text = "${DbTools.gActivite_ins.minCa!}";
-    Edt_CA_Max.text = "${DbTools.gActivite_ins.minCa!}";
+    int iCAMin = 0;
+    try{
+      double dCA = double.parse(Edt_CA_Min.text);
+      iCAMin = dCA.round();
+    }catch(e){}
+    Edt_CA_Min.text = "${iCAMin}";
+
+    int iCAMax = 0;
+    try{
+      double dCA = double.parse(Edt_CA_Max.text);
+      iCAMax = dCA.round();
+    }catch(e){}
+    Edt_CA_Max.text = "${iCAMax}";
 
     Edt_tauxImposition.text = "${DbTools.gActivite_ins.tauxImposition!}";
 
     Taille_Act = DbTools.gActivite_ins.tailleActivite;
     if (Taille_Act!.length == 0) Taille_Act = "???";
+
+    Edt_Bal.text =    "${DbTools.gActivite_ins.bauxLoyer!}";
+
 
     Edt_CA_Taxable.text = "${DbTools.gActivite_ins.chiffreAffaireTaxable!}";
 
@@ -260,13 +282,36 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
     }
 
     print("init  dateDebutExploitation ok ${DbTools.gActivite_ins.dateDebutExploitation}");
+    print("QF_C13  ${QF_C13.toString()}");
+    print("Screen_QF_C13  ${Screen_QF_C13.toString()}");
+
+
+
+/*
+
 
     Screen_QF_C13 = Tools.Get_ScreenCallBack(QF_C13, context, DbTools.gActivite_ins.dateDebutExploitation!, 0, false, screenVoidCallback);
     Screen_QF_C14 = Tools.Get_ScreenCallBack(QF_C14, context, DbTools.gActivite_ins.activictePrincipal!, 0, false, screenVoidCallback);
+*/
+
+
+    Screen_QF_C13 = Tools.Get_ScreenCallBack(QF_C13, context, DbTools.gActivite_ins.dateDebutExploitation!, 0, false, screenVoidCallback);
+    Screen_QF_C14 = Tools.Get_ScreenCallBack(QF_C14, context, DbTools.gActivite_ins.activictePrincipal!, 0, false, screenVoidCallback);
+    Screen_QF_B18 = Tools.Get_Screen(QF_B18, context, DbTools.gActivite_ins.sigleEntreprise!, 0, false);
+    Screen_QF_B19B = Tools.Get_Screen(QF_B19B, context, DbTools.gActivite_ins.telephoneFixe2Entreprise!, 0, false);
+    Screen_QF_B19AB = Tools.Get_Screen(QF_B19AB, context, DbTools.gActivite_ins.telephonePortable2Entreprise!, 0, false);
+
+    Screen_QF_B20 = Tools.Get_Screen(QF_B20, context, DbTools.gActivite_ins.emailEntreprise!, 0, false);
+    Screen_QF_C11 = Tools.Get_Screen(QF_C11, context, DbTools.gActivite_ins.siteWebEntreprise!, 0, false);
+    Screen_Q_B8 = Tools.Get_Screen(Q_B8, context,     DbTools.gActivite_ins.zone_implantation_entreprise!, 0, false);
+    Screen_Q_B8A = Tools.Get_Screen(Q_B8A, context,   DbTools.gActivite_ins.libelle_zone_implantation_entreprise!, 0, false);
+    Screen_Q_B8C1 = Tools.Get_Screen(Q_B8C1, context, DbTools.gActivite_ins.numero_batiment!, 0, false);
+    Screen_BC2 = Tools.Get_Screen(BC2, context,       DbTools.gActivite_ins.numero_sequence_batiment_entreprise!, 0, false);
+
   }
 
   void screenVoidCallback() {
-    print("screenVoidCallback Screen_QF_C13 ${Screen_QF_C13.Screen_Rep_Str}");
+    print(" screenVoidCallback Screen_QF_C13 ${Screen_QF_C13.Screen_Rep_Str}");
     setState(() {});
   }
 
@@ -281,12 +326,14 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
   Widget build(BuildContext context) {
     Edt_Nom_Error = "";
     Edt_Adresse_Error = "";
+    Edt_Ville_Error ="";
     Edt_Tel_Error = "";
     Edt_Mobile_Error = "";
     Edt_CA_Taxable_Error = "";
 
     if (Edt_Nom.text.isEmpty) Edt_Nom_Error = "Nom vide";
     if (Edt_Adresse.text.isEmpty) Edt_Adresse_Error = "Lieu d’habitation vide";
+    if (Edt_City.text.isEmpty) Edt_Ville_Error = "Ville vide";
 
     if (!gColors.ctrlTelFIXE(Edt_Tel.text, VideOK: false)) Edt_Tel_Error = "Téléphone Invalide";
     if (!gColors.ctrlTelPORT(Edt_Mobile.text, VideOK: false))  Edt_Mobile_Error = "Mobile Invalide";
@@ -299,30 +346,16 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
     if (Edt_CA_Taxable.text.isEmpty) Edt_CA_Taxable_Error = "CA DECLARE vide";
 
     DbTools.gActivite_ins.dateDebutExploitation = Screen_QF_C13.Screen_Rep_Str;
+    Screen_QF_C13 = Tools.Get_ScreenCallBack(QF_C13, context, DbTools.gActivite_ins.dateDebutExploitation!, 0, false, screenVoidCallback);
 
     DbTools.gActivite_ins.activictePrincipal = Screen_QF_C14.Screen_Rep_Str;
 
-    Screen_QF_C13 = Tools.Get_ScreenCallBack(QF_C13, context, DbTools.gActivite_ins.dateDebutExploitation!, 0, false, screenVoidCallback);
-    Screen_QF_C14 = Tools.Get_ScreenCallBack(QF_C14, context, DbTools.gActivite_ins.activictePrincipal!, 0, false, screenVoidCallback);
-    Screen_QF_B18 = Tools.Get_Screen(QF_B18, context, DbTools.gActivite_ins.sigleEntreprise!, 0, false);
-    Screen_QF_B19B = Tools.Get_Screen(QF_B19B, context, DbTools.gActivite_ins.telephoneFixe2Entreprise!, 0, false);
-    Screen_QF_B19AB = Tools.Get_Screen(QF_B19AB, context, DbTools.gActivite_ins.telephonePortable2Entreprise!, 0, false);
-
-    Screen_QF_B20 = Tools.Get_Screen(QF_B20, context, DbTools.gActivite_ins.emailEntreprise!, 0, false);
-    Screen_QF_C11 = Tools.Get_Screen(QF_C11, context, DbTools.gActivite_ins.siteWebEntreprise!, 0, false);
 
 
-    print("build  Screen_Q_B8 ok ${DbTools.gActivite_ins.zone_implantation_entreprise!}");
 
-    Screen_Q_B8 = Tools.Get_Screen(Q_B8, context,     DbTools.gActivite_ins.zone_implantation_entreprise!, 0, false);
-    print("build  Screen_© ok ${DbTools.gActivite_ins.libelle_zone_implantation_entreprise!}");
-    Screen_Q_B8A = Tools.Get_Screen(Q_B8A, context,   DbTools.gActivite_ins.libelle_zone_implantation_entreprise!, 0, false);
-    Screen_Q_B8C1 = Tools.Get_Screen(Q_B8C1, context, DbTools.gActivite_ins.numero_batiment!, 0, false);
-    Screen_BC2 = Tools.Get_Screen(BC2, context,       DbTools.gActivite_ins.numero_sequence_batiment_entreprise!, 0, false);
 
-    print("init  Screen_QF_B19B  ${Screen_QF_B19B.Screen_Rep_Str}");
-    print("init  telephoneFixe2Entreprise ${DbTools.gActivite_ins.telephoneFixe2Entreprise}");
-    print("init  Edt_Tel  ${Edt_Tel.text}");
+    print(" BUILD QF_C13  ${QF_C13.toString()}");
+    print(" BUILD Screen_QF_C13  ${Screen_QF_C13.toString()}");
 
 
     return WillPopScope(
@@ -372,7 +405,7 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
                           child: DateTime_activity_birthday.year != 1900
                               ? Text(
                                   'DATE DE CREATION : ${DateFormat('dd-MM-yyyy').format(DateTime_activity_birthday)}',
-                                  style: gColors.bodyTextFieldBold.copyWith(color: Colors.green),
+                                  style: gColors.bodyTextFieldBold.copyWith(color: Colors.black),
                                   textAlign: TextAlign.left,
                                 )
                               : Text(
@@ -383,7 +416,7 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
 
                       gColors.colTextField(Edt_Adresse, 'Adresse :', EmptyFocusNode, Edt_Adresse_Error, Mand: true),
                       gColors.colTextField(Edt_Adresse2, '', EmptyFocusNode, ""),
-                      gColors.colTextField(Edt_City, 'VILLE :', EmptyFocusNode, ""),
+                      gColors.colTextField(Edt_City, 'VILLE :', EmptyFocusNode, Edt_Ville_Error),
                       Container(
                         height: 20,
                       ),
@@ -411,21 +444,33 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
                       Row(
                         children: [
                           Expanded(
+                            child: gColors.colTextFieldNumSep(Edt_Bal, 'BAUX A LOYER', EmptyFocusNode3, ""),
+                          ),
+                        ],
+                      ),
+
+
+
+                      Row(
+                        children: [
+                          Expanded(
                             child: gColors.colTextFieldNumSep(Edt_CA_Taxable, 'CA DECLARE :', EmptyFocusNodeD, Edt_CA_Taxable_Error, Mand: true),
                           ),
                         ],
                       ),
 
+
+
                       Row(
                         children: [
                           Expanded(
-                            child: gColors.colTextFieldNumSep(Edt_CA_Min, 'CA MIN :', EmptyFocusNodem, ""),
+                            child: gColors.colTextFieldNum(Edt_CA_Min, 'CA MIN :', EmptyFocusNodem, ""),
                           ),
                           Container(
                             width: 15,
                           ),
                           Expanded(
-                            child: gColors.colTextFieldNumSep(Edt_CA_Max, 'CA MAX :', EmptyFocusNodeM, ""),
+                            child: gColors.colTextFieldNum(Edt_CA_Max, 'CA MAX :', EmptyFocusNodeM, ""),
                           ),
                         ],
                       ),
@@ -505,13 +550,12 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
                               child:  DateTime_activity_periode_imposition.year != 1900
                                   ? Text(
                                 'Période Imposition : ${DateFormat('dd-MM-yyyy').format(DateTime_activity_periode_imposition)}',
-                                style: const TextStyle(fontSize: 16),
-                                textAlign: TextAlign.left,
+                                style: gColors.bodyTextFieldBold.copyWith(color: Colors.black)
+                                ,
                               ):
                               Text(
                                 'Période Imposition :???',
-                                style: const TextStyle(fontSize: 16),
-                                textAlign: TextAlign.left,
+                                  style: gColors.bodyTextFieldBold.copyWith(color: Colors.black),
                               )
 
 
@@ -548,19 +592,27 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
                     }
 
                     DbTools.gActivite_ins.name = Edt_Nom.text;
+                    DbTools.gActivite_ins.typeActivite = Type_Act;
                     DbTools.gActivite_ins.activiteTypeId = lType_Act.indexWhere((element) => element.compareTo(Type_Act!) == 0);
+                    print("activiteTypeId ${DbTools.gActivite_ins.activiteTypeId} ${Type_Act}");
+                    print("  suivant typeActivite ${DbTools.gActivite_ins.typeActivite}");
 
                     print("Secteur_Act $Secteur_Act");
                     print("Forme_Act $Forme_Act");
-//                DbTools.selectedSecteur.secteur_name = Secteur_Act;
-                    //              DbTools.selectedSecteur!.secteur_forme = Forme_Act;
 
                     DbTools.gActivite_ins.activityBirthday = DateFormat('yyyy-MM-dd').format(DateTime_activity_birthday);
 
                     DbTools.gActivite_ins.minCa = double.parse(Edt_CA_Min.text);
                     DbTools.gActivite_ins.maxCa = double.parse(Edt_CA_Max.text);
+
+
+                    print("DbTools.gActivite_ins.minCa ${DbTools.gActivite_ins.minCa}");
+                    print("DbTools.gActivite_ins.maxCa ${DbTools.gActivite_ins.maxCa}");
+
+
+
                     DbTools.gActivite_ins.tailleActivite = Taille_Act;
-//                DbTools.gActivite_ins.activite_SVA = selectedSvas.toString();
+
 
                     if (Regime == "TCE") {
                       DbTools.gActivite_ins.typeTaxe = Type_Taxe_All;
@@ -577,6 +629,8 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
 
                     DbTools.gActivite_ins.cga = isCga! ? "Oui" : "Non";
 
+                    DbTools.gActivite_ins.bauxLoyer = Edt_Bal.text;
+
                     DbTools.gActivite_ins.chiffreAffaireTaxable = Edt_CA_Taxable.text;
 //                DbTools.gActivite_ins.activite_paiement_prec = double.parse(Edt_paiement_prec.text);
                     DbTools.gActivite_ins.regimeFiscale = Regime;
@@ -588,11 +642,13 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
 
                     DbTools.gActivite_ins.zone_implantation_entreprise          = Screen_Q_B8.Screen_Rep_Str;
                     DbTools.gActivite_ins.libelle_zone_implantation_entreprise  = Screen_Q_B8A.Screen_Rep_Str;
-                    DbTools.gActivite_ins.numero_batiment                       = Screen_Q_B8C1.Screen_Rep_Str;
-                    DbTools.gActivite_ins.numero_sequence_batiment_entreprise   = Screen_BC2.Screen_Rep_Str;
+                    DbTools.gActivite_ins.numero_batiment                       = "${Screen_Q_B8C1.Screen_Rep_Int}";
+                    DbTools.gActivite_ins.numero_sequence_batiment_entreprise   = "${Screen_BC2.Screen_Rep_Int}";
 
+                    print("  zone_implantation_entreprise ${Screen_Q_B8.toString()}");
+                    print("  zone_implantation_entreprise ${DbTools.gActivite_ins.zone_implantation_entreprise}");
 
-
+                    print("  typeActivite ${DbTools.gActivite_ins.typeActivite}");
 
                     DbTools.gActivite_ins.telephoneFixe1Entreprise = Edt_Tel.text;
                     DbTools.gActivite_ins.telephonePortable1Entreprise = Edt_Mobile.text;
@@ -610,8 +666,8 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
 
 
 
-                    var wArgs = DbTools.gActivite_ins.toArrUpd();
-                    gColors.printWrapped("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ Activite_insUpd update ${wArgs} ");
+                    print("Screen_QF_C13 ${Screen_QF_C13.toString()}");
+                    print("DbTools.gActivite_ins.dateDebutExploitation ${DbTools.gActivite_ins.dateDebutExploitation}");
 
 
                     print("nA Save≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ GOTO ${DbTools.isFORMEL}");
@@ -648,6 +704,20 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
     bool isOK = true;
 
 
+    try{
+      double w =double.parse(Edt_CA_Min.text);
+    }catch(e)
+    {
+      Edt_CA_Min.text = "0";
+      return false;
+    }
+    try{
+      double w =double.parse(Edt_CA_Max.text);
+    }catch(e)
+    {
+      Edt_CA_Max.text = "0";
+      return false;
+    }
 
 
     if (Edt_Nom.text.isEmpty) {
@@ -661,10 +731,23 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
     if (Edt_Adresse.text.isEmpty) {
       isOK = false;
       await gColors.PopupError(context, "Erreur de saisie", "Lieu d’habitation vide");
-      Edt_Nom_Error = "Erreur de saisie : Lieu d’habitation vide";
+      Edt_Adresse_Error = "Erreur de saisie : Lieu d’habitation vide";
       setState(() {});
       return isOK;
     }
+
+
+    if (Edt_City.text.isEmpty) {
+      isOK = false;
+      await gColors.PopupError(context, "Erreur de saisie", "Ville vide");
+      Edt_Ville_Error = "Erreur de saisie : Ville vide";
+      setState(() {});
+      return isOK;
+    }
+
+
+
+
 
 // 21, 25, 27
 //  01 05 07
@@ -760,6 +843,9 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
 
   @override
   Widget DD_Type_Act() {
+    print("Type_Act $Type_Act");
+
+    if (Type_Act == "") Type_Act = "???";
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -780,23 +866,25 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
           ),
           onChanged: (String? newValue) {
             setState(() {
-              if (Type_Act != newValue) {
+           /*   if (Type_Act != newValue) {
+                print("DbTools.lfSecteurOrd ${DbTools.lfSecteurOrd.length}");
                 Secteur s = DbTools.lfSecteurOrd[0];
 
-                if (newValue == 'Ordinaire')
+                if (newValue == 'ordinaire')
                   s = DbTools.lfSecteurOrd[0];
-                else if (newValue == 'Stationnement')
+                else if (newValue == 'stationnement')
                   s = DbTools.lfSecteurStatio[0];
-                else if (newValue!.contains('Taxi'))
+                else if (newValue!.contains('taxi'))
                   s = DbTools.lfSecteurTaxi[0];
-                else if (newValue.contains('Transport')) s = DbTools.lfSecteurTransp[0];
+                else if (newValue.contains('transport')) s = DbTools.lfSecteurTransp[0];
 
                 DbTools.selectedSecteur = s;
                 DbTools.gActivite_ins.secteurId = s.secteurid;
 
                 Forme_Act = s.secteur_forme;
-              }
+              }*/
               Type_Act = newValue;
+              print("Type_Act $Type_Act");
             });
           },
         ),
@@ -837,7 +925,7 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
         ),
         Text(
           "SECTEUR D'ACTIVITE",
-          style: gColors.bodyTextFieldBold.copyWith(color: DbTools.selectedSecteur!.secteur_name! == "???" ? Colors.red : Colors.green),
+          style: gColors.bodyTextFieldBold.copyWith(color: DbTools.selectedSecteur!.secteur_name! == "???" ? Colors.red : Colors.black),
         ),
 
         Container(
@@ -871,7 +959,7 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
                     if (s!.compareTo(element.secteur_name!) == 0 )
                       {
                       DbTools.selectedSecteur = element;
-                      DbTools.gActivite_ins.secteurId = element!.secteurid;
+                      DbTools.gActivite_ins.secteurId = element.secteurid;
                       Forme_Act = element.secteur_forme;
                       }
                   }
@@ -898,7 +986,7 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
         ),
         Text(
           "SECTEUR D'ACTIVITE : ${DbTools.lfSecteurOrd.length} ${DbTools.selectedSecteur!.secteurid}",
-          style: gColors.bodyTextFieldBold,
+          style: gColors.bodyTextFieldBold.copyWith(color: Colors.black),
         ),
         DropDown<Secteur>(
           items: DbTools.lfSecteurOrd,
@@ -1295,13 +1383,13 @@ class I_KYB_Ins5_NameState extends State<I_KYB_Ins5_Name> {
               Edt_tauxImposition.text = '0.0';
               if (newValue!.compareTo("2%") == 0)
                 Edt_tauxImposition.text = '0.02';
-              else if (newValue!.compareTo("2,5%") == 0)
+              else if (newValue.compareTo("2,5%") == 0)
                 Edt_tauxImposition.text = '0.025';
-              else if (newValue!.compareTo("4%") == 0)
+              else if (newValue.compareTo("4%") == 0)
                 Edt_tauxImposition.text = '0.04';
-              else if (newValue!.compareTo("5%") == 0)
+              else if (newValue.compareTo("5%") == 0)
                 Edt_tauxImposition.text = '0.05';
-              else if (newValue!.compareTo("7%") == 0)
+              else if (newValue.compareTo("7%") == 0)
                 Edt_tauxImposition.text = '0.07';
             });
           },

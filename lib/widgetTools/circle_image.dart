@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CircleImage extends StatelessWidget {
 
@@ -12,7 +11,7 @@ class CircleImage extends StatelessWidget {
     required this.imageProvider,
     this.size,
     this.backgroundColor,
-  }) : assert(imageProvider != null), super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

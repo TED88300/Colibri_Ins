@@ -1,11 +1,11 @@
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/Tools_Print.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Widget/Identification/I_KYB_Ins1.dart';
-import 'package:colibri/Widget/Identification/I_KYB_Ins4_Carte.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/DbToolsV3.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_Ins1.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_Ins2_photo.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_Ins3_Gps.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:flutter/material.dart';
 
 class I_KYB_Ins0 extends StatefulWidget {
@@ -70,35 +70,22 @@ class I_KYB_Ins0State extends State<I_KYB_Ins0> {
             padding: const EdgeInsets.all(15),
             child: Column(
               children: [
-                Text("Cluster ${DbOdoo.Ilots[0].clusterName}",
+                Text("Cluster ${DbToolsV3.Ilots[0].clusterName}",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     )),
-                Text("Région ${DbOdoo.Ilots[0].regionName}",
+                Text("Région ${DbToolsV3.Ilots[0].regionName}",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     )),
-                Text("Département ${DbOdoo.Ilots[0].departementName}",
+                Text("Département ${DbToolsV3.Ilots[0].departementName}",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     )),
-                Text("Sous-Préfecture ${DbOdoo.Ilots[0].sousPrefectureName}",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    )),
-                Container(
-                  height: 20,
-                ),
-                Text("Commune ${DbOdoo.Ilots[0].communeName}",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    )),
-                Text("Localité ${DbOdoo.Ilots[0].localiteName}",
+                Text("Sous-Préfecture ${DbToolsV3.Ilots[0].sousPrefectureName}",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -106,20 +93,12 @@ class I_KYB_Ins0State extends State<I_KYB_Ins0> {
                 Container(
                   height: 20,
                 ),
-                Text("ZD ${DbOdoo.Ilots[0].zoneRecensementName}",
+                Text("Commune ${DbToolsV3.Ilots[0].communeName}",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     )),
-                Text("Quartier ${DbOdoo.Ilots[0].quartierName}",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    )),
-                Container(
-                  height: 20,
-                ),
-                Text("Ilot ${DbOdoo.Ilots[0].ilotName}",
+                Text("Localité ${DbToolsV3.Ilots[0].localiteName}",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -127,6 +106,52 @@ class I_KYB_Ins0State extends State<I_KYB_Ins0> {
                 Container(
                   height: 20,
                 ),
+                Text("ZD ${DbToolsV3.Ilots[0].zoneRecensementName}",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    )),
+                Text("Quartier ${DbToolsV3.Ilots[0].quartierName}",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    )),
+                Container(
+                  height: 20,
+                ),
+                Text("Ilot ${DbToolsV3.Ilots[0].ilotName}",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    )),
+                Container(
+                  height: 20,
+                ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Commentaire Backoffice",
+
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red
+                        )),
+                    Text("${DbTools.gActivite_ins.comment}",
+                        maxLines: 15,
+                        style: TextStyle(
+                          fontSize: 17,
+                        )),
+
+                  ],),
+
+              ],),
+
+
               ],
             ),
           ),
@@ -139,8 +164,9 @@ class I_KYB_Ins0State extends State<I_KYB_Ins0> {
               onPressed: () async {
                 DbTools.pageEntr++;
                 PushPop.PushPop_Push(true);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYB_Ins3_Gps()));
 
-                Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYB_Ins1()));
+//                Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYB_Ins1()));
 
               },
               style: ElevatedButton.styleFrom(

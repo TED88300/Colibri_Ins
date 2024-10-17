@@ -1,11 +1,12 @@
 import 'dart:async';
 //import 'dart:js_interop';
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/Tools.dart';
-import 'package:colibri/Tools/shared_pref.dart';
-import 'package:colibri/Widget/1-Login.dart';
-import 'package:colibri/Widget/3_bottom_navigation_list.dart';
+import 'package:Colibri_Collecte/Tools/DbOdoo.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/DbToolsV3.dart';
+import 'package:Colibri_Collecte/Tools/Tools.dart';
+import 'package:Colibri_Collecte/Tools/shared_pref.dart';
+import 'package:Colibri_Collecte/Widget/1-Login.dart';
+import 'package:Colibri_Collecte/Widget/3_bottom_navigation_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:package_info/package_info.dart';
@@ -41,7 +42,9 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
 
     if (DbTools.gIsRememberLogin) {
       try {
-        bool LoginOK = await DbOdoo.Login(DbTools.gUsername, DbTools.gPassword);
+
+//        bool LoginOK = await DbOdoo.Login(DbTools.gUsername, DbTools.gPassword);
+        bool LoginOK = await DbToolsV3.LoginV3(DbTools.gUsername, DbTools.gPassword);
         print("∆∆∆∆∆∆∆∆ SplashScreen >>>>> LoginOK $LoginOK");
 
         if (!LoginOK) {
@@ -49,12 +52,11 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
           print("∆∆∆∆∆∆∆∆ Login DbTools.gIsRememberLoginOffLine ${DbTools.gIsRememberLoginOffLine}");
         } else {
           print(" Login DbTools.gIsRememberLogin ${DbTools.gIsRememberLogin}");
-
           DbTools.gIsRememberLoginOffLine = false;
-          print(" SplashScreen >>>>> LOGIN OK");
+          print(" SplashScreen >>>>> LOGIN OK ${DbToolsV3.Ilots.length} ${DbToolsV3.Ilots.length > 0}");
 
-          if (DbOdoo.Ilots.length > 0) {
-            print(" ONLINE ILOT0 ${DbOdoo.Ilots[0].ilotName}");
+          if (DbToolsV3.Ilots.length > 0) {
+            print(" ONLINE ILOT0 ${DbToolsV3.Ilots[0].ilotName}");
             Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => BottomNavigationList(), settings: RouteSettings(name: 'BottomNavigationList')));
             return;
           } else {
@@ -62,8 +64,8 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
           }
 
         }
-      } catch (_) {
-        print("SplashScreen >>>>> LOGIN ERROR");
+      } catch (e) {
+        print("SplashScreen >>>>> LOGIN ERROR $e");
         DbTools.gIsRememberLoginOffLine = true;
       }
 
@@ -75,7 +77,7 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
 
        }
     if (DbOdoo.Ilots.length > 0) {
-      print(" OFFLINE ILOT0 ${DbOdoo.Ilots[0].ilotName}");
+      print(" OFFLINE ILOT0 ${DbToolsV3.Ilots[0].ilotName}");
     } else {
       DbTools.gIsRememberLogin = false;
       print(" OFFLINE ILOTS VIDE}");
@@ -147,11 +149,12 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
                 'assets/images/AppIco.png',
                 width: w,
                 height: h,
+//                color: (DbTools.gTED || DbTools.gEMULATEUR) ? Colors.red : null,
               ),
-              Text("Version N°2",
+              Text("Colibri Collecte",
                   style: TextStyle(
                     fontSize: 34,
-                    color: Colors.purpleAccent,
+                    color: Colors.green,
                   )),
             ],
           ),

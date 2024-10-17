@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Tools/id3/credentials.dart';
-import 'package:colibri/Widget/0-splashScreen.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Tools/id3/credentials.dart';
+import 'package:Colibri_Collecte/Widget/0-splashScreen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

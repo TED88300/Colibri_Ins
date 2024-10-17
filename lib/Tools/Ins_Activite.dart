@@ -1,5 +1,5 @@
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/DbOdoo.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
 
 class Activite_ins {
   int? id;
@@ -165,7 +165,13 @@ class Activite_ins {
   String? numero_batiment;
   String? numero_sequence_batiment_entreprise;
 
-  String? ImageBase64_PHOTO_ACT;
+  String? ImageBase64_PHOTO_ACT = "";
+
+  int? taxe_base =0;
+  int? taxe_tx =0;
+  int? taxe_mt =0;
+
+
 
   Activite_ins(
       {this.id,
@@ -492,8 +498,9 @@ class Activite_ins {
     if (json['entreprenant_id'].toString().compareTo("null") != 0) wentreprenant_id = json['entreprenant_id'];
     int wfiscal_year_id = 0;
     if (json['fiscal_year_id'].toString().compareTo("null") != 0) wfiscal_year_id = json['fiscal_year_id'];
+
     int wsecteur_id = 0;
-    if (json['secteur_id'].toString().compareTo("null") != 0) wsecteur_id = json['secteur_id'];
+    if (json['secteur_id'].toString().compareTo("null") != 0) wsecteur_id =  int.parse(json['secteur_id'].toString());
 
     double wtaux_imposition = 0;
     if (json['taux_imposition'].toString().compareTo("null") != 0) wtaux_imposition = double.parse(json['taux_imposition'].toString());
@@ -583,8 +590,19 @@ class Activite_ins {
     double wmontant_vente_minimum_realiser = 0;
     if (json['montant_vente_minimum_realiser'].toString().compareTo("null") != 0) wmontant_vente_minimum_realiser = double.parse(json['montant_vente_minimum_realiser'].toString());
 
+//    print("numero_cnps ${json['numero_cnps']}");
     int wnumero_cnps = 0;
-    if (json['numero_cnps'].toString().compareTo("null") != 0) wnumero_cnps = json['numero_cnps'];
+    if (json['numero_cnps'].toString().compareTo("null") != 0)
+      {
+        try {
+          wnumero_cnps = int.parse(json['numero_cnps'].toString());
+        }
+        catch (e)
+        {
+      }
+      }
+
+
     double wquatre_chiffre_rm = 0;
     if (json['quatre_chiffre_rm'].toString().compareTo("null") != 0) wquatre_chiffre_rm = double.parse(json['quatre_chiffre_rm'].toString());
     int wsept_chiffre_rm = 0;
@@ -614,6 +632,16 @@ class Activite_ins {
     if (json['libelle_zone_implantation_entreprise'].toString().compareTo("null") != 0) wlibelle_zone_implantation_entreprise = json['libelle_zone_implantation_entreprise'];
     String wnumero_batiment = json['numero_batiment'].toString();
     String wnumero_sequence_batiment_entreprise = json['numero_sequence_batiment_entreprise'].toString();
+
+    double wmin_ca = 0.00;
+    double wmax_ca = 0.00;
+    if (json['min_ca'].toString().compareTo("null") != 0) wmin_ca = double.parse(json['min_ca'].toString());
+    if (json['max_ca'].toString().compareTo("null") != 0) wmax_ca = double.parse(json['max_ca'].toString());
+
+
+    String snumero_cnps_communicable = "false";
+    if (json['numero_cnps_communicable'].toString().compareTo("null") != 0) snumero_cnps_communicable = json['numero_cnps_communicable'].toString();
+
 
 
     int wACT_Id_Server = 0;
@@ -653,8 +681,11 @@ class Activite_ins {
     activityBirthday = json['activity_birthday'];
     regimeFiscale = json['regime_fiscale'];
     chiffreAffaireTaxable = json['chiffre_affaire_taxable'];
-    minCa = double.parse(json['min_ca'].toString());
-    maxCa = double.parse(json['max_ca'].toString());
+
+
+
+    minCa = wmin_ca;
+    maxCa = wmax_ca;
     secteurId = wsecteur_id;
     typeTaxe = json['type_taxe'];
     cga = json['cga'];
@@ -706,8 +737,14 @@ class Activite_ins {
     preciseContrainte = json['precise_contrainte'];
     aucuneContrainte = json['aucune_contrainte'];
     autreActivte = json['autre_activte'];
+
     autre_activite_secondaire = json['autre_activite_secondaire'];
+    nameActiviteSecondaire = json['name_activite_secondaire'];
+    hasActivicteSecondaire = json['has_activicte_secondaire'];
     autreActivitePrecision = json['autre_activite_precision'];
+
+
+
     codeCiap = json['code_ciap'];
     connexionInternet = json['connexion_internet'];
     declarationCnps = json['declaration_cnps'];
@@ -715,17 +752,16 @@ class Activite_ins {
     docFinExercice = json['doc_fin_exercice'];
     effectifTotal = weffectif_total;
     etatFonctionnementEntreprise = json['etat_fonctionnement_entreprise'];
-    nameActiviteSecondaire = json['name_activite_secondaire'];
     nombreEtablissement = json['nombre_etablissement'];
     numCompteContribuable = json['num_compte_contribuable'];
     numRegistreCommerce = json['num_registre_commerce'];
     numeroCnps = wnumero_cnps;
-    numeroCnpsCommunicable = json['numero_cnps_communicable'];
+    numeroCnpsCommunicable = snumero_cnps_communicable;
     periodicite = json['periodicite'];
     statutComptabiliteFormel = json['statut_comptabilite_formel'];
-    statutCompteContribuable = json['statut_compte_contribuable'];
+    statutCompteContribuable = json['statut_compte_contribuable'].toString();
     statutEntreprise = json['statut_entreprise'];
-    statutRegistreCommerce = json['statut_registre_commerce'];
+    statutRegistreCommerce = json['statut_registre_commerce'].toString();
     typeEntreprise = json['type_entreprise'];
     zoneId = wzone_id;
     localiteId = wlocalite_id;
@@ -736,7 +772,6 @@ class Activite_ins {
     activictePrincipal = json['activicte_principal'];
     gpsPrecision = "${json['gps_precision']}";
     serviceEnLigne = json['service_en_ligne'];
-    hasActivicteSecondaire = json['has_activicte_secondaire'];
     raisonSocial = json['raison_social'];
     adresseGeographiqueEntreprise = json['adresse_geographique_entreprise'];
     observation = json['observation'];
@@ -898,8 +933,10 @@ class Activite_ins {
     data['precise_contrainte'] = this.preciseContrainte;
     data['aucune_contrainte'] = this.aucuneContrainte;
     data['autre_activte'] = this.autreActivte;
-
+    data['has_activicte_secondaire'] = this.hasActivicteSecondaire;
+    data['name_activite_secondaire'] = this.nameActiviteSecondaire;
     data['autre_activite_secondaire'] = this.autre_activite_secondaire;
+
     data['autre_activite_precision'] = this.autreActivitePrecision;
     data['code_ciap'] = this.codeCiap;
     data['connexion_internet'] = this.connexionInternet;
@@ -908,7 +945,6 @@ class Activite_ins {
     data['doc_fin_exercice'] = this.docFinExercice;
     data['effectif_total'] = this.effectifTotal;
     data['etat_fonctionnement_entreprise'] = this.etatFonctionnementEntreprise;
-    data['name_activite_secondaire'] = this.nameActiviteSecondaire;
     data['nombre_etablissement'] = this.nombreEtablissement;
     data['num_compte_contribuable'] = this.numCompteContribuable;
     data['num_registre_commerce'] = this.numRegistreCommerce;
@@ -929,7 +965,6 @@ class Activite_ins {
     data['activicte_principal'] = this.activictePrincipal;
     data['gps_precision'] = this.gpsPrecision;
     data['service_en_ligne'] = this.serviceEnLigne;
-    data['has_activicte_secondaire'] = this.hasActivicteSecondaire;
     data['raison_social'] = this.raisonSocial;
     data['adresse_geographique_entreprise'] = this.adresseGeographiqueEntreprise;
     data['observation'] = this.observation;
@@ -1008,6 +1043,18 @@ class Activite_ins {
     if (this.sousprefectureId == null) this.sousprefectureId = 0;
     if (this.communeId == null) this.communeId = 0;
     if (this.activiteTypeId == null) this.activiteTypeId = 0;
+
+
+
+    String wImageBase64_PHOTO_ACT = "";
+    try {
+      wImageBase64_PHOTO_ACT = DbTools.gActivite_ins.ImageBase64_PHOTO_ACT!;
+    } catch (e) {
+    }
+
+
+
+
 
     this.type_activite_formel_informel = "Informel";
     if (DbTools.isFORMEL) this.type_activite_formel_informel = "Formel";
@@ -1152,7 +1199,7 @@ class Activite_ins {
       'commune_id': this.communeId,
       'addresse_geo_1': this.addresseGeo1,
       'addresse_geo_2': this.addresseGeo2,
-//    'activite_type_id' : this.activiteTypeId,
+      'activite_type_id' : this.activiteTypeId,
 
       'date_fin_entretien': this.dateFinEntretien,
       'resultat_entretien': this.resultatEntretien,
@@ -1166,6 +1213,7 @@ class Activite_ins {
 
       'numero_sequence_batiment_entreprise': this.numero_sequence_batiment_entreprise,
 
+      'photo_base64': '${wImageBase64_PHOTO_ACT}',
 
       'Id_Tmp': this.Id_Tmp,
       'ACT_TRANSF_OK': this.ACT_TRANSF_OK,
@@ -1350,7 +1398,7 @@ class Activite_ins {
       'commune_id': this.communeId,
       'addresse_geo_1': this.addresseGeo1,
       'addresse_geo_2': this.addresseGeo2,
-//    'activite_type_id' : this.activiteTypeId,
+      'activite_type_id' : this.activiteTypeId,
 
       'date_fin_entretien': this.dateFinEntretien,
       'resultat_entretien': this.resultatEntretien,
@@ -1373,6 +1421,9 @@ class Activite_ins {
 
 
   Map<String, dynamic> toArrUpd() {
+
+
+
     if (this.active == null) this.active = false;
     if (this.userId == null) this.userId = 0;
 
@@ -1472,6 +1523,7 @@ class Activite_ins {
       'manque_personnel_qualifie': this.manquePersonnelQualifie,
       'cout_eleve_main_oeuvre': this.coutEleveMainOeuvre,
       'formalite_administrative_contraignante': this.formaliteAdministrativeContraignante,
+      'activite_type_id' : this.activiteTypeId,
 
       'taxe_impot_eleve': this.taxeImpotEleve,
       'cout_tranport_eleve': this.coutTranportEleve,
@@ -1514,10 +1566,15 @@ class Activite_ins {
       'statut_entreprise': this.statutEntreprise,
       'statut_registre_commerce': this.statutRegistreCommerce,
       'type_entreprise': this.typeEntreprise,
+      'periode_imposition': this.periodeImposition,
+
+
+/*
       'zone_id': this.zoneId,
       'localite_id': this.localiteId,
       'quartier_id': this.quartierId,
       'ilot_id': this.ilotId,
+*/
       'zone': this.zone,
       'date_debut_exploitation': this.dateDebutExploitation,
       'activicte_principal': this.activictePrincipal,
@@ -1548,6 +1605,11 @@ class Activite_ins {
       'numero_batiment': this.numero_batiment,
       'numero_sequence_batiment_entreprise': this.numero_sequence_batiment_entreprise,
       'ImageBase64_PHOTO_ACT': this.ImageBase64_PHOTO_ACT,
+    'date_fin_entretien': this.dateFinEntretien,
+    'resultat_entretien': this.resultatEntretien,
+    'nombre_visite': this.nombreVisite,
+    'observation_enquete': this.observationEnquete,
+      'photo_base64': '${DbTools.gActivite_ins.ImageBase64_PHOTO_ACT!}',
 
     };
     return wArgs;

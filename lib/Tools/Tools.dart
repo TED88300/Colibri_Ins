@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -8,8 +7,8 @@ import 'package:toggle_switch/toggle_switch.dart';
 import 'package:xml/xml.dart';
 import 'package:csv/csv.dart';
 import 'package:flutter/services.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+//import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
 class Item {
@@ -213,7 +212,7 @@ class Tools {
     Q_Items.forEach((element) {
 
       if (element.Item_name.compareTo(wName) == 0) {
-        print("  element.Item_name ${element.toMap()}");
+//        print("  element.Item_name ${element.toMap()}");
         wItem = element;
         Trv = true;
         return;
@@ -490,8 +489,13 @@ class Tools {
     } else if (wItem.Item_DataType.contains("Tel")) {
       element.Screen_Rep_Type = 7;
       element.Screen_Rep_Len = wItem.Item_len;
-    } else if (wItem.Item_label.contains("Mois")) {
+    } else if (wItem.Item_label.toLowerCase().contains("mois")) {
       element.Screen_Rep_Type = 2;
+
+      print(" Get_ScreenCallBack MOIS ${wItem.Item_label} > ${wItem.Item_DataType} ${element.Screen_Rep_Type}");
+
+
+
     } else if (wItem.Item_DataType.contains("Numeric")) {
       if (wItem.Item_Values.isEmpty) {
         element.Screen_Rep_Type = 3;
@@ -530,16 +534,20 @@ class Tools {
         element.Screen_Rep_List_Val = wItem.Item_Values;
       }
     } else {
-      print("Get_ScreenCallBack wItem.Item_label ${wItem.Item_label} ${wItem.Item_DataType} ");
+      print(" Get_ScreenCallBack wItem.Item_label ${wItem.Item_label} > ${wItem.Item_DataType} ${element.Screen_Rep_Type}");
     }
-
-
 
     Widget Ctrl = Container();
     switch (element.Screen_Rep_Type) {
       case 1:
         {
+          print("element.Screen_Rep_Str! ${element.Screen_Rep_Str}");
+          print("element.Screen_Rep_Int! ${element.Screen_Rep_Int}");
+
           if (element.Screen_Rep_Str.compareTo("") == 0) element.Screen_Rep_Str = "0";
+          if (element.Screen_Rep_Str == "false") element.Screen_Rep_Str = "0";
+          if (element.Screen_Rep_Str == "true") element.Screen_Rep_Str = "1";
+
           if (element.Screen_Rep_Int == -1) element.Screen_Rep_Int = int.parse(element.Screen_Rep_Str);
 
 
@@ -572,21 +580,20 @@ class Tools {
 
           if (!activity_birthday.isEmpty) {
             try {
-              print("init A $activity_birthday");
+              print("•••••••••• init A $activity_birthday");
               wDateTime = DateTime.parse(element.Screen_Rep_Str);
               element.screenVoidCallback();
             } catch (_) {
-              print("init B");
+              print("•••••••••• init B");
               wDateTime = DateTime.now();
               element.screenVoidCallback();
             }
           }
 
+          print(" MOIS/ANNEEE init ${DateFormat('dd-MM-yyyy').format(wDateTime)}");
 
-
-//          print("init ${DateFormat('dd-MM-yyyy').format(wDateTime)}");
-
-          Ctrl = TextButton(
+          Ctrl =
+              TextButton(
               onPressed: () async {
                 final selected = await showMonthYearPicker(
                   context: context,
@@ -605,15 +612,9 @@ class Tools {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     '${DateFormat('MMM yyyy').format(wDateTime)}',
-                    style: const TextStyle(fontSize: 16),
-                    textAlign: TextAlign.left,
+                      style: gColors.bodyTextFieldBold.copyWith(color: Colors.black),
+
                   ))
-
-          /*  TextField(
-              readOnly: true,
-            controller: txtController,
-
-            )*/
           );
         }
         break;
@@ -728,8 +729,8 @@ class Tools {
                 items: wLibList,
                 selectedItem: selectedValue,
                 onChanged: (value) async {
-                  print("selectedValue ${value} ${wLibList.indexOf(value!)+1}");
-                  element.Screen_Rep_Int=  wLibList.indexOf(value!)+1;
+                  print("selectedValue ${value} ${wLibList.indexOf(value!)}");
+                  element.Screen_Rep_Int=  wLibList.indexOf(value);
                   element.Screen_Rep_Str= "${element.Screen_Rep_Int}";
                   print("◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ Tools CRT 5 A ${element.Screen_Rep_Int} ${element.Screen_Rep_Str}");
                   element.screenVoidCallback();
@@ -912,13 +913,13 @@ class Tools {
 
 
     element.Screen_Question2 = wItem.Item_label;
-//    print("Get_Screen wItem.Item_label ${wItem.Item_name}  ${wItem.Item_label} ${wItem.Item_Values} ");
+    print("Get_Screen wItem.Item_label ${wItem.Item_name}  ${wItem.Item_label} ${wItem.Item_Values} ");
     if (wItem.Item_Values.contains("1;Oui|2;Non")) {
       element.Screen_Rep_Type = 1;
     } else if (wItem.Item_DataType.contains("Tel")) {
       element.Screen_Rep_Type = 7;
       element.Screen_Rep_Len = wItem.Item_len;
-    } else if (wItem.Item_label.contains("Mois")) {
+    } else if (wItem.Item_label.toLowerCase().contains("mois")) {
       element.Screen_Rep_Type = 2;
     } else if (wItem.Item_DataType.contains("Numeric")) {
       if (wItem.Item_Values.isEmpty) {
@@ -959,7 +960,7 @@ class Tools {
         element.Screen_Rep_List_Val = wItem.Item_Values;
       }
     } else {
-//      print("wItem.Item_label ${wItem.Item_label} ${wItem.Item_DataType} ");
+      print(" Get_Screen wItem.Item_label ${wItem.Item_label} > ${wItem.Item_DataType} ${element.Screen_Rep_Type}");
     }
 
 //    print("Get_Screen >>>>>>>>>>> Crt ${element.Screen_Question} ${element.Screen_Question2} ${element.Screen_Rep_Type}");
@@ -1011,7 +1012,8 @@ class Tools {
 
           element.Screen_Rep_Str = wDateTime.toString();
 
-          Ctrl = TextButton(
+          Ctrl = Container();
+              /*TextButton(
               onPressed: () async {
                 final selected = await showMonthYearPicker(
                   context: context,
@@ -1026,7 +1028,7 @@ class Tools {
                 print("selected ${selected.toString()}");
                 wScreen.screenVoidCallback();
 
-              },
+              },*//*
               child: Align(
                   alignment: Alignment.centerLeft,
                   child:
@@ -1044,7 +1046,7 @@ class Tools {
                     textAlign: TextAlign.left,
                   )
 
-              ));
+              ))*/;
         }
         break;
 
@@ -1123,11 +1125,11 @@ class Tools {
           String selectedValueID = "";
 
           if (element.Screen_Rep_Str.isEmpty) element.Screen_Rep_Str = wValList[0];
+          if (element.Screen_Rep_Str =="-1") element.Screen_Rep_Str = wValList[0];
+
 
           print("DropdownButton2 element.Screen_Rep_Str ${element.Screen_Rep_Str}");
           print("DropdownButton2 wValList ${wValList}");
-
-
 
           selectedValue = wLibList[wValList.indexOf(element.Screen_Rep_Str)];
 
@@ -1160,7 +1162,7 @@ class Tools {
                 onChanged: (value) async {
                   print("selectedValue ${value} ${wLibList.indexOf(value!)}");
 
-                  element.Screen_Rep_Int=  wLibList.indexOf(value!)+1;
+                  element.Screen_Rep_Int=  wLibList.indexOf(value);
                   element.Screen_Rep_Str= "${element.Screen_Rep_Int}";
 
                   print("◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊ Tools CRT 5 B ${element.Screen_Rep_Int} ${element.Screen_Rep_Str}");

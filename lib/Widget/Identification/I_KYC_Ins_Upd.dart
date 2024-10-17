@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/Ins_Entreprenant.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Widget/Identification/I_KYC_Ins_1.dart';
-import 'package:colibri/Widget/Identification/I_Liste_ActivitesIns.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/Ins_Entreprenant.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYC_Ins_0.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_Liste_ActivitesIns.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:flutter/material.dart';
 
 class I_KYC_Ins_Upd extends StatefulWidget {
@@ -77,32 +77,13 @@ class I_KYC_Ins_UpdState extends State<I_KYC_Ins_Upd> {
                   ),
                   ElevatedButton(
                     onPressed: () async {
-                      if (DbTools.gEntreprenant.state != "draft" && DbTools.gEntreprenant.state != "cancel") {
-                        await showDialog<String>(
-                          context: context,
-                          builder: (BuildContext context) => AlertDialog(
-                            title: const Text('MODIFICATION IMPOSSIBLE', style: TextStyle(color: Colors.red)),
-                            content: Text("Entreprenant en mode [${DbTools.gEntreprenant.state}]. La modification n'est pas possible"),
-                            actions: <Widget>[
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pop(context, 'Cancel');
-                                  return;
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                ),
-                                child: const Text('OK', style: TextStyle(color: Colors.white)),
-                              ),
-                            ],
-                          ),
-                        );
-                      }
+
+
                         DbTools.pagesEntr = DbTools.gID3_OK ? 3 : 2;
                         DbTools.pageEntr = 1;
                         PushPop.PushPop_Push(false);
                         DbTools.isUpdate = true;
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYC_Ins_1(widget.I_Liste_EntreprenantsState_callback)));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYC_Ins_0(widget.I_Liste_EntreprenantsState_callback)));
 
                     },
                     style: ElevatedButton.styleFrom(
@@ -113,7 +94,7 @@ class I_KYC_Ins_UpdState extends State<I_KYC_Ins_Upd> {
                       elevation: 4,
                     ),
                     child: Text(
-                      "Modifier",
+                      "Visualiser",
                       style: TextStyle(color: Colors.white, fontSize: 25),
                     ),
                   ),

@@ -1,12 +1,14 @@
 import 'dart:convert';
 
-import 'package:colibri/Tools/API_Data.dart';
-import 'package:colibri/Tools/DbData.dart';
-import 'package:colibri/Tools/Ilot.dart';
-import 'package:colibri/Tools/Ins_Activite.dart';
-import 'package:colibri/Tools/Ins_Entreprenant.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Tools/shared_pref.dart';
+import 'package:Colibri_Collecte/Tools/shared_pref.dart';
+import 'package:Colibri_Collecte/Tools/API_Data.dart';
+import 'package:Colibri_Collecte/Tools/DbData.dart';
+import 'package:Colibri_Collecte/Tools/DbToolsV3.dart';
+import 'package:Colibri_Collecte/Tools/Ilot.dart';
+import 'package:Colibri_Collecte/Tools/Ins_Activite.dart';
+import 'package:Colibri_Collecte/Tools/Ins_Entreprenant.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Tools/shared_pref.dart';
 import 'package:http/http.dart' as http;
 import 'package:odoo_rpc/odoo_rpc.dart';
 import 'package:postgres/postgres.dart';
@@ -15,20 +17,18 @@ import 'DbTools.dart';
 
 class DbOdoo {
   DbOdoo();
-//  static final client = OdooClient('https://mcolibri.nzassa.pro');
-//  static final String dbc = "mcolibri.nzassa.pro";
-
-/*
-  static final client = OdooClient('https://id30.nzassa.pro/');
-  static final Url = "https://id30.nzassa.pro/";
-  static final UrlAPIV2 = "https://id30.nzassa.pro/api/";
-  static final String dbc = "innoving_id30_national_db_v3";
-*/
 
   static final client = OdooClient('https://id30v2.nzassa.pro/');
   static final Url = "https://id30v2.nzassa.pro/";
   static final UrlAPIV2 = "https://id30v2.nzassa.pro/api/";
   static final String dbc = "id30_v2";
+
+/*
+  static final client = OdooClient('https://agencecipme.nzassa.pro/');
+  static final Url = "https://agencecipme.nzassa.pro/";
+  static final UrlAPIV2 = "https://agencecipme.nzassa.pro/api/";
+  static final String dbc = "id30_v2";
+*/
 
   static String username = "";
   static String password = "";
@@ -64,40 +64,37 @@ class DbOdoo {
 
   static var Mem_B5 = "";
 
-  static Future<void> setData(PostgreSQLConnection connection, String table,
-      Map<String, dynamic> data) async {
-    await connection.execute(
-        'INSERT INTO $table (${data.keys.join(', ')}) VALUES (${data.keys.map((k) => '@$k').join(', ')})',
-        substitutionValues: data);
+  static Future<void> setData(PostgreSQLConnection connection, String table, Map<String, dynamic> data) async {
+    await connection.execute('INSERT INTO $table (${data.keys.join(', ')}) VALUES (${data.keys.map((k) => '@$k').join(', ')})', substitutionValues: data);
   }
 
   static Future<int> Debug_Data_insAdd(String code, String debug_data, String activite, String name) async {
-
+    return 0;
     try {
-
       var databaseConnection = PostgreSQLConnection("51.255.70.124", 5432, "id30_v2", username: "id30", password: "azertyuiopP#554");
 
+      var wArgs = {
+        'name': "$name $activite",
+        'User_id': res_UserId,
+        'ilot_id': res_Userilot_id,
+        'code': code,
+        'debug_data': debug_data,
+      };
 
-       var wArgs = {
-         'name': "$name $activite",
-         'User_id': res_UserId,
-         'ilot_id': res_Userilot_id,
-         'code': code,
-         'debug_data': debug_data,
-       };
-
-     await databaseConnection.open().then((value) async {
-       print("Database Connected!");
-       await setData(databaseConnection, "innoving_debug_data", wArgs);
-       await databaseConnection.close();
-     });
+      await databaseConnection.open().then((value) async {
+        print("Database Connected!");
+        await setData(databaseConnection, "innoving_debug_data", wArgs);
+        await databaseConnection.close();
+      });
     } catch (e) {
       print("Debug_Data_insAdd ERROR SQL INSERT $e");
     }
     return 1;
   }
 
-      static Future<bool> Login(String user, String pw) async {
+
+
+    static Future<bool> Login(String user, String pw) async {
 //    print("client ${client.sessionId}");
 
     print('Login: $user $pw');
@@ -105,15 +102,13 @@ class DbOdoo {
     username = user;
     password = pw;
 
-   try {
+    try {
       print("Login session > ${dbc} ");
       final session = await client.authenticate(dbc, username, password);
       print("Login session < ${dbc} ${session}");
 
       final uid = session.userId;
       print("Login uid ${uid}");
-
-
 
       res_User = await client.callKw({
         'model': 'res.users',
@@ -128,45 +123,42 @@ class DbOdoo {
         }
       });
 
-
-
       printWrapped("Login users ${res_User[0].toString()}");
-      print ("---");
+      print("---");
 
       res_UserId = res_User[0]["id"];
-      print ("A");
+      print("A");
       res_UserMat = res_User[0]["partner_id"][0].toString();
-      print ("A2");
+      print("A2");
       res_UserName = res_User[0]["name"];
-      print ("A3 ${res_User[0]["ilot_id"][0]}");
+      print("A3 ${res_User[0]["ilot_id"][0]}");
       res_Userilot_id = res_User[0]["ilot_id"][0];
-      print ("A4");
+      print("A4");
       res_Usercluster_id = res_User[0]["cluster_id"][0];
-      print ("A5");
+      print("A5");
       res_Userregion_id = res_User[0]["region_id"][0];
-      print ("A6");
+      print("A6");
       res_Userdepartement_id = res_User[0]["departement_id"][0];
-      print ("A7");
+      print("A7");
       res_Usersousprefecture_id = res_User[0]["sousprefecture_id"][0];
-      print ("A8");
+      print("A8");
       res_Usercommune_id = res_User[0]["commune_id"][0];
-      print ("A9");
+      print("A9");
       res_Userlocalite_id = res_User[0]["localite_id"][0];
-      print ("A10");
+      print("A10");
       res_Userzonerecensement_id = res_User[0]["zonerecensement_id"][0];
-      print ("A1");
+      print("A1");
       res_Userquartier_id = res_User[0]["quartier_id"][0];
-      print ("A2");
+      print("A2");
 
-
-    nombre_fiche_create = res_User[0]["nombre_fiche_create"];
+      nombre_fiche_create = res_User[0]["nombre_fiche_create"];
       nombre_fiche_draft = res_User[0]["nombre_fiche_draft"];
       nombre_fiche_valid = res_User[0]["nombre_fiche_confirm"];
       nombre_fiche_cancel = res_User[0]["nombre_fiche_cancel"];
 
-    print ("B");
 
-    await SharedPref.setStrKey("res_UserId", res_UserId.toString());
+
+      await SharedPref.setStrKey("res_UserId", res_UserId.toString());
       await SharedPref.setStrKey("res_UserMat", res_UserMat);
       await SharedPref.setStrKey("res_UserName", res_UserName);
       await SharedPref.setStrKey("res_Userilot_id", res_Userilot_id.toString());
@@ -202,10 +194,7 @@ class DbOdoo {
     } catch (e) {
       print("OdooException ERROR LOGIN $e");
       print(e);
-
     }
-
-
 
     await DbTools.getIlot();
     DbTools.gUsername = await SharedPref.getStrKey("username", "");
@@ -220,7 +209,7 @@ class DbOdoo {
     res_Userregion_id = int.parse(await SharedPref.getStrKey("res_Userregion_id", "0"));
     res_Userdepartement_id = int.parse(await SharedPref.getStrKey("res_Userdepartement_id", "0"));
     res_Usersousprefecture_id = int.parse(await SharedPref.getStrKey("res_Usersousprefecture_id", "0"));
-    res_Usercommune_id =  int.parse( await SharedPref.getStrKey("res_Usercommune_id", "0"));
+    res_Usercommune_id = int.parse(await SharedPref.getStrKey("res_Usercommune_id", "0"));
     res_Userlocalite_id = int.parse(await SharedPref.getStrKey("res_Userlocalite_id", "0"));
     res_Userzonerecensement_id = int.parse(await SharedPref.getStrKey("res_Userzonerecensement_id", "0"));
     res_Userquartier_id = int.parse(await SharedPref.getStrKey("res_Userquartier_id", "0"));
@@ -230,7 +219,6 @@ class DbOdoo {
     nombre_fiche_create = int.parse(await SharedPref.getStrKey("nombre_fiche_create", "0"));
     print('  <<<<<<<<< nombre_fiche_create: ${nombre_fiche_create}');
 
-
     nombre_fiche_draft = int.parse(await SharedPref.getStrKey("nombre_fiche_draft", "0"));
     nombre_fiche_valid = int.parse(await SharedPref.getStrKey("nombre_fiche_valid", "0"));
     nombre_fiche_cancel = int.parse(await SharedPref.getStrKey("nombre_fiche_cancel", "0"));
@@ -238,9 +226,6 @@ class DbOdoo {
     print("∆∆∆∆∆∆∆∆∆∆∆ OdooException ERROR LOGIN C");
 
     return false;
-
-
-
   }
   //*********************************************************
   //*********************************************************
@@ -261,28 +246,27 @@ class DbOdoo {
       String wTmp = await response.stream.bytesToString();
 
       List<dynamic> items = json.decode(wTmp);
-      if (items != null) {
-        for (int i = 0; i < items.length; ++i) {
-          var element = items[i];
-          print(" ILOT ${element}");
-          Ilot ilot = Ilot.fromJson(element);
-          ilot.ilotid = ailot;
-          Ilots.add(ilot);
+      for (int i = 0; i < items.length; ++i) {
+        var element = items[i];
+        print(" ILOT ${element}");
+        Ilot ilot = Ilot.fromJson(element);
+        ilot.ilotid = ailot;
+        Ilots.add(ilot);
 
-          final db = await DbTools.database;
-          await db.execute("Delete from Ilot");
-          int? repid = await db.insert("Ilot", ilot.toMap());
-          print(" ILOT repid ${repid}");
-        }
-        print("Ilots ${Ilots.length}");
-        return Ilots.length;
+        final db = await DbTools.database;
+        await db.execute("Delete from Ilot");
+        int? repid = await db.insert("Ilot", ilot.toMap());
+        print(" ILOT repid ${repid}");
       }
-    } else {
+      print("Ilots ${Ilots.length}");
+      return Ilots.length;
+        } else {
       print(response.statusCode);
       print(response.reasonPhrase);
       print(response.headers);
       return 0;
     }
+    return null;
   }
 
   //*********************************************************
@@ -307,22 +291,21 @@ class DbOdoo {
 
       List<dynamic> items = json.decode(wTmp);
 //      printWrapped("getlfEntreprenants items ${items}");
-      if (items != null) {
-        for (int i = 0; i < items.length; ++i) {
-          var element = items[i];
-          Activite_ins activite_ins = Activite_ins.fromJson(element);
-          Ins_Activites.add(activite_ins);
-        }
-
-        print(" API Ins_Activites ${Ins_Activites.length}");
-        return Ins_Activites.length;
+      for (int i = 0; i < items.length; ++i) {
+        var element = items[i];
+        Activite_ins activite_ins = Activite_ins.fromJson(element);
+        Ins_Activites.add(activite_ins);
       }
-    } else {
+
+      print(" API Ins_Activites ${Ins_Activites.length}");
+      return Ins_Activites.length;
+        } else {
       print(response.statusCode);
       print(response.reasonPhrase);
       print(response.headers);
       return 0;
     }
+    return null;
   }
 
   static Future<int?> ActivitesInsIntegration() async {
@@ -428,11 +411,15 @@ class DbOdoo {
 
   static Future<int> Activite_insAdd() async {
     int activiteId = 0;
+
+    if (DbTools.gActivite_ins.ilotId == 0) DbTools.gActivite_ins.ilotId = DbToolsV3.Userilot_id;
     var wArgs = DbTools.gActivite_ins.toArr();
 
     try {
+//      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "${wArgs}", "INSERT", "ACTIVITE");
 
-      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "${wArgs}", "INSERT", "ACTIVITE");
+      activiteId = await DbToolsV3.activitiesADD(DbTools.gActivite_ins);
+/*
 
       print("♦♦♦♦ INSERT ODOO ♦♦♦♦");
       print("♦♦♦♦♦♦♦♦ INSERT ODOO toArr ${wArgs} ");
@@ -442,14 +429,15 @@ class DbOdoo {
         'args': [wArgs],
         'kwargs': {},
       }) as Future<dynamic>);
+*/
 
-      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "OK ID = ${activiteId}", "INSERT", "ACTIVITE");
+//      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "OK ID = ${activiteId}", "INSERT", "ACTIVITE");
 
-      print(' O D O O ');
-      print('> INSERT ODOO OK ID = ${activiteId}');
-      print(' O D O O ');
-      await EntreprenantUpdIlot();
-      await EntreprenantState(DbTools.gActivite_ins.state!);
+      print(' DbToolsV3 ');
+      print('> INSERT DbToolsV3 OK ID = ${activiteId}');
+      print(' DbToolsV3 ');
+//      await EntreprenantUpdIlot();
+//      await EntreprenantState(DbTools.gActivite_ins.state!);
 
       try {
         print("♦♦♦♦ DELETE SQL ♦♦♦♦");
@@ -477,9 +465,7 @@ class DbOdoo {
 
       return activiteId;
     } catch (e) {
-
-      await DbOdoo.Debug_Data_insAdd("$wArgs", e.toString(), "INSERT", "ACTIVITE");
-
+//      await DbOdoo.Debug_Data_insAdd("$wArgs", e.toString(), "INSERT", "ACTIVITE");
 
       print(' O D O O ');
       print('ERROR ODOO');
@@ -533,32 +519,33 @@ class DbOdoo {
 
     var wArgs = DbTools.gActivite_ins.toArrUpd();
     try {
-      printWrapped("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ Activite_insUpd updateActivite_ins ");
+//      printWrapped("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ Activite_insUpd updateActivite_ins ");
       await DbTools.updateActivite_ins(DbTools.gActivite_ins);
-      printWrapped("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ Activite_insUpd update ${wArgs} ");
+  //    printWrapped("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ Activite_insUpd update ${wArgs} ");
 
-      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ UPDATE ODOO ♦♦♦♦", "${wArgs}", "UPDATE", "ACTIVITE");
+//      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ UPDATE ODOO ♦♦♦♦", "${wArgs}", "UPDATE", "ACTIVITE");
 
+      print("♦♦♦♦ UPDATE DbToolsV3 ♦♦♦♦");
 
-      print("♦♦♦♦ UPDATE ODOO ♦♦♦♦");
-      print("♦♦♦♦♦♦♦♦ UPDATE ODOO toArrUpd ${wArgs} ");
+      await DbToolsV3.activitiesUPD(DbTools.gActivite_ins);
 
+/*
       await client.callKw({
         'model': 'innoving.activite',
         'method': 'write',
         'args': [DbTools.gActivite_ins.id, wArgs],
         'kwargs': {},
       });
+*/
 
-      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "OK ID = ${DbTools.gActivite_ins.id}", "UPDATE", "ACTIVITE");
-
+//      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "OK ID = ${DbTools.gActivite_ins.id}", "UPDATE", "ACTIVITE");
 
       print(' O D O O ');
       printWrapped("> Activite_insUpd A ODOO OK");
       print(' O D O O ');
 
-      await EntreprenantUpdIlot();
-      await EntreprenantState(DbTools.gActivite_ins.state!);
+//      await EntreprenantUpdIlot();
+//      await EntreprenantState(DbTools.gActivite_ins.state!);
 
       DbTools.gActivite_ins.ACT_TRANSF_OK = 1;
       DbTools.gActivite_ins_Is_New = false;
@@ -570,9 +557,7 @@ class DbOdoo {
 
       return activiteId;
     } catch (e) {
-
       await DbOdoo.Debug_Data_insAdd("$wArgs", e.toString(), "INSERT", "ACTIVITE");
-
 
       print("Activite write ERROR ODDO >>> Lenght ${e.toString().length}");
       printWrapped("ERROR ODDO : ${e.toString()}");
@@ -582,8 +567,6 @@ class DbOdoo {
         int newErrActiviteId = await getErrActivite_insId();
         print("Activite write ERROR ODDO newErrActiviteId $newErrActiviteId");
         print("Activite write ERROR ODDO ACT_Id_Server ${DbTools.gActivite_ins.ACT_Id_Server}");
-
-
 
         //        DbTools.gActivite_ins.id = newErrActiviteId;
         DbTools.gActivite_ins.ACT_TRANSF_OK = 0;
@@ -599,15 +582,18 @@ class DbOdoo {
   static Future<int> Activite_insAddUpd() async {
     print("♦♦♦♦ Activite_insAddUpd ${DbTools.gActivite_ins.ACT_Id_Server}");
     if (DbTools.gActivite_ins.resultatEntretien == null) DbTools.gActivite_ins.resultatEntretien = "";
-    if (DbTools.gActivite_ins.statutEntreprise == "4") DbTools.gActivite_ins.statutEntreprise = "0";
+//    if (DbTools.gActivite_ins.statutEntreprise == "4") DbTools.gActivite_ins.statutEntreprise = "0";
 
+    print("♦♦♦♦ Activite_insAddUpd ACT_TRANSF_OK  ${DbTools.gActivite_ins.ACT_TRANSF_OK}");
+    print("♦♦♦♦ Activite_insAddUpd Id_Tmp         ${DbTools.gActivite_ins.Id_Tmp}");
+    print("♦♦♦♦ Activite_insAddUpd ACT_Id_Server  ${DbTools.gActivite_ins.ACT_Id_Server}");
 
-
-    if (DbTools.gActivite_ins.ACT_Id_Server! <= 0) {
+//    if (DbTools.gActivite_ins.ACT_Id_Server! <= 0) {
+    if (DbTools.gActivite_ins.ACT_TRANSF_OK! == 0) {
       print("♦♦♦♦ INSERT DANS LE SERVEUR ${DbTools.gActivite_ins.ACT_Id_Server}");
       await Activite_insAdd();
     } else {
-      print("♦♦♦♦ UPDATE DANS LE SERVEUR ");
+      print("♦♦♦♦ UPDATE DANS LE SERVEUR ${DbTools.gActivite_ins.ACT_Id_Server}");
       await Activite_insUpd();
     }
 
@@ -643,32 +629,31 @@ class DbOdoo {
       wTmp = wTmp.replaceAll("N/A", "");
 
       List<dynamic> items = json.decode(wTmp);
-//      print("items ${items}");
-      if (items != null) {
-        for (int i = 0; i < items.length; ++i) {
-          var element = items[i];
+      print("items ${items}");
+      for (int i = 0; i < items.length; ++i) {
+        var element = items[i];
 //          if (offset == 0 && i == 0) print("element id index 0 ${element['id']}");
-          if (i == 0) print("element id index 0 ${element}");
+        if (i == 0) print("element id index 0 ${element}");
 
-          if (element['id'] == 568) print("element 568 $i ${element}");
-          if (element['nomPrenomDirigeant'].toString().contains("Ted")) print("element TED $i ${element}");
+        if (element['id'] == 568) print("element 568 $i ${element}");
+        if (element['nomPrenomDirigeant'].toString().contains("Ted")) print("element TED $i ${element}");
 
-          Entreprenant ins_Entreprenant = Entreprenant.fromJson(element);
-          ins_Entreprenant.Id_Tmp = ins_Entreprenant.id;
+        Entreprenant ins_Entreprenant = Entreprenant.fromJson(element);
+        ins_Entreprenant.Id_Tmp = ins_Entreprenant.id;
 
-          print("ins_Entreprenant ${ins_Entreprenant.name} ${ins_Entreprenant.telephoneDirigeant} ${element['telephone_dirigeant']}");
+        print("ins_Entreprenant B ${ins_Entreprenant.name} ${ins_Entreprenant.telephoneDirigeant} ${element['telephone_dirigeant']}");
 
-          Ins_Entreprenants.add(ins_Entreprenant);
-        }
-        print("ins_Entreprenant ${Ins_Entreprenants.length}");
-        return Ins_Entreprenants.length;
+        Ins_Entreprenants.add(ins_Entreprenant);
       }
-    } else {
+      print("ins_Entreprenant ${Ins_Entreprenants.length}");
+      return Ins_Entreprenants.length;
+        } else {
       print(response.statusCode);
       print(response.reasonPhrase);
       print(response.headers);
       return 0;
     }
+    return null;
   }
 
   static Future<int?> Entreprenants_Sans_Activite(int ilot, int offset, int limit) async {
@@ -688,28 +673,27 @@ class DbOdoo {
       List<dynamic> items = json.decode(wTmp);
       print("NB items ${items.length}");
       print("items ${items}");
-      if (items != null) {
-        for (int i = 0; i < items.length; ++i) {
-          var element = items[i];
-          if (offset == 0 && i == 0) print("element ${element['id']}");
+      for (int i = 0; i < items.length; ++i) {
+        var element = items[i];
+        if (offset == 0 && i == 0) print("element ${element['id']}");
 
 //          if (element['id'] == 564)
-          {
-            print("element ${element}");
-            Entreprenant ins_Entreprenant = Entreprenant.fromJson(element);
-            ins_Entreprenant.Id_Tmp = ins_Entreprenant.id;
-            Ins_Entreprenants.add(ins_Entreprenant);
-          }
+        {
+          print("element ${element}");
+          Entreprenant ins_Entreprenant = Entreprenant.fromJson(element);
+          ins_Entreprenant.Id_Tmp = ins_Entreprenant.id;
+          Ins_Entreprenants.add(ins_Entreprenant);
         }
-        print("ins_Entreprenant ${Ins_Entreprenants.length}");
-        return Ins_Entreprenants.length;
       }
-    } else {
+      print("ins_Entreprenant ${Ins_Entreprenants.length}");
+      return Ins_Entreprenants.length;
+        } else {
       print(response.statusCode);
       print(response.reasonPhrase);
       print(response.headers);
       return 0;
     }
+    return null;
   }
 
   static Future<int?> EntreprenantsIntegration() async {
@@ -727,7 +711,7 @@ class DbOdoo {
       if (Dbg) print("element ${element}");
 
       element.ENT_Id_Server = element.id;
-      print("element integration ${element.toJson()}");
+//      print("element integration ${element.toJson()}");
 
       int? repid = await db.insert("Entreprenants", element.toJson());
       if (Dbg) print("repid ${repid}");
@@ -756,22 +740,20 @@ class DbOdoo {
     var wArgs = DbTools.gEntreprenant.toArrInsert();
 
     try {
-      print("♦♦♦♦ INSERT ODOO ♦♦♦♦");
-      print("♦♦♦♦♦♦♦♦ INSERT ODOO toArrInsert ${wArgs} ");
+      print("♦♦♦♦ INSERT DbToolsV3 ♦♦♦♦");
+      print("♦♦♦♦♦♦♦♦ INSERT DbToolsV3 toArrInsert ${wArgs} ");
 
-      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "${wArgs}", "INSERT", "Entreprenant");
+      Entreprenant_id = await DbToolsV3.entrepreneursADD(DbTools.gEntreprenant);
 
-
+/*
       Entreprenant_id = await (client.callKw({
         'model': 'innoving.entreprenant',
         'method': 'create',
         'args': [wArgs],
         'kwargs': {},
-      }) as Future<dynamic>);
+      }) as Future<dynamic>);*/
 
-
-      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "OK ID = ${Entreprenant_id}", "INSERT", "Entreprenant");
-
+//      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ INSERT ODOO ♦♦♦♦", "OK ID = ${Entreprenant_id}", "INSERT", "Entreprenant");
 
       print(' O D O O ');
       print('> INSERT ODOO OK ID = ${Entreprenant_id}');
@@ -805,9 +787,7 @@ class DbOdoo {
       }
       return 1;
     } catch (e) {
-
-      await DbOdoo.Debug_Data_insAdd("$wArgs", e.toString(), "INSERT", "Entreprenant");
-
+//      await DbOdoo.Debug_Data_insAdd("$wArgs", e.toString(), "INSERT", "Entreprenant");
 
       print(' O D O O ');
       print('ERROR ODOO');
@@ -858,22 +838,28 @@ class DbOdoo {
     try {
       await DbTools.updateEntreprenant(DbTools.gEntreprenant);
 
-      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ UPDATE ODOO ♦♦♦♦", "${wArgs}", "UPDATE", "Entreprenant");
+      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ UPDATE DbToolsV3 ♦♦♦♦", "${wArgs}", "UPDATE", "Entreprenant");
 
-      print("♦♦♦♦ UPDATE ODOO ♦♦♦♦");
-      print("♦♦♦♦♦♦♦♦ UPDATE ODOO toArrUpd ${wArgs} ");
+      print("♦♦♦♦ UPDATE DbToolsV3 ♦♦♦♦");
+      print("♦♦♦♦♦♦♦♦ UPDATE DbToolsV3 toArrUpd ${wArgs} ");
+
+      await DbToolsV3.entrepreneursUPD(DbTools.gEntreprenant);
+
+/*
+
       await client.callKw({
         'model': 'innoving.entreprenant',
         'method': 'write',
         'args': [DbTools.gEntreprenant.id, wArgs],
         'kwargs': {},
       });
+*/
 
-      await DbOdoo.Debug_Data_insAdd("♦♦♦♦ UPDATE ODOO ♦♦♦♦", "OK ID = ${DbTools.gEntreprenant.id}", "UPDATE", "Entreprenant");
+     // await DbOdoo.Debug_Data_insAdd("♦♦♦♦ UPDATE ODOO ♦♦♦♦", "OK ID = ${DbTools.gEntreprenant.id}", "UPDATE", "Entreprenant");
 
-      print(' O D O O ');
-      print('> UPDATE ODOO OK ID = ${Entreprenant_id}');
-      print(' O D O O ');
+      print(' DbToolsV3 ');
+      print('> UPDATE DbToolsV3 OK ID = ${Entreprenant_id}');
+      print(' DbToolsV3 ');
 
       DbTools.gEntreprenant.ENT_TRANSF_OK = 1;
       DbTools.gEntreprenant.Id_Tmp = DbTools.gEntreprenant.id;
@@ -882,8 +868,7 @@ class DbOdoo {
 
       return 1;
     } catch (e) {
-
-      await DbOdoo.Debug_Data_insAdd("$wArgs", e.toString(), "UPDATE", "Entreprenant");
+//      await DbOdoo.Debug_Data_insAdd("$wArgs", e.toString(), "UPDATE", "Entreprenant");
 
       print(' O D O O ');
       print('ERROR ODOO');
@@ -938,13 +923,10 @@ class DbOdoo {
       print(' EntreprenantState ${DbTools.gEntreprenant.id} wState');
       DbTools.gEntreprenant.state = wState;
       await DbTools.updateEntreprenant(DbTools.gEntreprenant);
-
       var wArgs = {
         'state': '${wState}',
       };
-
       print("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ EntreprenantState ODOO toArrUpd ${wArgs} ");
-
       print("write ${DbTools.gEntreprenant.id} ${DbTools.gEntreprenant.nomPrenomDirigeant} ${DbTools.gEntreprenant.state} ${DbTools.gEntreprenant.countryId}");
       await client.callKw({
         'model': 'innoving.entreprenant',
@@ -952,11 +934,9 @@ class DbOdoo {
         'args': [DbTools.gEntreprenant.id, wArgs],
         'kwargs': {},
       });
-
       print(' O D O O ');
       print("write STATE OK");
       print(' O D O O ');
-
       return 1;
     } catch (e) {
       print(" ERROR STATE ODDO");
@@ -989,7 +969,7 @@ class DbOdoo {
       print("templateBytes64 ${DbTools.gEntreprenant.id!}  $templateBytes64");
       print("templateBytes64.length  ${templateBytes64.length}");
       try {
-        await API_Data.Colibri_Send("entreprenant", DbTools.gEntreprenant.id!, "String_ID3", "txt", templateBytes64!);
+        await API_Data.Colibri_Send("entreprenant", DbTools.gEntreprenant.id!, "String_ID3", "txt", templateBytes64);
       } catch (_) {
         print("ERROR Colibri_Send  String_ID3");
       }
@@ -998,7 +978,7 @@ class DbOdoo {
       print("croppedBytes64  $croppedBytes64");
       print("croppedBytes64.length  ${croppedBytes64.length}");
       try {
-        await API_Data.Colibri_Send("entreprenant", DbTools.gEntreprenant.id!, "Photo_ID3", "jpeg", croppedBytes64!);
+        await API_Data.Colibri_Send("entreprenant", DbTools.gEntreprenant.id!, "Photo_ID3", "jpeg", croppedBytes64);
       } catch (_) {
         print("ERROR Colibri_Send  Photo_ID3");
       }
@@ -1037,28 +1017,27 @@ class DbOdoo {
     if (response.statusCode == 200) {
       List<dynamic> items = json.decode(await response.stream.bytesToString());
 //      print("items ${items}");
-      if (items != null) {
-        for (int i = 0; i < items.length; ++i) {
-          var element = items[i];
-          if (offset == 0 && i == 0) print("element ${element['id']}");
+      for (int i = 0; i < items.length; ++i) {
+        var element = items[i];
+        if (offset == 0 && i == 0) print("element ${element['id']}");
 
 //          if (element['id'] == 564)
-          {
+        {
 //            print("element ${element}");
-            Entreprenant ins_Entreprenant = Entreprenant.fromJson(element);
-            ins_Entreprenant.Id_Tmp = ins_Entreprenant.id;
-            Ins_Entreprenants.add(ins_Entreprenant);
-          }
+          Entreprenant ins_Entreprenant = Entreprenant.fromJson(element);
+          ins_Entreprenant.Id_Tmp = ins_Entreprenant.id;
+          Ins_Entreprenants.add(ins_Entreprenant);
         }
-        print("ins_Entreprenant ${Ins_Entreprenants.length}");
-        return Ins_Entreprenants.length;
       }
-    } else {
+      print("ins_Entreprenant ${Ins_Entreprenants.length}");
+      return Ins_Entreprenants.length;
+        } else {
       print(response.statusCode);
       print(response.reasonPhrase);
       print(response.headers);
       return 0;
     }
+    return null;
   }
 
   //******************************

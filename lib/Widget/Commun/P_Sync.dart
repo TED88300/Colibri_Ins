@@ -1,11 +1,11 @@
-import 'package:colibri/Tools/DbData.dart';
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/Ins_Activite.dart';
-import 'package:colibri/Tools/Ins_Entreprenant.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Tools/shared_pref.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:Colibri_Collecte/Tools/DbData.dart';
+import 'package:Colibri_Collecte/Tools/DbOdoo.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/DbToolsV3.dart';
+import 'package:Colibri_Collecte/Tools/Ins_Activite.dart';
+import 'package:Colibri_Collecte/Tools/Ins_Entreprenant.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Tools/shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_beep/flutter_beep.dart';
@@ -35,7 +35,9 @@ class SyncState extends State<Sync> {
     DateSync = await SharedPref.getStrKey("DateSync", "");
 
     try {
-      bool wRet = await DbOdoo.Login( DbTools.gUsername,  DbTools.gPassword );
+      print("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ P_SYNC");
+
+      bool wRet = await DbToolsV3.LoginV3( DbTools.gUsername,  DbTools.gPassword );
       if (wRet)
         isOnline = 1;
       else
@@ -153,8 +155,6 @@ class SyncState extends State<Sync> {
                         lfEntreprenant = await DbTools.getEntreprenants();
                         wDt2 = DateTime.now();
 
-
-
                         difference = wDt2.difference(wDt).inMilliseconds;
                         dif = difference / 1000.0;
 
@@ -260,26 +260,31 @@ class SyncState extends State<Sync> {
 
   Future getData() async {
     TextLog = "Get data Ilot ${DbOdoo.res_Userilot_id}\n";
+    setState(() {
+
+    });
     DateTime wDtTot = DateTime.now();
 
-
     await getlfEntreprenants();
+    await getlfEntreprenantsID();
+
     await getActivites_Ins();
+    await getActivites_InsID();
 
-//    await getFournisseurs();
-//    await DbTools.initFournisseurDownMennu();
-    await getSecteurs();
-    await DbTools.initSecteurDownMennu();
-
-    /*
-    await getZones();
-    await DbTools.initZoneDownMennu();
-    await getSvas();
-    await DbTools.initSvaDownMennu();
-*/
 
     await getCountrys();
     await DbTools.initCountryDownMennu();
+
+
+
+    await getSecteurs();
+    await DbTools.initSecteurDownMennu();
+
+    await DbTools.genTaxes();
+
+
+
+    return;
 
     DateTime wDt2Tot = DateTime.now();
     var difference = wDt2Tot.difference(wDtTot).inMilliseconds;
@@ -306,12 +311,12 @@ class SyncState extends State<Sync> {
       });
 
 
-      DbOdoo.Ins_Activites.clear();
+      DbToolsV3.Ins_Activites.clear();
 
 //      int Pas = 1;
 
       DateTime wDt = DateTime.now();
-      int? NbActivites = await DbOdoo.getActivites_Ins(DbOdoo.res_Userilot_id, Deb + i * Pas, Pas);
+      int? NbActivites = await DbToolsV3.getActivites_Ins(DbToolsV3.Userilot_id!, Deb + i * Pas, Pas);
 
 
       DateTime wDt2 = DateTime.now();
@@ -325,8 +330,8 @@ class SyncState extends State<Sync> {
 
       if (NbActivites == 0) break;
 
-      wDt = DateTime.now();
-      NbActivites = await DbOdoo.ActivitesInsIntegration();
+      wDt = DateTime.now(); //DbToolsV3
+      NbActivites = await DbToolsV3.ActivitesInsIntegration();
       wDt2 = DateTime.now();
 
       difference = wDt2.difference(wDt).inMilliseconds;
@@ -344,11 +349,11 @@ class SyncState extends State<Sync> {
 
       wDt2 = DateTime.now();
 
-      for (int i = 0; i < lfActivite_ins.length; ++i) {
+ /*     for (int i = 0; i < lfActivite_ins.length; ++i) {
         var element = lfActivite_ins[i];
         print(" lfActivite_ins ${element.name} ${element.statutRegistreCommerce} ");
       }
-      difference = wDt2.difference(wDt).inMilliseconds;
+ */     difference = wDt2.difference(wDt).inMilliseconds;
       dif = difference / 1000.0;
     }
 
@@ -364,6 +369,82 @@ class SyncState extends State<Sync> {
     });
   }
 
+
+
+  Future getActivites_InsID() async {
+    DateTime wDtTot = DateTime.now();
+
+//    DbTools.deleteAll("Activites_Ins");
+
+    int Pas = 400;
+    int Deb = 0;
+    int Iter = 999999;
+    for (int i = 0; i < Iter; ++i) {
+      setState(() {
+      });
+
+
+      DbToolsV3.Ins_Activites.clear();
+
+//      int Pas = 1;
+
+      DateTime wDt = DateTime.now();
+      int? NbActivites = await DbToolsV3.getActivites_InsID(DbToolsV3.UserId!, Deb + i * Pas, Pas);
+
+
+      DateTime wDt2 = DateTime.now();
+      var difference = wDt2.difference(wDt).inMilliseconds;
+      double dif = difference / 1000.0;
+
+      setState(() {
+        TextLog += "[${dif.toStringAsFixed(2)}] > $NbActivites Activites Ins USER chargées\n";
+        textController.text = TextLog;
+      });
+
+      if (NbActivites == 0) break;
+
+      wDt = DateTime.now(); //DbToolsV3
+      NbActivites = await DbToolsV3.ActivitesInsIntegration();
+      wDt2 = DateTime.now();
+
+      difference = wDt2.difference(wDt).inMilliseconds;
+      dif = difference / 1000.0;
+
+      setState(() {
+        TextLog += "[${dif.toStringAsFixed(2)}] > $NbActivites Activites USER intégrées\n";
+        textController.text = TextLog;
+      });
+
+      wDt = DateTime.now();
+      List<Activite_ins> lfActivite_ins;
+      lfActivite_ins = await DbTools.getActivitesInsAll();
+      await DbTools.getActivitesInsAllTest();
+
+      wDt2 = DateTime.now();
+
+      /*     for (int i = 0; i < lfActivite_ins.length; ++i) {
+        var element = lfActivite_ins[i];
+        print(" lfActivite_ins ${element.name} ${element.statutRegistreCommerce} ");
+      }
+ */     difference = wDt2.difference(wDt).inMilliseconds;
+      dif = difference / 1000.0;
+    }
+
+//                        db.execute("CREATE UNIQUE INDEX ActivitesPK ON Activites (ActiviteId);");
+
+    DateTime wDt2Tot = DateTime.now();
+    var difference = wDt2Tot.difference(wDtTot).inMilliseconds;
+    double dif = difference / 1000.0;
+
+    setState(() {
+      TextLog += "[${dif.toStringAsFixed(2)}] > TEMPS TOTAL\n";
+      textController.text = TextLog;
+    });
+  }
+
+
+
+
   Future getlfEntreprenants() async {
     DateTime wDtTot = DateTime.now();
 
@@ -372,7 +453,7 @@ class SyncState extends State<Sync> {
 
     await DbTools.deleteAll("Entreprenants");
 
-    TextLog = "Get data Ilot ${DbOdoo.res_Userilot_id}\n";
+    TextLog = "Get data Ilot ${DbToolsV3.Userilot_id}\n";
 
     int Pas = 400;
     int Deb = 0;
@@ -380,27 +461,22 @@ class SyncState extends State<Sync> {
 
     for (int i = 0; i < Iter; ++i) {
       DateTime wDt = DateTime.now();
-      DbOdoo.Ins_Entreprenants.clear();
-      int? NbEntreprenants = await DbOdoo.Entreprenants(DbOdoo.res_Userilot_id, Deb + i * Pas, Pas);
-
-      for (int i = 0; i < DbOdoo.Ins_Entreprenants.length; ++i) {
-        var element = DbOdoo.Ins_Entreprenants[i];
-//        print("element ${element.name} ${element.nomPrenomDirigeant} ${element.profession}");
-      }
-
+      DbToolsV3.Ins_Entreprenants.clear();
+      int? NbEntreprenants = await DbToolsV3.Entreprenants(DbToolsV3.Userilot_id!, Deb + i * Pas, Pas, false);
+      print("Entreprenants DbToolsV3.Userilot_id ${DbToolsV3.Userilot_id} ${Deb} ${Pas} = ${NbEntreprenants} ${DbToolsV3.Ins_Entreprenants.length}");
       DateTime wDt2 = DateTime.now();
       var difference = wDt2.difference(wDt).inMilliseconds;
       double dif = difference / 1000.0;
       setState(() {
-        TextLog += "[${dif.toStringAsFixed(2)}] > ${DbOdoo.Ins_Entreprenants.length} Entreprenants chargés\n";
+        TextLog += "[${dif.toStringAsFixed(2)}] > ${DbToolsV3.Ins_Entreprenants.length} Entreprenants chargés\n";
         textController.text = TextLog;
       });
 
-//      print("DbOdoo.Ins_Entreprenants ${DbOdoo.Ins_Entreprenants.length}");
-      if (DbOdoo.Ins_Entreprenants.length == 0) break;
+      print("DbToolsV3.Ins_Entreprenants ${DbToolsV3.Ins_Entreprenants.length}");
+      if (DbToolsV3.Ins_Entreprenants.length == 0) break;
 
       wDt = DateTime.now();
-      NbEntreprenants = await DbOdoo.EntreprenantsIntegration();
+      NbEntreprenants = await DbToolsV3.EntreprenantsIntegration();
       wDt2 = DateTime.now();
       difference = wDt2.difference(wDt).inMilliseconds;
       dif = difference / 1000.0;
@@ -411,8 +487,6 @@ class SyncState extends State<Sync> {
     }
 
     await DbTools.getEntreprenants();
-
-
     for (int i = 0; i < Iter; ++i) {
       setState(() {
         TextLog += "Lecture Entreprenants Sans Activité offset ${Deb + i * Pas}  Limit ${Pas}\n";
@@ -420,23 +494,23 @@ class SyncState extends State<Sync> {
       });
       DateTime wDt = DateTime.now();
 
-      DbOdoo.Ins_Entreprenants.clear();
-      int? NbEntreprenants = await DbOdoo.Entreprenants_Sans_Activite(DbOdoo.res_Userilot_id, Deb + i * Pas, Pas);
+      DbToolsV3.Ins_Entreprenants.clear();
+      int? NbEntreprenants = await DbToolsV3.Entreprenants(DbToolsV3.Userilot_id!, Deb + i * Pas, Pas, true);
+      //int? NbEntreprenants = await DbOdoo.Entreprenants_Sans_Activite(DbOdoo.res_Userilot_id, Deb + i * Pas, Pas);
       DateTime wDt2 = DateTime.now();
       var difference = wDt2.difference(wDt).inMilliseconds;
       double dif = difference / 1000.0;
       setState(() {
-        TextLog += "[${dif.toStringAsFixed(2)}] > ${DbOdoo.Ins_Entreprenants.length} Entreprenants chargés\n";
+        TextLog += "[${dif.toStringAsFixed(2)}] > ${DbToolsV3.Ins_Entreprenants.length} Entreprenants chargés\n";
         textController.text = TextLog;
       });
 
-      print("DbOdoo.Ins_Entreprenants Sans_Activite ${DbOdoo.Ins_Entreprenants.length}");
-
-      if (DbOdoo.Ins_Entreprenants.length == 0) break;
+      print("DbOdoo.Ins_Entreprenants Sans_Activite ${DbToolsV3.Ins_Entreprenants.length}");
+      if (DbToolsV3.Ins_Entreprenants.length == 0) break;
       wDt = DateTime.now();
-      NbEntreprenants = await DbOdoo.EntreprenantsIntegration();
+      NbEntreprenants = await DbToolsV3.EntreprenantsIntegration();
 
-      print("Sans_Activite NbEntreprenants ${NbEntreprenants} ${DbOdoo.Ins_Entreprenants.length}");
+      print("Sans_Activite NbEntreprenants ${NbEntreprenants} ${DbToolsV3.Ins_Entreprenants.length}");
 
       wDt2 = DateTime.now();
 
@@ -460,17 +534,87 @@ class SyncState extends State<Sync> {
     DbTools.glfEntreprenant = await DbTools.getEntreprenantSansTri();
     print("EntreprenantsIntegration DbTools.glfEntreprenant.length ${DbTools.glfEntreprenant.length}");
 
-    for (int i = 0; i < DbTools.glfEntreprenant.length; ++i) {
+   /* for (int i = 0; i < DbTools.glfEntreprenant.length; ++i) {
       var wEntreprenant = DbTools.glfEntreprenant[i];
       print("wEntreprenant ${wEntreprenant.name} ${wEntreprenant.nomPrenomDirigeant}");
-    }
+    }*/
 
 
     return DbTools.glfEntreprenant.length;
-
-
-
   }
+
+
+
+  //************************************
+  Future getlfEntreprenantsID() async {
+    DateTime wDtTot = DateTime.now();
+
+    final db = await DbTools.database;
+//                        db.execute("DROP INDEX `ContribuablesPK`;");
+
+
+    TextLog += "Get data UserId ${DbToolsV3.UserId}\n";
+
+    int Pas = 400;
+    int Deb = 0;
+    int Iter = 9999;
+
+    for (int i = 0; i < Iter; ++i) {
+      DateTime wDt = DateTime.now();
+      DbToolsV3.Ins_Entreprenants.clear();
+      int? NbEntreprenants = await DbToolsV3.EntreprenantsID(DbToolsV3.UserId!, Deb + i * Pas, Pas, false);
+
+      print("Entreprenants DbToolsV3.Userilot_id ${DbToolsV3.Userilot_id} ${Deb} ${Pas} = ${NbEntreprenants} ${DbToolsV3.Ins_Entreprenants.length}");
+
+      DateTime wDt2 = DateTime.now();
+      var difference = wDt2.difference(wDt).inMilliseconds;
+      double dif = difference / 1000.0;
+      setState(() {
+        TextLog += "[${dif.toStringAsFixed(2)}] > ${DbToolsV3.Ins_Entreprenants.length} Entreprenants USER chargés\n";
+        textController.text = TextLog;
+      });
+
+      print("DbToolsV3.Ins_Entreprenants ${DbToolsV3.Ins_Entreprenants.length}");
+      if (DbToolsV3.Ins_Entreprenants.length == 0) break;
+
+      wDt = DateTime.now();
+      NbEntreprenants = await DbToolsV3.EntreprenantsIntegration();
+      wDt2 = DateTime.now();
+      difference = wDt2.difference(wDt).inMilliseconds;
+      dif = difference / 1000.0;
+      setState(() {
+        TextLog += "[${dif.toStringAsFixed(2)}] > $NbEntreprenants Entreprenants USER intégrés\n";
+        textController.text = TextLog;
+      });
+    }
+
+
+
+//                        db.execute("CREATE UNIQUE INDEX ContribuablesPK ON Contribuables (contribuableId);");
+
+
+    DbTools.glfEntreprenant = await DbTools.getEntreprenantDoublons();
+    print("getEntreprenantDoublons DbTools.glfEntreprenant.length ${DbTools.glfEntreprenant.length}");
+
+
+    DbTools.glfEntreprenant = await DbTools.getEntreprenantSansTri();
+    print("EntreprenantsIntegration DbTools.glfEntreprenant.length ${DbTools.glfEntreprenant.length}");
+
+    /* for (int i = 0; i < DbTools.glfEntreprenant.length; ++i) {
+      var wEntreprenant = DbTools.glfEntreprenant[i];
+      print("wEntreprenant ${wEntreprenant.name} ${wEntreprenant.nomPrenomDirigeant}");
+    }*/
+
+
+    return DbTools.glfEntreprenant.length;
+  }
+
+
+
+
+
+
+
 
   //**************************
   //**************************
@@ -563,20 +707,13 @@ class SyncState extends State<Sync> {
     DateTime wDtTot = DateTime.now();
 
     final db = await DbTools.database;
-    DbTools.deleteAll("Secteurs");
-    int Pas = 5000;
-    int Deb = 0;
-    int Iter = 9999;
-    for (int i = 0; i < Iter; ++i) {
-      setState(() {
-//                            TextLog = "Lecture Secteurs ${Deb+i*Pas}\n";
-        //                          textController.text = TextLog;
-      });
+
       DateTime wDt = DateTime.now();
+      DbTools.deleteAll("Secteurs");
 
       print("DbOdoo.Secteurs >");
 
-      int? NbSecteurs = await DbOdoo.Secteurs(Deb + i * Pas, Pas);
+      int? NbSecteurs = await DbToolsV3.activity_sectors();
 
       print("DbOdoo.Secteurs <");
 
@@ -585,22 +722,10 @@ class SyncState extends State<Sync> {
       double dif = difference / 1000.0;
 
       setState(() {
-//                            TextLog += "[${dif.toStringAsFixed(2)}] > $NbSecteurs Secteurs chargés\n";
-//                            textController.text = TextLog;
+                            TextLog += "[${dif.toStringAsFixed(2)}] > $NbSecteurs Secteurs chargés\n";
+                           textController.text = TextLog;
       });
-      if (NbSecteurs == 0) break;
 
-      wDt = DateTime.now();
-      NbSecteurs = await DbOdoo.SecteursIntegration();
-      wDt2 = DateTime.now();
-
-      difference = wDt2.difference(wDt).inMilliseconds;
-      dif = difference / 1000.0;
-
-      setState(() {
-        TextLog += "[${dif.toStringAsFixed(2)}] > $NbSecteurs Secteurs intégrés\n";
-        textController.text = TextLog;
-      });
 
       wDt = DateTime.now();
       List<Secteur> lfSecteur;
@@ -614,150 +739,9 @@ class SyncState extends State<Sync> {
         TextLog += "[${dif.toStringAsFixed(2)}] > ${lfSecteur.length} Secteurs en base\n";
         textController.text = TextLog;
       });
-    }
 
-//                        db.execute("CREATE UNIQUE INDEX SecteursPK ON Contribuables (contribuableId);");
-
-    DateTime wDt2Tot = DateTime.now();
-    var difference = wDt2Tot.difference(wDtTot).inMilliseconds;
-    double dif = difference / 1000.0;
-
-
-    setState(() {
-      TextLog += "[${dif.toStringAsFixed(2)}] > TEMPS TOTAL\n";
-      textController.text = TextLog;
-    });
   }
 
-  Future getZones() async {
-    DateTime wDtTot = DateTime.now();
-
-    final db = await DbTools.database;
-//                        db.execute("DROP INDEX `ZonesPK`;");
-
-    DbTools.deleteAll("Zones");
-    int Pas = 5000;
-    int Deb = 0;
-    int Iter = 9999;
-    for (int i = 0; i < Iter; ++i) {
-      setState(() {
-//                            TextLog = "Lecture Zones ${Deb+i*Pas}\n";
-        //                          textController.text = TextLog;
-      });
-      DateTime wDt = DateTime.now();
-      int? NbZones = await DbOdoo.Zones(Deb + i * Pas, Pas);
-      DateTime wDt2 = DateTime.now();
-      var difference = wDt2.difference(wDt).inMilliseconds;
-      double dif = difference / 1000.0;
-
-      setState(() {
-//                            TextLog += "[${dif.toStringAsFixed(2)}] > $NbZones Zones chargés\n";
-//                            textController.text = TextLog;
-      });
-      if (NbZones == 0) break;
-
-      wDt = DateTime.now();
-      NbZones = await DbOdoo.ZonesIntegration();
-      wDt2 = DateTime.now();
-
-      difference = wDt2.difference(wDt).inMilliseconds;
-      dif = difference / 1000.0;
-
-      setState(() {
-        TextLog += "[${dif.toStringAsFixed(2)}] > $NbZones Zones intégrés\n";
-        textController.text = TextLog;
-      });
-
-      wDt = DateTime.now();
-      List<Zone> lfZone;
-      lfZone = await DbTools.getZonesSansTri();
-      wDt2 = DateTime.now();
-
-      difference = wDt2.difference(wDt).inMilliseconds;
-      dif = difference / 1000.0;
-
-      setState(() {
-        TextLog += "[${dif.toStringAsFixed(2)}] > ${lfZone.length} Zones en base\n";
-        textController.text = TextLog;
-      });
-    }
-
-//                        db.execute("CREATE UNIQUE INDEX ZonesPK ON Contribuables (contribuableId);");
-
-    DateTime wDt2Tot = DateTime.now();
-    var difference = wDt2Tot.difference(wDtTot).inMilliseconds;
-    double dif = difference / 1000.0;
-
-    setState(() {
-      TextLog += "[${dif.toStringAsFixed(2)}] > TEMPS TOTAL\n";
-      textController.text = TextLog;
-    });
-  }
-
-  Future getSvas() async {
-    DateTime wDtTot = DateTime.now();
-
-    final db = await DbTools.database;
-//                        db.execute("DROP INDEX `SvasPK`;");
-
-    DbTools.deleteAll("Svas");
-    int Pas = 5000;
-    int Deb = 0;
-    int Iter = 9999;
-    for (int i = 0; i < Iter; ++i) {
-      setState(() {
-        TextLog += "Lecture Svas ${Deb + i * Pas}\n";
-        textController.text = TextLog;
-      });
-      DateTime wDt = DateTime.now();
-      int? NbSvas = await DbOdoo.Svas(Deb + i * Pas, Pas);
-      DateTime wDt2 = DateTime.now();
-      var difference = wDt2.difference(wDt).inMilliseconds;
-      double dif = difference / 1000.0;
-
-      setState(() {
-        TextLog += "[${dif.toStringAsFixed(2)}] > $NbSvas Svas chargés\n";
-        textController.text = TextLog;
-      });
-      if (NbSvas == 0) break;
-
-      wDt = DateTime.now();
-      NbSvas = await DbOdoo.SvasIntegration();
-      wDt2 = DateTime.now();
-
-      difference = wDt2.difference(wDt).inMilliseconds;
-      dif = difference / 1000.0;
-
-      setState(() {
-        TextLog += "[${dif.toStringAsFixed(2)}] > $NbSvas Svas intégrés\n";
-        textController.text = TextLog;
-      });
-
-      wDt = DateTime.now();
-      List<Sva> lfSva;
-      lfSva = await DbTools.getSvasSansTri();
-      wDt2 = DateTime.now();
-
-      difference = wDt2.difference(wDt).inMilliseconds;
-      dif = difference / 1000.0;
-
-      setState(() {
-        TextLog += "[${dif.toStringAsFixed(2)}] > ${lfSva.length} Svas en base\n";
-        textController.text = TextLog;
-      });
-    }
-
-//                        db.execute("CREATE UNIQUE INDEX SvasPK ON Contribuables (contribuableId);");
-
-    DateTime wDt2Tot = DateTime.now();
-    var difference = wDt2Tot.difference(wDtTot).inMilliseconds;
-    double dif = difference / 1000.0;
-
-    setState(() {
-      TextLog += "[${dif.toStringAsFixed(2)}] > TEMPS TOTAL\n";
-      textController.text = TextLog;
-    });
-  }
 
   Future getCountrys() async {
     DateTime wDtTot = DateTime.now();
@@ -766,16 +750,9 @@ class SyncState extends State<Sync> {
 //                        db.execute("DROP INDEX `CountrysPK`;");
 
     DbTools.deleteAll("Countrys");
-    int Pas = 5000;
-    int Deb = 0;
-    int Iter = 9999;
-    for (int i = 0; i < Iter; ++i) {
-      setState(() {
-//                            TextLog = "Lecture Countrys ${Deb+i*Pas}\n";
-        //                          textController.text = TextLog;
-      });
+
       DateTime wDt = DateTime.now();
-      int? NbCountrys = await DbOdoo.Countrys(Deb + i * Pas, Pas);
+      int? NbCountrys = await DbToolsV3.countries();
       DateTime wDt2 = DateTime.now();
       var difference = wDt2.difference(wDt).inMilliseconds;
       double dif = difference / 1000.0;
@@ -784,19 +761,7 @@ class SyncState extends State<Sync> {
 //                            TextLog += "[${dif.toStringAsFixed(2)}] > $NbCountrys Countrys chargés\n";
 //                            textController.text = TextLog;
       });
-      if (NbCountrys == 0) break;
 
-      wDt = DateTime.now();
-      NbCountrys = await DbOdoo.CountrysIntegration();
-      wDt2 = DateTime.now();
-
-      difference = wDt2.difference(wDt).inMilliseconds;
-      dif = difference / 1000.0;
-
-      setState(() {
-        TextLog += "[${dif.toStringAsFixed(2)}] > $NbCountrys Countrys intégrés\n";
-        textController.text = TextLog;
-      });
 
       wDt = DateTime.now();
       List<Country> lfCountry;
@@ -810,17 +775,11 @@ class SyncState extends State<Sync> {
         TextLog += "[${dif.toStringAsFixed(2)}] > ${lfCountry.length} Countrys en base\n";
         textController.text = TextLog;
       });
-    }
+
 
 //                        db.execute("CREATE UNIQUE INDEX CountrysPK ON Contribuables (contribuableId);");
 
-    DateTime wDt2Tot = DateTime.now();
-    var difference = wDt2Tot.difference(wDtTot).inMilliseconds;
-    double dif = difference / 1000.0;
 
-    setState(() {
-      TextLog += "[${dif.toStringAsFixed(2)}] > TEMPS TOTAL\n";
-      textController.text = TextLog;
-    });
+
   }
 }

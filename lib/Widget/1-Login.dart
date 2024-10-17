@@ -1,14 +1,11 @@
 import 'dart:convert';
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/DbPostGres.dart';
-import 'package:colibri/Widget/3_bottom_navigation_list.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:Colibri_Collecte/Tools/DbToolsV3.dart';
+import 'package:Colibri_Collecte/Widget/3_bottom_navigation_list.dart';
 import 'package:flutter/material.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Tools/shared_pref.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Tools/shared_pref.dart';
 
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -46,16 +43,11 @@ class LoginState extends State<Login> {
     super.initState();
     initLib();
 
-    //if (DbTools.gTED)
-    {
-      tecMail.text = "thierry@id30.com";
-      tecPW.text = "thierry@id30.com";
-
-//      tecMail.text = "id1@id30.com";
-      //    tecPW.text = "AZ12";
-
-//      tecMail.text = "daudiert2@wanadoo.fr";
-      //    tecPW.text = "Zzt88300";
+    if (DbTools.gTED) {
+      tecMail.text = "daudiert2@wanadoo.fr";
+      tecPW.text = "1234567890";
+//      tecMail.text = "charles.kouadio@id30.ci";
+//      tecPW.text = "@ck@2024";
     }
   }
 
@@ -95,7 +87,7 @@ class LoginState extends State<Login> {
                             child: Card(
                                 elevation: 2,
                                 child: Image.asset(
-                                  'assets/images/AppIco.png',
+                                  'assets/images/AppIco200.png',
                                   width: 200,
                                   height: 200,
                                 )),
@@ -128,7 +120,6 @@ class LoginState extends State<Login> {
                             decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Mot de passe", hintText: "Entrez votre mot de passe"),
                           ),
                         ),
-
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -153,10 +144,12 @@ class LoginState extends State<Login> {
                         Container(
                           height: 50,
                           width: 250,
-                          child: ElevatedButton(
+                          child:
+                          ElevatedButton(
                             onPressed: () async {
+                              DbTools.gIsRememberLoginOffLine = false;
                               if (_formKey.currentState!.validate()) {
-                                print("gIsRememberLoginOffLine ${DbTools.gIsRememberLoginOffLine }");
+                                print("gIsRememberLoginOffLine ${DbTools.gIsRememberLoginOffLine}");
                                 if (DbTools.gIsRememberLoginOffLine) {
                                   DbTools.gUsername = await SharedPref.getStrKey("username", "");
                                   DbTools.gPassword = await SharedPref.getStrKey("password", "");
@@ -166,14 +159,13 @@ class LoginState extends State<Login> {
                                   }
                                 } else {
                                   print("Login");
-                                  bool LoginOK = await DbOdoo.Login(tecMail.text, tecPW.text);
+                                  bool LoginOK = await DbToolsV3.LoginV3(tecMail.text, tecPW.text);
                                   print("Login LoginOK $LoginOK");
                                   if (LoginOK) {
                                     await SharedPref.setBoolKey("IsRememberLogin", isChecked!);
                                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => BottomNavigationList(), settings: RouteSettings(name: 'BottomNavigationList')));
                                   } else {
                                     print("Login ERROR");
-
                                     setState(() {
                                       LoginError = "Erreur eMail ou mot de passe invalide";
                                     });
@@ -207,73 +199,95 @@ class LoginState extends State<Login> {
                         ),
                         Text(DbTools.gVersion, textAlign: TextAlign.left, style: TextStyle(color: Colors.grey, fontSize: 12)),
 
-                        Visibility(
-                          visible: (!Ecr1),
-                          child: Column(
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(top: 0.0),
-                                child: Center(
-                                  child: Card(elevation: 16, child: Image.asset('assets/images/PFO_ITC.jpg')),
-                                ),
+                      (!DbTools.gTED) ? Container() :
+                      Container(
+                        child: Row(children: [
+                          Spacer(),
+                          ElevatedButton(
+                            onPressed: () async {
+                              tecMail.text = "agent1@id30.ci";
+                              tecPW.text = "@Agent1";
+                              setState(() {});
+                            },
+                            style: ElevatedButton.styleFrom(
+                              shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(5.0),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 25.0, right: 25.0, top: 15, bottom: 0),
-                                child: TextField(
-                                  decoration: InputDecoration(border: OutlineInputBorder(), labelText: "eMail", hintText: "Entrez votre eMail"),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 25.0, right: 25.0, top: 25, bottom: 25),
-                                child: Container(
-                                  height: 30,
-                                  child: ElevatedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        Ecr1 = !Ecr1;
-                                      });
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      shape: new RoundedRectangleBorder(
-                                        borderRadius: new BorderRadius.circular(30.0),
-                                      ),
-                                      backgroundColor: gColors.primary,
-                                      elevation: 4,
-                                    ),
-                                    child: Text(
-                                      "Réinitialiser votre mot de passe",
-                                      style: TextStyle(color: Colors.white, fontSize: 15),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 25.0, right: 25.0, top: 0, bottom: 25),
-                                child: Container(
-                                  height: 30,
-                                  child: ElevatedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        Ecr1 = !Ecr1;
-                                      });
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      shape: new RoundedRectangleBorder(
-                                        borderRadius: new BorderRadius.circular(30.0),
-                                      ),
-                                      backgroundColor: Colors.white,
-                                      elevation: 4,
-                                    ),
-                                    child: Text(
-                                      "Retour",
-                                      style: TextStyle(color: gColors.primary, fontSize: 15),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                              backgroundColor: gColors.primary,
+                              elevation: 4,
+                            ),
+                            child: Text(
+                              "User 1",
+                              style: TextStyle(color: Colors.white, fontSize: 25),
+                            ),
                           ),
-                        )
+                          Spacer(),
+
+                          ElevatedButton(
+                            onPressed: () async {
+                              tecMail.text = "agent2@id30.ci";
+                              tecPW.text = "@Agent2";
+                              setState(() {});
+                            },
+                            style: ElevatedButton.styleFrom(
+                              shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(5.0),
+                              ),
+                              backgroundColor: gColors.primary,
+                              elevation: 4,
+                            ),
+                            child: Text(
+                              "User 2",
+                              style: TextStyle(color: Colors.white, fontSize: 25),
+                            ),
+                          ),
+                          Spacer(),
+
+                          ElevatedButton(
+                            onPressed: () async {
+                              tecMail.text = "agent3@id30.ci";
+                              tecPW.text = "@Agent3";
+                              setState(() {});
+                            },
+                            style: ElevatedButton.styleFrom(
+                              shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(5.0),
+                              ),
+                              backgroundColor: gColors.primary,
+                              elevation: 4,
+                            ),
+                            child: Text(
+                              "User 3",
+                              style: TextStyle(color: Colors.white, fontSize: 25),
+                            ),
+                          ),
+                          Spacer(),
+
+                          ElevatedButton(
+                            onPressed: () async {
+                              tecMail.text = "agent4@id30.ci";
+                              tecPW.text = "@Agent4";
+                              setState(() {});
+                            },
+                            style: ElevatedButton.styleFrom(
+                              shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(5.0),
+                              ),
+                              backgroundColor: gColors.primary,
+                              elevation: 4,
+                            ),
+                            child: Text(
+                              "User 4",
+                              style: TextStyle(color: Colors.white, fontSize: 25),
+                            ),
+                          ),
+                          Spacer(),
+
+
+                        ],)
+                      ),
+
+
                       ],
                     ),
                   ),

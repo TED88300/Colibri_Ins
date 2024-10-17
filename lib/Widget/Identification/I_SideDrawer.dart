@@ -1,10 +1,10 @@
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Tools/shared_pref.dart';
-import 'package:colibri/Widget/1-Login.dart';
-import 'package:colibri/Widget/Commun/P_FlutterWifiIoT.dart';
-import 'package:colibri/Widget/Commun/P_Send.dart';
-import 'package:colibri/Widget/Commun/P_Sync.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Tools/shared_pref.dart';
+import 'package:Colibri_Collecte/Widget/1-Login.dart';
+import 'package:Colibri_Collecte/Widget/Commun/P_FlutterWifiIoT.dart';
+import 'package:Colibri_Collecte/Widget/Commun/P_Send.dart';
+import 'package:Colibri_Collecte/Widget/Commun/P_Sync.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_beep/flutter_beep.dart';
 

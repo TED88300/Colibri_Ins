@@ -1,15 +1,16 @@
 import 'dart:convert';
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:colibri/Tools/intent_result.dart';
-import 'package:colibri/Widget/Identification/I_KYB_Ins4_ODP.dart';
-import 'package:colibri/widgetTools/PushPop.dart';
-import 'package:colibri/widgetTools/toolbar.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
+import 'package:Colibri_Collecte/Tools/intent_result.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_Ins4_Carte.dart';
+import 'package:Colibri_Collecte/Widget/Identification/I_KYB_Ins5_Name.dart';
+import 'package:Colibri_Collecte/widgetTools/PushPop.dart';
+import 'package:Colibri_Collecte/widgetTools/toolbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map/plugin_api.dart';
+
 import 'package:latlong2/latlong.dart';
 
 class I_KYB_Ins3_Gps extends StatefulWidget {
@@ -55,14 +56,12 @@ class I_KYB_nEState extends State<I_KYB_Ins3_Gps> {
   void initLib() async {
     await ReloadLocation();
 
-    if (DbTools.gImageBase64_PHOTO_ACT != null) {
-      final decodedBytes = await base64Decode(DbTools.gImageBase64_PHOTO_ACT);
-      debugPrint("image : C ${decodedBytes.length}");
-      print("image >");
-      Image_KYC = await Image.memory(decodedBytes);
-      print("image < ${Image_KYC!.image.toString()}");
+    final decodedBytes = await base64Decode(DbTools.gImageBase64_PHOTO_ACT);
+    debugPrint("image : C ${decodedBytes.length}");
+    print("image >");
+    Image_KYC = await Image.memory(decodedBytes);
+    print("image < ${Image_KYC!.image.toString()}");
     }
-  }
 
   void initState() {
     pageEntr = DbTools.pageEntr;
@@ -243,7 +242,14 @@ class I_KYB_nEState extends State<I_KYB_Ins3_Gps> {
                 DbTools.gActivite_ins.gpsPrecision = Edt_Acc.text;
                 DbTools.pageEntr++;
                 PushPop.PushPop_Push(false);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYB_Ins4_ODP()));
+
+                if (DbTools.isFORMEL)
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYB_Ins5_Name()));
+                else
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYB_Ins4_Carte()));
+
+
+//                Navigator.push(context, MaterialPageRoute(builder: (context) => I_KYB_Ins4_ODP()));
               },
               style: ElevatedButton.styleFrom(
                 shape: new RoundedRectangleBorder(
@@ -303,10 +309,15 @@ class I_KYB_nEState extends State<I_KYB_Ins3_Gps> {
         width: 80.0,
         height: 80.0,
         point: LatLng(dLat!, dLng!),
-        builder: (ctx) => Container(
+
+
+        child:  Container(
           key: Key('blue'),
           child: Image.asset('assets/images/mark.png'),
         ),
+
+
+
       ),
     ];
 

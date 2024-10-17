@@ -1,10 +1,6 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:colibri/Tools/DbData.dart';
-import 'package:colibri/Tools/DbTools.dart';
-import 'package:colibri/Tools/gColors.dart';
-import 'package:diacritic/diacritic.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class I_Revoir extends StatefulWidget {
   @override

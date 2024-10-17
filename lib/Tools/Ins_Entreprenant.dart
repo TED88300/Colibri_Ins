@@ -1,7 +1,7 @@
-import 'dart:ffi';
 
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/DbOdoo.dart';
+import 'package:Colibri_Collecte/Tools/DbTools.dart';
+import 'package:Colibri_Collecte/Tools/DbToolsV3.dart';
 
 /*
 ilot_id
@@ -56,6 +56,11 @@ class Entreprenant {
   int? active;
   String? code;
   String? state;
+  String? commentaire_backoffice;
+
+
+
+
   Entreprenant(
       {this.id,
       this.clusterId,
@@ -73,6 +78,7 @@ class Entreprenant {
       this.naturePiece,
       this.cni,
       this.state,
+        this.commentaire_backoffice,
       this.sexe,
       this.birthday,
       this.countryId,
@@ -99,9 +105,13 @@ class Entreprenant {
       this.ID3_templateBytes64,
       this.ENT_TRANSF_OK,
       this.Id_Tmp}
+
       );
 
   Entreprenant.fromJson(Map<String, dynamic> json) {
+
+
+
     id = json['id'];
     active = json['active'] ? 1 : 0;
     code = json['code'];
@@ -109,6 +119,7 @@ class Entreprenant {
     naturePiece = json['nature_piece'];
     cni = json['cni'];
     state = json['state'];
+    commentaire_backoffice = json['commentaire_backoffice'];
     sexe = json['sexe'];
     birthday = json['birthday'];
     countryId = json['country_id'];
@@ -163,6 +174,7 @@ class Entreprenant {
     naturePiece = map['naturePiece'];
     cni = map['cni'];
     state = map['state'];
+    commentaire_backoffice = map['commentaire_backoffice'];
     sexe = map['sexe'];
     birthday = map['birthday'];
     countryId = map['countryId'];
@@ -217,6 +229,7 @@ class Entreprenant {
     data['naturepiece'] = this.naturePiece;
     data['cni'] = this.cni;
     data['state'] = this.state;
+    data['commentaire_backoffice'] = this.commentaire_backoffice;
 
     data['sexe'] = this.sexe;
     data['birthday'] = this.birthday;
@@ -273,6 +286,7 @@ class Entreprenant {
     data['naturepiece'] = this.naturePiece;
     data['cni'] = this.cni;
     data['state'] = this.state;
+    data['commentaire_backoffice'] = this.commentaire_backoffice;
 
     data['sexe'] = this.sexe;
     data['birthday'] = this.birthday;
@@ -316,6 +330,7 @@ class Entreprenant {
   void init() {
     if (cni == null) cni = "";
     if (state == null) state = "";
+    if (commentaire_backoffice == null) commentaire_backoffice = "";
     if (sexe == null) sexe = "";
 
     if (sexe == null) sexe = "";
@@ -383,6 +398,7 @@ class Entreprenant {
     // Ecriture ODOO
     if (cni == null) cni = "";
     if (state == null) state = "";
+    if (commentaire_backoffice == null) commentaire_backoffice = "";
     if (sexe == null) sexe = "";
 
     if (sexe == null) sexe = "";
@@ -423,6 +439,8 @@ class Entreprenant {
     quartierId = DbOdoo.res_Userquartier_id;
 
     var map = {
+
+      'id': id,
       'active': true,
 
       'user_id': '${DbOdoo.res_UserId}',
@@ -431,6 +449,7 @@ class Entreprenant {
       'nature_piece': '${naturePiece}',
       'cni': '${cni}',
       'state': '${state}',
+      'commentaire_backoffice': '${commentaire_backoffice}',
 
       'sexe': '${sexe}',
       'birthday': '${birthday}',
@@ -466,7 +485,11 @@ class Entreprenant {
       'localite_id': '${localiteId}',
       'zonerecensement_id': '${zonerecensementId}',
       'quartier_id': '${quartierId}',
-      'ilot_creation': '${DbOdoo.res_Userilot_id}',
+      'ilot_creation': '${DbToolsV3.Userilot_id}',
+      'photo_base64': '${DbTools.gEntreprenant.ImageBase64_PHOTO_ENTR!}',
+      'biometric_photo_base64': '${DbTools.gEntreprenant.ID3_croppedBytes64!}',
+      'biometric_signature': '${DbTools.gEntreprenant.ID3_templateBytes64!}',
+
     };
     var wArgs = map;
     return wArgs;
@@ -475,7 +498,7 @@ class Entreprenant {
   Map<String, dynamic> toArrIlot() {
     // Ecriture ODOO
     var map = {
-      'ilot_creation': '${DbOdoo.res_Userilot_id}',
+      'ilot_creation': '${DbToolsV3.Userilot_id}',
     };
     var wArgs = map;
     return wArgs;
@@ -485,6 +508,7 @@ class Entreprenant {
     // INSERT ODOO
     if (cni == null) cni = "";
     if (state == null) state = "";
+    if (commentaire_backoffice == null) commentaire_backoffice = "";
     if (sexe == null) sexe = "";
 
     if (sexe == null) sexe = "";
@@ -524,6 +548,7 @@ class Entreprenant {
     zonerecensementId = DbOdoo.res_Userzonerecensement_id;
     quartierId = DbOdoo.res_Userquartier_id;
 
+
     var wArgs = {
 //      'name': '${name}',
       'active': true,
@@ -532,7 +557,7 @@ class Entreprenant {
       'nature_piece': '${naturePiece}',
       'cni': '${cni}',
       'state': '${state}',
-
+      'commentaire_backoffice': '${commentaire_backoffice}',
       'sexe': '${sexe}',
       'birthday': '${birthday}',
       'country_id': '${countryId}',
@@ -566,10 +591,10 @@ class Entreprenant {
       'localite_id': '${localiteId}',
       'zonerecensement_id': '${zonerecensementId}',
       'quartier_id': '${quartierId}',
-      'ilot_creation': '-1',
-//      'ImageBase64_PHOTO_ENTR': '${ImageBase64_PHOTO_ENTR}',
-//      'ID3_templateBytes64': '${ID3_templateBytes64}',
-//      'ID3_croppedBytes64': '${ID3_croppedBytes64}',
+      'ilot_creation': '${DbToolsV3.Userilot_id}',
+      'photo_base64': '${DbTools.gEntreprenant.ImageBase64_PHOTO_ENTR!}',
+      'biometric_photo_base64': '${DbTools.gEntreprenant.ID3_croppedBytes64!}',
+      'biometric_signature': '${DbTools.gEntreprenant.ID3_templateBytes64!}',
     };
     return wArgs;
   }
@@ -577,6 +602,7 @@ class Entreprenant {
   Map<String, dynamic> toArr() {
     if (cni == null) cni = "";
     if (state == null) state = "";
+    if (commentaire_backoffice == null) commentaire_backoffice = "";
     if (sexe == null) sexe = "";
 
     if (sexe == null) sexe = "";
@@ -625,6 +651,7 @@ class Entreprenant {
       'nature_piece': '${naturePiece}',
       'cni': '${cni}',
       'state': '${state}',
+      'commentaire_backoffice': '${commentaire_backoffice}',
 
       'sexe': '${sexe}',
       'birthday': '${birthday}',
@@ -658,7 +685,7 @@ class Entreprenant {
       'localite_id': '${localiteId}',
       'zonerecensement_id': '${zonerecensementId}',
       'quartier_id': '${quartierId}',
-      'ilot_creation': '${DbOdoo.res_Userilot_id}',
+      'ilot_creation': '${DbToolsV3.Userilot_id}',
       'ImageBase64_PHOTO_ENTR': '${ImageBase64_PHOTO_ENTR}',
       'ID3_templateBytes64': '${ID3_templateBytes64}',
       'ID3_croppedBytes64': '${ID3_croppedBytes64}',
@@ -669,6 +696,7 @@ class Entreprenant {
   String desc() {
     if (cni == null) cni = "";
     if (state == null) state = "";
+    if (commentaire_backoffice == null) commentaire_backoffice = "";
     if (sexe == null) sexe = "";
     if (sexe == null) sexe = "";
     if (birthday == null) birthday = "";
@@ -712,6 +740,7 @@ class Entreprenant {
         '     naturepiece = ${naturePiece} \n' +
         '     cni = ${cni} \n' +
         '     state = ${state} \n' +
+        '     commentaire_backoffice = ${commentaire_backoffice} \n' +
         '     sexe = ${sexe} \n' +
         '     birthday = ${birthday} \n' +
         '     countryId = ${countryId} \n' +

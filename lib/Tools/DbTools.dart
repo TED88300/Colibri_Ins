@@ -1,27 +1,32 @@
 import "dart:async";
 import 'dart:convert';
+import 'dart:math';
+//import 'dart:html';
 
-import "package:colibri/Tools/DbData.dart";
-import 'package:colibri/Tools/DbOdoo.dart';
-import 'package:colibri/Tools/Ilot.dart';
-import 'package:colibri/Tools/Ins_Activite.dart';
-import 'package:colibri/Tools/Ins_Entreprenant.dart';
-import 'package:colibri/Tools/gColors.dart';
+import "package:Colibri_Collecte/Tools/DbData.dart";
+import 'package:Colibri_Collecte/Tools/DbOdoo.dart';
+import 'package:Colibri_Collecte/Tools/DbToolsV3.dart';
+import 'package:Colibri_Collecte/Tools/Db_Taxes.dart';
+import 'package:Colibri_Collecte/Tools/Ilot.dart';
+import 'package:Colibri_Collecte/Tools/Ins_Activite.dart';
+import 'package:Colibri_Collecte/Tools/Ins_Entreprenant.dart';
+import 'package:Colibri_Collecte/Tools/gColors.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 import 'package:package_info/package_info.dart';
 import "package:path/path.dart";
 import "package:sqflite/sqflite.dart";
-
 
 class DbTools {
   DbTools();
 
   static bool EdtTicket = false;
 
-  static bool gDev = false;
+  static bool gDev = true;
   static bool gTED = gDev;
-  static bool gEMULATEUR =  false; //gDev;
+  static bool gEMULATEUR = gDev;
+//  static bool gEMULATEUR = false;
 
   static bool gIsRememberLogin = true;
   static bool gIsRememberLoginOffLine = false;
@@ -34,7 +39,7 @@ class DbTools {
 
   static bool isUpdate = false;
   static bool gLoadData = true;
-  static var gVersion = "v1.1";
+  static var gVersion = "v3.0";
   static var gCurrentModeStr = "Collecte";
   static var gCollecteur = "KONAN YAO HUBERT";
 
@@ -73,7 +78,7 @@ class DbTools {
   static late Function gI_Liste_EntreprenantsState_callback;
   static late Function gI_Liste_BrouillonsState_callback;
   static late Function gI_Liste_RejeteesState_callback;
-  static String TraceDbg  = "> TraceDbg";
+  static String TraceDbg = "> TraceDbg";
 
   void printWrapped(String text) {
     final pattern = RegExp('.{1,800}'); // 800 is the size of each chunk
@@ -197,21 +202,17 @@ class DbTools {
     }
   }
 
-
   static Future initSqlite() async {
     var wgetDatabasesPath = await getDatabasesPath();
     print("getDatabasesPath() $wgetDatabasesPath");
     database = openDatabase(
-      join(await getDatabasesPath(), "22chs34eameNS.db"),
-      onCreate: (db, version) async{
+      join(await getDatabasesPath(), "23swisst4com.db"),
+      onCreate: (db, version) async {
         print("onCreate $version");
 
-        await db.execute(
-          "CREATE TABLE Ilot(ilotid INTEGER , ilotName TEXT,clusterName TEXT,regionName TEXT,departementName TEXT,sousPrefectureName TEXT,zoneRecensementName TEXT,communeName TEXT,localiteName TEXT,quartierName TEXT)"
-        );
+        await db.execute("CREATE TABLE Ilot(ilotid INTEGER , ilotName TEXT,clusterName TEXT,regionName TEXT,departementName TEXT,sousPrefectureName TEXT,zoneRecensementName TEXT,communeName TEXT,localiteName TEXT,quartierName TEXT)");
 
-
-        String wTmp =  "CREATE TABLE IF NOT EXISTS "
+        String wTmp = "CREATE TABLE IF NOT EXISTS "
             "Activites_Ins(id INTEGER PRIMARY KEY,name TEXT,company_id,create_date TEXT,display_name TEXT,date date,title INTEGER,ref TEXT,lang TEXT,tz TEXT,"
             "user_id INTEGER,vat TEXT,website TEXT,comment TEXT,barcode TEXT,active BOOL,street TEXT,"
             "street2 TEXT,zip TEXT,city TEXT,state_id INTEGER,country_id INTEGER,email TEXT,mobile TEXT,create_uid INTEGER,write_uid INTEGER,write_date TEXT,message_main_attachment_id INTEGER,"
@@ -245,26 +246,14 @@ class DbTools {
             " libelle_zone_implantation_entreprise TEXT, numero_batiment TEXT, numero_sequence_batiment_entreprise TEXT, ImageBase64_PHOTO_ACT TEXT , state TEXT "
             ", date_fin_entretien TEXT, resultat_entretien TEXT, nombre_visite TEXT, observation_enquete TEXT,  is_activity INTEGER ,  ACT_Id_Server INTEGER     )";
 
-
         await db.execute(
           wTmp,
         );
 
-
-        print("CREATE");
-        print("CREATE");
-        print("CREATE");
-        print("CREATE");
-        print("CREATE");
-        print("CREATE");
-        print("CREATE");
-        print("CREATE");
         print("CREATE");
 
-
-
-        await db.execute("CREATE TABLE IF NOT EXISTS  Entreprenants(id INTEGER,ENT_Id_Server INTEGER, active BOOL,code TEXT,userId INTEGER,ref TEXT,"
-            "email TEXT,naturePiece TEXT,cni TEXT,state TEXT,activityNumber INTEGER,amountTotal DOUBLE,amountPaye DOUBLE,sexe TEXT,birthday TEXT,"
+        await db.execute("CREATE TABLE IF NOT EXISTS  Entreprenants(id INTEGER PRIMARY KEY,ENT_Id_Server INTEGER, active BOOL,code TEXT,userId INTEGER,ref TEXT,"
+            "email TEXT,naturePiece TEXT,cni TEXT,state TEXT, commentaire_backoffice  TEXT,   activityNumber INTEGER,amountTotal DOUBLE,amountPaye DOUBLE,sexe TEXT,birthday TEXT,"
             "lieu_naissance TEXT,countryId INTEGER,communeIdentification TEXT,profession TEXT,"
             "rccm TEXT,terminal TEXT,dateValiditePiece TEXT,milieuImplantation TEXT,districtId INTEGER,"
             "nomRepondant TEXT,fonctionRepondant TEXT,contact1Repondant TEXT,contact2Repondant TEXT,emailRepondant TEXT,nomPrenomDirigeant TEXT,"
@@ -273,12 +262,13 @@ class DbTools {
             "quartierId INTEGER, base64Encode TEXT, templateBytes TEXT, ENT_TRANSF_OK INTEGER, Id_Tmp INTEGER, autre_fonction_repondant TEXT, "
             "telephone_dirigeant_whatsapp TEXT, ImageBase64_PHOTO_ENTR TEXT, ID3_templateBytes64 TEXT, ID3_croppedBytes64 TEXT)");
 
-        await db.execute(
-          "CREATE TABLE Taxes(taxeId INTEGER PRIMARY KEY, taxe_activiteId INTEGER,  taxe_name TEXT, taxe_mt INTEGER)",
+        db.execute(
+          "CREATE TABLE Taxes(taxeId INTEGER PRIMARY KEY, taxe_activiteId INTEGER, taxe_base INTEGER, taxe_tx INTEGER, taxe_mt INTEGER)",
         );
-        await db.execute(
-          "CREATE TABLE TaxeHistos(taxehistoId INTEGER PRIMARY KEY, taxehisto_activiteId INTEGER, taxehisto_month TEXT, taxe_month INTEGER,  taxehisto_mt1 INTEGER, taxehisto_mt2 INTEGER, taxehisto_mt3 INTEGER, taxehisto_mt4 INTEGER, taxehisto_mt5 INTEGER,  taxehisto_mt1s TEXT, taxehisto_mt2s TEXT, taxehisto_mt3s TEXT, taxehisto_mt4s TEXT, taxehisto_mt5s TEXT)",
+        db.execute(
+          "CREATE TABLE TaxeHistos(taxehistoId INTEGER PRIMARY KEY, taxehisto_activiteId INTEGER, taxehisto_Date TEXT,  taxehisto_mt_paye INTEGER)",
         );
+
         await db.execute(
           "CREATE TABLE Fournisseurs(fournisseurid INTEGER PRIMARY KEY, "
           "fournisseur_activiteId INTEGER, "
@@ -301,21 +291,12 @@ class DbTools {
           "CREATE TABLE Svas(svaid INTEGER PRIMARY KEY, sva_name TEXT, sva_code TEXT)",
         );
 
-
-
-
         await db.execute(
           "CREATE TABLE Countrys(Countryid INTEGER PRIMARY KEY, Country_name TEXT, Country_code TEXT)",
         );
-
-
-
       },
-
-
       onUpgrade: (db, oldVersion, newVersion) {
         print("onUpgrade $oldVersion $newVersion");
-
 
         //       if (newVersion == 2) {db.execute("ALTER TABLE Activites ADD COLUMN activite_type_taxe TEXT");}
       },
@@ -331,36 +312,25 @@ class DbTools {
       version: 1,
     );
 
-    try
-    {
+    try {
       final db = await database;
       await db.execute(
         "CREATE TABLE Countrys(Countryid INTEGER PRIMARY KEY, Country_name TEXT, Country_code TEXT)",
       );
-    }
-    catch(err) {
-    }
-
-
-
-
-
+    } catch (err) {}
 
 //    deleteContribuable(0);
 
     await initDownMennu();
   }
 
-
   static Future Truncate_param() async {
-  final db = await database;
-  print("getListTables");
+    final db = await database;
+    print("getListTables");
 
-  DbTools.deleteAll("Secteurs");
-  DbTools.deleteAll("Countrys");
-
+    DbTools.deleteAll("Secteurs");
+    DbTools.deleteAll("Countrys");
   }
-
 
   static Future getListTables() async {
     final db = await database;
@@ -371,34 +341,28 @@ class DbTools {
     });
   }
 
-
-
   static Future getIlot() async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query("Ilot");
 
-  print("DATABASE getIlot() length ${maps.length}");
-
+    print("DATABASE getIlot() length ${maps.length}");
 
     DbOdoo.Ilots = List.generate(maps.length, (i) {
       return Ilot(
-        ilotid:          maps[i]["ilotid"],
-        ilotName:          maps[i]["ilotName"],
-        clusterName:          maps[i]["clusterName"],
-        regionName:          maps[i]["regionName"],
-        departementName:          maps[i]["departementName"],
-        sousPrefectureName:          maps[i]["sousPrefectureName"],
-        zoneRecensementName:          maps[i]["zoneRecensementName"],
-        communeName:          maps[i]["communeName"],
-        localiteName:          maps[i]["localiteName"],
-        quartierName:          maps[i]["quartierName"],
-
+        ilotid: maps[i]["ilotid"],
+        ilotName: maps[i]["ilotName"],
+        clusterName: maps[i]["clusterName"],
+        regionName: maps[i]["regionName"],
+        departementName: maps[i]["departementName"],
+        sousPrefectureName: maps[i]["sousPrefectureName"],
+        zoneRecensementName: maps[i]["zoneRecensementName"],
+        communeName: maps[i]["communeName"],
+        localiteName: maps[i]["localiteName"],
+        quartierName: maps[i]["quartierName"],
       );
     });
 
     print("getIlot() length ${maps.length}");
-
-
   }
 
   //************************************************
@@ -408,29 +372,21 @@ class DbTools {
   static List<DropdownMenuItem<String>> TypeDownMenu = [];
 
   static Future initDownMennu() async {
-    TypeDownMenu.add(
-        new DropdownMenuItem(value: "0", child: new Text("Ordinaire")));
-    TypeDownMenu.add(
-        new DropdownMenuItem(value: "1", child: new Text("Stationnement")));
-    TypeDownMenu.add(
-        new DropdownMenuItem(value: "2", child: new Text("Taxi brousse")));
+    TypeDownMenu.add(new DropdownMenuItem(value: "0", child: new Text("Ordinaire")));
+    TypeDownMenu.add(new DropdownMenuItem(value: "1", child: new Text("Stationnement")));
+    TypeDownMenu.add(new DropdownMenuItem(value: "2", child: new Text("Taxi brousse")));
     TypeDownMenu.add(new DropdownMenuItem(value: "3", child: new Text("Taxi")));
-    TypeDownMenu.add(
-        new DropdownMenuItem(value: "4", child: new Text("Non Defini")));
+    TypeDownMenu.add(new DropdownMenuItem(value: "4", child: new Text("Non Defini")));
   }
 
   //************************************************
   //******************** REST **************
   //************************************************
 
-
-
   static Future<void> insertTable(String table, var Data) async {
     final db = await database;
-    await db.insert(table, Data.toMap(),
-        conflictAlgorithm: ConflictAlgorithm.ignore);
+    await db.insert(table, Data.toMap(), conflictAlgorithm: ConflictAlgorithm.ignore);
   }
-
 
   static Future<void> deleteAll(String table) async {
     final db = await database;
@@ -438,7 +394,6 @@ class DbTools {
       table,
     );
   }
-
 
   //************************************************
   //******************** Entreprenant **************
@@ -448,25 +403,19 @@ class DbTools {
   static List<Entreprenant> glfEntreprenantaTransf = [];
   static bool fEntreprenantaTransf = false;
 
-
-
   static Future getEntreprenantTransf() async {
     glfEntreprenantaTransf.clear();
     glfEntreprenant.forEach((element) async {
-      if (element.ENT_TRANSF_OK! == 0)
-        glfEntreprenantaTransf.add(element);
+      if (element.ENT_TRANSF_OK! == 0) glfEntreprenantaTransf.add(element);
     });
     fEntreprenantaTransf = glfEntreprenantaTransf.length > 0;
     print(" glfEntreprenantaTransf.length ${glfEntreprenantaTransf.length}");
     print(" fEntreprenantaTransf ${fEntreprenantaTransf}");
-
   }
-
 
   static Future<void> gloadDataEntr() async {
     glfEntreprenant = await getEntreprenants();
   }
-
 
   static Future<List<Entreprenant>> getEntreprenants() async {
     final db = await database;
@@ -477,6 +426,23 @@ class DbTools {
     });
   }
 
+  static Future<List<Entreprenant>> getEntreprenantsD() async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query("Entreprenants", where: "state = 'draft'", orderBy: "name ASC");
+    //gColors.printWrapped(" maps ${maps}");
+    return List.generate(maps.length, (i) {
+      return Entreprenant.fromMap(maps[i]);
+    });
+  }
+
+  static Future<List<Entreprenant>> getEntreprenantsR() async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query("Entreprenants", where: "state = 'cancel'", orderBy: "name ASC");
+    gColors.printWrapped(" maps ${maps}");
+    return List.generate(maps.length, (i) {
+      return Entreprenant.fromMap(maps[i]);
+    });
+  }
 
   static Future<Entreprenant> getEntreprenantsID(int EntreprenantId) async {
     final db = await database;
@@ -486,18 +452,18 @@ class DbTools {
     Entreprenant wEntreprenant = Entreprenant();
     wEntreprenant.init();
 
-    final List<Map<String, dynamic>> maps = await db.query("Entreprenants", where: "id = ?", whereArgs: [EntreprenantId],);
+    final List<Map<String, dynamic>> maps = await db.query(
+      "Entreprenants",
+      where: "id = ?",
+      whereArgs: [EntreprenantId],
+    );
     //gColors.printWrapped(" maps ${maps}");
-    var wRet =  List.generate(maps.length, (i) {
-      wEntreprenant =  Entreprenant.fromMap(maps[0]);
+    var wRet = List.generate(maps.length, (i) {
+      wEntreprenant = Entreprenant.fromMap(maps[0]);
     });
 
     return wEntreprenant;
-
-
   }
-
-
 
   static Future<List<Entreprenant>> getEntreprenantSansTri() async {
     final db = await database;
@@ -513,23 +479,19 @@ class DbTools {
 
     print("getEntreprenantsFiltre gCurrentIndex  ${DbTools.gCurrentIndex}");
 
-
     String wState = "";
     String wStateall = "";
-    if (DbTools.gCurrentIndex == 1)
-      {
-        wState = " state = 'draft' AND ";
-        wStateall = " WHERE state = 'draft' ";
-      }
-    if (DbTools.gCurrentIndex == 3)
-    {
-      wState = " state = 'cancel' AND ";
-      wStateall = " WHERE state = 'cancel' ";
+    if (DbTools.gCurrentIndex == 1) {
+      wState = " state = 'draft' AND ";
+      wStateall = " WHERE state = 'draft' AND userId = ${DbToolsV3.UserId!}";
     }
-    if (DbTools.gCurrentIndex == 4)
-    {
+    if (DbTools.gCurrentIndex == 3) {
       wState = " state = 'cancel' AND ";
-      wStateall = " WHERE state = 'confirm' ";
+      wStateall = " WHERE state = 'cancel'  AND userId = ${DbToolsV3.UserId!}";
+    }
+    if (DbTools.gCurrentIndex == 4) {
+      wState = " state = 'cancel' AND ";
+      wStateall = " WHERE state = 'confirm'  AND userId = ${DbToolsV3.UserId!}";
     }
 
     print("getEntreprenantsFiltre wState  ${wState}");
@@ -537,33 +499,35 @@ class DbTools {
     String Limit = "";
     String wSql = "SELECT * FROM Entreprenants WHERE $wState nomPrenomDirigeant LIKE '%$wFiltre%' OR telephoneDirigeant LIKE '%$wFiltre%' ORDER BY nomPrenomDirigeant COLLATE NOCASE $Limit";
     if (wFiltre == "") {
-       Limit = " Limit 30 ";
-       wSql = "SELECT * FROM Entreprenants $wStateall ORDER BY nomPrenomDirigeant COLLATE NOCASE $Limit";
+      Limit = " Limit 30 ";
+      wSql = "SELECT * FROM Entreprenants $wStateall ORDER BY nomPrenomDirigeant COLLATE NOCASE $Limit";
     }
 
     print("getEntreprenantsFiltre wSql  $wSql");
 
     final List<Map<String, dynamic>> maps = await db.rawQuery(wSql);
     print("getEntreprenantsFiltre() Entreprenant.length ${maps.length}");
-    var wRet =  List.generate(maps.length, (i) {
+    var wRet = List.generate(maps.length, (i) {
       return Entreprenant.fromMap(maps[i]);
     });
 
-
-
-  return wRet;
-
+    return wRet;
   }
-
-
 
   static Future<List<Entreprenant>> getEntreprenantDoublons() async {
     final db = await database;
-
     String wSql = "SELECT * FROM Entreprenants GROUP BY id HAVING   COUNT(id) > 1";
     final List<Map<String, dynamic>> maps = await db.rawQuery(wSql);
+    print("getEntreprenantDoublons() Entreprenant.length ${maps.length}");
+    return List.generate(maps.length, (i) {
+      return Entreprenant.fromMap(maps[i]);
+    });
+  }
 
-
+  static Future<List<Entreprenant>> deleteEntreprenantDoublons() async {
+    final db = await database;
+    String wSql = "SELECT * FROM Entreprenants GROUP BY id HAVING COUNT(id) > 1";
+    final List<Map<String, dynamic>> maps = await db.rawQuery(wSql);
     print("getEntreprenantDoublons() Entreprenant.length ${maps.length}");
     return List.generate(maps.length, (i) {
       return Entreprenant.fromMap(maps[i]);
@@ -572,10 +536,12 @@ class DbTools {
 
   static Future<void> deleteEntreprenant(int EntreprenantId) async {
     final db = await database;
-    await db.delete("Entreprenants", where: "id = ?", whereArgs: [EntreprenantId],
+    await db.delete(
+      "Entreprenants",
+      where: "id = ?",
+      whereArgs: [EntreprenantId],
     );
   }
-
 
   static Future<void> updateEntreprenant(Entreprenant Entreprenant) async {
     final db = await database;
@@ -589,8 +555,6 @@ class DbTools {
     );
     print("updateEntreprenant");
   }
-
-
 
   //****************************************************
   //************************ Activité INS **************
@@ -609,7 +573,6 @@ class DbTools {
     });
   }
 
-
   static Future getActivitesInsTransfEntID(int entreprenantId) async {
     glfActivite_insTransf.clear();
 
@@ -617,16 +580,12 @@ class DbTools {
     final List<Map<String, dynamic>> maps = await db.query("Activites_Ins");
     for (int i = 0; i < maps.length; ++i) {
       Activite_ins wActivite_ins = Activite_ins.fromJson(maps[i]);
-      if (wActivite_ins.ACT_TRANSF_OK! == 0 && wActivite_ins.entreprenantId! == entreprenantId)
-        glfActivite_insTransf.add(wActivite_ins);
+      if (wActivite_ins.ACT_TRANSF_OK! == 0 && wActivite_ins.entreprenantId! == entreprenantId) glfActivite_insTransf.add(wActivite_ins);
     }
     fActivite_insTransf = glfActivite_insTransf.length > 0;
     print(" glfActivite_insTransf.length ${glfActivite_insTransf.length}");
     print(" fActivite_insTransf ${fActivite_insTransf}");
-
   }
-
-
 
   static Future getActivitesInsTransf() async {
     glfActivite_insTransf.clear();
@@ -635,23 +594,15 @@ class DbTools {
     final List<Map<String, dynamic>> maps = await db.query("Activites_Ins");
     for (int i = 0; i < maps.length; ++i) {
       Activite_ins wActivite_ins = Activite_ins.fromJson(maps[i]);
-      if (wActivite_ins.ACT_TRANSF_OK! == 0)
-        glfActivite_insTransf.add(wActivite_ins);
-
+      if (wActivite_ins.ACT_TRANSF_OK! == 0) glfActivite_insTransf.add(wActivite_ins);
     }
     fActivite_insTransf = glfActivite_insTransf.length > 0;
     print(" glfActivite_insTransf.length ${glfActivite_insTransf.length}");
     print(" fActivite_insTransf ${fActivite_insTransf}");
-
   }
 
-
-
-
   static Future getActivitesInsAllTest() async {
-
     await DbTools.getActivitesInsTransf();
-
 
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query("Activites_Ins");
@@ -660,8 +611,6 @@ class DbTools {
     }
   }
 
-
-
   static Future<List<Activite_ins>> getActivitesIns(int entreprenantId, int Id_Tmp) async {
     final db = await database;
     print("getActivitesIns entreprenantId ${entreprenantId} ${Id_Tmp}");
@@ -669,25 +618,18 @@ class DbTools {
       "Activites_Ins",
       orderBy: "name ASC",
       where: "entreprenant_id = ?",
-     whereArgs: [entreprenantId],
-
+      whereArgs: [entreprenantId],
 
 //      where: "entreprenant_id = ? OR Id_Tmp = ?",
-  //    whereArgs: [entreprenantId, Id_Tmp],
-
-
+      //    whereArgs: [entreprenantId, Id_Tmp],
     );
     print("getActivites length ${maps.length}");
-
 
     return List.generate(maps.length, (i) {
       print("getActivites maps[i] ${maps[i]}");
       return Activite_ins.fromJson(maps[i]);
     });
-
-
   }
-
 
   static Future<void> updateActivite_ins(Activite_ins activite_ins) async {
     try {
@@ -700,18 +642,13 @@ class DbTools {
         whereArgs: [activite_ins.id],
       );
       gColors.printWrapped(" updateActivite_ins ${repid} id ${activite_ins.id} tmp ${activite_ins.Id_Tmp} TRANSF ${activite_ins.ACT_TRANSF_OK}");
-
     } catch (e) {
       print("ERROR db.update");
       gColors.printWrapped(e.toString());
     }
-
-
-
   }
 
   static Future<void> insertActivite_ins(Activite_ins activite_ins) async {
-
     try {
       final db = await DbTools.database;
       gColors.printWrapped(" insertActivite_ins toArr ${activite_ins.toArr()}");
@@ -721,38 +658,29 @@ class DbTools {
       print("ERROR db.insert");
       gColors.printWrapped(e.toString());
     }
-
-
   }
-
 
   static bool gActivite_ins_Is_New = true;
   static Future<void> insertUpdateActivite_ins(Activite_ins activite) async {
-
-
     print("insertUpdateActivite_ins gActivite_ins_Is_New ${gActivite_ins_Is_New} ${activite.name}");
 
-    if (gActivite_ins_Is_New)
-    {
+    if (gActivite_ins_Is_New) {
       print(" DBTOOLS insert Activite_ins");
-      await insertActivite_ins( activite);
-    }
-    else
-    {
+      await insertActivite_ins(activite);
+    } else {
       print(" DBTOOLS update Activite_ins");
-      await updateActivite_ins( activite);
+      await updateActivite_ins(activite);
     }
-
-
   }
 
   static Future<void> deleteActivite(int ActiviteId) async {
     final db = await database;
-    await db.delete("Activites_Ins", where: "id = ?", whereArgs: [ActiviteId],
+    await db.delete(
+      "Activites_Ins",
+      where: "id = ?",
+      whereArgs: [ActiviteId],
     );
   }
-
-
 
   //************************************************
   //************************ TAXES **************
@@ -772,12 +700,208 @@ class DbTools {
       return Taxe(
         taxeId: maps[i]["taxeId"],
         taxe_activiteId: maps[i]["taxe_activiteId"],
-        taxe_name: maps[i]["taxe_name"],
+        taxe_base: maps[i]["taxe_base"],
+        taxe_tx: maps[i]["taxe_tx"],
         taxe_mt: maps[i]["taxe_mt"],
       );
     });
   }
 
+  static Future<List<Taxe>> getTaxesAll() async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      "Taxes",
+    );
+
+    print("getTaxesAll.length ${maps.length}");
+
+    return List.generate(maps.length, (i) {
+      return Taxe(
+        taxeId: maps[i]["taxeId"],
+        taxe_activiteId: maps[i]["taxe_activiteId"],
+        taxe_base: maps[i]["taxe_base"],
+        taxe_tx: maps[i]["taxe_tx"],
+        taxe_mt: maps[i]["taxe_mt"],
+      );
+    });
+  }
+
+  static Future<void> deleteTaxesAll() async {
+    final db = await database;
+    await db.delete(
+      "Taxes",
+    );
+  }
+
+  static Future<List<TaxeHisto>> getTaxeHistosAll() async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      "TaxeHistos",
+    );
+
+    print("getTaxesAll.length ${maps.length}");
+
+    return List.generate(maps.length, (i) {
+      return TaxeHisto(
+        taxehistoId: maps[i]["taxehistoId"],
+        taxehisto_activiteId: maps[i]["taxehisto_activiteId"],
+        taxehisto_Date: maps[i]["taxehisto_Date"],
+        taxehisto_mt_paye: maps[i]["taxehisto_mt_paye"],
+      );
+    });
+  }
+
+
+
+
+  static Future<void> deleteTaxeHistosAll() async {
+    final db = await database;
+    await db.delete(
+      "TaxeHistos",
+    );
+  }
+
+
+
+
+  static Future<bool> genTaxes() async {
+    await deleteTaxesAll();
+    List<Activite_ins> lfActivite_ins = await DbTools.getActivitesInsAll();
+
+    print("   lfActivite_ins ${lfActivite_ins.length}");
+
+    for (int i = 0; i < lfActivite_ins.length; i++) {
+      Activite_ins activite_ins = lfActivite_ins[i];
+      int CaTax = 0;
+
+      const int $nbsp = 0x00A0;
+
+      try {
+        CaTax = int.parse(activite_ins.chiffreAffaireTaxable!.replaceAll(new RegExp(r"\D"), ""));
+      } catch (e) {
+        print("eee ${activite_ins.chiffreAffaireTaxable}$e");
+      }
+
+      int iTx = 5;
+      double dMt = CaTax * iTx * 0.01;
+      int iMt = dMt.round();
+      Taxe taxe = Taxe(taxeId: i, taxe_activiteId: activite_ins.id, taxe_base: CaTax, taxe_tx: iTx, taxe_mt: iMt);
+      insertTable("Taxes", taxe);
+
+      activite_ins.taxe_base =CaTax;
+      activite_ins.taxe_tx =iTx;
+      activite_ins.taxe_mt =iMt;
+
+
+    }
+
+    List<Taxe> lTaxe = await getTaxesAll();
+    DateTime dateTimeNow = DateTime.now();
+    int month = dateTimeNow.month - 1;
+
+    double pProratat = month / 12;
+    var rng = Random();
+    int tot_ajour = 0;
+    int tot_imp = 0;
+
+
+    await deleteTaxeHistosAll();
+    int iTaxeHistos = 0;
+
+    for (int i = 0; i < lTaxe.length; i++) {
+      Taxe taxe = lTaxe[i];
+      int taxe_mt = taxe.taxe_mt!;
+      int taxe_Solde_Theo = (taxe.taxe_mt! * pProratat).round();
+      int taxe_Solde_Paye = 0;
+
+      print(" taxe_mt ${taxe_mt}  taxe_Solde_Theo ${taxe_Solde_Theo}  ");
+
+      int ajour = rng.nextInt(3);
+
+      if (ajour == 0) {
+        tot_ajour++;
+        taxe_Solde_Paye = taxe_Solde_Theo;
+        print(" tot_ajour >>>   ${taxe_Solde_Paye}");
+      } else {
+        int imp = rng.nextInt(2);
+        if (imp == 0) {
+          tot_imp++;
+          taxe_Solde_Paye = 0;
+          print(" tot_imp >>>   ${taxe_Solde_Paye}");
+        } else {
+          int pSolde = rng.nextInt(5)*2;
+          taxe_Solde_Paye = (taxe_Solde_Theo * pSolde / 10).round();
+          print(" tot_part  >>>  ${pSolde} / ${taxe_Solde_Paye}");
+        }
+
+
+      }
+      if (taxe_Solde_Paye > 0) {
+        int nb_Pmt = month;// rng.nextInt(month) + 1;
+        int echMoy = (taxe_Solde_Paye / nb_Pmt).round();
+
+        int echTot = 0;
+        for (int e = 0; e < nb_Pmt; e++) {
+          int pm = rng.nextInt(6);
+          int p = rng.nextInt(2) + 1;
+          int ech = 0;
+          if (pm == 1) {
+            ech = (echMoy * (10 - p) / 10).round();
+            echTot += ech;
+            print("••• tot_part neg  >>>  ${(10 - p) / 10} / ${ech}");
+          } else if (pm == 2) {
+            ech = (echMoy * (10 + p) / 10).round();
+            echTot += ech;
+            print("••• tot_part pos >>>  ${(10 + p) / 10} / ${ech}");
+          } else if (pm == 3) {
+            ech = 0;
+            echTot += ech;
+            print("••• tot_part ${ech}");
+          } else {
+            ech = echMoy;
+            echTot += ech;
+            print("••• tot_part >>>  ${ech}");
+          }
+
+          DateTime dateTimeM = DateTime(dateTimeNow.year, e+1, rng.nextInt(27)+1);
+          TaxeHisto taxeHisto = TaxeHisto(taxehistoId : iTaxeHistos++, taxehisto_activiteId : taxe.taxe_activiteId, taxehisto_Date : "${DateFormat('MMM yyyy', 'fr').format(dateTimeM)}", taxehisto_mt_paye : ech );
+          insertTable("TaxeHistos", taxeHisto);
+        }
+
+        int echDern = taxe_Solde_Paye - echTot;
+        print("••• dernière Ech >>> ${taxe_Solde_Paye} - ${echTot} = ${echDern}");
+
+        if (echDern > 0)
+          {
+            DateTime dateTimeM = DateTime(dateTimeNow.year, nb_Pmt+1, rng.nextInt(27)+1);
+            TaxeHisto taxeHisto = TaxeHisto(taxehistoId : iTaxeHistos++, taxehisto_activiteId : taxe.taxe_activiteId, taxehisto_Date : "${DateFormat('MMM yyyy', 'fr').format(dateTimeM)}", taxehisto_mt_paye : echDern );
+            insertTable("TaxeHistos", taxeHisto);
+
+          }
+
+        int echSolde = taxe_Solde_Theo - taxe_Solde_Paye;
+
+        print("••• SOLDE >>> ${taxe_Solde_Theo} - ${taxe_Solde_Paye} = ${echSolde}");
+      }
+
+    }
+    print(" NB tot  ${lTaxe.length}");
+
+    print(" NB ajour $tot_ajour");
+    print(" NB imp $tot_imp");
+
+    List<TaxeHisto> lTaxeHistos = await getTaxeHistosAll();
+
+    for (int i = 0; i < lTaxeHistos.length; i++) {
+      TaxeHisto taxeHisto = lTaxeHistos[i];
+
+      print(" taxeHisto ${taxeHisto.toMap()}");
+
+    }
+
+
+    return true;
+  }
   //************************************************
   //************************ TAXES HISTO **************
   //************************************************
@@ -796,20 +920,13 @@ class DbTools {
       return TaxeHisto(
         taxehistoId: maps[i]["taxehistoId"],
         taxehisto_activiteId: maps[i]["taxehisto_activiteId"],
-        taxehisto_month: maps[i]["taxehisto_month"],
-        taxehisto_mt1: maps[i]["taxehisto_mt1"],
-        taxehisto_mt2: maps[i]["taxehisto_mt2"],
-        taxehisto_mt3: maps[i]["taxehisto_mt3"],
-        taxehisto_mt4: maps[i]["taxehisto_mt4"],
-        taxehisto_mt5: maps[i]["taxehisto_mt5"],
-        taxehisto_mt1s: maps[i]["taxehisto_mt1s"],
-        taxehisto_mt2s: maps[i]["taxehisto_mt2s"],
-        taxehisto_mt3s: maps[i]["taxehisto_mt3s"],
-        taxehisto_mt4s: maps[i]["taxehisto_mt4s"],
-        taxehisto_mt5s: maps[i]["taxehisto_mt5s"],
       );
     });
   }
+
+  //************************************************
+  //************************************************
+  //************************************************
 
   static String LibType(int Type) {
     switch (Type) {
@@ -849,13 +966,11 @@ class DbTools {
 
   static Future initFournisseurDownMennuAll() async {
     lfFournisseur = await DbTools.getFournisseursSansTriAll();
-
   }
 
   static Future<List<Fournisseur>> getFournisseursSansTri(int aID) async {
     final db = await database;
-    final List<Map<String, dynamic>> maps =
-        await db.query("Fournisseurs", where: "fournisseur_activiteId = $aID");
+    final List<Map<String, dynamic>> maps = await db.query("Fournisseurs", where: "fournisseur_activiteId = $aID");
 
     print("getFournisseursSansTri() Fournisseur.length ${maps.length}");
 
@@ -902,14 +1017,8 @@ class DbTools {
   static List<Secteur> lfSecteurTransp = [];
   static Secteur? selectedSecteur;
 
-
-
-  static VoidCallback listEntrVoidCallback = (){};
-  static VoidCallback Menu_screenVoidCallback = (){};
-
-
-
-
+  static VoidCallback listEntrVoidCallback = () {};
+  static VoidCallback Menu_screenVoidCallback = () {};
 
   static Future initSecteurDownMennu() async {
     lfSecteur = await DbTools.getSecteursSansTri();
@@ -919,20 +1028,16 @@ class DbTools {
     lfSecteurStatio.clear();
     lfSecteurTransp.clear();
 
-
     lfSecteur.forEach((element) {
 //print("${element.secteurid} ${element.secteur_name} ${element.type_activite}");
-      if (element.type_activite == "ORDINAIRE")
+      if (element.type_activite == "ordinaire")
         lfSecteurOrd.add(element);
-      else if (element.type_activite == "STATIONNEMENT")
+      else if (element.type_activite == "stationnement")
         lfSecteurStatio.add(element);
-      else if (element.type_activite == "TAXI")
+      else if (element.type_activite == "taxi")
         lfSecteurTaxi.add(element);
-      else if (element.type_activite == "TRANSPORT")
-        lfSecteurTransp.add(element);
+      else if (element.type_activite == "transport") lfSecteurTransp.add(element);
     });
-
-
   }
 
   static Future<List<Secteur>> getSecteursSansTri() async {
@@ -1001,8 +1106,7 @@ class DbTools {
 
   static Future<List<Sva>> getSvasSansTri() async {
     final db = await database;
-    final List<Map<String, dynamic>> maps =
-        await db.query("Svas", where: "sva_code != 'false'");
+    final List<Map<String, dynamic>> maps = await db.query("Svas", where: "sva_code != 'false'");
 
     print("getSvasSansTri() Sva.length ${maps.length}");
 
@@ -1028,8 +1132,7 @@ class DbTools {
 
   static Future<List<Country>> getCountrys() async {
     final db = await database;
-    final List<Map<String, dynamic>> maps =
-        await db.query("Countrys", orderBy: "Country_name ASC");
+    final List<Map<String, dynamic>> maps = await db.query("Countrys", orderBy: "Country_name ASC");
 
     print("getCountrys() Country.length ${maps.length}");
 
@@ -1304,8 +1407,7 @@ class DbTools {
   static Future ImgMafa_getToken() async {
     ImgMafa_Token = "";
 
-    var request = http.MultipartRequest(
-        'POST', Uri.parse('https://colibri-test.herokuapp.com/token'));
+    var request = http.MultipartRequest('POST', Uri.parse('https://colibri-test.herokuapp.com/token'));
     request.fields.addAll({'username': 'APP_ITC', 'password': 'TED88300'});
 
     print("ImgMafa_getToken request.send()");
@@ -1325,10 +1427,7 @@ class DbTools {
     await ImgMafa_getToken();
 
     var headers = {'Authorization': 'Bearer ${ImgMafa_Token}'};
-    var request = http.Request(
-        'GET',
-        Uri.parse(
-            'https://colibri-test.herokuapp.com/api/download_taxpayer_info/?id=${aID}&type=${aType}'));
+    var request = http.Request('GET', Uri.parse('https://colibri-test.herokuapp.com/api/download_taxpayer_info/?id=${aID}&type=${aType}'));
 
     request.headers.addAll(headers);
 
@@ -1344,14 +1443,12 @@ class DbTools {
     }
   }
 
-  static Future ImgMafa_setImage(
-      int aID, String aType, List<int> aPhotoAsBytes) async {
+  static Future ImgMafa_setImage(int aID, String aType, List<int> aPhotoAsBytes) async {
     await ImgMafa_getToken();
 
     var headers = {'Authorization': 'Bearer ${ImgMafa_Token}'};
 
-    var uri = Uri.parse(
-        'https://colibri-test.herokuapp.com/api/upload_taxpayer_info/');
+    var uri = Uri.parse('https://colibri-test.herokuapp.com/api/upload_taxpayer_info/');
     var request = new http.MultipartRequest("POST", uri);
     request.fields.addAll({
       'id': aID.toString(),
@@ -1359,8 +1456,7 @@ class DbTools {
     });
     request.headers.addAll(headers);
 
-    var multipartFile = new http.MultipartFile.fromBytes('file', aPhotoAsBytes,
-        filename: "Mafa_photo_id_${aID}.jpg");
+    var multipartFile = new http.MultipartFile.fromBytes('file', aPhotoAsBytes, filename: "Mafa_photo_id_${aID}.jpg");
     request.files.add(multipartFile);
 
     print("ImgMafa_setImage >>>>> request ${request.toString()}");
@@ -1381,7 +1477,4 @@ class DbTools {
       print(response.reasonPhrase);
     }
   }
-
-
-
 }

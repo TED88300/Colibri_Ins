@@ -1,13 +1,19 @@
-import 'package:colibri/Tools/Tools_Print.dart';
+import 'package:Colibri_Collecte/Tools/Tools_Print.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
 
 class gColors {
-  static const Color primary = Color(0xFF036500);
 
   static const Color secondaryVP = Color(0xFFc1af01);
+/*
+  static const Color primary = Color(0xFF036500);
   static const Color secondary = Color(0xFFf39200);
+*/
+
+  static const Color secondary = Color(0xFF036500);
+  static const Color  primary = Color(0xFFf39200);
+
+
   static const Color red = Color(0xFFEE4567);
 
   static const Color primaryST = Color(0x30036500);
@@ -91,7 +97,8 @@ class gColors {
       wColor = Colors.red;
     }
     if (Mand && wError.isEmpty) {
-      wColor = Colors.green;
+      Color wColor = Colors.black;
+//      wColor = Colors.green;
     }
 
     return Column(
@@ -123,10 +130,12 @@ class gColors {
   static Widget colTextFieldTel(TextEditingController Edt, String wLabel, FocusNode focusNode, String wError, {bool Mand = false}) {
     Color wColor = Colors.black;
     if (Mand && wError.isNotEmpty) {
-      wColor = Colors.red;
+//      wColor = Colors.red;
+      wColor = Colors.black;
     }
     if (Mand && wError.isEmpty) {
-      wColor = Colors.green;
+//      wColor = Colors.green;
+      wColor = Colors.black;
     }
 
     return Column(
@@ -180,11 +189,13 @@ class gColors {
   static Widget colTextFieldNumSep(TextEditingController Edt, String wLabel, FocusNode focusNode, String wError, {bool Mand = false}) {
     Color wColor = Colors.black;
     if (Mand && wError.isNotEmpty) {
-      wColor = Colors.red;
+      wColor = Colors.black;
     }
     if (Mand && wError.isEmpty) {
-      wColor = Colors.green;
+      wColor = Colors.black;
     }
+
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
